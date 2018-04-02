@@ -1,6 +1,6 @@
 # Carousel
 
-Carousel is a canonical component that any VTEX store can add. 
+Carousel is a canonical component that any VTEX store can install. 
 
 ## Usage
 
