@@ -1,6 +1,7 @@
 {
-  "name": "vtex.render-getting-started",
+  "name": "vtex.carousel",
   "version": "0.0.0",
   "dependencies": {
+    "react-slick": "^0.22.3"
   }
 }
