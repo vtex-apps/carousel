@@ -1,14 +1,14 @@
 {
   "pages": {
-    "index": {
-      "path": "/index",
+    "test": {
+      "path": "/test",
       "theme": "theme"
     }
   },
 
   "extensions": {
-    "index": {
-      "component": "Carousel"
+    "test": {
+      "component": "Test"
     }
   }
 }
