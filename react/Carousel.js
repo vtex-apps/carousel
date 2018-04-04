@@ -5,11 +5,16 @@ import Slider from "react-slick";
 class Carousel extends Component {
   configureSettings() {
     return {
-      dots: true,
-      infinite: true,
       speed: 500,
       slidesToShow: 1,
-      slidesToScroll: 1
+      autoplaySpeed: 5000,
+      slidesToScroll: 1,
+      dots: true,
+      arrows: true,
+      autoplay: false,
+      infinite: true,
+      pauseOnHover: true,
+      adaptiveHeight: false,
     };
   }
 
