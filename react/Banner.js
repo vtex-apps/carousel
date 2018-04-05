@@ -1,44 +1,67 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'render'
 
+/**
+ * Banner component. Shows an image with an description and one link;
+ */
 class Banner extends Component {
-  static propTypes = {
-    image: PropTypes.string.isRequired,
-    heading: PropTypes.string.isRequired,
-    link: PropTypes.string,
-  }
-
-  static schema = {
-    title: 'Banner',
-    description: 'A simple banner component with an image and an link',
-    type: 'object',
-    properties: {
-      image: {
-        type: 'string',
-        title: 'Image',
-      },
-      heading: {
-        type: 'string',
-        title: 'Título',
-      },
-      link: {
-        type: 'string',
-        title: 'Link',
-      },
-    },
-  }
-
   render() {
-    const { image, link, heading } = this.props
+    const { image, page, description, targetParams } = this.props
 
     return (
-      <div className="flex justify-around" style={{ marginTop: '20px' }}>
-        <a className="w-90" href={link ? link : '#'}>
-          <img width="100%" src={image} />
-        </a>
+      <div>
+        <Link page={page} params={targetParams}>
+          <img width="100%" src={image} alt={description}/>
+        </Link>
       </div>
-    );
+    )
   }
+}
+
+Banner.schema = {
+  title: 'Banner',
+  description: 'A simple banner component with an image and an link',
+  type: 'object',
+  properties: {
+    image: {
+      type: 'string',
+      title: 'Image',
+    },  
+    description: {
+      type: 'string',
+      title: 'Description',
+    },
+    page: {
+      type: 'string',
+      title: 'Page',
+    },
+    targetParams: {
+      type: 'object',
+      title: 'Target params',
+      properties: {
+        params: {
+          type: 'string',
+          title: 'Params',
+        },
+      },
+    },
+  },
+}
+
+/**
+ * @type {Object}
+ * @property {!string} image - The image of the banner
+ * @property {string} description - The description of the image
+ * @property {string} page - The page where the image is pointing to
+ * @property {Object} targetParams - Params of the url
+ * @property {string} targetParams.params
+ */
+Banner.propTypes = {
+  image: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  page: PropTypes.string,
+  targetParams: PropTypes.object
 }
 
 export default Banner

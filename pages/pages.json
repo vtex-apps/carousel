@@ -1,14 +1,33 @@
 {
   "pages": {
-    "test": {
-      "path": "/test",
+    "carousel": {
+      "path": "/",
       "theme": "theme"
     }
   },
 
   "extensions": {
-    "test": {
-      "component": "Test"
+    "carousel": {
+      "component": "Carousel",
+      "props": {
+        "autoplay": false,
+        "banner1": {
+          "image": "http://dicasdacapital.com.br/wp-content/uploads/2018/02/economia-creme-ameixa-negra-boticario-20180216-001.jpeg",
+          "page": "/",
+          "description": "Banner",
+          "targetParams": {
+            "params": ""
+          }
+        },
+        "banner2": {
+          "image": "https://boticario.vteximg.com.br/arquivos/banner-diaDasMaes-glamourLoveMe.jpg?v=636275893469130000",
+          "page": "/",
+          "description": "Banner 2",
+          "targetParams": {
+            "params": ""
+          }
+        }
+      }
     }
   }
 }
