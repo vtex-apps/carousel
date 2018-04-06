@@ -6,23 +6,12 @@ import { NoSSR } from 'render'
 
 import Banner from './Banner'
 
-function NextArrow(props) {
-  const { className, style, onClick } = props
+function Arrow(props) {
+  const { className, style, onClick, color } = props
   return (
     <div
       className={className}
-      style={{ ...style, color: 'red', fontSize: '310%' }}
-      onClick={onClick}
-    />
-  )
-}
-
-function PrevArrow(props) {
-  const { className, style, onClick } = props
-  return (
-    <div
-      className={className}
-      style={{ ...style, color: 'green', fontSize: '50px' }}
+      style={{ ...style, color: color, fontSize: '210%' }}
       onClick={onClick}
     />
   )
@@ -33,7 +22,7 @@ function PrevArrow(props) {
  */
 class Carousel extends Component {
   configureSettings() {
-    const { autoplay, autoplaySpeed, showDots, arrowColor } = this.props
+    const { autoplay, autoplaySpeed, showDots, showArrows, arrowColor } = this.props
 
     return {
       speed: 500,
@@ -41,13 +30,13 @@ class Carousel extends Component {
       autoplaySpeed: autoplaySpeed ? autoplaySpeed * 1000 : 4000,
       slidesToScroll: 1,
       dots: showDots ? showDots : false,
-      arrows: true,
+      arrows: showArrows ? showArrows : false,
       autoplay: autoplay ? autoplay : false,
       infinite: true,
       pauseOnHover: true,
       adaptiveHeight: false,
-      nextArrow: <NextArrow />,
-      prevArrow: <PrevArrow />,
+      nextArrow: <Arrow color={"#" + arrowColor}/>,
+      prevArrow: <Arrow color={"#" + arrowColor}/>,
     }
   }
 
@@ -99,7 +88,7 @@ Carousel.schema = {
     arrowColor: {
       type: 'string',
       title: 'Arrows colors (hex):',
-      default: '000000',
+      default: 'FFFFFF',
     },
     showArrows: {
       type: 'boolean',
