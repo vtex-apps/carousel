@@ -1,6 +1,6 @@
 @import url(//io.vtex.com.br/fonts/fabriga/stylesheet.css);
-@import url("./node_modules/slick-carousel/slick/slick.css");
-@import url("./node_modules/slick-carousel/slick/slick-theme.css");
+@import url("./slick/slick.css");
+@import url("./slick/slick-theme.css");
 
 body,button,input,optgroup,select,textarea,span,h1,h2,h3,h4,p1 {
   font-family: Fabriga,-apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif

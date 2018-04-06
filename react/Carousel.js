@@ -11,7 +11,7 @@ function NextArrow(props) {
   return (
     <div
       className={className}
-      style={{ ...style, background: 'red' }}
+      style={{ ...style, color: 'red', fontSize: '310%' }}
       onClick={onClick}
     />
   )
@@ -20,13 +20,11 @@ function NextArrow(props) {
 function PrevArrow(props) {
   const { className, style, onClick } = props
   return (
-    <div style={{ color: "'red' !important" }}>
-      <div
-        className={className}
-        style={{ ...style, background: 'green' }}
-        onClick={onClick}
-      />
-    </div>
+    <div
+      className={className}
+      style={{ ...style, color: 'green', fontSize: '50px' }}
+      onClick={onClick}
+    />
   )
 }
 
