@@ -2,7 +2,9 @@ import React, { Component, Children } from 'react'
 import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
-import { NoSSR } from 'render'
+import Spinner from '@vtex/styleguide/lib/Spinner'
+
+const spinnerStyle = require('./node_modules/@vtex/styleguide/lib/Spinner/style.css')
 
 import Banner from './Banner'
 
@@ -21,8 +23,22 @@ function Arrow(props) {
  * Carousel component. Shows a serie of banners;
  */
 class Carousel extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      loading: true,
+    }
+  }
+
   configureSettings() {
-    const { autoplay, autoplaySpeed, showDots, showArrows, arrowColor } = this.props
+    const {
+      autoplay,
+      autoplaySpeed,
+      showDots,
+      showArrows,
+      arrowColor,
+    } = this.props
 
     return {
       speed: 500,
@@ -35,35 +51,50 @@ class Carousel extends Component {
       infinite: true,
       pauseOnHover: true,
       adaptiveHeight: false,
-      nextArrow: <Arrow color={"#" + arrowColor}/>,
-      prevArrow: <Arrow color={"#" + arrowColor}/>,
+      nextArrow: <Arrow color={'#' + arrowColor} />,
+      prevArrow: <Arrow color={'#' + arrowColor} />,
     }
+  }
+
+  componentDidMount() {
+    this.setState({ loading: false })
   }
 
   render() {
     const { banner1, banner2, banner3, banner4 } = this.props
+    const { loading } = this.state
     const settings = this.configureSettings()
 
     const banners = [banner1, banner2, banner3, banner4]
 
     return (
       <div className="pa7">
-        <Slider {...settings}>
-          {banners.map(function(banner, i) {
-            if (banner && banner.image) {
-              return (
-                <div key={i}>
-                  <Banner
-                    image={banner.image}
-                    page={banner.page}
-                    description={banner.description}
-                    targetParams={banner.targetParams}
-                  />
-                </div>
-              )
-            }
-          })}
-        </Slider>
+        {!loading && (
+          <Slider {...settings}>
+            {banners.map(function(banner, i) {
+              if (banner && banner.image) {
+                return (
+                  <div key={i}>
+                    <Banner
+                      image={banner.image}
+                      page={banner.page}
+                      description={banner.description}
+                      targetParams={banner.targetParams}
+                    />
+                  </div>
+                )
+              }
+            })}
+          </Slider>
+        )}
+
+        {loading && (
+          <div className="flex justify-around pa7">
+            <div className="w3">
+              <Spinner style={spinnerStyle} />
+            </div>
+          </div>
+        )}
       </div>
     )
   }

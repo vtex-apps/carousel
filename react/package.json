@@ -2,6 +2,7 @@
   "name": "vtex.carousel",
   "version": "0.0.0",
   "dependencies": {
+    "@vtex/styleguide": "2.0.0-rc.34",
     "react-slick": "^0.22.3",
     "slick-carousel": "^1.8.1"
   }
