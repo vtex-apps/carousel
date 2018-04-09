@@ -30,7 +30,7 @@ body,
 
 .slick-prev:before,
 .slick-next:before {
-  font-size: inherit !important;
+  font-size: 3rem !important;
   color: inherit !important;
 }
 
@@ -64,7 +64,7 @@ body,
 
 .slick-dots li button:before {
   color: inherit !important;
-  font-size: 16px !important;
+  font-size: 1rem !important;
 }
 .slick-dots li.slick-active button:before {
   color: inherit !important;

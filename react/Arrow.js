@@ -11,7 +11,7 @@ class Arrow extends Component {
     return (
       <div
         className={className}
-        style={{ ...style, color: color, fontSize: '210%' }}
+        style={{ ...style, color: color}}
         onClick={onClick}
       />
     )
