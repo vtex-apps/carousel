@@ -6,6 +6,7 @@ import spinnerStyle from '@vtex/styleguide/lib/Spinner/style.css'
 
 import Banner from './Banner'
 import Arrow from './Arrow'
+import Dots from './Dots'
 
 /**
  * Carousel component. Shows a serie of banners;
@@ -41,7 +42,7 @@ class Carousel extends Component {
       autoplay: autoplay == undefined ? true : autoplay,
       nextArrow: <Arrow color={iconsColor || '#000'} />,
       prevArrow: <Arrow color={iconsColor || '#000'} />,
-      appendDots: (dots) => <Dots color={iconsColor} dots={dots}/>
+      appendDots: dots => <Dots color={iconsColor} dots={dots} />
     }
   }
 

@@ -1,15 +1,28 @@
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 
 /**
  * Dots container. Shows the nav dots of the carousel component;
  */
-const Dots = (dots, color) => (
-  <ul className="ma0 pa0" style={{ color: color || '#000' }}>
-    {dots}
-  </ul>
-)
+class Dots extends Component {
+  render() {
+    const { className, style, dots, color } = this.props
+
+    return (
+      <div className={className} >
+        <ul className="ma0 pa0" style={{ ... style, color: color || '#000' }}>
+          {dots}
+        </ul>
+      </div>
+    )
+  }
+}
 
 Dots.propTypes = {
+  /** The css class of the element. */
+  className: PropTypes.string,
+  /** The custom style of the element. */
+  style: PropTypes.object,
   /** Dots that will be displayed */
   dots: PropTypes.node.isRequired,
   /** Dots color */
