@@ -5,7 +5,7 @@ import Spinner from '@vtex/styleguide/lib/Spinner'
 import spinnerStyle from '@vtex/styleguide/lib/Spinner/style.css'
 
 import Banner from './Banner'
-import Arrow  from './Arrow'
+import Arrow from './Arrow'
 
 /**
  * Carousel component. Shows a serie of banners;
@@ -35,19 +35,17 @@ class Carousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       adaptiveHeight: false,
-      autoplaySpeed: autoplaySpeed == undefined ? 4000 :  autoplaySpeed * 1000,
-      dots:  showDots == undefined ? true : showDots,
+      autoplaySpeed: autoplaySpeed == undefined ? 4000 : autoplaySpeed * 1000,
+      dots: showDots == undefined ? true : showDots,
       arrows: showArrows == undefined ? true : showArrows,
       autoplay: autoplay == undefined ? true : autoplay,
       nextArrow: <Arrow color={iconsColor || '#000'} />,
       prevArrow: <Arrow color={iconsColor || '#000'} />,
-      appendDots: (dots) => (
-        <div className="pa2 br4" id="dots">
-          <ul className="ma0 pa0" style={{ color: (iconsColor || '#000')}}> 
-            {dots} 
-          </ul>
-        </div>
-      )
+      appendDots: dots => (
+        <ul className="ma0 pa0" style={{ color: iconsColor || '#000' }}>
+          {dots}
+        </ul>
+      ),
     }
   }
 
@@ -63,7 +61,7 @@ class Carousel extends Component {
     const banners = [banner1, banner2, banner3, banner4]
 
     return (
-      <div className="pa7">
+      <div className="vtex-carousel pa7">
         {!loading && (
           <Slider {...settings}>
             {banners.map(function(banner, i) {

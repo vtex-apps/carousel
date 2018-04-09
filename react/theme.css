@@ -28,60 +28,60 @@ body,
 
 /* Arrows */
 
-.slick-prev:before,
-.slick-next:before {
-  font-size: 3rem !important;
-  color: inherit !important;
+.vtex-carousel .slick-prev:before,
+.vtex-carousel .slick-next:before {
+  font-size: 3rem;
+  color: inherit;
 }
 
-.slick-prev {
-  left: 5% !important;
-  z-index: 1 !important;
+.vtex-carousel .slick-prev {
+  left: 5%;
+  z-index: 1;
 }
-[dir='rtl'] .slick-prev {
-  right: 5% !important;
-  left: auto !important;
+[dir='rtl'] .vtex-carousel .slick-prev {
+  right: 5%;
+  left: auto;
 }
 
-.slick-next {
-  right: 8% !important;
+.vtex-carousel .slick-next {
+  right: 8%;
 }
-[dir='rtl'] .slick-next {
-  right: auto !important;
-  left: 8% !important;
+[dir='rtl'] .vtex-carousel .slick-next {
+  right: auto;
+  left: 8%;
 }
 
 /* Dots */
 
-#dots {
+.vtex-carousel .slick-slider .slick-dots {
   position: relative;
   top: -50px;
 }
 
-.slick-dots li button {
-  color: inherit !important;
+.vtex-carousel .slick-dots li button {
+  color: inherit;
 }
 
-.slick-dots li button:before {
-  color: inherit !important;
-  font-size: 1rem !important;
+.vtex-carousel .slick-dots li button:before {
+  color: inherit;
+  font-size: 1rem;
 }
-.slick-dots li.slick-active button:before {
-  color: inherit !important;
+.vtex-carousel .slick-dots li.slick-active button:before {
+  color: inherit;
 }
 
 @media only screen and (max-width: 600px) {
-  #dots {
+  .vtex-carousel .slick-slider .slick-dots {
     position: relative;
     top: -30px;
   }
 
-  .slick-dots li button:before {
-    font-size: 10px !important;
+  .vtex-carousel .slick-dots li button:before {
+    font-size: 10px;
   }
 
-  .slick-prev:before,
-  .slick-next:before {
+  .vtex-carousel .slick-prev:before,
+  .vtex-carousel .slick-next:before {
     display: none;
   }
 }
