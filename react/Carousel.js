@@ -1,23 +1,11 @@
 import React, { Component, Children } from 'react'
-import { injectIntl } from 'react-intl'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import Spinner from '@vtex/styleguide/lib/Spinner'
-
-const spinnerStyle = require('./node_modules/@vtex/styleguide/lib/Spinner/style.css')
+import spinnerStyle from '@vtex/styleguide/lib/Spinner/style.css'
 
 import Banner from './Banner'
-
-function Arrow(props) {
-  const { className, style, onClick, color } = props
-  return (
-    <div
-      className={className}
-      style={{ ...style, color: color, fontSize: '210%' }}
-      onClick={onClick}
-    />
-  )
-}
+import Arrow  from './Arrow'
 
 /**
  * Carousel component. Shows a serie of banners;
@@ -37,22 +25,29 @@ class Carousel extends Component {
       autoplaySpeed,
       showDots,
       showArrows,
-      arrowColor,
+      iconsColor,
     } = this.props
 
     return {
       speed: 500,
-      slidesToShow: 1,
-      autoplaySpeed: autoplaySpeed ? autoplaySpeed * 1000 : 4000,
-      slidesToScroll: 1,
-      dots: showDots ? showDots : false,
-      arrows: showArrows ? showArrows : false,
-      autoplay: autoplay ? autoplay : false,
       infinite: true,
       pauseOnHover: true,
+      slidesToShow: 1,
+      slidesToScroll: 1,
       adaptiveHeight: false,
-      nextArrow: <Arrow color={'#' + arrowColor} />,
-      prevArrow: <Arrow color={'#' + arrowColor} />,
+      autoplaySpeed: autoplaySpeed == undefined ? 4000 :  autoplaySpeed * 1000,
+      dots:  showDots == undefined ? true : showDots,
+      arrows: showArrows == undefined ? true : showArrows,
+      autoplay: autoplay == undefined ? true : autoplay,
+      nextArrow: <Arrow color={iconsColor || '#000'} />,
+      prevArrow: <Arrow color={iconsColor || '#000'} />,
+      appendDots: (dots) => (
+        <div className="pa2 br4" id="dots">
+          <ul className="ma0 pa0" style={{ color: (iconsColor || '#000')}}> 
+            {dots} 
+          </ul>
+        </div>
+      )
     }
   }
 
@@ -116,10 +111,10 @@ Carousel.schema = {
       title: 'Show dots',
       default: true,
     },
-    arrowColor: {
+    iconsColor: {
       type: 'string',
-      title: 'Arrows colors (hex):',
-      default: 'FFFFFF',
+      title: 'Icons color',
+      default: '#ffff00',
     },
     showArrows: {
       type: 'boolean',
@@ -130,7 +125,7 @@ Carousel.schema = {
       type: 'number',
       title: 'Autoplay speed(sec):',
       default: 5,
-      enum: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      enum: [4, 5, 6],
     },
     banner1: {
       type: 'object',
@@ -247,41 +242,39 @@ Carousel.schema = {
   },
 }
 
-/**
- * @type {Object}
- * @property {!boolean} autoplay - Should change images automatically
- * @property {!number}  autoplaySpeed - How long it should wait to change the banner in secs
- * @property {?boolean} showDots - Should show the dots or not
- * @property {?boolean} showArrows - Should show the arrows or not
- * @property {?string}  arrowColor - The color of the arrows background
- * @property {Object}   banner[n] - Banners that will be displayed by the Carousel
- * @property {!string}   banner[n].image - The image url of the banner
- * @property {?string}   banner[n].page - The page that the banner will be liking to
- * @property {!string}   banner[n].description - The description of the image
- */
 Carousel.propTypes = {
+  /** Should change images automatically */
   autoplay: PropTypes.bool.isRequired,
+  /** How long it should wait to change the banner in secs */
   autoplaySpeed: PropTypes.number,
+  /** Should show the dots or not */
   showDots: PropTypes.bool,
+  /** Should show the arrows or not */
   showArrows: PropTypes.bool,
-  arrowColor: PropTypes.string,
+  /** The color of the arrows and dots */
+  iconsColor: PropTypes.string,
+  /** Banners that will be displayed by the Carousel
+   *    image - The image url of the banner
+   *    page - The page that the banner will be linking to
+   *    description - The description of the image
+   */
   banner1: PropTypes.shape({
     image: PropTypes.string.isRequired,
     page: PropTypes.string,
     description: PropTypes.string,
   }),
   banner2: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     page: PropTypes.string,
     description: PropTypes.string,
   }),
   banner3: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     page: PropTypes.string,
     description: PropTypes.string,
   }),
   banner4: PropTypes.shape({
-    image: PropTypes.string.isRequired,
+    image: PropTypes.string,
     page: PropTypes.string,
     description: PropTypes.string,
   }),

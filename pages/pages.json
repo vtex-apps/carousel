@@ -11,9 +11,11 @@
       "component": "Carousel",
       "props": {
         "autoplay": false,
-        "arrowColor": "FFFFFF",
+        "iconsColor": "#ffff00",
+        "showDots": true,
+        "showArrows": true,
         "banner1": {
-          "image": "http://dicasdacapital.com.br/wp-content/uploads/2018/02/economia-creme-ameixa-negra-boticario-20180216-001.jpeg",
+           "image": "http://dicasdacapital.com.br/wp-content/uploads/2018/02/economia-creme-ameixa-negra-boticario-20180216-001.jpeg",
           "page": "/",
           "description": "Banner",
           "targetParams": {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'render'
 
 /**
- * Banner component. Shows an image with an description and one link;
+ * Banner component. Shows an image with a description and one link.
  */
 class Banner extends Component {
   render() {
@@ -49,18 +49,14 @@ Banner.schema = {
   },
 }
 
-/**
- * @type {Object}
- * @property {!string} image - The image of the banner
- * @property {string} description - The description of the image
- * @property {string} page - The page where the image is pointing to
- * @property {Object} targetParams - Params of the url
- * @property {string} targetParams.params
- */
 Banner.propTypes = {
+  /** The image of the banner */
   image: PropTypes.string.isRequired,
+  /** The description of the image */
   description: PropTypes.string.isRequired,
+  /** The page where the image is pointing to */
   page: PropTypes.string,
+  /** Params of the url */
   targetParams: PropTypes.object
 }
 
