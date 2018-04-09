@@ -41,11 +41,7 @@ class Carousel extends Component {
       autoplay: autoplay == undefined ? true : autoplay,
       nextArrow: <Arrow color={iconsColor || '#000'} />,
       prevArrow: <Arrow color={iconsColor || '#000'} />,
-      appendDots: dots => (
-        <ul className="ma0 pa0" style={{ color: iconsColor || '#000' }}>
-          {dots}
-        </ul>
-      ),
+      appendDots: (dots) => <Dots color={iconsColor} dots={dots}/>
     }
   }
 
