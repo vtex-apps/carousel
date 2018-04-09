@@ -10,7 +10,7 @@ class Dots extends Component {
 
     return (
       <div className={className} >
-        <ul className="ma0 pa0" style={{ ... style, color: color || '#000' }}>
+        <ul className="ma0 pa0" style={{ ...style, color: color || '#000' }}>
           {dots}
         </ul>
       </div>
