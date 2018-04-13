@@ -1,4 +1,4 @@
-import React, { Component, Children } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import Spinner from '@vtex/styleguide/lib/Spinner'
@@ -36,13 +36,13 @@ class Carousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       adaptiveHeight: false,
-      autoplaySpeed: autoplaySpeed == undefined ? 4000 : autoplaySpeed * 1000,
-      dots: showDots == undefined ? true : showDots,
-      arrows: showArrows == undefined ? true : showArrows,
-      autoplay: autoplay == undefined ? true : autoplay,
+      autoplaySpeed: autoplaySpeed === undefined ? 4000 : autoplaySpeed * 1000,
+      dots: showDots === undefined ? true : showDots,
+      arrows: showArrows === undefined ? true : showArrows,
+      autoplay: autoplay === undefined ? true : autoplay,
       nextArrow: <Arrow color={iconsColor || '#000'} />,
       prevArrow: <Arrow color={iconsColor || '#000'} />,
-      appendDots: dots => <Dots color={iconsColor} dots={dots} />
+      appendDots: dots => <Dots color={iconsColor} dots={dots} />,
     }
   }
 
@@ -51,11 +51,11 @@ class Carousel extends Component {
   }
 
   render() {
-    const { banner1, banner2, banner3, banner4 } = this.props
+    const { banner1, banner2, banner3, banner4, banner5, banner6 } = this.props
     const { loading } = this.state
     const settings = this.configureSettings()
 
-    const banners = [banner1, banner2, banner3, banner4]
+    const banners = [banner1, banner2, banner3, banner4, banner5, banner6]
 
     return (
       <div className="vtex-carousel pa7">
@@ -67,6 +67,7 @@ class Carousel extends Component {
                   <div key={i}>
                     <Banner
                       image={banner.image}
+                      mobileImage={banner.mobileImage}
                       page={banner.page}
                       description={banner.description}
                       targetParams={banner.targetParams}
@@ -130,6 +131,10 @@ Carousel.schema = {
           type: 'string',
           title: 'Banner 1 image',
         },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 1 mobile image',
+        },
         page: {
           type: 'string',
           title: 'Banner 1 link',
@@ -157,6 +162,10 @@ Carousel.schema = {
         image: {
           type: 'string',
           title: 'Banner 2 image',
+        },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 2 mobile image',
         },
         page: {
           type: 'string',
@@ -186,6 +195,10 @@ Carousel.schema = {
           type: 'string',
           title: 'Banner 3 image',
         },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 3 mobile image',
+        },
         page: {
           type: 'string',
           title: 'Banner 3 link',
@@ -214,6 +227,10 @@ Carousel.schema = {
           type: 'string',
           title: 'Banner 4 image',
         },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 4 mobile image',
+        },
         page: {
           type: 'string',
           title: 'Banner 4 link',
@@ -234,8 +251,79 @@ Carousel.schema = {
         },
       },
     },
+    banner5: {
+      type: 'object',
+      title: 'Banner 5',
+      properties: {
+        image: {
+          type: 'string',
+          title: 'Banner 5 image',
+        },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 5 mobile image',
+        },
+        page: {
+          type: 'string',
+          title: 'Banner 5 link',
+        },
+        description: {
+          type: 'string',
+          title: 'Banner 5 description',
+        },
+        targetParams: {
+          type: 'object',
+          title: 'Banner 5 target params',
+          properties: {
+            params: {
+              type: 'string',
+              title: 'Params',
+            },
+          },
+        },
+      },
+    },
+    banner6: {
+      type: 'object',
+      title: 'Banner 6',
+      properties: {
+        image: {
+          type: 'string',
+          title: 'Banner 6 image',
+        },
+        mobileImage: {
+          type: 'string',
+          title: 'Banner 6 mobile image',
+        },
+        page: {
+          type: 'string',
+          title: 'Banner 6 link',
+        },
+        description: {
+          type: 'string',
+          title: 'Banner 6 description',
+        },
+        targetParams: {
+          type: 'object',
+          title: 'Banner 6 target params',
+          properties: {
+            params: {
+              type: 'string',
+              title: 'Params',
+            },
+          },
+        },
+      },
+    },
   },
 }
+
+const bannerProptype = PropTypes.shape({
+  image: PropTypes.string,
+  mobileImage: PropTypes.string,
+  page: PropTypes.string,
+  description: PropTypes.string,
+})
 
 Carousel.propTypes = {
   /** Should change images automatically */
@@ -253,26 +341,12 @@ Carousel.propTypes = {
    *    page - The page that the banner will be linking to
    *    description - The description of the image
    */
-  banner1: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    page: PropTypes.string,
-    description: PropTypes.string,
-  }),
-  banner2: PropTypes.shape({
-    image: PropTypes.string,
-    page: PropTypes.string,
-    description: PropTypes.string,
-  }),
-  banner3: PropTypes.shape({
-    image: PropTypes.string,
-    page: PropTypes.string,
-    description: PropTypes.string,
-  }),
-  banner4: PropTypes.shape({
-    image: PropTypes.string,
-    page: PropTypes.string,
-    description: PropTypes.string,
-  }),
+  banner1: bannerProptype,
+  banner2: bannerProptype,
+  banner3: bannerProptype,
+  banner4: bannerProptype,
+  banner5: bannerProptype,
+  banner6: bannerProptype,
 }
 
 export default Carousel

@@ -26,6 +26,28 @@ body,
   min-height: 100%;
 }
 
+.vtex-carousel {
+  max-height: 400px;
+}
+
+.vtex-carousel img {
+  height: inherit;
+  margin: auto;
+}
+
+.vtex-carousel .img-mobile {
+  display: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .vtex-carousel .img-regular {
+    display: none;
+  }
+  .vtex-carousel .img-mobile {
+    display: block;
+  }
+}
+
 /* Arrows */
 
 .vtex-carousel .slick-prev:before,

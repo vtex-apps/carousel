@@ -7,57 +7,30 @@ import { Link } from 'render'
  */
 class Banner extends Component {
   render() {
-    const { image, page, description, targetParams } = this.props
+    const { image, page, description, targetParams, mobileImage } = this.props
 
     return (
       <div>
         <Link page={page} params={targetParams}>
-          <img width="100%" src={image} alt={description}/>
+          <img className="img-regular" src={image} alt={description} />
+          <img className="img-mobile" src={mobileImage} alt={description} />
         </Link>
       </div>
     )
   }
 }
 
-Banner.schema = {
-  title: 'Banner',
-  description: 'A simple banner component with an image and an link',
-  type: 'object',
-  properties: {
-    image: {
-      type: 'string',
-      title: 'Image',
-    },  
-    description: {
-      type: 'string',
-      title: 'Description',
-    },
-    page: {
-      type: 'string',
-      title: 'Page',
-    },
-    targetParams: {
-      type: 'object',
-      title: 'Target params',
-      properties: {
-        params: {
-          type: 'string',
-          title: 'Params',
-        },
-      },
-    },
-  },
-}
-
 Banner.propTypes = {
   /** The image of the banner */
   image: PropTypes.string.isRequired,
+  /** The image of the banner */
+  mobileImage: PropTypes.string.isRequired,
   /** The description of the image */
   description: PropTypes.string.isRequired,
   /** The page where the image is pointing to */
   page: PropTypes.string,
   /** Params of the url */
-  targetParams: PropTypes.object
+  targetParams: PropTypes.object,
 }
 
 export default Banner

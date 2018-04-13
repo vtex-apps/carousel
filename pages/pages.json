@@ -1,34 +1,14 @@
 {
   "pages": {
     "carousel": {
-      "path": "/",
+      "path": "/test",
       "theme": "theme"
     }
   },
 
   "extensions": {
     "carousel": {
-      "component": "Carousel",
-      "props": {
-        "autoplay": false,
-        "iconsColor": "#ffff00",
-        "showDots": true,
-        "showArrows": true,
-        "banner1": {
-          "page": "/",
-          "description": "Banner",
-          "targetParams": {
-            "params": ""
-          }
-        },
-        "banner2": {
-          "page": "/",
-          "description": "Banner 2",
-          "targetParams": {
-            "params": ""
-          }
-        }
-      }
+      "component": "Carousel"
     }
   }
 }
