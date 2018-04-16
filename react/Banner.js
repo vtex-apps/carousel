@@ -7,7 +7,14 @@ import { Link } from 'render'
  */
 class Banner extends Component {
   render() {
-    const { image, page, description, targetParams, mobileImage } = this.props
+    const {
+      image,
+      page,
+      description,
+      targetParams,
+      mobileImage,
+      mobileHeight,
+    } = this.props
 
     return (
       <div>
@@ -19,12 +26,12 @@ class Banner extends Component {
               src={image}
               alt={description}
             />
-            <img
-              width="100%"
+            <div
               className="img-mobile"
-              src={mobileImage}
-              alt={description}
-            />
+              style={{ maxHeight: `${mobileHeight}px`, overflow: 'hidden' }}
+            >
+              <img width="100%" src={mobileImage} alt={description} />
+            </div>
           </div>
         </Link>
       </div>
@@ -37,6 +44,8 @@ Banner.propTypes = {
   image: PropTypes.string.isRequired,
   /** The image of the banner */
   mobileImage: PropTypes.string.isRequired,
+  /** Max height size of the banner on mobile  */
+  mobileHeight: PropTypes.number.isRequired,
   /** The description of the image */
   description: PropTypes.string.isRequired,
   /** The page where the image is pointing to */

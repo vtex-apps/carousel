@@ -53,6 +53,7 @@ class Carousel extends Component {
   render() {
     const {
       height,
+      mobileHeight,
       banner1,
       banner2,
       banner3,
@@ -72,10 +73,11 @@ class Carousel extends Component {
             {banners.map(function(banner, i) {
               if (banner && banner.image) {
                 return (
-                  <div key={i} style={{ maxHeight: `${height} px` }}>
+                  <div key={i} style={{ maxHeight: `${height}px` }}>
                     <Banner
                       image={banner.image}
                       mobileImage={banner.mobileImage}
+                      mobileHeight={mobileHeight}
                       page={banner.page}
                       description={banner.description}
                       targetParams={banner.targetParams}
@@ -128,7 +130,14 @@ Carousel.schema = {
     height: {
       type: 'number',
       title: 'Banner max height size (px)',
-      default: 400,
+      default: 420,
+      enum: [420, 440],
+    },
+    mobileHeight: {
+      type: 'number',
+      title: 'Banner max height size on mobile (px)',
+      default: 332,
+      enum: [332, 156],
     },
     autoplaySpeed: {
       type: 'number',
@@ -339,7 +348,8 @@ const bannerProptype = PropTypes.shape({
 })
 
 Carousel.defaultProps = {
-  height: 400,
+  height: 420,
+  mobileHeight: 332,
   showArrows: true,
   showDots: true,
   autoplay: true,
@@ -354,6 +364,8 @@ Carousel.propTypes = {
   autoplaySpeed: PropTypes.number,
   /** Max height size of the banners */
   height: PropTypes.number.isRequired,
+  /** Max height size of the banners on mobile */
+  mobileHeight: PropTypes.number.isRequired,
   /** Should show the dots or not */
   showDots: PropTypes.bool,
   /** Should show the arrows or not */

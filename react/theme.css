@@ -27,8 +27,7 @@ body,
 }
 
 .vtex-carousel .img-container {
-  max-height: 400px;
-  overflow: hidden;
+  max-height: inherit;
 }
 
 .vtex-carousel .img-mobile {
