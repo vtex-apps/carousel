@@ -36,12 +36,12 @@ class Carousel extends Component {
       slidesToShow: 1,
       slidesToScroll: 1,
       adaptiveHeight: false,
-      autoplaySpeed: autoplaySpeed === undefined ? 4000 : autoplaySpeed * 1000,
-      dots: showDots === undefined ? true : showDots,
-      arrows: showArrows === undefined ? true : showArrows,
-      autoplay: autoplay === undefined ? true : autoplay,
-      nextArrow: <Arrow color={iconsColor || '#000'} />,
-      prevArrow: <Arrow color={iconsColor || '#000'} />,
+      autoplaySpeed: autoplaySpeed * 1000,
+      dots: showDots,
+      arrows: showArrows,
+      autoplay,
+      nextArrow: <Arrow color={iconsColor} />,
+      prevArrow: <Arrow color={iconsColor} />,
       appendDots: dots => <Dots color={iconsColor} dots={dots} />,
     }
   }
@@ -51,20 +51,28 @@ class Carousel extends Component {
   }
 
   render() {
-    const { banner1, banner2, banner3, banner4, banner5, banner6 } = this.props
+    const {
+      height,
+      banner1,
+      banner2,
+      banner3,
+      banner4,
+      banner5,
+      banner6,
+    } = this.props
     const { loading } = this.state
     const settings = this.configureSettings()
 
     const banners = [banner1, banner2, banner3, banner4, banner5, banner6]
 
     return (
-      <div className="vtex-carousel pa7">
+      <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
             {banners.map(function(banner, i) {
               if (banner && banner.image) {
                 return (
-                  <div key={i}>
+                  <div key={i} style={{ maxHeight: `${height} px` }}>
                     <Banner
                       image={banner.image}
                       mobileImage={banner.mobileImage}
@@ -116,6 +124,11 @@ Carousel.schema = {
       type: 'boolean',
       title: 'Show arrows',
       default: true,
+    },
+    height: {
+      type: 'number',
+      title: 'Banner max height size (px)',
+      default: 400,
     },
     autoplaySpeed: {
       type: 'number',
@@ -325,11 +338,22 @@ const bannerProptype = PropTypes.shape({
   description: PropTypes.string,
 })
 
+Carousel.defaultProps = {
+  height: 400,
+  showArrows: true,
+  showDots: true,
+  autoplay: true,
+  autoplaySpeed: 4,
+  iconsColor: '#ffff7f',
+}
+
 Carousel.propTypes = {
   /** Should change images automatically */
   autoplay: PropTypes.bool.isRequired,
   /** How long it should wait to change the banner in secs */
   autoplaySpeed: PropTypes.number,
+  /** Max height size of the banners */
+  height: PropTypes.number.isRequired,
   /** Should show the dots or not */
   showDots: PropTypes.bool,
   /** Should show the arrows or not */

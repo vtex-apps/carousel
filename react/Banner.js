@@ -12,8 +12,20 @@ class Banner extends Component {
     return (
       <div>
         <Link page={page} params={targetParams}>
-          <img className="img-regular" src={image} alt={description} />
-          <img className="img-mobile" src={mobileImage} alt={description} />
+          <div className="img-container">
+            <img
+              width="100%"
+              className="img-regular"
+              src={image}
+              alt={description}
+            />
+            <img
+              width="100%"
+              className="img-mobile"
+              src={mobileImage}
+              alt={description}
+            />
+          </div>
         </Link>
       </div>
     )

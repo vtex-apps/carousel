@@ -26,13 +26,9 @@ body,
   min-height: 100%;
 }
 
-.vtex-carousel {
+.vtex-carousel .img-container {
   max-height: 400px;
-}
-
-.vtex-carousel img {
-  height: inherit;
-  margin: auto;
+  overflow: hidden;
 }
 
 .vtex-carousel .img-mobile {
