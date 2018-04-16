@@ -29,6 +29,18 @@ Add "vtex.carousel" as your app dependency.
       title: 'Show arrows',
       default: true,
     },
+    height: {
+      type: 'number',
+      title: 'Banner max height size (px)',
+      default: 420,
+      enum: [420, 440],
+    },
+    mobileHeight: {
+      type: 'number',
+      title: 'Banner max height size on mobile (px)',
+      default: 332,
+      enum: [332, 156],
+    },
     autoplaySpeed: {
       type: 'number',
       title: 'Autoplay speed(sec):',
