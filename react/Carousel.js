@@ -67,7 +67,7 @@ class Carousel extends Component {
     const banners = [banner1, banner2, banner3, banner4, banner5, banner6]
 
     return (
-      <div className="vtex-carousel">
+      <div className="vtex-carousel mt9">
         {!loading && (
           <Slider {...settings}>
             {banners.map(function(banner, i) {

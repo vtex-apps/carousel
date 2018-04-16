@@ -54,6 +54,7 @@ body,
 .vtex-carousel .slick-prev {
   left: 5%;
   z-index: 1;
+  top: 44%;
 }
 [dir='rtl'] .vtex-carousel .slick-prev {
   right: 5%;
@@ -62,6 +63,7 @@ body,
 
 .vtex-carousel .slick-next {
   right: 8%;
+  top: 44%;
 }
 [dir='rtl'] .vtex-carousel .slick-next {
   right: auto;
