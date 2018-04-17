@@ -40,9 +40,9 @@ class Carousel extends Component {
       dots: showDots,
       arrows: showArrows,
       autoplay,
-      nextArrow: <Arrow color={iconsColor} />,
-      prevArrow: <Arrow color={iconsColor} />,
-      appendDots: dots => <Dots color={iconsColor} dots={dots} />,
+      nextArrow: <Arrow arrowClass="vtex-carousel__arrow-right" />,
+      prevArrow: <Arrow arrowClass="vtex-carousel__arrow-left" />,
+      appendDots: dots => <Dots dots={dots} />,
     }
   }
 

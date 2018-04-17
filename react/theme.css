@@ -1,30 +1,5 @@
-@import url(//io.vtex.com.br/fonts/fabriga/stylesheet.css);
 @import url('~slick-carousel/slick/slick.css');
 @import url('~slick-carousel/slick/slick-theme.css');
-
-body,
-button,
-input,
-optgroup,
-select,
-textarea,
-span,
-h1,
-h2,
-h3,
-h4,
-p1 {
-  font-family: Fabriga, -apple-system, BlinkMacSystemFont, avenir next, avenir,
-    helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
-}
-
-html,
-body,
-#render-container,
-#render-provider,
-#render-provider > article {
-  min-height: 100%;
-}
 
 .vtex-carousel .img-container {
   max-height: inherit;
@@ -34,73 +9,67 @@ body,
   display: none;
 }
 
-@media only screen and (max-device-width: 480px) {
-  .vtex-carousel .img-regular {
-    display: none;
-  }
-  .vtex-carousel .img-mobile {
-    display: block;
-  }
-}
-
 /* Arrows */
 
-.vtex-carousel .slick-prev:before,
-.vtex-carousel .slick-next:before {
+.vtex-carousel .vtex-carousel__arrow-left:before,
+.vtex-carousel .vtex-carousel__arrow-right:before {
   font-size: 3rem;
-  color: inherit;
+  color: black;
 }
 
-.vtex-carousel .slick-prev {
+.vtex-carousel .vtex-carousel__arrow-left {
   left: 5%;
   z-index: 1;
   top: 44%;
 }
-[dir='rtl'] .vtex-carousel .slick-prev {
+[dir='rtl'] .vtex-carousel .vtex-carousel__arrow-left {
   right: 5%;
   left: auto;
 }
 
-.vtex-carousel .slick-next {
+.vtex-carousel .vtex-carousel__arrow-right {
   right: 8%;
   top: 44%;
 }
-[dir='rtl'] .vtex-carousel .slick-next {
+[dir='rtl'] .vtex-carousel .vtex-carousel__arrow-right {
   right: auto;
   left: 8%;
 }
 
 /* Dots */
 
-.vtex-carousel .slick-slider .slick-dots {
+.vtex-carousel .vtex-carousel__dots {
   position: relative;
   top: -50px;
 }
 
-.vtex-carousel .slick-dots li button {
-  color: inherit;
+.vtex-carousel .vtex-carousel__dots li button {
+  color: black;
 }
 
-.vtex-carousel .slick-dots li button:before {
-  color: inherit;
+.vtex-carousel .vtex-carousel__dots li button:before {
+  color: black;
   font-size: 1rem;
 }
-.vtex-carousel .slick-dots li.slick-active button:before {
-  color: inherit;
+.vtex-carousel .vtex-carousel__dots li.slick-active button:before {
+  color: black;
 }
 
-@media only screen and (max-width: 600px) {
-  .vtex-carousel .slick-slider .slick-dots {
+@media only screen and (max-device-width: 480px) {
+  .vtex-carousel .vtex-carousel__dots {
     position: relative;
     top: -30px;
   }
 
-  .vtex-carousel .slick-dots li button:before {
-    font-size: 10px;
+  .vtex-carousel .vtex-carousel__arrow-left:before,
+  .vtex-carousel .vtex-carousel__arrow-right:before {
+    display: none;
   }
 
-  .vtex-carousel .slick-prev:before,
-  .vtex-carousel .slick-next:before {
+  .vtex-carousel .img-regular {
     display: none;
+  }
+  .vtex-carousel .img-mobile {
+    display: block;
   }
 }
