@@ -28,7 +28,7 @@ class Banner extends Component {
             />
             <div
               className="img-mobile"
-              style={{ maxHeight: `${mobileHeight}px`, overflow: 'hidden' }}
+              style={{ maxHeight: `${mobileHeight}px` }}
             >
               <img width="100%" src={mobileImage} alt={description} />
             </div>

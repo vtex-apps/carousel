@@ -3,6 +3,7 @@
 
 .vtex-carousel .img-container {
   max-height: inherit;
+  overflow: 'hidden';
 }
 
 .vtex-carousel .img-mobile {
