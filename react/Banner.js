@@ -7,57 +7,46 @@ import { Link } from 'render'
  */
 class Banner extends Component {
   render() {
-    const { image, page, description, targetParams } = this.props
+    const {
+      image,
+      page,
+      description,
+      targetParams,
+      mobileImage,
+      mobileHeight,
+    } = this.props
 
     return (
       <div>
         <Link page={page} params={targetParams}>
-          <img width="100%" src={image} alt={description}/>
+          <div className="img-container">
+            <img className="img-regular w-100" src={image} alt={description} />
+            <div
+              className="img-mobile"
+              style={{ maxHeight: `${mobileHeight}px` }}
+            >
+              <img className="w-100" src={mobileImage} alt={description} />
+            </div>
+          </div>
         </Link>
       </div>
     )
   }
 }
 
-Banner.schema = {
-  title: 'Banner',
-  description: 'A simple banner component with an image and an link',
-  type: 'object',
-  properties: {
-    image: {
-      type: 'string',
-      title: 'Image',
-    },  
-    description: {
-      type: 'string',
-      title: 'Description',
-    },
-    page: {
-      type: 'string',
-      title: 'Page',
-    },
-    targetParams: {
-      type: 'object',
-      title: 'Target params',
-      properties: {
-        params: {
-          type: 'string',
-          title: 'Params',
-        },
-      },
-    },
-  },
-}
-
 Banner.propTypes = {
   /** The image of the banner */
   image: PropTypes.string.isRequired,
+  /** The image of the banner on mobile*/
+  mobileImage: PropTypes.string.isRequired,
+  /** Max height size of the banner on mobile  */
+  mobileHeight: PropTypes.number.isRequired,
   /** The description of the image */
   description: PropTypes.string.isRequired,
   /** The page where the image is pointing to */
   page: PropTypes.string,
   /** Params of the url */
-  targetParams: PropTypes.object
+  targetParams: PropTypes.object,
 }
 
 export default Banner
