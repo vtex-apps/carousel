@@ -20,17 +20,12 @@ class Banner extends Component {
       <div>
         <Link page={page} params={targetParams}>
           <div className="img-container">
-            <img
-              width="100%"
-              className="img-regular"
-              src={image}
-              alt={description}
-            />
+            <img className="img-regular w-100" src={image} alt={description} />
             <div
               className="img-mobile"
               style={{ maxHeight: `${mobileHeight}px` }}
             >
-              <img width="100%" src={mobileImage} alt={description} />
+              <img className="w-100" src={mobileImage} alt={description} />
             </div>
           </div>
         </Link>
@@ -42,7 +37,7 @@ class Banner extends Component {
 Banner.propTypes = {
   /** The image of the banner */
   image: PropTypes.string.isRequired,
-  /** The image of the banner */
+  /** The image of the banner on mobile*/
   mobileImage: PropTypes.string.isRequired,
   /** Max height size of the banner on mobile  */
   mobileHeight: PropTypes.number.isRequired,

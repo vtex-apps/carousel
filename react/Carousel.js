@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
+import shortid from 'shortid'
 import Spinner from '@vtex/styleguide/lib/Spinner'
 import spinnerStyle from '@vtex/styleguide/lib/Spinner/style.css'
 
@@ -67,7 +68,10 @@ class Carousel extends Component {
             {banners.map(function(banner, i) {
               if (banner && banner.image) {
                 return (
-                  <div key={i} style={{ maxHeight: `${height}px` }}>
+                  <div
+                    key={shortid.generate()}
+                    style={{ maxHeight: `${height}px` }}
+                  >
                     <Banner
                       image={banner.image}
                       mobileImage={banner.mobileImage}
@@ -334,6 +338,9 @@ const bannerProptype = PropTypes.shape({
   mobileImage: PropTypes.string,
   page: PropTypes.string,
   description: PropTypes.string,
+  targetParams: PropTypes.shape({
+    params: PropTypes.string,
+  }),
 })
 
 Carousel.defaultProps = {
@@ -343,6 +350,30 @@ Carousel.defaultProps = {
   showDots: true,
   autoplay: true,
   autoplaySpeed: 4,
+  banner1: {
+    image:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+    mobileImage:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-01.png',
+    page: '/',
+    description: 'banner',
+  },
+  banner2: {
+    image:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
+    mobileImage:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-02.png',
+    page: '/',
+    description: 'banner',
+  },
+  banner3: {
+    image:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
+    mobileImage:
+      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png',
+    page: '/',
+    description: 'banner',
+  },
 }
 
 Carousel.propTypes = {
