@@ -86,7 +86,7 @@ class Carousel extends Component {
         {loading && (
           <div className="flex justify-around pa7">
             <div className="w3">
-              <Spinner style={{ spinnerStyle }} />
+              <Spinner style={spinnerStyle} />
             </div>
           </div>
         )}
