@@ -19,11 +19,6 @@ Add "vtex.carousel" as your app dependency.
       title: 'Show dots',
       default: true,
     },
-    iconsColor: {
-      type: 'string',
-      title: 'Icons color',
-      default: '#ffff00',
-    },
     showArrows: {
       type: 'boolean',
       title: 'Show arrows',
