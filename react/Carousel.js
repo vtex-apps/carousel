@@ -21,13 +21,7 @@ class Carousel extends Component {
   }
 
   configureSettings() {
-    const {
-      autoplay,
-      autoplaySpeed,
-      showDots,
-      showArrows,
-      iconsColor,
-    } = this.props
+    const { autoplay, autoplaySpeed, showDots, showArrows } = this.props
 
     return {
       speed: 500,
@@ -92,7 +86,7 @@ class Carousel extends Component {
         {loading && (
           <div className="flex justify-around pa7">
             <div className="w3">
-              <Spinner style={spinnerStyle} />
+              <Spinner style={{ spinnerStyle }} />
             </div>
           </div>
         )}
@@ -116,11 +110,6 @@ Carousel.schema = {
       type: 'boolean',
       title: 'Show dots',
       default: true,
-    },
-    iconsColor: {
-      type: 'string',
-      title: 'Icons color',
-      default: '#ffff00',
     },
     showArrows: {
       type: 'boolean',
@@ -354,7 +343,6 @@ Carousel.defaultProps = {
   showDots: true,
   autoplay: true,
   autoplaySpeed: 4,
-  iconsColor: '#ffff7f',
 }
 
 Carousel.propTypes = {
@@ -370,8 +358,6 @@ Carousel.propTypes = {
   showDots: PropTypes.bool,
   /** Should show the arrows or not */
   showArrows: PropTypes.bool,
-  /** The color of the arrows and dots */
-  iconsColor: PropTypes.string,
   /** Banners that will be displayed by the Carousel
    *    image - The image url of the banner
    *    page - The page that the banner will be linking to
