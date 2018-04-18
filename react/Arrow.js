@@ -19,13 +19,13 @@ class Arrow extends Component {
 }
 
 Arrow.propTypes = {
-  /** The css class of the element. */
+  /** Css class of the element. */
   className: PropTypes.string,
-  /** The custom style of the element. */
+  /** Custom style of the element. */
   style: PropTypes.object,
   /** Maximum number of items in the shelf. */
   onClick: PropTypes.func,
-  /** The css class that specifies the arrow */
+  /** Css class that specifies the arrow */
   arrowClass: PropTypes.string.isRequired,
 }
 

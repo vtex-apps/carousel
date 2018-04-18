@@ -130,7 +130,7 @@ Carousel.schema = {
       type: 'number',
       title: 'Banner max height size on mobile (px)',
       default: 332,
-      enum: [332, 156],
+      enum: [339, 159],
     },
     autoplaySpeed: {
       type: 'number',
@@ -344,8 +344,8 @@ const bannerProptype = PropTypes.shape({
 })
 
 Carousel.defaultProps = {
-  height: 420,
-  mobileHeight: 332,
+  height: 440,
+  mobileHeight: 339,
   showArrows: true,
   showDots: true,
   autoplay: true,
