@@ -385,9 +385,9 @@ Carousel.propTypes = {
   height: PropTypes.number.isRequired,
   /** Max height size of the banners on mobile */
   mobileHeight: PropTypes.number.isRequired,
-  /** Should show the dots or not */
+  /** Set visibility of dots */
   showDots: PropTypes.bool,
-  /** Should show the arrows or not */
+  /** Set visibility of arrows */
   showArrows: PropTypes.bool,
   /** Banners that will be displayed by the Carousel
    *    image - The image url of the banner
