@@ -129,7 +129,7 @@ Carousel.schema = {
     mobileHeight: {
       type: 'number',
       title: 'Banner max height size on mobile (px)',
-      default: 332,
+      default: 339,
       enum: [339, 159],
     },
     autoplaySpeed: {
