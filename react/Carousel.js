@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import shortid from 'shortid'
 import Spinner from '@vtex/styleguide/lib/Spinner'
-import spinnerStyle from '@vtex/styleguide/lib/Spinner/style.css'
 
 import Banner from './Banner'
 import Arrow from './Arrow'
@@ -90,7 +89,7 @@ class Carousel extends Component {
         {loading && (
           <div className="flex justify-around pa7">
             <div className="w3">
-              <Spinner style={spinnerStyle} />
+              <Spinner />
             </div>
           </div>
         )}
