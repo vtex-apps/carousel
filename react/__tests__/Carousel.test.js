@@ -30,5 +30,8 @@ describe('Carousel component', () => {
     expect(
       wrapper.container.querySelectorAll('.vtex-carousel__dots').length
     ).toBe(1)
+    expect(
+      wrapper.container.querySelectorAll('.img-container').length
+    ).toBeGreaterThan(3) // set to be infinite
   })
 })
