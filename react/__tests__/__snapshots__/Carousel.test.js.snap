@@ -1,0 +1,271 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component should match snapshot 1`] = `
+<div>
+  <div
+    class="vtex-carousel"
+  >
+    <div
+      class="regular slider slick-initialized slick-slider"
+      dir="ltr"
+    >
+      <div
+        class="slick-arrow slick-prev vtex-carousel__arrow-left"
+        style="display: block;"
+      />
+      <div
+        class="slick-list"
+      >
+        <div
+          class="slick-track"
+          style="opacity: 1;"
+        >
+          <div
+            class="slick-slide slick-cloned"
+            data-index="-1"
+            style="max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide slick-active slick-current"
+            data-index="0"
+            style="outline: none; max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-01.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide"
+            data-index="1"
+            style="outline: none; max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-02.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide"
+            data-index="2"
+            style="outline: none; max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide slick-cloned"
+            data-index="3"
+            style="max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-01.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide slick-cloned"
+            data-index="4"
+            style="max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-02.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div
+            class="slick-slide slick-cloned"
+            data-index="5"
+            style="max-height: 440px; width: 0px;"
+            tabindex="-1"
+          >
+            <div>
+              <a>
+                <div
+                  class="img-container"
+                >
+                  <img
+                    alt="banner"
+                    class="img-regular w-100"
+                    src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+                  />
+                  <div
+                    class="img-mobile"
+                    style="max-height: 339px;"
+                  >
+                    <img
+                      alt="banner"
+                      class="w-100"
+                      src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png"
+                    />
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="slick-arrow slick-next vtex-carousel__arrow-right"
+        style="display: block;"
+      />
+      <div
+        class="vtex-carousel__dots slick-dots"
+      >
+        <ul
+          class="ma0 pa0"
+        >
+          <li
+            class="slick-active"
+          >
+            <button>
+              1
+            </button>
+          </li>
+          <li
+            class=""
+          >
+            <button>
+              2
+            </button>
+          </li>
+          <li
+            class=""
+          >
+            <button>
+              3
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+`;
