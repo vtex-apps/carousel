@@ -76,10 +76,14 @@ Add "vtex.carousel" as your app dependency.
     }
 ```
 
+### Running Tests
+
+To run the test suit, type the following in the terminal, inside the folder `react`
+
+```sh
+$ npm t     # this
+```
+
 ## Troubleshooting
 
 You can check if others are experiencing similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new).
-
-## Contributing
-
-TODO
