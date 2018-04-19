@@ -2,6 +2,11 @@
 
 Carousel is a canonical component that any VTEX store can install.
 
+## Continuous Integrations 
+
+### Travis CI 
+[![Build Status](https://travis-ci.org/vtex-apps/carousel.svg?branch=master)](https://travis-ci.org/vtex-apps/carousel)
+
 ## Usage
 
 Add "vtex.carousel" as your app dependency.
