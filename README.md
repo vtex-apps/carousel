@@ -79,7 +79,3 @@ Add "vtex.carousel" as your app dependency.
 ## Troubleshooting
 
 You can check if others are experiencing similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new).
-
-## Contributing
-
-TODO
