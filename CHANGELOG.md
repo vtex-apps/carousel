@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+* **Refactoring** Refac the carousel to use @vtex/slick-components.
+
 ## [0.2.0] - 2018-18-04
 
 ### Added
