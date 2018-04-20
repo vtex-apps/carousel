@@ -8,7 +8,8 @@
   "author": "VTEX",
   "license": "ISC",
   "dependencies": {
-    "@vtex/styleguide": "2.0.0-rc.38",
+    "@vtex/slick-components": "~1.0.3",
+    "@vtex/styleguide": "~2.0.0-rc.39",
     "react-slick": "0.22.3",
     "shortid": "2.2.8",
     "slick-carousel": "1.8.1"
