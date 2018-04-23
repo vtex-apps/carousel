@@ -10,7 +10,7 @@ exports[`Carousel component should match snapshot 1`] = `
       dir="ltr"
     >
       <div
-        class="slick-arrow slick-prev vtex-carousel-arrow__left"
+        class="slick-arrow slick-prev vtex-carousel__arrow-left"
         style="display: block;"
       />
       <div
@@ -233,11 +233,11 @@ exports[`Carousel component should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="slick-arrow slick-next vtex-carousel-arrow__right"
+        class="slick-arrow slick-next vtex-carousel__arrow-right"
         style="display: block;"
       />
       <div
-        class="slick-dots vtex-carousel-dots"
+        class="slick-dots vtex-carousel__dots"
       >
         <ul
           class="ma0 pa0"
