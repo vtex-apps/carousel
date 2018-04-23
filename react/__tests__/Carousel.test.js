@@ -7,8 +7,41 @@ import Carousel from '../Carousel'
 describe('Carousel component', () => {
   let wrapper
 
+  let props = {
+    height: 440,
+    mobileHeight: 339,
+    showArrows: true,
+    showDots: true,
+    autoplay: true,
+    autoplaySpeed: 4,
+    banner1: {
+      image:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+      mobileImage:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-01.png',
+      page: '/',
+      description: 'banner',
+    },
+    banner2: {
+      image:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
+      mobileImage:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-02.png',
+      page: '/',
+      description: 'banner',
+    },
+    banner3: {
+      image:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
+      mobileImage:
+        'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png',
+      page: '/',
+      description: 'banner',
+    },
+  }
+
   beforeEach(() => {
-    wrapper = render(<Carousel />)
+    wrapper = render(<Carousel {...props} />)
   })
 
   it('should be rendered', () => {
@@ -22,13 +55,13 @@ describe('Carousel component', () => {
   it('should render items', () => {
     expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-right').length
+      wrapper.container.querySelectorAll('.vtex-carousel-arrow__right').length
     ).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-left').length
+      wrapper.container.querySelectorAll('.vtex-carousel-arrow__left').length
     ).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__dots').length
+      wrapper.container.querySelectorAll('.vtex-carousel-dots').length
     ).toBe(1)
     expect(
       wrapper.container.querySelectorAll('.img-container').length
