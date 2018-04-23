@@ -5,8 +5,7 @@ import shortid from 'shortid'
 import Spinner from '@vtex/styleguide/lib/Spinner'
 
 import Banner from './Banner'
-import Arrow from './Arrow'
-import Dots from './Dots'
+import { Arrow, Dots } from '@vtex/slick-components'
 
 /**
  * Carousel component. Shows a serie of banners;
@@ -34,9 +33,9 @@ class Carousel extends Component {
       dots: showDots,
       arrows: showArrows,
       autoplay,
-      nextArrow: <Arrow arrowClass="vtex-carousel__arrow-right" />,
-      prevArrow: <Arrow arrowClass="vtex-carousel__arrow-left" />,
-      appendDots: dots => <Dots dots={dots} />,
+      nextArrow: <Arrow cssClass="vtex-carousel__arrow-right" />,
+      prevArrow: <Arrow cssClass="vtex-carousel__arrow-left" />,
+      appendDots: dots => <Dots dots={dots} cssClass="vtex-carousel__dots" />,
     }
   }
 
@@ -341,39 +340,6 @@ const bannerProptype = PropTypes.shape({
     params: PropTypes.string,
   }),
 })
-
-Carousel.defaultProps = {
-  height: 440,
-  mobileHeight: 339,
-  showArrows: true,
-  showDots: true,
-  autoplay: true,
-  autoplaySpeed: 4,
-  banner1: {
-    image:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-    mobileImage:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-01.png',
-    page: '/',
-    description: 'banner',
-  },
-  banner2: {
-    image:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
-    mobileImage:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-02.png',
-    page: '/',
-    description: 'banner',
-  },
-  banner3: {
-    image:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
-    mobileImage:
-      'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-03.png',
-    page: '/',
-    description: 'banner',
-  },
-}
 
 Carousel.propTypes = {
   /** Should change images automatically */

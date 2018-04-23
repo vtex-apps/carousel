@@ -237,7 +237,7 @@ exports[`Carousel component should match snapshot 1`] = `
         style="display: block;"
       />
       <div
-        class="vtex-carousel__dots slick-dots"
+        class="slick-dots vtex-carousel__dots"
       >
         <ul
           class="ma0 pa0"
