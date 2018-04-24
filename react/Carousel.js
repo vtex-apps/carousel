@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import Slider from 'react-slick'
 import shortid from 'shortid'
 import Spinner from '@vtex/styleguide/lib/Spinner'
+import { Arrow, Dots } from '@vtex/slick-components'
 
 import Banner from './Banner'
-import { Arrow, Dots } from '@vtex/slick-components'
+
+import './global.css'
 
 /**
  * Carousel component. Shows a serie of banners;
