@@ -4,9 +4,11 @@ import Slider from 'react-slick'
 import shortid from 'shortid'
 import Spinner from '@vtex/styleguide/lib/Spinner'
 import { range, map, clone, indexBy, prop } from 'ramda'
+import { Arrow, Dots } from '@vtex/slick-components'
 
 import Banner from './Banner'
-import { Arrow, Dots } from '@vtex/slick-components'
+
+import './global.css'
 
 const bannerStructure = {
   type: 'object',

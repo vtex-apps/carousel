@@ -1,8 +1,7 @@
 {
   "pages": {
     "carousel": {
-      "path": "/carousel",
-      "theme": "theme"
+      "path": "/carousel"
     }
   },
 
