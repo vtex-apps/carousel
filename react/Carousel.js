@@ -4,7 +4,10 @@ import Slider from 'react-slick'
 import Spinner from '@vtex/styleguide/lib/Spinner'
 import { Arrow, Dots } from '@vtex/slick-components'
 import shortid from 'shortid'
-import _ from 'lodash'
+import keyBy from 'lodash/keyBy'
+import map from 'lodash/map'
+import range from 'lodash/range'
+import property from 'lodash/property'
 
 import Banner from './Banner'
 
@@ -59,13 +62,14 @@ class Carousel extends Component {
     numberOfBanners = numberOfBanners ? numberOfBanners : 3
 
     const getRepeatedProperties = repetition =>
-      _.keyBy(
-        _.map(_.range(1, repetition + 1), index => {
-          const property = _.clone(bannerStructure)
-          property.title = `${property.title}${index}`
-          return property
+      keyBy(
+        map(range(1, repetition + 1), index => {
+          return {
+            ...bannerStructure,
+            title: `${property.title}${index}`,
+          }
         }),
-        _.property('title')
+        property('title')
       )
 
     const generatedSchema =
