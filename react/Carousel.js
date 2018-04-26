@@ -25,14 +25,14 @@ const bannerStructure = {
       type: 'string',
       title: 'Banner mobile image',
     },
+    description: {
+      type: 'string',
+      title: 'Banner description',
+    },
     page: {
       type: 'string',
       enum: Object.keys(__RUNTIME__.pages),
       title: 'Banner target page',
-    },
-    description: {
-      type: 'string',
-      title: 'Banner description',
     },
     params: {
       type: 'string',
@@ -53,9 +53,20 @@ class Carousel extends Component {
       loading: true,
     }
   }
-
-  static getSchema = ({ numberOfBanners }) => {
-    numberOfBanners = numberOfBanners ? numberOfBanners : 3
+  static uiSchema = {
+    numberOfBanners: {
+      'ui:widget': 'range',
+    },
+    autoplaySpeed: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        'inline': true,
+      },
+    },
+  }
+  static getSchema = ({ numberOfBanners, autoplay }) => {
+    numberOfBanners = numberOfBanners || 3
+    autoplay = autoplay || false
 
     const getRepeatedProperties = repetition =>
       keyBy(
@@ -78,11 +89,6 @@ class Carousel extends Component {
         'A simple carousel component that shows a serie of banners with images and links',
       type: 'object',
       properties: {
-        autoplay: {
-          type: 'boolean',
-          title: 'Autoplay',
-          default: true,
-        },
         showDots: {
           type: 'boolean',
           title: 'Show dots',
@@ -105,17 +111,22 @@ class Carousel extends Component {
           default: 339,
           enum: [339, 159],
         },
-        autoplaySpeed: {
+        autoplay: {
+          type: 'boolean',
+          title: 'Autoplay',
+          default: true,
+        },
+        autoplaySpeed: autoplay ? {
           type: 'number',
           title: 'Autoplay speed(sec):',
-          default: 5,
           enum: [4, 5, 6],
-        },
+        } : {},
         numberOfBanners: {
           type: 'number',
           title: 'Number of banners',
           default: 3,
-          enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          minimum: 1,
+          maximum: 10,
         },
         ...generatedSchema,
       },
@@ -181,7 +192,7 @@ class Carousel extends Component {
       <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
-            {banners.map(function(banner, i) {
+            {banners.map(function (banner, i) {
               if (banner && banner.image) {
                 return (
                   <div
