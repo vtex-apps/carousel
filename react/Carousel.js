@@ -27,21 +27,17 @@ const bannerStructure = {
     },
     page: {
       type: 'string',
-      title: 'Banner link',
+      enum: Object.keys(__RUNTIME__.pages),
+      title: 'Banner target page',
     },
     description: {
       type: 'string',
       title: 'Banner description',
     },
-    targetParams: {
-      type: 'object',
-      title: 'Banner target params',
-      properties: {
-        params: {
-          type: 'string',
-          title: 'Params',
-        },
-      },
+    params: {
+      type: 'string',
+      description: 'Comma separated params, e.g.: key=value,a=b,c=d',
+      title: 'Params',
     },
   },
 }
@@ -66,7 +62,7 @@ class Carousel extends Component {
         map(range(1, repetition + 1), index => {
           return {
             ...bannerStructure,
-            title: `${property.title}${index}`,
+            title: `Banner ${index}`,
           }
         }),
         property('title')
