@@ -44,7 +44,7 @@ const bannerStructure = {
 }
 
 /**
- * Carousel component. Shows a serie of banners;
+ * Carousel component. Shows a serie of banners.
  */
 class Carousel extends Component {
   constructor(props) {
