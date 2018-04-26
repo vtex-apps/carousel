@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "carousel",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "title": "Carousel",
   "description": "Carousel Component",
   "defaultLocale": "pt-BR",
@@ -11,9 +11,7 @@
   },
   "mustUpdateAt": "2019-04-02",
   "categories": [],
-  "registries": [
-    "smartcheckout"
-  ],
+  "registries": ["smartcheckout"],
   "settingsSchema": {},
   "scripts": {
     "postreleasy": "vtex publish --public"

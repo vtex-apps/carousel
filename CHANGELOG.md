@@ -7,11 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+* **Dynamic Schema** Change carousel to use dynamic schema instead of a static one.
+
 ## [0.2.2] - 2018-24-04
 
-### Added
+### Changed
 
-* **Import** Refac the carousel to use @vtex/slick-components.
+* **Import** Change carousel to use Arrow and Dots from @vtex/slick-components.
 
 ## [0.2.1] - 2018-19-04
 
