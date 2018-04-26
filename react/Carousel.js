@@ -63,9 +63,10 @@ class Carousel extends Component {
           return {
             ...bannerStructure,
             title: `Banner ${index}`,
+            key: `banner${index}`,
           }
         }),
-        property('title')
+        property('key')
       )
 
     const generatedSchema =
