@@ -66,6 +66,7 @@ class Carousel extends Component {
   }
   static getSchema = ({ numberOfBanners, autoplay }) => {
     numberOfBanners = numberOfBanners || 3
+    autoplay = autoplay || false
 
     const getRepeatedProperties = repetition =>
       keyBy(
@@ -119,7 +120,7 @@ class Carousel extends Component {
           type: 'number',
           title: 'Autoplay speed(sec):',
           enum: [4, 5, 6],
-        } : null,
+        } : {},
         numberOfBanners: {
           type: 'number',
           title: 'Number of banners',
