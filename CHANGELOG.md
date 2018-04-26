@@ -7,15 +7,15 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-### Added
+### Change
 
-* **Dynamic Schema** Refac the carousel to have a dynamic schema.
+* **Dynamic Schema** Refact the carousel to have a dynamic schema.
 
 ## [0.2.2] - 2018-24-04
 
-### Added
+### Change
 
-* **Import** Refac the carousel to use @vtex/slick-components.
+* **Import** Refact the carousel to use @vtex/slick-components.
 
 ## [0.2.1] - 2018-19-04
 
