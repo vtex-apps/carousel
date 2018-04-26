@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## Added
+
+* **Billing Policy** Add a billing policy to the app being published at Extensions.
+* **Metadata** Add the metadata of the app.
+
 ## [0.4.0] - 2018-04-26
 
 ### Changed

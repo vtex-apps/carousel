@@ -25,14 +25,14 @@ const bannerStructure = {
       type: 'string',
       title: 'Banner mobile image',
     },
+    description: {
+      type: 'string',
+      title: 'Banner description',
+    },
     page: {
       type: 'string',
       enum: Object.keys(__RUNTIME__.pages),
       title: 'Banner target page',
-    },
-    description: {
-      type: 'string',
-      title: 'Banner description',
     },
     params: {
       type: 'string',
@@ -55,7 +55,7 @@ class Carousel extends Component {
   }
 
   static getSchema = ({ numberOfBanners }) => {
-    numberOfBanners = numberOfBanners ? numberOfBanners : 3
+    numberOfBanners = numberOfBanners || 3
 
     const getRepeatedProperties = repetition =>
       keyBy(
@@ -110,11 +110,17 @@ class Carousel extends Component {
           default: 5,
           enum: [4, 5, 6],
         },
+        // numberOfBanners: {
+        //   type: 'number',
+        //   title: 'Number of banners',
+        //   default: 3,
+        //   enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+        // },
         numberOfBanners: {
-          type: 'number',
+          type: 'integer',
           title: 'Number of banners',
-          default: 3,
-          enum: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          minimum: 1,
+          maximum: 10,
         },
         ...generatedSchema,
       },
@@ -180,7 +186,7 @@ class Carousel extends Component {
       <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
-            {banners.map(function(banner, i) {
+            {banners.map(function (banner, i) {
               if (banner && banner.image) {
                 return (
                   <div
