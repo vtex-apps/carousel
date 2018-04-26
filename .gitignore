@@ -36,4 +36,3 @@ lib
 .eslintrc
 
 react/package-lock.json
-react/yarn.lock

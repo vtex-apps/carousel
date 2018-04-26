@@ -8,7 +8,7 @@
   "author": "VTEX",
   "license": "ISC",
   "dependencies": {
-    "@vtex/slick-components": "~1.0.3",
+    "@vtex/slick-components": "1.0.3",
     "@vtex/styleguide": "~2.0.0-rc.39",
     "lodash": "^4.17.10",
     "react-slick": "0.22.3",
