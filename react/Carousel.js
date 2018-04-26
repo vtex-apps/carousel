@@ -71,7 +71,6 @@ class Carousel extends Component {
     const generatedSchema =
       numberOfBanners && getRepeatedProperties(numberOfBanners)
 
-    console.log('gene', generatedSchema)
     return {
       title: 'Carousel',
       description:
