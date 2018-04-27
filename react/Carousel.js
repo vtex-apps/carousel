@@ -13,6 +13,8 @@ import Banner from './Banner'
 
 import './global.css'
 
+const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
+
 const bannerStructure = {
   type: 'object',
   title: 'banner',
@@ -31,7 +33,7 @@ const bannerStructure = {
     },
     page: {
       type: 'string',
-      enum: Object.keys(__RUNTIME__.pages),
+      enum: GLOBAL_PAGES,
       title: 'Banner target page',
     },
     params: {
