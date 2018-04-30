@@ -15,35 +15,26 @@ import './global.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
-const bannerStructure = {
-  type: 'object',
-  title: 'banner',
-  properties: {
-    image: {
-      type: 'string',
-      title: 'Banner image',
-    },
-    mobileImage: {
-      type: 'string',
-      title: 'Banner mobile image',
-    },
-    description: {
-      type: 'string',
-      title: 'Banner description',
-    },
-    page: {
-      type: 'string',
-      enum: GLOBAL_PAGES,
-      title: 'Banner target page',
-    },
-    params: {
-      type: 'string',
-      description: 'Comma separated params, e.g.: key=value,a=b,c=d',
-      title: 'Params',
-    },
+const bannerProperties = {
+  image: {
+    type: 'string',
+    title: 'Banner image',
+  },
+  mobileImage: {
+    type: 'string',
+    title: 'Banner mobile image',
+  },
+  description: {
+    type: 'string',
+    title: 'Banner description',
+  },
+  typeOfRoute: {
+    type: 'string',
+    title: 'Type of route',
+    default: 'internal',
+    enum: ['internal', 'external'],
   },
 }
-
 /**
  * Carousel component. Shows a serie of banners.
  */
@@ -66,17 +57,43 @@ class Carousel extends Component {
       },
     },
   }
-  static getSchema = ({ numberOfBanners, autoplay }) => {
-    numberOfBanners = numberOfBanners || 3
-    autoplay = autoplay || false
+
+  static getSchema = props => {
+    const numberOfBanners = props.numberOfBanners || 3
+    const autoplay = props.autoplay || false
+
+    /** Defines an internal route or external link for the Banner */
+    const bannerLink = typeOfRoute =>
+      typeOfRoute === 'external' ? {
+        page: {
+          type: 'string',
+          title: 'Banner link',
+        },
+      } : {
+        page: {
+          type: 'string',
+          enum: GLOBAL_PAGES,
+          title: 'Banner target page',
+        },
+        params: {
+          type: 'string',
+          description: 'Comma separated params, e.g.: key=value,a=b,c=d',
+          title: 'Params',
+        },
+      }
 
     const getRepeatedProperties = repetition =>
       keyBy(
         map(range(1, repetition + 1), index => {
+          const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
           return {
-            ...bannerStructure,
             title: `Banner ${index}`,
             key: `banner${index}`,
+            type: 'object',
+            properties: {
+              ...bannerProperties,
+              ...bannerLink(typeOfRoute || 'internal'),
+            },
           }
         }),
         property('key')
@@ -121,6 +138,7 @@ class Carousel extends Component {
         autoplaySpeed: autoplay ? {
           type: 'number',
           title: 'Autoplay speed(sec):',
+          default: 5,
           enum: [4, 5, 6],
         } : {},
         numberOfBanners: {
@@ -194,7 +212,7 @@ class Carousel extends Component {
       <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
-            {banners.map(function (banner, i) {
+            {banners.map(banner => {
               if (banner && banner.image) {
                 return (
                   <div
@@ -204,10 +222,10 @@ class Carousel extends Component {
                     <Banner
                       image={banner.image}
                       mobileImage={banner.mobileImage}
+                      description={banner.description}
                       mobileHeight={mobileHeight}
                       page={banner.page}
-                      description={banner.description}
-                      targetParams={banner.targetParams}
+                      params={banner.params}
                     />
                   </div>
                 )
@@ -231,11 +249,10 @@ class Carousel extends Component {
 const bannerProptype = PropTypes.shape({
   image: PropTypes.string,
   mobileImage: PropTypes.string,
-  page: PropTypes.string,
   description: PropTypes.string,
-  targetParams: PropTypes.shape({
-    params: PropTypes.string,
-  }),
+  typeOfRoute: PropTypes.string,
+  page: PropTypes.string,
+  params: PropTypes.string,
 })
 
 Carousel.defaultProps = {
@@ -251,7 +268,7 @@ Carousel.propTypes = {
   /** Should change images automatically */
   autoplay: PropTypes.bool.isRequired,
   /** How long it should wait to change the banner in secs */
-  autoplaySpeed: PropTypes.number,
+  autoplaySpeed: PropTypes.number.isRequired,
   /** Max height size of the banners */
   height: PropTypes.number.isRequired,
   /** Max height size of the banners on mobile */
