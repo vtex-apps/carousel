@@ -15,35 +15,26 @@ import './global.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
-const bannerStructure = {
-  type: 'object',
-  title: 'banner',
-  properties: {
-    image: {
-      type: 'string',
-      title: 'Banner image',
-    },
-    mobileImage: {
-      type: 'string',
-      title: 'Banner mobile image',
-    },
-    description: {
-      type: 'string',
-      title: 'Banner description',
-    },
-    page: {
-      type: 'string',
-      enum: GLOBAL_PAGES,
-      title: 'Banner target page',
-    },
-    params: {
-      type: 'string',
-      description: 'Comma separated params, e.g.: key=value,a=b,c=d',
-      title: 'Params',
-    },
+const bannerProperties = {
+  image: {
+    type: 'string',
+    title: 'Banner image',
+  },
+  mobileImage: {
+    type: 'string',
+    title: 'Banner mobile image',
+  },
+  description: {
+    type: 'string',
+    title: 'Banner description',
+  },
+  typeOfRoute: {
+    type: 'string',
+    title: 'Type of route',
+    default: 'internal',
+    enum: ['internal', 'external'],
   },
 }
-
 /**
  * Carousel component. Shows a serie of banners.
  */
@@ -65,21 +56,53 @@ class Carousel extends Component {
         'inline': true,
       },
     },
+    typeOfRoute: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        'inline': true,
+      },
+    },
   }
-  static getSchema = ({ numberOfBanners, autoplay }) => {
-    numberOfBanners = numberOfBanners || 3
-    autoplay = autoplay || false
+
+  static getSchema = (props) => {
+    const numberOfBanners = props.numberOfBanners || 3
+    const autoplay = props.autoplay || false
+
+    /** Defines a internal route or external link for the Banner */
+    const bannerLink = (typeOfRoute) =>
+      (typeOfRoute === 'external') ? {
+        page: {
+          type: 'string',
+          title: 'Banner link',
+        },
+      } : {
+        page: {
+          type: 'string',
+          enum: GLOBAL_PAGES,
+          title: 'Banner target page',
+        },
+        params: {
+          type: 'string',
+          description: 'Comma separated params, e.g.: key=value,a=b,c=d',
+          title: 'Params',
+        },
+      }
 
     const getRepeatedProperties = repetition =>
       keyBy(
         map(range(1, repetition + 1), index => {
+          const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
           return {
-            ...bannerStructure,
             title: `Banner ${index}`,
             key: `banner${index}`,
+            type: 'object',
+            properties: {
+              ...bannerProperties,
+              ...bannerLink(typeOfRoute || 'internal'),
+            },
           }
         }),
-        property('key')
+        property('key'),
       )
 
     const generatedSchema =
@@ -231,11 +254,8 @@ class Carousel extends Component {
 const bannerProptype = PropTypes.shape({
   image: PropTypes.string,
   mobileImage: PropTypes.string,
-  page: PropTypes.string,
   description: PropTypes.string,
-  targetParams: PropTypes.shape({
-    params: PropTypes.string,
-  }),
+  typeOfRoute: PropTypes.string,
 })
 
 Carousel.defaultProps = {
