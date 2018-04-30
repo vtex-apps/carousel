@@ -62,7 +62,7 @@ class Carousel extends Component {
     const numberOfBanners = props.numberOfBanners || 3
     const autoplay = props.autoplay || false
 
-    /** Defines a internal route or external link for the Banner */
+    /** Defines an internal route or external link for the Banner */
     const bannerLink = typeOfRoute =>
       typeOfRoute === 'external' ? {
         page: {
