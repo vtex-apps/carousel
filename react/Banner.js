@@ -9,16 +9,16 @@ class Banner extends Component {
   render() {
     const {
       image,
-      page,
-      description,
-      targetParams,
       mobileImage,
+      description,
+      page,
+      params,
       mobileHeight,
     } = this.props
 
     return (
       <div>
-        <Link page={page} params={targetParams}>
+        <Link page={page} params={params}>
           <div className="img-container">
             <img className="img-regular w-100" src={image} alt={description} />
             <div
@@ -46,7 +46,7 @@ Banner.propTypes = {
   /** The page where the image is pointing to */
   page: PropTypes.string,
   /** Params of the url */
-  targetParams: PropTypes.object,
+  params: PropTypes.object,
 }
 
 export default Banner

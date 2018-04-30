@@ -56,12 +56,6 @@ class Carousel extends Component {
         'inline': true,
       },
     },
-    typeOfRoute: {
-      'ui:widget': 'radio',
-      'ui:options': {
-        'inline': true,
-      },
-    },
   }
 
   static getSchema = (props) => {
@@ -144,6 +138,7 @@ class Carousel extends Component {
         autoplaySpeed: autoplay ? {
           type: 'number',
           title: 'Autoplay speed(sec):',
+          default: 5,
           enum: [4, 5, 6],
         } : {},
         numberOfBanners: {
@@ -217,7 +212,7 @@ class Carousel extends Component {
       <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
-            {banners.map(function (banner, i) {
+            {banners.map(function (banner) {
               if (banner && banner.image) {
                 return (
                   <div
@@ -227,10 +222,10 @@ class Carousel extends Component {
                     <Banner
                       image={banner.image}
                       mobileImage={banner.mobileImage}
+                      description={banner.description}
                       mobileHeight={mobileHeight}
                       page={banner.page}
-                      description={banner.description}
-                      targetParams={banner.targetParams}
+                      params={banner.params}
                     />
                   </div>
                 )
@@ -259,7 +254,7 @@ const bannerProptype = PropTypes.shape({
 })
 
 Carousel.defaultProps = {
-  autoplay: true,
+  autoplay: false,
   showArrows: true,
   showDots: true,
   height: 420,
@@ -271,7 +266,7 @@ Carousel.propTypes = {
   /** Should change images automatically */
   autoplay: PropTypes.bool.isRequired,
   /** How long it should wait to change the banner in secs */
-  autoplaySpeed: PropTypes.number,
+  autoplaySpeed: PropTypes.number.isRequired,
   /** Max height size of the banners */
   height: PropTypes.number.isRequired,
   /** Max height size of the banners on mobile */

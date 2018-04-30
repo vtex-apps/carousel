@@ -1233,7 +1233,7 @@ dom-helpers@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.3.1.tgz#fc1a4e15ffdf60ddde03a480a9c0fece821dd4a6"
 
-dom-testing-library@^1.10.0:
+dom-testing-library@^1.0.0:
   version "1.10.0"
   resolved "https://registry.yarnpkg.com/dom-testing-library/-/dom-testing-library-1.10.0.tgz#d10c083a8f15fa296457edbd05c4be455a5d7419"
   dependencies:
@@ -3186,12 +3186,12 @@ react-slick@0.22.3:
     json2mq "^0.2.0"
     resize-observer-polyfill "^1.5.0"
 
-react-testing-library@^2.1.1:
-  version "2.3.0"
-  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-2.3.0.tgz#e14c5fdac7a64dce0781d14f3f860933a42e0fa9"
+react-testing-library@~2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-2.1.1.tgz#1d7eb5002823eeedca4c247cdfe8450cfbd4f3b8"
   dependencies:
-    dom-testing-library "^1.10.0"
-    wait-for-expect "^0.5.0"
+    dom-testing-library "^1.0.0"
+    wait-for-expect "0.4.0"
 
 react-transition-group@^2.2.1:
   version "2.3.1"
@@ -3892,13 +3892,9 @@ w3c-hr-time@^1.0.1:
   dependencies:
     browser-process-hrtime "^0.1.2"
 
-wait-for-expect@^0.4.0:
+wait-for-expect@0.4.0, wait-for-expect@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-0.4.0.tgz#341c96ab89d6102a0169a9be6cd0de354de92c17"
-
-wait-for-expect@^0.5.0:
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/wait-for-expect/-/wait-for-expect-0.5.0.tgz#cc935a94c6039967bd7760c9e9cc557f4674887a"
 
 walker@~1.0.5:
   version "1.0.7"
