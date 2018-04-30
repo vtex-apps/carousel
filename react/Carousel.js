@@ -58,13 +58,13 @@ class Carousel extends Component {
     },
   }
 
-  static getSchema = (props) => {
+  static getSchema = props => {
     const numberOfBanners = props.numberOfBanners || 3
     const autoplay = props.autoplay || false
 
     /** Defines a internal route or external link for the Banner */
-    const bannerLink = (typeOfRoute) =>
-      (typeOfRoute === 'external') ? {
+    const bannerLink = typeOfRoute =>
+      typeOfRoute === 'external' ? {
         page: {
           type: 'string',
           title: 'Banner link',
@@ -96,7 +96,7 @@ class Carousel extends Component {
             },
           }
         }),
-        property('key'),
+        property('key')
       )
 
     const generatedSchema =
@@ -251,10 +251,12 @@ const bannerProptype = PropTypes.shape({
   mobileImage: PropTypes.string,
   description: PropTypes.string,
   typeOfRoute: PropTypes.string,
+  page: PropTypes.string,
+  params: PropTypes.string,
 })
 
 Carousel.defaultProps = {
-  autoplay: false,
+  autoplay: true,
   showArrows: true,
   showDots: true,
   height: 420,

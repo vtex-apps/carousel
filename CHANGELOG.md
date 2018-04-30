@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+
+## [0.6.0] - 2018-04-30
+
+## Added 
+
+* **Dynamic Schema** Make banner route type a dynamic property
+
 ## [0.5.0] - 2018-04-26
 
 ## Added
@@ -17,7 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Changed
 
-* **Dynamic Scheam** Change the autoplay and autoplaySpeed structure behavior to be dynamic
+* **Dynamic Schema** Change the autoplay and autoplaySpeed structure behavior to be dynamic
 
 ## [0.4.0] - 2018-04-26
 
