@@ -212,7 +212,7 @@ class Carousel extends Component {
       <div className="vtex-carousel">
         {!loading && (
           <Slider {...settings}>
-            {banners.map(function (banner) {
+            {banners.map(banner => {
               if (banner && banner.image) {
                 return (
                   <div
