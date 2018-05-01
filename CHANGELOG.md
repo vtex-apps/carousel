@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## Changed 
+
+* **UI Schema** Adapt the UI structure accordingly with the changes of `pages-editor.`
+
 ## [0.6.0] - 2018-04-30
 
 ## Added 
