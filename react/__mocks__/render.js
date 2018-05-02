@@ -8,3 +8,12 @@ export class Link extends Component {
     return <a>{this.props.children}</a>
   }
 }
+
+/**
+ * Link Mocked Component.
+ */
+export class NoSSR extends Component {
+  render() {
+    return this.props.children
+  }
+}
