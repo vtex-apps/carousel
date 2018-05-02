@@ -7,9 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.0] - 2018-05-02
+
+## Changed
+
+* Launch stable version of the app. 
+* **Refactoring** Make carrousel use NoSSR.
+
 ## [0.6.0] - 2018-04-30
 
-## Added 
+## Added
 
 * **Dynamic Schema** Make banner route type a dynamic property
 
@@ -36,7 +43,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 * **CSS** Import global css instead of relying on theme
-
 
 ## [0.2.2] - 2018-04-24
 
