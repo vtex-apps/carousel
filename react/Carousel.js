@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Slider from 'react-slick'
-import Spinner from '@vtex/styleguide/lib/Spinner'
 import { Arrow, Dots } from '@vtex/slick-components'
 import keyBy from 'lodash/keyBy'
 import map from 'lodash/map'
 import range from 'lodash/range'
 import property from 'lodash/property'
-import {NoSSR} from 'render'
+import { NoSSR } from 'render'
 
 import Banner from './Banner'
 
@@ -51,7 +50,7 @@ const defaultBannerProps = index => ({
   image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index + 1}.png`,
   mobileImage: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-0${index + 1}.png`,
   page: 'store/home',
-  description: 'banner'
+  description: 'banner',
 })
 
 /**
@@ -144,7 +143,7 @@ export default class Carousel extends Component {
         map(range(0, repetition), index => {
           const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
           return {
-            title: `Banner #${index+1}`,
+            title: `Banner #${index + 1}`,
             key: `banner${index}`,
             type: 'object',
             properties: {
