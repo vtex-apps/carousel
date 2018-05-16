@@ -6,23 +6,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- **slick slider** Integrate with vtex.storecomponents/Slider
 
 ## [1.0.0] - 2018-05-02
 
-## Changed
+### Changed
 
 * Launch stable version of the app. 
 * **Refactoring** Make carrousel use NoSSR.
 
 ## [0.6.0] - 2018-04-30
 
-## Added
+### Added
 
 * **Dynamic Schema** Make banner route type a dynamic property
 
 ## [0.5.0] - 2018-04-26
 
-## Added
+### Added
 
 * **Billing Policy** Add a billing policy to the app being published at Extensions.
 * **Metadata** Add the metadata of the app.
