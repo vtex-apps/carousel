@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import Slider from 'react-slick'
-import { Arrow, Dots } from '@vtex/slick-components'
+
 import keyBy from 'lodash/keyBy'
 import map from 'lodash/map'
 import range from 'lodash/range'
 import property from 'lodash/property'
-import { NoSSR } from 'render'
 
+import Slider from 'vtex.storecomponents/Slider'
 import Banner from './Banner'
+import { NoSSR } from 'render'
 
 import './global.css'
 
@@ -222,10 +222,7 @@ export default class Carousel extends Component {
       autoplaySpeed: autoplaySpeed * 1000,
       dots: showDots,
       arrows: showArrows,
-      autoplay,
-      nextArrow: <Arrow cssClass="vtex-carousel__arrow-right" />,
-      prevArrow: <Arrow cssClass="vtex-carousel__arrow-left" />,
-      appendDots: dots => <Dots dots={dots} cssClass="vtex-carousel__dots" />,
+      autoplay
     }
   }
 
@@ -260,7 +257,7 @@ export default class Carousel extends Component {
     return (
       <div className="vtex-carousel">
         <NoSSR onSSR={fallback}>
-          <Slider {...settings}>
+          <Slider sliderSettings={settings}>
             {banners.map((banner, i) => banner && banner.image && (
               <div key={i} style={{ maxHeight: `${height}px` }}>
                 <Banner

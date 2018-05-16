@@ -1,6 +1,3 @@
-@import url('~slick-carousel/slick/slick.css');
-@import url('~slick-carousel/slick/slick-theme.css');
-
 .vtex-carousel {
   min-width: 10px;
   min-height: 10px;
@@ -16,62 +13,62 @@
 
 /* Arrows */
 
-.vtex-carousel .vtex-carousel__arrow-left:before,
-.vtex-carousel .vtex-carousel__arrow-right:before {
+.vtex-carousel .vtex-slider__arrow-left:before,
+.vtex-carousel .vtex-slider__arrow-right:before {
   font-size: 3vw;
   color: black;
 }
 
-.vtex-carousel .vtex-carousel__arrow-left {
+.vtex-carousel .vtex-slider__arrow-left {
   left: 5%;
   z-index: 1;
   top: 44%;
 }
-[dir='rtl'] .vtex-carousel .vtex-carousel__arrow-left {
+[dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
   right: 5%;
   left: auto;
 }
 
-.vtex-carousel .vtex-carousel__arrow-right {
+.vtex-carousel .vtex-slider__arrow-right {
   right: 8%;
   top: 44%;
 }
-[dir='rtl'] .vtex-carousel .vtex-carousel__arrow-right {
+[dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
   right: auto;
   left: 8%;
 }
 
 /* Dots */
 
-.vtex-carousel .vtex-carousel__dots {
+.vtex-carousel .vtex-slider__dots {
   position: relative;
   top: -50px;
 }
 
-.vtex-carousel .vtex-carousel__dots li button {
+.vtex-carousel .vtex-slider__dots li button {
   color: black;
 }
 
-.vtex-carousel .vtex-carousel__dots li button:before {
+.vtex-carousel .vtex-slider__dots li button:before {
   color: black;
   font-size: 1vw;
 }
-.vtex-carousel .vtex-carousel__dots li.slick-active button:before {
+.vtex-carousel .vtex-slider__dots li.slick-active button:before {
   color: black;
 }
 
 @media only screen and (max-device-width: 480px) {
-  .vtex-carousel .vtex-carousel__dots {
+  .vtex-carousel .vtex-slider__dots {
     position: relative;
     top: -30px;
   }
 
-  .vtex-carousel .vtex-carousel__dots li button:before {
+  .vtex-carousel .vtex-slider__dots li button:before {
     font-size: 3vw;
   }
 
-  .vtex-carousel .vtex-carousel__arrow-left:before,
-  .vtex-carousel .vtex-carousel__arrow-right:before {
+  .vtex-carousel .vtex-slider__arrow-left:before,
+  .vtex-carousel .vtex-slider__arrow-right:before {
     display: none;
   }
 

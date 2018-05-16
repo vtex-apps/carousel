@@ -56,16 +56,7 @@ describe('Carousel component', () => {
   it('should render items', () => {
     expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-right').length
-    ).toBe(1)
-    expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-left').length
-    ).toBe(1)
-    expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__dots').length
-    ).toBe(1)
-    expect(
       wrapper.container.querySelectorAll('.img-container').length
-    ).toBeGreaterThan(3) // set to be infinite
+    ).toBe(3) // set to be infinite
   })
 })
