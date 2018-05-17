@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - **slick slider** Integrate with vtex.storecomponents/Slider
+### Fixed
+- Fix banner link working.
 
 ## [1.0.0] - 2018-05-02
 
