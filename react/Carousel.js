@@ -123,20 +123,20 @@ export default class Carousel extends Component {
       typeOfRoute === 'external' ? {
         page: {
           type: 'string',
-          title: 'Banner link',
+          title: 'Banner link (should start with https)',
         },
       } : {
-        page: {
-          type: 'string',
-          enum: GLOBAL_PAGES,
-          title: 'Banner target page',
-        },
-        params: {
-          type: 'string',
-          description: 'Comma separated params, e.g.: key=value,a=b,c=d',
-          title: 'Params',
-        },
-      }
+          page: {
+            type: 'string',
+            enum: GLOBAL_PAGES,
+            title: 'Banner target page',
+          },
+          params: {
+            type: 'string',
+            description: 'Comma separated params, e.g.: key=value,a=b,c=d',
+            title: 'Params',
+          },
+        }
 
     const getRepeatedProperties = repetition =>
       keyBy(
@@ -253,7 +253,6 @@ export default class Carousel extends Component {
         />
       </div>
     )
-
     return (
       <div className="vtex-carousel">
         <NoSSR onSSR={fallback}>
@@ -267,6 +266,7 @@ export default class Carousel extends Component {
                   mobileHeight={mobileHeight}
                   page={banner.page}
                   params={banner.params}
+                  typeOfRoute={banner.typeOfRoute}
                 />
               </div>
             ))}
