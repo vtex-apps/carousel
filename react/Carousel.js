@@ -34,6 +34,12 @@ const bannerProperties = {
     title: 'Type of route',
     default: 'internal',
     enum: ['internal', 'external'],
+    widget: {
+      'ui:widget': 'radio',
+      'ui:options': {
+        'inline': true,
+      },
+    },
   },
 }
 
@@ -196,6 +202,12 @@ export default class Carousel extends Component {
           title: 'Autoplay speed(sec):',
           default: 5,
           enum: [4, 5, 6],
+          widget: {
+            'ui:widget': 'radio',
+            'ui:options': {
+              'inline': true,
+            },
+          },
         } : {},
         numberOfBanners: {
           type: 'number',
@@ -203,6 +215,9 @@ export default class Carousel extends Component {
           default: 3,
           minimum: 1,
           maximum: 10,
+          widget: {
+            'ui:widget': 'range',
+          },
         },
         ...generatedSchema,
       },
