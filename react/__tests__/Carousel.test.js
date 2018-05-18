@@ -14,7 +14,8 @@ describe('Carousel component', () => {
     showDots: true,
     autoplay: true,
     autoplaySpeed: 4,
-    banner1: {
+    numberOfBanners: 3,
+    banner0: {
       image:
         'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
       mobileImage:
@@ -22,7 +23,7 @@ describe('Carousel component', () => {
       page: '/',
       description: 'banner',
     },
-    banner2: {
+    banner1: {
       image:
         'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
       mobileImage:
@@ -30,7 +31,7 @@ describe('Carousel component', () => {
       page: '/',
       description: 'banner',
     },
-    banner3: {
+    banner2: {
       image:
         'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
       mobileImage:
@@ -55,16 +56,7 @@ describe('Carousel component', () => {
   it('should render items', () => {
     expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-right').length
-    ).toBe(1)
-    expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__arrow-left').length
-    ).toBe(1)
-    expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__dots').length
-    ).toBe(1)
-    expect(
       wrapper.container.querySelectorAll('.img-container').length
-    ).toBeGreaterThan(3) // set to be infinite
+    ).toBe(3) // set to be infinite
   })
 })
