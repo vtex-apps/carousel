@@ -6,6 +6,19 @@ import { Link } from 'render'
  * Banner component. Shows an image with a description and one link.
  */
 class Banner extends Component {
+
+  getParams = params => {
+    let json = {}
+    if (params) {
+      let array = params.split(',')
+      array.forEach(item => {
+        let pair = item.split('=')
+        json[pair[0]] = pair[1]
+      })
+      return json
+    }
+  }
+
   render() {
     const {
       image,
@@ -14,22 +27,30 @@ class Banner extends Component {
       page,
       params,
       mobileHeight,
+      typeOfRoute,
     } = this.props
 
-    return (
-      <div>
-        <Link page={page} params={params}>
-          <div className="img-container">
-            <img className="img-regular w-100" src={image} alt={description} />
-            <div
-              className="img-mobile"
-              style={{ maxHeight: `${mobileHeight}px` }}
-            >
-              <img className="w-100" src={mobileImage} alt={description} />
-            </div>
-          </div>
-        </Link>
+    const content = (
+      <div className="img-container">
+        <img className="img-regular w-100" src={image} alt={description} />
+        <div
+          className="img-mobile"
+          style={{ maxHeight: `${mobileHeight}px` }}
+        >
+          <img className="w-100" src={mobileImage} alt={description} />
+        </div>
       </div>
+    )
+
+    return (
+      typeOfRoute === 'internal' ?
+        <Link page={page} params={this.getParams(params)}>
+          {content}
+        </Link>
+        :
+        <a href={page} target="_blank">
+          {content}
+        </a>
     )
   }
 }
@@ -47,6 +68,12 @@ Banner.propTypes = {
   page: PropTypes.string,
   /** Params of the url */
   params: PropTypes.object,
+  /** Type of route */
+  typeOfRoute: PropTypes.string,
+}
+
+Banner.defaultProps = {
+  typeOfRoute: 'external',
 }
 
 export default Banner

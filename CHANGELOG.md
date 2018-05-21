@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.1] - 2018-05-19
 ### Changed
 - **slick slider** Integrate with vtex.storecomponents/Slider
+### Fixed
+- Fix banner link working.
 
 ### Fixed
 - Fix banner link not working
