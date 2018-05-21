@@ -11,15 +11,20 @@ exports[`Carousel component should match snapshot 1`] = `
       <div>
         <a>
           <div
-            class="img-container"
+            class="vtex-carousel__img-container"
           >
-            <img
-              alt="banner"
-              class="img-regular w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-            />
             <div
-              class="img-mobile"
+              class="vtex-carousel__img-regular"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="banner"
+                class="w-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+              />
+            </div>
+            <div
+              class="vtex-carousel__img-mobile"
               style="max-height: 339px;"
             >
               <img
@@ -38,15 +43,20 @@ exports[`Carousel component should match snapshot 1`] = `
       <div>
         <a>
           <div
-            class="img-container"
+            class="vtex-carousel__img-container"
           >
-            <img
-              alt="banner"
-              class="img-regular w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
-            />
             <div
-              class="img-mobile"
+              class="vtex-carousel__img-regular"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="banner"
+                class="w-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
+              />
+            </div>
+            <div
+              class="vtex-carousel__img-mobile"
               style="max-height: 339px;"
             >
               <img
@@ -65,15 +75,20 @@ exports[`Carousel component should match snapshot 1`] = `
       <div>
         <a>
           <div
-            class="img-container"
+            class="vtex-carousel__img-container"
           >
-            <img
-              alt="banner"
-              class="img-regular w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
-            />
             <div
-              class="img-mobile"
+              class="vtex-carousel__img-regular"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="banner"
+                class="w-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+              />
+            </div>
+            <div
+              class="vtex-carousel__img-mobile"
               style="max-height: 339px;"
             >
               <img
