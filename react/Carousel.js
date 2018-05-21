@@ -258,7 +258,7 @@ export default class Carousel extends Component {
     const banner = this.props.banner0
 
     const fallback = (
-      <div style={{ maxHeight: `${height}px` }}>
+      <div style={{ maxHeight: `${height}px` }} className="overflow-y-hidden">
         <Banner
           height={height}
           image={banner.image}
@@ -276,7 +276,7 @@ export default class Carousel extends Component {
         <NoSSR onSSR={fallback}>
           <Slider sliderSettings={settings} >
             {banners.map((banner, i) => banner && banner.image && (
-              <div key={i}>
+              <div key={i} style={{ maxHeight: `${height}px` }}>
                 <Banner
                   height={height}
                   image={banner.image}

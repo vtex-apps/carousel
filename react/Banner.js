@@ -80,6 +80,7 @@ Banner.propTypes = {
 
 Banner.defaultProps = {
   typeOfRoute: 'internal',
+  height: 420,
 }
 
 export default Banner
