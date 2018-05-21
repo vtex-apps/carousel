@@ -25,6 +25,6 @@
     "free": true
   },
   "dependencies": {
-    "vtex.storecomponents": "0.x"
+    "vtex.storecomponents": "1.x"
   }
 }
