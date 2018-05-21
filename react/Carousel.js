@@ -126,21 +126,22 @@ export default class Carousel extends Component {
 
     /** Defines an internal route or external link for the Banner */
     const bannerLink = typeOfRoute =>
-      typeOfRoute === 'external' ? {
+      typeOfRoute === 'internal' ? {
         page: {
           type: 'string',
-          title: 'Banner link (should start with https)',
+          enum: GLOBAL_PAGES,
+          title: 'Banner target page',
         },
-      } : {
+        params: {
+          type: 'string',
+          description: 'Comma separated params, e.g.: key=value,a=b,c=d',
+          title: 'Params',
+        },
+      }
+        : {
           page: {
             type: 'string',
-            enum: GLOBAL_PAGES,
-            title: 'Banner target page',
-          },
-          params: {
-            type: 'string',
-            description: 'Comma separated params, e.g.: key=value,a=b,c=d',
-            title: 'Params',
+            title: 'Banner link (should start with https or http)',
           },
         }
 
@@ -237,7 +238,7 @@ export default class Carousel extends Component {
       autoplaySpeed: autoplaySpeed * 1000,
       dots: showDots,
       arrows: showArrows,
-      autoplay
+      autoplay,
     }
   }
 
@@ -257,24 +258,27 @@ export default class Carousel extends Component {
     const banner = this.props.banner0
 
     const fallback = (
-      <div style={{ maxHeight: `${height}px` }}>
+      <div style={{ maxHeight: `${height}px` }} className="overflow-y-hidden">
         <Banner
+          height={height}
           image={banner.image}
           mobileImage={banner.mobileImage}
           description={banner.description}
           mobileHeight={mobileHeight}
           page={banner.page}
           params={banner.params}
+          typeOfRoute={banner.typeOfRoute}
         />
       </div>
     )
     return (
       <div className="vtex-carousel">
         <NoSSR onSSR={fallback}>
-          <Slider sliderSettings={settings}>
+          <Slider sliderSettings={settings} >
             {banners.map((banner, i) => banner && banner.image && (
               <div key={i} style={{ maxHeight: `${height}px` }}>
                 <Banner
+                  height={height}
                   image={banner.image}
                   mobileImage={banner.mobileImage}
                   description={banner.description}

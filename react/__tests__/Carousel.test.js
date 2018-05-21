@@ -56,7 +56,7 @@ describe('Carousel component', () => {
   it('should render items', () => {
     expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.img-container').length
+      wrapper.container.querySelectorAll('.vtex-carousel__img-container').length
     ).toBe(3) // set to be infinite
   })
 })

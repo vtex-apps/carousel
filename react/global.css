@@ -3,11 +3,11 @@
   min-height: 10px;
 }
 
-.vtex-carousel .img-container {
+.vtex-carousel .vtex-carousel__img-container {
   max-height: inherit;
 }
 
-.vtex-carousel .img-mobile {
+.vtex-carousel .vtex-carousel__img-mobile {
   display: none;
 }
 
@@ -72,10 +72,11 @@
     display: none;
   }
 
-  .vtex-carousel .img-regular {
+  .vtex-carousel .vtex-carousel__img-regular {
     display: none;
   }
-  .vtex-carousel .img-mobile {
+  .vtex-carousel .vtex-carousel__img-mobile {
     display: block;
   }
+
 }
