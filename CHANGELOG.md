@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Fixed
 - Fix the banner image size.
+- Fix bug of changing properties on edit mode.
 
 ## [1.0.2] - 2018-05-21
 ### Changed
