@@ -20,14 +20,17 @@ const bannerProperties = {
   image: {
     type: 'string',
     title: 'Banner image',
+    default: '',
   },
   mobileImage: {
     type: 'string',
     title: 'Banner mobile image',
+    default: '',
   },
   description: {
     type: 'string',
     title: 'Banner description',
+    default: '',
   },
   typeOfRoute: {
     type: 'string',
@@ -164,6 +167,10 @@ export default class Carousel extends Component {
 
     const generatedSchema =
       numberOfBanners && getRepeatedProperties(numberOfBanners)
+
+    if (props.numberOfBanners === undefined && generatedSchema.banner0) {
+      generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
+    }
 
     return {
       title: 'Carousel',
