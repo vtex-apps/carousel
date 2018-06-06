@@ -1,6 +1,6 @@
 {
   "editor.carousel.title": "Carousel",
-  "editor.carousel.description": "A simple carousel component that shows a serie of banners with images and links",
+  "editor.carousel.description": "A simple carousel component that shows a serie of banners",
   "editor.carousel.showDots.title": "Show dots",
   "editor.carousel.showArrows.title": "Show arrows",
   "editor.carousel.height.title": "Banner max height size (px)",

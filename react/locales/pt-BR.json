@@ -1,8 +1,8 @@
 {
   "editor.carousel.title": "Carrossel",
-  "editor.carousel.description": "Um simples componente de carrossel que mostra uma série de banners com imagens e links",
+  "editor.carousel.description": "Um componente básico de carrossel que exibe uma série de banners",
   "editor.carousel.showDots.title": "Mostrar pontos",
-  "editor.carousel.showArrows.title": "Mostrar setas",
+  "editor.carousel.showArrows.title": "Mostrar setas de navegação",
   "editor.carousel.height.title": "Altura máxima do banner (px)",
   "editor.carousel.mobileHeight.title": "Altura máxima do banner no mobile (px)",
   "editor.carousel.autoplay.title": "Reprodução automática",
