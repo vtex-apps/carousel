@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Update Slider mock behavior to use destructure. 
+
 ## [1.0.4] - 2018-6-6
 
 ### Changed
