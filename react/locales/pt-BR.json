@@ -1,0 +1,22 @@
+{
+  "editor.carousel.title": "Carrossel",
+  "editor.carousel.description": "Um simples componente de carrossel que mostra uma série de banners com imagens e links",
+  "editor.carousel.showDots.title": "Mostrar pontos",
+  "editor.carousel.showArrows.title": "Mostrar setas",
+  "editor.carousel.height.title": "Altura máxima do banner (px)",
+  "editor.carousel.mobileHeight.title": "Altura máxima do banner no mobile (px)",
+  "editor.carousel.autoplay.title": "Reprodução automática",
+  "editor.carousel.autoplaySpeed.title": "Velocidade da reprodução automática (seg)",
+  "editor.carousel.numberOfBanners.title": "Número de banners",
+  "editor.carousel.bannerLink.title": "Link do banner (deve começar com http ou https)",
+  "editor.carousel.bannerLink.page.title": "Página alvo do banner",
+  "editor.carousel.bannerLink.params.title": "Parâmetros",
+  "editor.carousel.bannerLink.params.description": "Parâmetros separados por vírgula, e.g.: chave=valor,a=b,c=d",
+  "editor.carousel.banner.title": "Banner #{id}",
+  "editor.carousel.banner.description.title": "Descrição do banner",
+  "editor.carousel.banner.typeOfRoute.title": "Tipo de rota",
+  "editor.carousel.banner.typeOfRoute.internal": "Interna",
+  "editor.carousel.banner.typeOfRoute.external": "Externa",
+  "editor.carousel.banner.image.title": "Imagem do banner",
+  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"
+}

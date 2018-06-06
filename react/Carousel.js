@@ -19,24 +19,28 @@ const DEFAULT_NUM_BANNERS = 3
 const bannerProperties = {
   image: {
     type: 'string',
-    title: 'Banner image',
+    title: 'editor.carousel.banner.image.title',
     default: '',
   },
   mobileImage: {
     type: 'string',
-    title: 'Banner mobile image',
+    title: 'editor.carousel.banner.mobileImage.title',
     default: '',
   },
   description: {
     type: 'string',
-    title: 'Banner description',
+    title: 'editor.carousel.banner.description.title',
     default: '',
   },
   typeOfRoute: {
     type: 'string',
-    title: 'Type of route',
+    title: 'editor.carousel.banner.typeOfRoute.title',
     default: 'internal',
     enum: ['internal', 'external'],
+    enumNames: [
+      'editor.carousel.banner.typeOfRoute.internal',
+      'editor.carousel.banner.typeOfRoute.external',
+    ],
     widget: {
       'ui:widget': 'radio',
       'ui:options': {
@@ -111,49 +115,41 @@ export default class Carousel extends Component {
     banner9: bannerProptype,
   }
 
-  static uiSchema = {
-    numberOfBanners: {
-      'ui:widget': 'range',
-    },
-    autoplaySpeed: {
-      'ui:widget': 'radio',
-      'ui:options': {
-        'inline': true,
-      },
-    },
-  }
-
   static getSchema = props => {
     const numberOfBanners = props.numberOfBanners || 3
     const autoplay = props.autoplay || false
 
     /** Defines an internal route or external link for the Banner */
-    const bannerLink = typeOfRoute =>
-      typeOfRoute === 'internal' ? {
-        page: {
-          type: 'string',
-          enum: GLOBAL_PAGES,
-          title: 'Banner target page',
-        },
-        params: {
-          type: 'string',
-          description: 'Comma separated params, e.g.: key=value,a=b,c=d',
-          title: 'Params',
-        },
-      }
-        : {
+    const bannerLink = typeOfRoute => {
+      if (typeOfRoute === 'internal') {
+        return {
           page: {
             type: 'string',
-            title: 'Banner link (should start with https or http)',
+            enum: GLOBAL_PAGES,
+            title: 'editor.carousel.bannerLink.page.title',
+          },
+          params: {
+            type: 'string',
+            description: 'editor.carousel.bannerLink.params.description',
+            title: 'editor.carousel.bannerLink.params.title',
           },
         }
+      }
 
-    const getRepeatedProperties = repetition =>
+      return {
+        page: {
+          type: 'string',
+          title: 'editor.carousel.bannerLink.title',
+        },
+      }
+    }
+
+    const getBannersSchema = repetition =>
       keyBy(
         map(range(0, repetition), index => {
           const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
           return {
-            title: `Banner #${index + 1}`,
+            title: { id: 'editor.carousel.banner.title', values: { id: index + 1 } },
             key: `banner${index}`,
             type: 'object',
             properties: {
@@ -166,48 +162,47 @@ export default class Carousel extends Component {
       )
 
     const generatedSchema =
-      numberOfBanners && getRepeatedProperties(numberOfBanners)
+      numberOfBanners && getBannersSchema(numberOfBanners)
 
     if (props.numberOfBanners === undefined && generatedSchema.banner0) {
       generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
     }
 
     return {
-      title: 'Carousel',
-      description:
-        'A simple carousel component that shows a serie of banners with images and links',
+      title: 'editor.carousel.title',
+      description: 'editor.carousel.description',
       type: 'object',
       properties: {
         showDots: {
           type: 'boolean',
-          title: 'Show dots',
+          title: 'editor.carousel.showDots.title',
           default: true,
         },
         showArrows: {
           type: 'boolean',
-          title: 'Show arrows',
+          title: 'editor.carousel.showArrows.title',
           default: true,
         },
         height: {
           type: 'number',
-          title: 'Banner max height size (px)',
+          title: 'editor.carousel.height.title',
           default: 420,
           enum: [420, 440],
         },
         mobileHeight: {
           type: 'number',
-          title: 'Banner max height size on mobile (px)',
+          title: 'editor.carousel.mobileHeight.title',
           default: 339,
           enum: [339, 159],
         },
         autoplay: {
           type: 'boolean',
-          title: 'Autoplay',
+          title: 'editor.carousel.autoplay.title',
           default: true,
         },
         autoplaySpeed: autoplay ? {
           type: 'number',
-          title: 'Autoplay speed(sec):',
+          title: 'editor.carousel.autoplaySpeed.title',
           default: 5,
           enum: [4, 5, 6],
           widget: {
@@ -219,7 +214,7 @@ export default class Carousel extends Component {
         } : {},
         numberOfBanners: {
           type: 'number',
-          title: 'Number of banners',
+          title: 'editor.carousel.numberOfBanners.title',
           default: 3,
           minimum: 1,
           maximum: 10,
