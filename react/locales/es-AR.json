@@ -1,6 +1,6 @@
 {
   "editor.carousel.title": "Carrusel",
-  "editor.carousel.description": "Un simple componente de carrusel que muestra una serie de banners",
+  "editor.carousel.description": "Un componente básico de carrusel que muestra una serie de banners",
   "editor.carousel.showDots.title": "Mostrar puntos",
   "editor.carousel.showArrows.title": "Mostrar flechas de navegación",
   "editor.carousel.height.title": "Altura máxima del banner (px)",
