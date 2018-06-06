@@ -6,7 +6,7 @@ import map from 'lodash/map'
 import range from 'lodash/range'
 import property from 'lodash/property'
 
-import Slider from 'vtex.storecomponents/Slider'
+import { Slider } from 'vtex.store-components'
 import Banner from './Banner'
 import { NoSSR } from 'render'
 

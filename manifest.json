@@ -16,15 +16,9 @@
   ],
   "settingsSchema": {},
   "scripts": {
-    "postreleasy": "vtex publish --public"
-  },
-  "billingOptions": {
-    "billingListeningRoute": "/_v/deactivateMePlease",
-    "termsURL": "http://route.to.the/terms",
-    "version": "0.1",
-    "free": true
+    "postreleasy": "vtex -r vtex --verbose"
   },
   "dependencies": {
-    "vtex.storecomponents": "1.x"
+    "vtex.store-components": "1.x"
   }
 }
