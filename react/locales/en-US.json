@@ -6,7 +6,7 @@
   "editor.carousel.height.title": "Banner max height size (px)",
   "editor.carousel.mobileHeight.title": "Banner max height size on mobile (px)",
   "editor.carousel.autoplay.title": "Autoplay",
-  "editor.carousel.autoplaySpeed.title": "Autoplay speed(sec):",
+  "editor.carousel.autoplaySpeed.title": "Autoplay speed (sec)",
   "editor.carousel.numberOfBanners.title": "Number of banners",
   "editor.carousel.bannerLink.title": "Banner link (should start with https or http)",
   "editor.carousel.bannerLink.page.title": "Banner target page",
