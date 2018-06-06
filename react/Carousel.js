@@ -21,16 +21,19 @@ const bannerProperties = {
     type: 'string',
     title: 'editor.carousel.banner.image.title',
     default: '',
+    isLayout: false,
   },
   mobileImage: {
     type: 'string',
     title: 'editor.carousel.banner.mobileImage.title',
     default: '',
+    isLayout: false,
   },
   description: {
     type: 'string',
     title: 'editor.carousel.banner.description.title',
     default: '',
+    isLayout: false,
   },
   typeOfRoute: {
     type: 'string',
@@ -47,6 +50,7 @@ const bannerProperties = {
         'inline': true,
       },
     },
+    isLayout: false,
   },
 }
 
@@ -127,11 +131,13 @@ export default class Carousel extends Component {
             type: 'string',
             enum: GLOBAL_PAGES,
             title: 'editor.carousel.bannerLink.page.title',
+            isLayout: false,
           },
           params: {
             type: 'string',
             description: 'editor.carousel.bannerLink.params.description',
             title: 'editor.carousel.bannerLink.params.title',
+            isLayout: false,
           },
         }
       }
@@ -177,28 +183,33 @@ export default class Carousel extends Component {
           type: 'boolean',
           title: 'editor.carousel.showDots.title',
           default: true,
+          isLayout: true,
         },
         showArrows: {
           type: 'boolean',
           title: 'editor.carousel.showArrows.title',
           default: true,
+          isLayout: true,
         },
         height: {
           type: 'number',
           title: 'editor.carousel.height.title',
           default: 420,
           enum: [420, 440],
+          isLayout: true,
         },
         mobileHeight: {
           type: 'number',
           title: 'editor.carousel.mobileHeight.title',
           default: 339,
           enum: [339, 159],
+          isLayout: true,
         },
         autoplay: {
           type: 'boolean',
           title: 'editor.carousel.autoplay.title',
           default: true,
+          isLayout: true,
         },
         autoplaySpeed: autoplay ? {
           type: 'number',
@@ -211,6 +222,7 @@ export default class Carousel extends Component {
               'inline': true,
             },
           },
+          isLayout: true,
         } : {},
         numberOfBanners: {
           type: 'number',
@@ -221,6 +233,7 @@ export default class Carousel extends Component {
           widget: {
             'ui:widget': 'range',
           },
+          isLayout: false,
         },
         ...generatedSchema,
       },
