@@ -22,6 +22,9 @@ const bannerProperties = {
     title: 'editor.carousel.banner.image.title',
     default: '',
     isLayout: false,
+    widget: {
+      'ui:widget': 'image-uploader',
+    },
   },
   mobileImage: {
     type: 'string',
