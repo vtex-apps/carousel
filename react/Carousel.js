@@ -84,10 +84,28 @@ export default class Carousel extends Component {
     height: 420,
     mobileHeight: 339,
     autoplaySpeed: 5,
+    banners: [],
     banner0: defaultBannerProps(0),
     banner1: defaultBannerProps(1),
     banner2: defaultBannerProps(2),
     numberOfBanners: DEFAULT_NUM_BANNERS,
+  }
+
+  static uiSchema = {
+    banners: {
+      'ui-widget': 'accordion-test',
+      items: {
+        image: {
+          'ui:widget': 'image-uploader',
+        },
+        typeOfRoute: {
+          'ui:widget': 'radio',
+          'ui:options': {
+            'inline': true,
+          },
+        }
+      }
+    }
   }
 
   static propTypes = {
@@ -110,6 +128,8 @@ export default class Carousel extends Component {
      *    page - The page that the banner will be linking to
      *    description - The description of the image
      */
+    banners: PropTypes.array,
+
     banner0: bannerProptype,
     banner1: bannerProptype,
     banner2: bannerProptype,
@@ -153,29 +173,45 @@ export default class Carousel extends Component {
       }
     }
 
-    const getBannersSchema = repetition =>
-      keyBy(
-        map(range(0, repetition), index => {
-          const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
-          return {
-            title: { id: 'editor.carousel.banner.title', values: { id: index + 1 } },
-            key: `banner${index}`,
-            type: 'object',
-            properties: {
-              ...bannerProperties,
-              ...bannerLink(typeOfRoute || 'internal'),
-            },
-          }
-        }),
-        property('key')
-      )
+    // const getBannersSchema = repetition =>
+    //   keyBy(
+    //     map(range(0, repetition), index => {
+    //       const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
+    //       return {
+    //         title: { id: 'editor.carousel.banner.title', values: { id: index + 1 } },
+    //         key: `banner${index}`,
+    //         type: 'object',
+    //         properties: {
+    //           ...bannerProperties,
+    //           ...bannerLink(typeOfRoute || 'internal'),
+    //         },
+    //       }
+    //     }),
+    //     property('key')
+    //   )
+
+    const getBannersSchema = repetition => ({
+      banners: {
+        type: 'array',
+        title: 'editor.carousel.height.title',
+        items: {
+          type: 'object',
+          title: 'Teste',
+          properties: {
+            ...bannerProperties,
+          },
+        }
+      }
+    })
 
     const generatedSchema =
       numberOfBanners && getBannersSchema(numberOfBanners)
 
-    if (props.numberOfBanners === undefined && generatedSchema.banner0) {
-      generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
-    }
+    console.log({generatedSchema})
+
+    // if (props.numberOfBanners === undefined && generatedSchema.banner0) {
+    //   generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
+    // }
 
     return {
       title: 'editor.carousel.title',
