@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import keyBy from 'lodash/keyBy'
-import map from 'lodash/map'
-import range from 'lodash/range'
-import property from 'lodash/property'
-
 import { Slider } from 'vtex.store-components'
 import Banner from './Banner'
 import { NoSSR } from 'render'
@@ -25,12 +20,6 @@ const bannerProperties = {
     widget: {
       'ui:widget': 'image-uploader',
     },
-  },
-  mobileImage: {
-    type: 'string',
-    title: 'editor.carousel.banner.mobileImage.title',
-    default: '',
-    isLayout: false,
   },
   description: {
     type: 'string',
@@ -59,7 +48,6 @@ const bannerProperties = {
 
 const bannerProptype = PropTypes.shape({
   image: PropTypes.string,
-  mobileImage: PropTypes.string,
   description: PropTypes.string,
   typeOfRoute: PropTypes.string,
   page: PropTypes.string,
@@ -68,7 +56,6 @@ const bannerProptype = PropTypes.shape({
 
 const defaultBannerProps = index => ({
   image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index + 1}.png`,
-  mobileImage: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-mobile-0${index + 1}.png`,
   page: 'store/home',
   description: 'banner',
 })
@@ -85,7 +72,6 @@ export default class Carousel extends Component {
     mobileHeight: 339,
     autoplaySpeed: 5,
     banners: [],
-    numberOfBanners: DEFAULT_NUM_BANNERS,
   }
 
   static uiSchema = {
@@ -118,29 +104,15 @@ export default class Carousel extends Component {
     showDots: PropTypes.bool,
     /** Set visibility of arrows */
     showArrows: PropTypes.bool,
-    /** Banner's quantity */
-    numberOfBanners: PropTypes.number,
     /** Banners that will be displayed by the Carousel
      *    image - The image url of the banner
      *    page - The page that the banner will be linking to
      *    description - The description of the image
      */
     banners: PropTypes.array,
-
-    banner0: bannerProptype,
-    banner1: bannerProptype,
-    banner2: bannerProptype,
-    banner3: bannerProptype,
-    banner4: bannerProptype,
-    banner5: bannerProptype,
-    banner6: bannerProptype,
-    banner7: bannerProptype,
-    banner8: bannerProptype,
-    banner9: bannerProptype,
   }
 
   static getSchema = props => {
-    const numberOfBanners = props.numberOfBanners || 3
     const autoplay = props.autoplay || false
 
     /** Defines an internal route or external link for the Banner */
@@ -187,10 +159,11 @@ export default class Carousel extends Component {
     //     property('key')
     //   )
 
-    const getBannersSchema = repetition => ({
+    const getBannersSchema = () => ({
       banners: {
         type: 'array',
         title: 'editor.carousel.height.title',
+        minItems: 1,
         items: {
           type: 'object',
           title: 'Teste',
@@ -201,10 +174,7 @@ export default class Carousel extends Component {
       }
     })
 
-    const generatedSchema =
-      numberOfBanners && getBannersSchema(numberOfBanners)
-
-    console.log({generatedSchema})
+    const generatedSchema = getBannersSchema()
 
     // if (props.numberOfBanners === undefined && generatedSchema.banner0) {
     //   generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
@@ -260,17 +230,6 @@ export default class Carousel extends Component {
           },
           isLayout: true,
         } : {},
-        numberOfBanners: {
-          type: 'number',
-          title: 'editor.carousel.numberOfBanners.title',
-          default: 3,
-          minimum: 1,
-          maximum: 10,
-          widget: {
-            'ui:widget': 'range',
-          },
-          isLayout: false,
-        },
         ...generatedSchema,
       },
     }
@@ -298,7 +257,6 @@ export default class Carousel extends Component {
       height,
       banners,
       mobileHeight,
-      numberOfBanners,
     } = this.props
     const settings = this.configureSettings()
 
@@ -308,7 +266,6 @@ export default class Carousel extends Component {
         <Banner
           height={height}
           image={banner.image}
-          mobileImage={banner.mobileImage}
           description={banner.description}
           mobileHeight={mobileHeight}
           page={banner.page}
@@ -326,7 +283,6 @@ export default class Carousel extends Component {
                 <Banner
                   height={height}
                   image={banner.image}
-                  mobileImage={banner.mobileImage}
                   description={banner.description}
                   mobileHeight={mobileHeight}
                   page={banner.page}
