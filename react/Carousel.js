@@ -14,7 +14,7 @@ import './global.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
-const DEFAULT_NUM_BANNERS = 3
+const DEFAULT_NUM_BANNERS = 1
 
 const bannerProperties = {
   image: {
@@ -85,9 +85,6 @@ export default class Carousel extends Component {
     mobileHeight: 339,
     autoplaySpeed: 5,
     banners: [],
-    banner0: defaultBannerProps(0),
-    banner1: defaultBannerProps(1),
-    banner2: defaultBannerProps(2),
     numberOfBanners: DEFAULT_NUM_BANNERS,
   }
 
@@ -299,18 +296,13 @@ export default class Carousel extends Component {
   render() {
     const {
       height,
+      banners,
       mobileHeight,
       numberOfBanners,
     } = this.props
     const settings = this.configureSettings()
 
-    const banners = []
-    for (let i = 0; i < numberOfBanners; i++) {
-      banners.push(this.props[`banner${i}`])
-    }
-
-    const banner = this.props.banner0
-
+    const banner = defaultBannerProps(0)
     const fallback = (
       <div style={{ maxHeight: `${height}px` }} className="overflow-y-hidden">
         <Banner
