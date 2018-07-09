@@ -166,7 +166,7 @@ export default class Carousel extends Component {
         minItems: 1,
         items: {
           type: 'object',
-          title: 'Teste',
+          title: 'Banner',
           properties: {
             ...bannerProperties,
           },
