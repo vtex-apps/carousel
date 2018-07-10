@@ -9,51 +9,6 @@ import './global.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
-const DEFAULT_NUM_BANNERS = 1
-
-const bannerProperties = {
-  image: {
-    type: 'string',
-    title: 'editor.carousel.banner.image.title',
-    default: '',
-    isLayout: false,
-    widget: {
-      'ui:widget': 'image-uploader',
-    },
-  },
-  description: {
-    type: 'string',
-    title: 'editor.carousel.banner.description.title',
-    default: '',
-    isLayout: false,
-  },
-  typeOfRoute: {
-    type: 'string',
-    title: 'editor.carousel.banner.typeOfRoute.title',
-    default: 'internal',
-    enum: ['internal', 'external'],
-    enumNames: [
-      'editor.carousel.banner.typeOfRoute.internal',
-      'editor.carousel.banner.typeOfRoute.external',
-    ],
-    widget: {
-      'ui:widget': 'radio',
-      'ui:options': {
-        'inline': true,
-      },
-    },
-    isLayout: false,
-  },
-}
-
-const bannerProptype = PropTypes.shape({
-  image: PropTypes.string,
-  description: PropTypes.string,
-  typeOfRoute: PropTypes.string,
-  page: PropTypes.string,
-  params: PropTypes.string,
-})
-
 const defaultBannerProps = index => ({
   image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index + 1}.png`,
   page: 'store/home',
@@ -76,7 +31,6 @@ export default class Carousel extends Component {
 
   static uiSchema = {
     banners: {
-      'ui-widget': 'accordion-test',
       items: {
         image: {
           'ui:widget': 'image-uploader',
@@ -86,9 +40,9 @@ export default class Carousel extends Component {
           'ui:options': {
             'inline': true,
           },
-        }
-      }
-    }
+        },
+      },
+    },
   }
 
   static propTypes = {
@@ -109,76 +63,17 @@ export default class Carousel extends Component {
      *    page - The page that the banner will be linking to
      *    description - The description of the image
      */
-    banners: PropTypes.array,
+    banners: PropTypes.arrayOf(PropTypes.shape({
+      image: PropTypes.string,
+      description: PropTypes.string,
+      typeOfRoute: PropTypes.string,
+      page: PropTypes.string,
+      params: PropTypes.string,
+    })),
   }
 
   static getSchema = props => {
     const autoplay = props.autoplay || false
-
-    /** Defines an internal route or external link for the Banner */
-    const bannerLink = typeOfRoute => {
-      if (typeOfRoute === 'internal') {
-        return {
-          page: {
-            type: 'string',
-            enum: GLOBAL_PAGES,
-            title: 'editor.carousel.bannerLink.page.title',
-            isLayout: false,
-          },
-          params: {
-            type: 'string',
-            description: 'editor.carousel.bannerLink.params.description',
-            title: 'editor.carousel.bannerLink.params.title',
-            isLayout: false,
-          },
-        }
-      }
-
-      return {
-        page: {
-          type: 'string',
-          title: 'editor.carousel.bannerLink.title',
-        },
-      }
-    }
-
-    // const getBannersSchema = repetition =>
-    //   keyBy(
-    //     map(range(0, repetition), index => {
-    //       const typeOfRoute = props[`banner${index}`] && props[`banner${index}`].typeOfRoute
-    //       return {
-    //         title: { id: 'editor.carousel.banner.title', values: { id: index + 1 } },
-    //         key: `banner${index}`,
-    //         type: 'object',
-    //         properties: {
-    //           ...bannerProperties,
-    //           ...bannerLink(typeOfRoute || 'internal'),
-    //         },
-    //       }
-    //     }),
-    //     property('key')
-    //   )
-
-    const getBannersSchema = () => ({
-      banners: {
-        type: 'array',
-        title: 'editor.carousel.height.title',
-        minItems: 1,
-        items: {
-          type: 'object',
-          title: 'Banner',
-          properties: {
-            ...bannerProperties,
-          },
-        }
-      }
-    })
-
-    const generatedSchema = getBannersSchema()
-
-    // if (props.numberOfBanners === undefined && generatedSchema.banner0) {
-    //   generatedSchema.banner0.properties.image.default = defaultBannerProps(0).image
-    // }
 
     return {
       title: 'editor.carousel.title',
@@ -230,7 +125,58 @@ export default class Carousel extends Component {
           },
           isLayout: true,
         } : {},
-        ...generatedSchema,
+        banners: {
+          type: 'array',
+          title: 'Banners',
+          minItems: 1,
+          items: {
+            type: 'object',
+            title: 'Banner',
+            properties: {
+              image: {
+                type: 'string',
+                title: 'editor.carousel.banner.image.title',
+                default: '',
+                widget: {
+                  'ui:widget': 'image-uploader',
+                },
+              },
+              description: {
+                type: 'string',
+                title: 'editor.carousel.banner.description.title',
+                default: '',
+              },
+              typeOfRoute: {
+                type: 'string',
+                title: 'editor.carousel.banner.typeOfRoute.title',
+                default: 'internal',
+                enum: ['internal', 'external'],
+                enumNames: [
+                  'editor.carousel.banner.typeOfRoute.internal',
+                  'editor.carousel.banner.typeOfRoute.external',
+                ],
+                widget: {
+                  'ui:widget': 'radio',
+                  'ui:options': {
+                    'inline': true,
+                  },
+                },
+              },
+              page: {
+                type: 'string',
+                enum: GLOBAL_PAGES,
+                title: 'editor.carousel.bannerLink.page.title',
+                isLayout: false,
+              },
+              params: {
+                type: 'string',
+                description: 'editor.carousel.bannerLink.params.description',
+                title: 'editor.carousel.bannerLink.params.title',
+                isLayout: false,
+              },
+            },
+          },
+        },
       },
     }
   }
