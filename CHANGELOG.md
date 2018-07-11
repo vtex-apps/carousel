@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 ### Changed
 - Set `Banner`'s `image` property UI widget to `image-uploader`.
+- Set both routes properties into the `Banner`'s schema and add the flag `externalRoute`.
 
 ## [1.1.0] - 2018-6-6
 ### Added

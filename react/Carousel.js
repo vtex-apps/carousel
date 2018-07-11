@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-
-import { Slider } from 'vtex.store-components'
-import Banner from './Banner'
-import { NoSSR } from 'render'
-
 import './global.css'
+
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { NoSSR } from 'render'
+import { Slider } from 'vtex.store-components'
+
+import Banner from './Banner'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
 const defaultBannerProps = index => ({
-  image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index + 1}.png`,
+  image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index +
+    1}.png`,
   page: 'store/home',
   description: 'banner',
 })
@@ -38,7 +39,7 @@ export default class Carousel extends Component {
         typeOfRoute: {
           'ui:widget': 'radio',
           'ui:options': {
-            'inline': true,
+            inline: true,
           },
         },
       },
@@ -63,17 +64,47 @@ export default class Carousel extends Component {
      *    page - The page that the banner will be linking to
      *    description - The description of the image
      */
-    banners: PropTypes.arrayOf(PropTypes.shape({
-      image: PropTypes.string,
-      description: PropTypes.string,
-      typeOfRoute: PropTypes.string,
-      page: PropTypes.string,
-      params: PropTypes.string,
-    })),
+    banners: PropTypes.arrayOf(
+      PropTypes.shape({
+        image: PropTypes.string,
+        description: PropTypes.string,
+        /** The url where the image is pointing to, in case of external route */
+        url: PropTypes.string,
+        /** The page where the image is pointing to */
+        page: PropTypes.string,
+        /** Params of the url */
+        params: PropTypes.object,
+        /** Indicates if the route is external or not */
+        externalRoute: PropTypes.bool,
+      })
+    ),
   }
 
   static getSchema = props => {
     const autoplay = props.autoplay || false
+
+    const internalRouteSchema = {
+      page: {
+        type: 'string',
+        enum: GLOBAL_PAGES,
+        title: 'editor.carousel.bannerLink.page.title',
+        isLayout: false,
+      },
+      params: {
+        type: 'string',
+        description: 'editor.carousel.bannerLink.params.description',
+        title: 'editor.carousel.bannerLink.params.title',
+        isLayout: false,
+      },
+    }
+
+    const externalRouteSchema = {
+      url: {
+        type: 'string',
+        title: 'editor.carousel.bannerLink.url.title',
+        isLayout: false,
+      },
+    }
 
     return {
       title: 'editor.carousel.title',
@@ -112,19 +143,21 @@ export default class Carousel extends Component {
           default: true,
           isLayout: true,
         },
-        autoplaySpeed: autoplay ? {
-          type: 'number',
-          title: 'editor.carousel.autoplaySpeed.title',
-          default: 5,
-          enum: [4, 5, 6],
-          widget: {
-            'ui:widget': 'radio',
-            'ui:options': {
-              'inline': true,
+        autoplaySpeed: autoplay
+          ? {
+            type: 'number',
+            title: 'editor.carousel.autoplaySpeed.title',
+            default: 5,
+            enum: [4, 5, 6],
+            widget: {
+              'ui:widget': 'radio',
+              'ui:options': {
+                inline: true,
+              },
             },
-          },
-          isLayout: true,
-        } : {},
+            isLayout: true,
+          }
+          : {},
         banners: {
           type: 'array',
           title: 'Banners',
@@ -146,34 +179,12 @@ export default class Carousel extends Component {
                 title: 'editor.carousel.banner.description.title',
                 default: '',
               },
-              typeOfRoute: {
-                type: 'string',
-                title: 'editor.carousel.banner.typeOfRoute.title',
-                default: 'internal',
-                enum: ['internal', 'external'],
-                enumNames: [
-                  'editor.carousel.banner.typeOfRoute.internal',
-                  'editor.carousel.banner.typeOfRoute.external',
-                ],
-                widget: {
-                  'ui:widget': 'radio',
-                  'ui:options': {
-                    'inline': true,
-                  },
-                },
+              externalRoute: {
+                type: 'boolean',
+                title: 'editor.carousel.banner.externalRoute.title',
               },
-              page: {
-                type: 'string',
-                enum: GLOBAL_PAGES,
-                title: 'editor.carousel.bannerLink.page.title',
-                isLayout: false,
-              },
-              params: {
-                type: 'string',
-                description: 'editor.carousel.bannerLink.params.description',
-                title: 'editor.carousel.bannerLink.params.title',
-                isLayout: false,
-              },
+              ...externalRouteSchema,
+              ...internalRouteSchema,
             },
           },
         },
@@ -199,11 +210,7 @@ export default class Carousel extends Component {
   }
 
   render() {
-    const {
-      height,
-      banners,
-      mobileHeight,
-    } = this.props
+    const { height, banners, mobileHeight } = this.props
     const settings = this.configureSettings()
 
     const banner = defaultBannerProps(0)
@@ -214,29 +221,34 @@ export default class Carousel extends Component {
           image={banner.image}
           description={banner.description}
           mobileHeight={mobileHeight}
+          url={banner.url}
           page={banner.page}
           params={banner.params}
-          typeOfRoute={banner.typeOfRoute}
+          externalRoute={banner.externalRoute}
         />
       </div>
     )
     return (
       <div className="vtex-carousel">
         <NoSSR onSSR={fallback}>
-          <Slider sliderSettings={settings} >
-            {banners.map((banner, i) => banner && banner.image && (
-              <div key={i} style={{ maxHeight: `${height}px` }}>
-                <Banner
-                  height={height}
-                  image={banner.image}
-                  description={banner.description}
-                  mobileHeight={mobileHeight}
-                  page={banner.page}
-                  params={banner.params}
-                  typeOfRoute={banner.typeOfRoute}
-                />
-              </div>
-            ))}
+          <Slider sliderSettings={settings}>
+            {banners.map(
+              (banner, i) =>
+                banner &&
+                banner.image && (
+                  <div key={i} style={{ maxHeight: `${height}px` }}>
+                    <Banner
+                      height={height}
+                      image={banner.image}
+                      description={banner.description}
+                      mobileHeight={mobileHeight}
+                      page={banner.page}
+                      params={banner.params}
+                      typeOfRoute={banner.typeOfRoute}
+                    />
+                  </div>
+                )
+            )}
           </Slider>
         </NoSSR>
       </div>

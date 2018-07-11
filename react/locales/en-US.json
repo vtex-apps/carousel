@@ -1,6 +1,7 @@
 {
   "editor.carousel.title": "Carousel",
-  "editor.carousel.description": "A simple carousel component that shows a serie of banners",
+  "editor.carousel.description":
+    "A simple carousel component that shows a serie of banners",
   "editor.carousel.showDots.title": "Show dots",
   "editor.carousel.showArrows.title": "Show arrows",
   "editor.carousel.height.title": "Banner max height size (px)",
@@ -8,15 +9,16 @@
   "editor.carousel.autoplay.title": "Autoplay",
   "editor.carousel.autoplaySpeed.title": "Autoplay speed (sec)",
   "editor.carousel.numberOfBanners.title": "Number of banners",
-  "editor.carousel.bannerLink.title": "Banner link (should start with https or http)",
-  "editor.carousel.bannerLink.page.title": "Banner target page",
-  "editor.carousel.bannerLink.params.title": "Params",
-  "editor.carousel.bannerLink.params.description": "Comma separated params, e.g.: key=value,a=b,c=d",
+  "editor.carousel.bannerLink.title":
+    "Banner link (should start with https or http)",
+  "editor.carousel.bannerLink.page.title": "Banner target page (internal)",
+  "editor.carousel.bannerLink.params.title": "Params (internal)",
+  "editor.carousel.bannerLink.params.description":
+    "Comma separated params, e.g.: key=value,a=b,c=d",
+  "editor.carousel.bannerLink.url.title": "URL (external)",
   "editor.carousel.banner.title": "Banner #{id}",
   "editor.carousel.banner.description.title": "Banner description",
-  "editor.carousel.banner.typeOfRoute.title": "Type of route",
-  "editor.carousel.banner.typeOfRoute.internal": "Internal",
-  "editor.carousel.banner.typeOfRoute.external": "External",
+  "editor.carousel.banner.externalRoute.title": "External route",
   "editor.carousel.banner.image.title": "Banner image",
   "editor.carousel.banner.mobileImage.title": "Banner mobile image"
 }
