@@ -59,14 +59,12 @@ export default class Carousel extends Component {
     showDots: PropTypes.bool,
     /** Set visibility of arrows */
     showArrows: PropTypes.bool,
-    /** Banners that will be displayed by the Carousel
-     *    image - The image url of the banner
-     *    page - The page that the banner will be linking to
-     *    description - The description of the image
-     */
+    /** Banners that will be displayed by the Carousel */
     banners: PropTypes.arrayOf(
       PropTypes.shape({
+        /** The image url of the banner */
         image: PropTypes.string,
+        /** The description of the image */
         description: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
