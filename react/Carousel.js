@@ -2,7 +2,6 @@ import './global.css'
 
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { NoSSR } from 'render'
 import { Slider } from 'vtex.store-components'
 
 import Banner from './Banner'
@@ -228,27 +227,25 @@ export default class Carousel extends Component {
     )
     return (
       <div className="vtex-carousel">
-        <NoSSR onSSR={fallback}>
-          <Slider sliderSettings={settings}>
-            {banners.map(
-              (banner, i) =>
-                banner &&
-                banner.image && (
-                  <div key={i} style={{ maxHeight: `${height}px` }}>
-                    <Banner
-                      height={height}
-                      image={banner.image}
-                      description={banner.description}
-                      mobileHeight={mobileHeight}
-                      page={banner.page}
-                      params={banner.params}
-                      typeOfRoute={banner.typeOfRoute}
-                    />
-                  </div>
-                )
-            )}
-          </Slider>
-        </NoSSR>
+        <Slider sliderSettings={settings}>
+          {banners.map(
+            (banner, i) =>
+              banner &&
+              banner.image && (
+                <div key={i} style={{ maxHeight: `${height}px` }}>
+                  <Banner
+                    height={height}
+                    image={banner.image}
+                    description={banner.description}
+                    mobileHeight={mobileHeight}
+                    page={banner.page}
+                    params={banner.params}
+                    typeOfRoute={banner.typeOfRoute}
+                  />
+                </div>
+              )
+          )}
+        </Slider>
       </div>
     )
   }
