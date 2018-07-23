@@ -19,7 +19,8 @@
   "editor.carousel.bannerLink.params.description":
     "Parámetros separados por coma, e.g.: clave=valor,a=b,c=d",
   "editor.carousel.bannerLink.url.title": "URL (externo)",
-  "editor.carousel.banner.title": "Banner #{id}",
+  "editor.carousel.banners.title": "Banners",
+  "editor.carousel.banner.title": "Banner",
   "editor.carousel.banner.description.title": "Descripción del banner",
   "editor.carousel.banner.externalRoute.title": "Ruta externa",
   "editor.carousel.banner.image.title": "Imagen del banner",

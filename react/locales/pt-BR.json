@@ -18,7 +18,8 @@
   "editor.carousel.bannerLink.params.description":
     "Parâmetros separados por vírgula, e.g.: chave=valor,a=b,c=d",
   "editor.carousel.bannerLink.url.title": "URL (externa)",
-  "editor.carousel.banner.title": "Banner #{id}",
+  "editor.carousel.banners.title": "Banners",
+  "editor.carousel.banner.title": "Banner",
   "editor.carousel.banner.description.title": "Descrição do banner",
   "editor.carousel.banner.externalRoute.title": "Rota externa",
   "editor.carousel.banner.image.title": "Imagem do banner",
