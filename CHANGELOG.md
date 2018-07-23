@@ -14,9 +14,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - NoSSR.
 - `mobileImage` and `mobileheight` from schema.
 
-### Fixed
-- PropTypes warning.
-
 ## [1.1.0] - 2018-6-6
 ### Added
 - Add `isLayout` to schema properties.
