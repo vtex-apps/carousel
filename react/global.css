@@ -7,10 +7,6 @@
   max-height: inherit;
 }
 
-.vtex-carousel .vtex-carousel__img-mobile {
-  display: none;
-}
-
 /* Arrows */
 
 .vtex-carousel .vtex-slider__arrow-left:before,
@@ -71,12 +67,4 @@
   .vtex-carousel .vtex-slider__arrow-right:before {
     display: none;
   }
-
-  .vtex-carousel .vtex-carousel__img-regular {
-    display: none;
-  }
-  .vtex-carousel .vtex-carousel__img-mobile {
-    display: block;
-  }
-
 }

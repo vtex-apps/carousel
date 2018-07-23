@@ -22,12 +22,10 @@ class Banner extends Component {
     const {
       height,
       image,
-      mobileImage,
       description,
       page,
       url,
       params,
-      mobileHeight,
       externalRoute,
     } = this.props
 
@@ -37,11 +35,6 @@ class Banner extends Component {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}>
           <img className="w-100" src={image} alt={description} />
-        </div>
-        <div
-          className="vtex-carousel__img-mobile"
-          style={{ maxHeight: `${mobileHeight}px` }}>
-          <img className="w-100" src={mobileImage} alt={description} />
         </div>
       </div>
     )
@@ -67,10 +60,6 @@ Banner.propTypes = {
   image: PropTypes.string.isRequired,
   /** Max height size of the banner */
   height: PropTypes.number.isRequired,
-  /** The image of the banner on mobile */
-  mobileImage: PropTypes.string.isRequired,
-  /** Max height size of the banner on mobile  */
-  mobileHeight: PropTypes.number.isRequired,
   /** The description of the image */
   description: PropTypes.string.isRequired,
   /** The url where the image is pointing to, in case of external route */

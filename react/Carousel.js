@@ -2,19 +2,11 @@ import './global.css'
 
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { NoSSR } from 'render'
 import { Slider } from 'vtex.store-components'
 
 import Banner from './Banner'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
-
-const defaultBannerProps = index => ({
-  image: `https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-0${index +
-    1}.png`,
-  page: 'store/home',
-  description: 'banner',
-})
 
 /**
  * Carousel component. Shows a serie of banners.
@@ -25,7 +17,6 @@ export default class Carousel extends Component {
     showArrows: true,
     showDots: true,
     height: 420,
-    mobileHeight: 339,
     autoplaySpeed: 5,
     banners: [],
   }
@@ -53,8 +44,6 @@ export default class Carousel extends Component {
     autoplaySpeed: PropTypes.number.isRequired,
     /** Max height size of the banners */
     height: PropTypes.number.isRequired,
-    /** Max height size of the banners on mobile */
-    mobileHeight: PropTypes.number.isRequired,
     /** Set visibility of dots */
     showDots: PropTypes.bool,
     /** Set visibility of arrows */
@@ -128,13 +117,6 @@ export default class Carousel extends Component {
           enum: [420, 440],
           isLayout: true,
         },
-        mobileHeight: {
-          type: 'number',
-          title: 'editor.carousel.mobileHeight.title',
-          default: 339,
-          enum: [339, 159],
-          isLayout: true,
-        },
         autoplay: {
           type: 'boolean',
           title: 'editor.carousel.autoplay.title',
@@ -158,11 +140,11 @@ export default class Carousel extends Component {
           : {},
         banners: {
           type: 'array',
-          title: 'Banners',
+          title: 'editor.carousel.banners.title',
           minItems: 1,
           items: {
             type: 'object',
-            title: 'Banner',
+            title: 'editor.carousel.banner.title',
             properties: {
               image: {
                 type: 'string',
@@ -208,47 +190,29 @@ export default class Carousel extends Component {
   }
 
   render() {
-    const { height, banners, mobileHeight } = this.props
+    const { height, banners } = this.props
     const settings = this.configureSettings()
 
-    const banner = defaultBannerProps(0)
-    const fallback = (
-      <div style={{ maxHeight: `${height}px` }} className="overflow-y-hidden">
-        <Banner
-          height={height}
-          image={banner.image}
-          description={banner.description}
-          mobileHeight={mobileHeight}
-          url={banner.url}
-          page={banner.page}
-          params={banner.params}
-          externalRoute={banner.externalRoute}
-        />
-      </div>
-    )
     return (
       <div className="vtex-carousel">
-        <NoSSR onSSR={fallback}>
-          <Slider sliderSettings={settings}>
-            {banners.map(
-              (banner, i) =>
-                banner &&
-                banner.image && (
-                  <div key={i} style={{ maxHeight: `${height}px` }}>
-                    <Banner
-                      height={height}
-                      image={banner.image}
-                      description={banner.description}
-                      mobileHeight={mobileHeight}
-                      page={banner.page}
-                      params={banner.params}
-                      typeOfRoute={banner.typeOfRoute}
-                    />
-                  </div>
-                )
-            )}
-          </Slider>
-        </NoSSR>
+        <Slider sliderSettings={settings}>
+          {banners.map(
+            (banner, i) =>
+              banner &&
+              banner.image && (
+                <div key={i} style={{ maxHeight: `${height}px` }}>
+                  <Banner
+                    height={height}
+                    image={banner.image}
+                    description={banner.description}
+                    page={banner.page}
+                    params={banner.params}
+                    typeOfRoute={banner.typeOfRoute}
+                  />
+                </div>
+              )
+          )}
+        </Slider>
       </div>
     )
   }
