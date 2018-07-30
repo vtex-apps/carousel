@@ -40,7 +40,7 @@ exports[`Carousel component should match snapshot 1`] = `
               style="max-height: 440px;"
             >
               <img
-                alt="banner"
+                alt="david"
                 class="w-100"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
               />

@@ -19,20 +19,26 @@ describe('Carousel component', () => {
       {
         image:
           'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-        page: '/',
+        externalRoute: true,
         description: 'banner',
+        url:
+          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
       },
       {
         image:
           'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
-        page: '/',
-        description: 'banner',
+        externalRoute: true,
+        description: 'david',
+        url:
+          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
       },
       {
         image:
           'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
-        page: '/',
+        externalRoute: true,
         description: 'banner',
+        url:
+          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
       },
     ],
   }
