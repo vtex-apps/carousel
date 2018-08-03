@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+- Verification of empty array of Banners.
+
 ## [1.2.2] - 2018-08-01
 ### Changed
 - Set `Banner`'s `image` property UI widget to `image-uploader`.

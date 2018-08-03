@@ -125,18 +125,18 @@ export default class Carousel extends Component {
         },
         autoplaySpeed: autoplay
           ? {
-            type: 'number',
-            title: 'editor.carousel.autoplaySpeed.title',
-            default: 5,
-            enum: [4, 5, 6],
-            widget: {
-              'ui:widget': 'radio',
-              'ui:options': {
-                inline: true,
+              type: 'number',
+              title: 'editor.carousel.autoplaySpeed.title',
+              default: 5,
+              enum: [4, 5, 6],
+              widget: {
+                'ui:widget': 'radio',
+                'ui:options': {
+                  inline: true,
+                },
               },
-            },
-            isLayout: true,
-          }
+              isLayout: true,
+            }
           : {},
         banners: {
           type: 'array',
@@ -192,6 +192,8 @@ export default class Carousel extends Component {
   render() {
     const { height, banners } = this.props
     const settings = this.configureSettings()
+
+    if (!banners.length) return null
 
     return (
       <div className="vtex-carousel">
