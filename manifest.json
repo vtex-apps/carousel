@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "carousel",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "title": "Carousel",
   "description": "Carousel Component",
   "defaultLocale": "pt-BR",
@@ -19,6 +19,6 @@
     "postreleasy": "vtex publish -r vtex --verbose"
   },
   "dependencies": {
-    "vtex.store-components": "1.x"
+    "vtex.store-components": "2.x"
   }
 }
