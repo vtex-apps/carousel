@@ -29,13 +29,20 @@
     "tslint": "^5.11.0",
     "tslint-config-vtex": "^2.0.0",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^3.1.1"
+    "typescript": "^3.1.1",
+    "typescript-babel-jest": "^1.0.5"
   },
   "jest": {
     "verbose": true,
     "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest"
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.(ts|tsx)$": "typescript-babel-jest"
     },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],

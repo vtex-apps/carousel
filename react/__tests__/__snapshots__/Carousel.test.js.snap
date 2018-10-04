@@ -9,7 +9,10 @@ exports[`Carousel component should match snapshot 1`] = `
       style="max-height: 440px;"
     >
       <div>
-        <a>
+        <a
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
+        >
           <div
             class="vtex-carousel__img-container"
           >
@@ -31,7 +34,10 @@ exports[`Carousel component should match snapshot 1`] = `
       style="max-height: 440px;"
     >
       <div>
-        <a>
+        <a
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
+        >
           <div
             class="vtex-carousel__img-container"
           >
@@ -53,7 +59,10 @@ exports[`Carousel component should match snapshot 1`] = `
       style="max-height: 440px;"
     >
       <div>
-        <a>
+        <a
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
+        >
           <div
             class="vtex-carousel__img-container"
           >
