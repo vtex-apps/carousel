@@ -1,3 +1,13 @@
+:root{
+  --arrow-vpos: 44%;
+  --arrow-hpos-s: .5rem;
+  --arrow-hpos-m: 2rem;
+  --arrow-hpos-l: calc(5% + 2rem);
+  --arrow-hpos-xl: calc(5% + 1.7rem);
+  --arrow-color: black;
+  --arrow-size: 3vw;
+}
+
 .vtex-carousel {
   min-width: 10px;
   min-height: 10px;
@@ -11,27 +21,97 @@
 
 .vtex-carousel .vtex-slider__arrow-left:before,
 .vtex-carousel .vtex-slider__arrow-right:before {
-  font-size: 3vw;
-  color: black;
+  font-size: var(--arrow-size);
+  color: var(--arrow-color);
 }
 
 .vtex-carousel .vtex-slider__arrow-left {
-  left: 5%;
   z-index: 1;
-  top: 44%;
+  top: var(--arrow-vpos);
 }
+
 [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-  right: 5%;
   left: auto;
 }
 
 .vtex-carousel .vtex-slider__arrow-right {
-  right: 8%;
-  top: 44%;
+  top: var(--arrow-vpos);
 }
+
 [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
   right: auto;
-  left: 8%;
+}
+
+@media only screen and (min-width: 20em) {
+  .vtex-carousel .vtex-slider__arrow-left {
+    left: var(--arrow-hpos-s);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
+    right: var(--arrow-hpos-s);
+  }
+  
+  .vtex-carousel .vtex-slider__arrow-right {
+    right: var(--arrow-hpos-s);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
+    left: var(--arrow-hpos-s);
+  }
+}
+
+@media only screen and (min-width: 40em) {
+  .vtex-carousel .vtex-slider__arrow-left {
+    left: var(--arrow-hpos-m);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
+    right: var(--arrow-hpos-m);
+  }
+  
+  .vtex-carousel .vtex-slider__arrow-right {
+    right: var(--arrow-hpos-m);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
+    left: var(--arrow-hpos-m);
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .vtex-carousel .vtex-slider__arrow-left {
+    left: var(--arrow-hpos-l);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
+    right: var(--arrow-hpos-l);
+  }
+  
+  .vtex-carousel .vtex-slider__arrow-right {
+    right: var(--arrow-hpos-l);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
+    left: var(--arrow-hpos-l);
+  }
+}
+
+@media screen and (min-width: 80em) {
+  .vtex-carousel .vtex-slider__arrow-left {
+    left: var(--arrow-hpos-xl);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
+    right: var(--arrow-hpos-xl);
+  }
+  
+  .vtex-carousel .vtex-slider__arrow-right {
+    right: var(--arrow-hpos-xl);
+  }
+  
+  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
+    left: var(--arrow-hpos-xl);
+  }
 }
 
 /* Dots */
