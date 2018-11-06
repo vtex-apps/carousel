@@ -1,9 +1,9 @@
 :root{
   --arrow-vpos: 44%;
   --arrow-hpos-s: 0rem;
-  --arrow-hpos-m: 1.5rem;
-  --arrow-hpos-l: calc(5% + 1.5rem);
-  --arrow-hpos-xl: calc(5% + 1rem);
+  --arrow-hpos-m: 1.75rem;
+  --arrow-hpos-l: calc(5% + 1.75rem);
+  --arrow-hpos-xl: calc(5% + 1.25rem);
   --arrow-color: black;
   --arrow-size: 3vw;
 }
