@@ -196,7 +196,7 @@ export default class Carousel extends Component<Props> {
     }
 
     return (
-      <div className="vtex-carousel">
+      <div className="vtex-carousel force-full-width">
         <Slider sliderSettings={settings}>
           {banners.map(
             (banner, i) =>

@@ -6,8 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixed
-- New arrows positions respecting vtex-page-padding.
+### Added
+- Set element as full-width.
+- New arrows positions that matches the global padding.
 
 ## [1.4.0] - 2018-10-09
 ### Changed

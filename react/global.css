@@ -6,10 +6,6 @@
   --elements-color: black;
 
   --arrow-vpos: 44%;
-  --arrow-hpos-s: 0rem;
-  --arrow-hpos-m: 1.75rem;
-  --arrow-hpos-l: calc(5% + 1.75rem);
-  --arrow-hpos-xl: calc(5% + 1.25rem);
   --arrow-size: 3vw;
 
   --dots-vpos-desktop: -51%;
@@ -62,55 +58,55 @@
 
 @media only screen and (min-width: 40em) {
   .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--arrow-hpos-m);
+    left: var(--global-pd-m);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--arrow-hpos-m);
+    right: var(--global-pd-m);
   }
   
   .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--arrow-hpos-m);
+    right: var(--global-pd-m);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--arrow-hpos-m);
+    left: var(--global-pd-m);
   }
 }
 
 @media only screen and (min-width: 64em) {
   .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--arrow-hpos-l);
+    left: var(--global-pd-l);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--arrow-hpos-l);
+    right: var(--global-pd-l);
   }
   
   .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--arrow-hpos-l);
+    right: var(--global-pd-l);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--arrow-hpos-l);
+    left: var(--global-pd-l);
   }
 }
 
 @media screen and (min-width: 80em) {
   .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--arrow-hpos-xl);
+    left: var(--global-pd-xl);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--arrow-hpos-xl);
+    right: var(--global-pd-xl);
   }
   
   .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--arrow-hpos-xl);
+    right: var(--global-pd-xl);
   }
   
   [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--arrow-hpos-xl);
+    left: var(--global-pd-xl);
   }
 }
 
