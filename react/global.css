@@ -5,9 +5,6 @@
   --carousel-min-height: 0.625rem;
   --elements-color: black;
 
-  --arrow-vpos: 44%;
-  --arrow-size: 3vw;
-
   --dots-vpos-desktop: -51%;
   --dots-size-desktop: 1vw;
   --dots-vpos-mobile: -30%;
@@ -25,28 +22,8 @@
   max-height: inherit;
 }
 
-/* Arrows */
-.vtex-carousel .vtex-slider__arrow-left:before,
-.vtex-carousel .vtex-slider__arrow-right:before {
-  font-size: var(--arrow-size);
-  color: var(--elements-color);
-}
-
 .vtex-carousel .vtex-slider__arrow-left {
   z-index: 1;
-  top: var(--arrow-vpos);
-}
-
-[dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-  left: auto;
-}
-
-.vtex-carousel .vtex-slider__arrow-right {
-  top: var(--arrow-vpos);
-}
-
-[dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-  right: auto;
 }
 
 @media only screen and (max-width: 30em) {
@@ -56,62 +33,7 @@
   }
 }
 
-@media only screen and (min-width: 40em) {
-  .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--global-pd-m);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--global-pd-m);
-  }
-  
-  .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--global-pd-m);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--global-pd-m);
-  }
-}
-
-@media only screen and (min-width: 64em) {
-  .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--global-pd-l);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--global-pd-l);
-  }
-  
-  .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--global-pd-l);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--global-pd-l);
-  }
-}
-
-@media screen and (min-width: 80em) {
-  .vtex-carousel .vtex-slider__arrow-left {
-    left: var(--global-pd-xl);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-    right: var(--global-pd-xl);
-  }
-  
-  .vtex-carousel .vtex-slider__arrow-right {
-    right: var(--global-pd-xl);
-  }
-  
-  [dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-    left: var(--global-pd-xl);
-  }
-}
-
 /* Dots */
-
 .vtex-carousel .vtex-slider__dots {
   position: relative;
   top: var(--dots-vpos-desktop);

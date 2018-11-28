@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Set element as full-width.
 - New arrows positions that matches the global padding.
+- Using tachyons classes to define arrows margins.
 
 ## [1.4.0] - 2018-10-09
 ### Changed
