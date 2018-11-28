@@ -1,70 +1,65 @@
-.vtex-carousel {
-  min-width: 10px;
-  min-height: 10px;
+/* General */
+.vtex-carousel{
+
+  --carousel-min-width: 0.625rem;
+  --carousel-min-height: 0.625rem;
+  --elements-color: black;
+
+  --dots-vpos-desktop: -51%;
+  --dots-size-desktop: 1vw;
+  --dots-vpos-mobile: -30%;
+  --dots-size-mobile: 3vw;
+
 }
 
+.vtex-carousel {
+  min-width: var(--carousel-min-width);
+  min-height: var(--carousel-min-height);
+}
+
+/* Images */ 
 .vtex-carousel .vtex-carousel__img-container {
   max-height: inherit;
 }
 
-/* Arrows */
-
-.vtex-carousel .vtex-slider__arrow-left:before,
-.vtex-carousel .vtex-slider__arrow-right:before {
-  font-size: 3vw;
-  color: black;
-}
-
 .vtex-carousel .vtex-slider__arrow-left {
-  left: 5%;
   z-index: 1;
-  top: 44%;
-}
-[dir='rtl'] .vtex-carousel .vtex-slider__arrow-left {
-  right: 5%;
-  left: auto;
 }
 
-.vtex-carousel .vtex-slider__arrow-right {
-  right: 8%;
-  top: 44%;
-}
-[dir='rtl'] .vtex-carousel .vtex-slider__arrow-right {
-  right: auto;
-  left: 8%;
-}
-
-/* Dots */
-
-.vtex-carousel .vtex-slider__dots {
-  position: relative;
-  top: -50px;
-}
-
-.vtex-carousel .vtex-slider__dots li button {
-  color: black;
-}
-
-.vtex-carousel .vtex-slider__dots li button:before {
-  color: black;
-  font-size: 1vw;
-}
-.vtex-carousel .vtex-slider__dots li.slick-active button:before {
-  color: black;
-}
-
-@media only screen and (max-device-width: 480px) {
-  .vtex-carousel .vtex-slider__dots {
-    position: relative;
-    top: -30px;
-  }
-
-  .vtex-carousel .vtex-slider__dots li button:before {
-    font-size: 3vw;
-  }
-
+@media only screen and (max-width: 30em) {
   .vtex-carousel .vtex-slider__arrow-left:before,
   .vtex-carousel .vtex-slider__arrow-right:before {
     display: none;
   }
+}
+
+/* Dots */
+.vtex-carousel .vtex-slider__dots {
+  position: relative;
+  top: var(--dots-vpos-desktop);
+}
+
+.vtex-carousel .vtex-slider__dots li button {
+  color: var(--elements-color);
+}
+
+.vtex-carousel .vtex-slider__dots li button:before {
+  color: var(--elements-color);
+  font-size: var(--dots-size-desktop);
+}
+.vtex-carousel .vtex-slider__dots li.slick-active button:before {
+  color: var(--elements-color);
+}
+
+@media only screen and (max-device-width: 480px) {
+  
+  .vtex-carousel .vtex-slider__dots {
+    position: relative;
+    top: var(--dots-vpos-mobile);
+  }
+
+  .vtex-carousel .vtex-slider__dots li button:before {
+    font-size: var(--dots-size-mobile);
+  }
+
 }

@@ -3,7 +3,7 @@
 exports[`Carousel component should match snapshot 1`] = `
 <div>
   <div
-    class="vtex-carousel"
+    class="vtex-carousel force-full-width"
   >
     <div
       style="max-height: 440px;"
