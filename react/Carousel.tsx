@@ -48,6 +48,9 @@ export default class Carousel extends Component<Props> {
         image: {
           'ui:widget': 'image-uploader',
         },
+        mobileImage: {
+          'ui:widget': 'image-uploader',
+        },
       },
     },
   }
@@ -161,6 +164,14 @@ export default class Carousel extends Component<Props> {
                   'ui:widget': 'image-uploader',
                 },
               },
+              mobileImage: {
+                default: '',
+                title: 'editor.carousel.banner.mobileImage.title',
+                type: 'string',
+                widget: {
+                  'ui:widget': 'image-uploader',
+                },
+              },
             },
           },
         },
@@ -201,7 +212,7 @@ export default class Carousel extends Component<Props> {
           {banners.map(
             (banner, i) =>
               banner &&
-              banner.image && (
+              (banner.mobileImage || banner.image) && (
                 <div key={i} style={{ maxHeight: `${height}px` }}>
                   <Banner height={height} {...banner} />
                 </div>
