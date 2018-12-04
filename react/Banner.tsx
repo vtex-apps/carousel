@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Link } from 'render'
+import { Link, withRuntimeContext } from 'render'
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -10,6 +10,8 @@ interface DefaultProps {
 export interface Props extends DefaultProps {
   /** The image of the banner */
   image: string
+  /** Link for the mobile image of the banner */
+  mobileImage: string,
   /** The description of the image */
   description: string
   /** The url where the image is pointing to, in case of external route */
@@ -35,12 +37,16 @@ class Banner extends Component<Props> {
     height: PropTypes.number.isRequired,
     /** The image of the banner */
     image: PropTypes.string.isRequired,
+    /** The mobile image of the banner */
+  mobileImage: PropTypes.string,
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
     params: PropTypes.string,
     /** The url where the image is pointing to, in case of external route */
     url: PropTypes.string,
+    /** The url for the mobile image */
+    mobileImage: PropTypes.string
   }
 
   public static defaultProps: DefaultProps = {
@@ -51,12 +57,16 @@ class Banner extends Component<Props> {
     const {
       height,
       image,
+      mobileImage,
       description,
       page,
       url,
       params,
       externalRoute,
+      runtime
     } = this.props
+
+    const isMobile = runtime.hints.mobile
 
     const content = (
       <div className="vtex-carousel__img-container">
@@ -64,7 +74,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}
         >
-          <img className="w-100" src={image} alt={description} />
+          <img className="w-100" src={isMobile ? mobileImage: image} alt={description} />
         </div>
       </div>
     )
@@ -97,4 +107,4 @@ class Banner extends Component<Props> {
   }
 }
 
-export default Banner
+export default withRuntimeContext(Banner)
