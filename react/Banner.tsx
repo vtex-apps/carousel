@@ -74,7 +74,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}
         >
-          <img className="w-100" src={isMobile ? mobileImage: image} alt={description} />
+          <img className="w-100" src={isMobile && mobileImage ? mobileImage: image} alt={description} />
         </div>
       </div>
     )
