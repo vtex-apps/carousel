@@ -38,7 +38,7 @@ class Banner extends Component<Props> {
     /** The image of the banner */
     image: PropTypes.string.isRequired,
     /** The mobile image of the banner */
-  mobileImage: PropTypes.string,
+    mobileImage: PropTypes.string,
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
@@ -72,25 +72,25 @@ class Banner extends Component<Props> {
       <div className="vtex-carousel__img-container">
         <div
           className="vtex-carousel__img-regular"
-          style={{ maxHeight: `${height}px` }}
+          style={{ maxHeight: height }}
         >
-          <img className="w-100" src={isMobile && mobileImage ? mobileImage: image} alt={description} />
+          <img className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />
         </div>
       </div>
     )
 
-    return !externalRoute ? (
-      <div>
+    if (!externalRoute) {
+      return page ? (
         <Link page={page} params={this.getParams(params)}>
           {content}
         </Link>
-      </div>
-    ) : (
-      <div>
-        <a href={url} target="_blank">
-          {content}
-        </a>
-      </div>
+      ) : content
+    }
+
+    return (
+      <a href={url} target="_blank">
+        {content}
+      </a>
     )
   }
 
