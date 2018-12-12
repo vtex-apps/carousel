@@ -84,12 +84,18 @@ export default class Carousel extends Component<Props> {
         },
         autoplaySpeed: autoplay
           ? {
-              default: 5,
-              enum: [4, 5, 6],
-              isLayout: true,
-              title: 'editor.carousel.autoplaySpeed.title',
-              type: 'number',
-            }
+            default: 5,
+            enum: [4, 5, 6],
+            isLayout: true,
+            title: 'editor.carousel.autoplaySpeed.title',
+            type: 'number',
+            widget: {
+              'ui:options': {
+                inline: true,
+              },
+              'ui:widget': 'radio',
+            },
+          }
           : {},
         banners: {
           minItems: 1,

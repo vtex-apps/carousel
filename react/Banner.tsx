@@ -77,25 +77,25 @@ class Banner extends Component<Props> {
       <div className="vtex-carousel__img-container">
         <div
           className="vtex-carousel__img-regular"
-          style={{ maxHeight: `${height}px` }}
+          style={{ maxHeight: height }}
         >
           <img className="w-100" src={isMobile && mobile ? mobile: desktop} alt={description} />
         </div>
       </div>
     )
 
-    return !externalRoute ? (
-      <div>
+    if (!externalRoute) {
+      return page ? (
         <Link page={page} params={this.getParams(params)}>
           {content}
         </Link>
-      </div>
-    ) : (
-      <div>
-        <a href={url} target="_blank">
-          {content}
-        </a>
-      </div>
+      ) : content
+    }
+
+    return (
+      <a href={url} target="_blank">
+        {content}
+      </a>
     )
   }
 
