@@ -8,77 +8,71 @@ exports[`Carousel component should match snapshot 1`] = `
     <div
       style="max-height: 440px;"
     >
-      <div>
-        <a
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-          target="_blank"
+      <a
+        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+        target="_blank"
+      >
+        <div
+          class="vtex-carousel__img-container"
         >
           <div
-            class="vtex-carousel__img-container"
+            class="vtex-carousel__img-regular"
+            style="max-height: 440px;"
           >
-            <div
-              class="vtex-carousel__img-regular"
-              style="max-height: 440px;"
-            >
-              <img
-                alt="banner"
-                class="w-100"
-                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-              />
-            </div>
+            <img
+              alt="banner"
+              class="w-100"
+              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+            />
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
     <div
       style="max-height: 440px;"
     >
-      <div>
-        <a
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-          target="_blank"
+      <a
+        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+        target="_blank"
+      >
+        <div
+          class="vtex-carousel__img-container"
         >
           <div
-            class="vtex-carousel__img-container"
+            class="vtex-carousel__img-regular"
+            style="max-height: 440px;"
           >
-            <div
-              class="vtex-carousel__img-regular"
-              style="max-height: 440px;"
-            >
-              <img
-                alt="david"
-                class="w-100"
-                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
-              />
-            </div>
+            <img
+              alt="david"
+              class="w-100"
+              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
+            />
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
     <div
       style="max-height: 440px;"
     >
-      <div>
-        <a
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-          target="_blank"
+      <a
+        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+        target="_blank"
+      >
+        <div
+          class="vtex-carousel__img-container"
         >
           <div
-            class="vtex-carousel__img-container"
+            class="vtex-carousel__img-regular"
+            style="max-height: 440px;"
           >
-            <div
-              class="vtex-carousel__img-regular"
-              style="max-height: 440px;"
-            >
-              <img
-                alt="banner"
-                class="w-100"
-                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
-              />
-            </div>
+            <img
+              alt="banner"
+              class="w-100"
+              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+            />
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   </div>
 </div>
