@@ -15,6 +15,9 @@ describe('Carousel component', () => {
     autoplay: true,
     autoplaySpeed: 4,
     numberOfBanners: 3,
+    runtime: {
+      hints: {}
+    },
     banners: [
       {
         image:
