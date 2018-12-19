@@ -124,18 +124,18 @@ export default class Carousel extends Component<Props> {
         },
         autoplaySpeed: autoplay
           ? {
-              default: 5,
-              enum: [4, 5, 6],
-              isLayout: true,
-              title: 'editor.carousel.autoplaySpeed.title',
-              type: 'number',
-              widget: {
-                'ui:options': {
-                  inline: true,
-                },
-                'ui:widget': 'radio',
+            default: 5,
+            enum: [4, 5, 6],
+            isLayout: true,
+            title: 'editor.carousel.autoplaySpeed.title',
+            type: 'number',
+            widget: {
+              'ui:options': {
+                inline: true,
               },
-            }
+              'ui:widget': 'radio',
+            },
+          }
           : {},
         banners: {
           minItems: 1,
@@ -208,15 +208,13 @@ export default class Carousel extends Component<Props> {
 
     return (
       <div className="vtex-carousel force-full-width">
-        <Slider sliderSettings={settings} leftArrowClasses={'ml3 ml5-m ml8-l ml9-xl'}  rightArrowClasses={'mr3 mr5-m mr8-l mr9-xl'}>
-          {banners.map(
-            (banner, i) =>
-              banner &&
-              (banner.mobileImage || banner.image) && (
-                <div key={i} style={{ maxHeight: `${height}px` }}>
-                  <Banner height={height} {...banner} />
-                </div>
-              )
+        <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
+          {banners.filter(banner => banner && (banner.mobileImage || banner.image)).map(
+            (banner, i) => (
+              <div key={i} style={{ maxHeight: height }}>
+                <Banner height={height} {...banner} />
+              </div>
+            )
           )}
         </Slider>
       </div>

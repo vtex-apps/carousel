@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.1.1] - 2018-12-19
+### Fixed
+- Error when clicking in an image that doesn't have a url to go.
+
 ## [2.1.0] - 2018-12-04
 ### Added
 - Support for mobile banners.
