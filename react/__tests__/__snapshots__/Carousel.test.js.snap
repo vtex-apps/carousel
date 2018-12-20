@@ -3,7 +3,7 @@
 exports[`Carousel component should match snapshot 1`] = `
 <div>
   <div
-    class="vtex-carousel"
+    class="container"
   >
     <div
       style="max-height: 440px;"
@@ -13,10 +13,10 @@ exports[`Carousel component should match snapshot 1`] = `
         target="_blank"
       >
         <div
-          class="vtex-carousel__img-container"
+          class="imgContainer"
         >
           <div
-            class="vtex-carousel__img-regular"
+            class="imgRegular"
             style="max-height: 440px;"
           >
             <img
@@ -36,10 +36,10 @@ exports[`Carousel component should match snapshot 1`] = `
         target="_blank"
       >
         <div
-          class="vtex-carousel__img-container"
+          class="imgContainer"
         >
           <div
-            class="vtex-carousel__img-regular"
+            class="imgRegular"
             style="max-height: 440px;"
           >
             <img
@@ -59,10 +59,10 @@ exports[`Carousel component should match snapshot 1`] = `
         target="_blank"
       >
         <div
-          class="vtex-carousel__img-container"
+          class="imgContainer"
         >
           <div
-            class="vtex-carousel__img-regular"
+            class="imgRegular"
             style="max-height: 440px;"
           >
             <img
