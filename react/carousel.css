@@ -1,0 +1,20 @@
+/**/
+.container {
+  --carousel-min-width: 0.625rem;
+  --carousel-min-height: 0.625rem;
+  --elements-color: black;
+
+  --dots-vpos-desktop: -51%;
+  --dots-size-desktop: 1vw;
+  --dots-vpos-mobile: -30%;
+  --dots-size-mobile: 3vw;
+}
+
+.container {
+    min-width: var(--carousel-min-width);
+    min-height: var(--carousel-min-height);
+}
+
+.imgContainer {
+    max-height: inherit;
+}
