@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link, withRuntimeContext } from 'vtex.render-runtime'
 
+import carousel from './carousel.css'
+
 interface DefaultProps {
   /** Max height size of the banner */
   height: number
@@ -69,9 +71,9 @@ class Banner extends Component<Props> {
     const isMobile = runtime.hints.mobile
 
     const content = (
-      <div className="vtex-carousel__img-container">
+      <div className={carousel.imgContainer}>
         <div
-          className="vtex-carousel__img-regular"
+          className={carousel.imgRegular}
           style={{ maxHeight: height }}
         >
           <img className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />

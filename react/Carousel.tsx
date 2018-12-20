@@ -1,10 +1,10 @@
-import './global.css'
-
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Slider } from 'vtex.store-components'
 
 import Banner, { Props as BannerProps } from './Banner'
+
+import carousel from './carousel.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
@@ -207,7 +207,7 @@ export default class Carousel extends Component<Props> {
     }
 
     return (
-      <div className="vtex-carousel">
+      <div className={`${carousel.container}`}>
         <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
           {banners.filter(banner => banner && (banner.mobileImage || banner.image)).map(
             (banner, i) => (
