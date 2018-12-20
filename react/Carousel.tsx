@@ -4,6 +4,7 @@ import { Slider } from 'vtex.store-components'
 
 import Banner, { Props as BannerProps } from './Banner'
 
+import './global.css'	
 import carousel from './carousel.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
