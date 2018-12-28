@@ -38,7 +38,7 @@ class Banner extends Component<Props> {
     /** The image of the banner */
     image: PropTypes.string.isRequired,
     /** The mobile image of the banner */
-  mobileImage: PropTypes.string,
+    mobileImage: PropTypes.string,
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
@@ -46,7 +46,6 @@ class Banner extends Component<Props> {
     /** The url where the image is pointing to, in case of external route */
     url: PropTypes.string,
     /** The url for the mobile image */
-    mobileImage: PropTypes.string
   }
 
   public static defaultProps: DefaultProps = {
