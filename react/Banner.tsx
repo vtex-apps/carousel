@@ -7,11 +7,16 @@ interface DefaultProps {
   height: number
 }
 
+interface Image {
+  desktopImage: string,
+  mobileImage: string
+}
+
 export interface Props extends DefaultProps {
   /** The image of the banner */
-  image: string
+  image: Image
   /** Link for the mobile image of the banner */
-  mobileImage: string,
+  image2: Image,
   /** The description of the image */
   description: string
   /** The url where the image is pointing to, in case of external route */
@@ -36,9 +41,15 @@ class Banner extends Component<Props> {
     /** Max height size of the banner */
     height: PropTypes.number.isRequired,
     /** The image of the banner */
-    image: PropTypes.string.isRequired,
+    image: PropTypes.shape({
+      desktopImage: PropTypes.string.isRequired,
+      mobileImage: PropTypes.string
+    }),
     /** The mobile image of the banner */
-    mobileImage: PropTypes.string,
+    image2: PropTypes.shape({
+      desktopImage: PropTypes.string.isRequired,
+      mobileImage: PropTypes.string
+    }),
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
@@ -56,7 +67,7 @@ class Banner extends Component<Props> {
     const {
       height,
       image,
-      mobileImage,
+      image2,
       description,
       page,
       url,
@@ -73,7 +84,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}
         >
-          <img className="w-100" src={isMobile && mobileImage ? mobileImage: image} alt={description} />
+          <img className="w-100" src={isMobile && image.mobileImage ? image.mobileImage: image.desktopImage} alt={description} />
         </div>
       </div>
     )
