@@ -36,24 +36,7 @@ export default class Carousel extends Component<Props> {
     showDots: true,
   }
 
-  public static uiSchema = {
-    banners: {
-      items: {
-        externalRoute: {
-          'ui:options': {
-            inline: true,
-          },
-          'ui:widget': 'radio',
-        },
-        image: {
-          'ui:widget': 'image-uploader',
-        },
-        mobileImage: {
-          'ui:widget': 'image-uploader',
-        },
-      },
-    },
-  }
+  
 
   public static propTypes = {
     /** Should change images automatically */
@@ -129,12 +112,6 @@ export default class Carousel extends Component<Props> {
               isLayout: true,
               title: 'editor.carousel.autoplaySpeed.title',
               type: 'number',
-              widget: {
-                'ui:options': {
-                  inline: true,
-                },
-                'ui:widget': 'radio',
-              },
             }
           : {},
         banners: {
@@ -159,18 +136,7 @@ export default class Carousel extends Component<Props> {
               image: {
                 default: '',
                 title: 'editor.carousel.banner.image.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
-              },
-              mobileImage: {
-                default: '',
-                title: 'editor.carousel.banner.mobileImage.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
+                type: 'nativeImage',
               },
             },
           },
