@@ -178,7 +178,7 @@ export default class Carousel extends Component<Props> {
           {banners.map(
             (banner, i) =>
               banner &&
-              (banner.mobileImage || banner.image) && (
+              (banner.mobileImage || banner.desktopImage) && (
                 <div key={i} style={{ maxHeight: `${height}px` }}>
                   <Banner height={height} {...banner} />
                 </div>
