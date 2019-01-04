@@ -22,6 +22,6 @@
   "editor.carousel.banner.title": "Banner",
   "editor.carousel.banner.description.title": "Descrição do banner",
   "editor.carousel.banner.externalRoute.title": "Rota externa",
-  "editor.carousel.banner.image.title": "Imagem do banner",
+  "editor.carousel.banner.desktopImage.title": "Imagem do banner",
   "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"
 }

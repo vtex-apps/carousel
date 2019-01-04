@@ -20,6 +20,6 @@
   "editor.carousel.banner.title": "Banner",
   "editor.carousel.banner.description.title": "Banner description",
   "editor.carousel.banner.externalRoute.title": "External route",
-  "editor.carousel.banner.image.title": "Banner image",
+  "editor.carousel.banner.desktopImage.title": "Banner image",
   "editor.carousel.banner.mobileImage.title": "Banner mobile image"
 }
