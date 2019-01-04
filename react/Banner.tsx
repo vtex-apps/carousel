@@ -7,6 +7,11 @@ interface DefaultProps {
   height: number
 }
 
+interface Image {
+  desktopImage: string,
+  mobileImage: string
+}
+
 export interface Props extends DefaultProps {
   /** The desktop image of the banner */
   desktop: string
