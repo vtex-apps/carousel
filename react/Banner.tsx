@@ -8,8 +8,8 @@ interface DefaultProps {
 }
 
 interface Image {
-  desktopImage: string,
-  mobileImage: string
+  desktop: string,
+  mobile: string
 }
 
 export interface Props extends DefaultProps {
@@ -42,13 +42,13 @@ class Banner extends Component<Props> {
     height: PropTypes.number.isRequired,
     /** The image of the banner */
     image: PropTypes.shape({
-      desktopImage: PropTypes.string.isRequired,
-      mobileImage: PropTypes.string
+      desktop: PropTypes.string.isRequired,
+      mobile: PropTypes.string
     }),
     /** The mobile image of the banner */
     image2: PropTypes.shape({
-      desktopImage: PropTypes.string.isRequired,
-      mobileImage: PropTypes.string
+      desktop: PropTypes.string.isRequired,
+      mobile: PropTypes.string
     }),
     /** The page where the image is pointing to */
     page: PropTypes.string,
@@ -84,7 +84,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}
         >
-          <img className="w-100" src={isMobile && image.mobileImage ? image.mobileImage: image.desktopImage} alt={description} />
+          <img className="w-100" src={isMobile && image.mobile ? image.mobile: image.desktop} alt={description} />
         </div>
       </div>
     )

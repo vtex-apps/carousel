@@ -134,27 +134,21 @@ export default class Carousel extends Component<Props> {
               ...externalRouteSchema,
               ...internalRouteSchema,
               image: {
-                constraints: {
-                  desktopImage:{
-                    maxWidth: 100
+                subProperties: {
+                  desktop: {
+                    default: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
+                    maxWidth: 100,
+                    title: 'editor.carousel.banner.desktopImage.title',
+                  },
+                  mobile: {
+                    title: 'editor.carousel.banner.mobileImage.title'
                   }
-                },
-                defaults: {
-                  desktopImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png'
-                },
-                titles: {
-                  desktopImage: 'editor.carousel.banner.desktopImage.title',
-                  mobileImage: 'editor.carousel.banner.mobileImage.title'
                 },
                 type: 'nativeImage',
               },
               image2: {
-                defaults: {
-                },
-                titles: {
-                } ,
                 type: 'nativeImage',
-              }
+              },
             },
           },
         },
@@ -195,7 +189,7 @@ export default class Carousel extends Component<Props> {
           {banners.map(
             (banner, i) =>
               banner &&
-              (banner.image.desktopImage|| banner.image.mobileImage) && (
+              (banner.image.desktop|| banner.image.mobile) && (
                 <div key={i} style={{ maxHeight: `${height}px` }}>
                   <Banner height={height} {...banner} />
                 </div>
