@@ -134,24 +134,24 @@ export default class Carousel extends Component<Props> {
               ...externalRouteSchema,
               ...internalRouteSchema,
               image: {
+                constraints: {
+                  desktopImage:{
+                    maxWidth: 100
+                  }
+                },
                 defaults: {
-                  desktopImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
-                  mobileImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png'
+                  desktopImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png'
                 },
                 titles: {
                   desktopImage: 'editor.carousel.banner.desktopImage.title',
                   mobileImage: 'editor.carousel.banner.mobileImage.title'
-                } ,
+                },
                 type: 'nativeImage',
               },
               image2: {
                 defaults: {
-                  desktopImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
-                  mobileImage: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png'
                 },
                 titles: {
-                  desktopImage: 'editor.carousel.banner.desktopImage2.title',
-                  mobileImage: 'editor.carousel.banner.mobileImage2.title'
                 } ,
                 type: 'nativeImage',
               }
