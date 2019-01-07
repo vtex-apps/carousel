@@ -150,7 +150,7 @@ export default class Carousel extends Component<Props> {
                   mobileImage: 'editor.carousel.banner.mobileImage2.title'
                 } ,
                 type: 'nativeImage',
-              }
+              },
             },
           },
         },

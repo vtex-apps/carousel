@@ -8,8 +8,8 @@ interface DefaultProps {
 }
 
 interface Image {
-  desktopImage: string,
-  mobileImage: string
+  desktop: string,
+  mobile: string
 }
 
 export interface Props extends DefaultProps {
