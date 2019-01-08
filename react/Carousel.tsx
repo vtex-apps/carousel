@@ -71,34 +71,11 @@ export default class Carousel extends Component<Props> {
   public static getSchema = (props: Props) => {
     const autoplay = props.autoplay || false
 
-    const internalRouteSchema = {
-      page: {
-        enum: GLOBAL_PAGES,
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.page.title',
-        type: 'string',
-      },
-      params: {
-        description: 'editor.carousel.bannerLink.params.description',
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.params.title',
-        type: 'string',
-      },
-    }
-
-    const externalRouteSchema = {
-      url: {
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.url.title',
-        type: 'string',
-      },
-    }
-
-    return {
+    return {// tslint:disable:object-literal-sort-keys
       description: 'editor.carousel.description',
       title: 'editor.carousel.title',
       type: 'object',
-      properties: { // tslint:disable-line
+      properties: { 
         autoplay: {
           default: true,
           isLayout: true,
@@ -118,36 +95,44 @@ export default class Carousel extends Component<Props> {
           minItems: 1,
           title: 'editor.carousel.banners.title',
           type: 'array',
-          items: { // tslint:disable-line
+          items: {
             title: 'editor.carousel.banner.title',
             type: 'object',
-            properties: { // tslint:disable-line
-              description: {
-                default: '',
-                title: 'editor.carousel.banner.description.title',
-                type: 'string',
-              },
-              externalRoute: {
-                title: 'editor.carousel.banner.externalRoute.title',
-                type: 'boolean',
-              },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
-              image: {
-                subProperties: {
+            properties: {
+              banner: {
+                title: 'editor.carousel.banners.banner.title',
+                type: 'image',
+                elements: {
+                  description: {
+                    default: 'oi oi oi',
+                    title: 'editor.carousel.banners.banner.description.title',
+                  },
+                  hasLink: {
+                    default: 'false',
+                    title: 'editor.carousel.banners.banner.hasLink.title'
+                  },
+                  externalRoute: {
+                    title: 'editor.carousel.banners.banner.externalRoute.title'
+                  },
+                  url: {
+                    title: 'editor.carousel.banners.banner.url.title'
+                  },
+                  page: {
+                    title: 'editor.carousel.banners.banner.page.title'
+                  },
+                  params: {
+                    description: 'editor.carousel.banners.banner.params.description',
+                    title: 'editor.carousel.banners.banner.params.title'
+                  },
                   desktop: {
                     default: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
-                    maxWidth: 100,
-                    title: 'editor.carousel.banner.desktopImage.title',
+                    maxWidth: 500,
+                    title: 'editor.carousel.banners.banner.desktop.title',
                   },
                   mobile: {
-                    title: 'editor.carousel.banner.mobileImage.title'
-                  }
+                    title: 'editor.carousel.banners.banner.mobile.title'
+                  },
                 },
-                type: 'nativeImage',
-              },
-              image2: {
-                type: 'nativeImage',
               },
             },
           },
@@ -173,7 +158,7 @@ export default class Carousel extends Component<Props> {
         },
       },
     }
-  }
+  }// tslint:enable:object-literal-sort-keys
 
   public render() {
     const { height, banners } = this.props
@@ -189,7 +174,7 @@ export default class Carousel extends Component<Props> {
           {banners.map(
             (banner, i) =>
               banner &&
-              (banner.image.desktop|| banner.image.mobile) && (
+              (banner.desktop|| banner.mobile) && (
                 <div key={i} style={{ maxHeight: `${height}px` }}>
                   <Banner height={height} {...banner} />
                 </div>

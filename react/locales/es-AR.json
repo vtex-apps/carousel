@@ -11,18 +11,18 @@
   "editor.carousel.autoplaySpeed.title":
     "Velocidad de reproducción automática (seg)",
   "editor.carousel.numberOfBanners.title": "Número de banners",
-  "editor.carousel.bannerLink.title":
+  "editor.carousel.banners.url.description":
     "Enlace del banner (debe comenzar con http o https)",
-  "editor.carousel.bannerLink.page.title":
+  "editor.carousel.banners.banner.page.title":
     "Página de destino del banner (interna)",
-  "editor.carousel.bannerLink.params.title": "Parámetros (interna)",
-  "editor.carousel.bannerLink.params.description":
+  "editor.carousel.banners.banner.params.title": "Parámetros (interna)",
+  "editor.carousel.banners.banner.params.description":
     "Parámetros separados por coma, e.g.: clave=valor,a=b,c=d",
-  "editor.carousel.bannerLink.url.title": "URL (externo)",
+  "editor.carousel.banners.banner.url.title": "URL (externo)",
   "editor.carousel.banners.title": "Banners",
-  "editor.carousel.banner.title": "Banner",
-  "editor.carousel.banner.description.title": "Descripción del banner",
-  "editor.carousel.banner.externalRoute.title": "Ruta externa",
-  "editor.carousel.banner.desktopImage.title": "Imagen del banner",
-  "editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil"
+  "editor.carousel.banners.banner.title": "Banner",
+  "editor.carousel.banners.banner.description.title": "Descripción del banner",
+  "editor.carousel.banners.banner.externalRoute.title": "Ruta externa",
+  "editor.carousel.banners.banner.desktop.title": "Imagen del banner",
+  "editor.carousel.banners.banner.mobile.title": "Imagen del banner en el móvil"
 }

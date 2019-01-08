@@ -7,16 +7,13 @@ interface DefaultProps {
   height: number
 }
 
-interface Image {
-  desktop: string,
-  mobile: string
-}
-
 export interface Props extends DefaultProps {
-  /** The image of the banner */
-  image: Image
-  /** Link for the mobile image of the banner */
-  image2: Image,
+  /** The desktop image of the banner */
+  desktop: string
+  /** The mobile image of the banner */
+  mobile: string
+  /** Does the banner have a link? */
+  hasLink: boolean
   /** The description of the image */
   description: string
   /** The url where the image is pointing to, in case of external route */
@@ -36,20 +33,16 @@ class Banner extends Component<Props> {
   public static propTypes = {
     /** The description of the image */
     description: PropTypes.string.isRequired,
+    /** The desktop image of the banner */
+    desktop: PropTypes.string.isRequired,
     /** Indicates if the route is external or not */
     externalRoute: PropTypes.bool,
+    /** Indicates if the image has a link or not */
+    hasLink: PropTypes.bool,
     /** Max height size of the banner */
     height: PropTypes.number.isRequired,
-    /** The image of the banner */
-    image: PropTypes.shape({
-      desktop: PropTypes.string.isRequired,
-      mobile: PropTypes.string
-    }),
     /** The mobile image of the banner */
-    image2: PropTypes.shape({
-      desktop: PropTypes.string.isRequired,
-      mobile: PropTypes.string
-    }),
+    mobile: PropTypes.string,
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
@@ -66,8 +59,8 @@ class Banner extends Component<Props> {
   public render() {
     const {
       height,
-      image,
-      image2,
+      desktop,
+      mobile,
       description,
       page,
       url,
@@ -84,7 +77,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: `${height}px` }}
         >
-          <img className="w-100" src={isMobile && image.mobile ? image.mobile: image.desktop} alt={description} />
+          <img className="w-100" src={isMobile && mobile ? mobile: desktop} alt={description} />
         </div>
       </div>
     )

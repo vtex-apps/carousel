@@ -8,18 +8,18 @@
   "editor.carousel.mobileHeight.title": "Banner max height size on mobile (px)",
   "editor.carousel.autoplay.title": "Autoplay",
   "editor.carousel.autoplaySpeed.title": "Autoplay speed (sec)",
-  "editor.carousel.numberOfBanners.title": "Number of banners",
-  "editor.carousel.bannerLink.title":
+  "editor.carousel.banners.numberOfBanners.title": "Number of banners",
+  "editor.carousel.banners.banner.url.description":
     "Banner link (should start with https or http)",
-  "editor.carousel.bannerLink.page.title": "Banner target page (internal)",
-  "editor.carousel.bannerLink.params.title": "Params (internal)",
-  "editor.carousel.bannerLink.params.description":
+  "editor.carousel.banners.banner.page.title": "Banner target page (internal)",
+  "editor.carousel.banners.banner.params.title": "Params (internal)",
+  "editor.carousel.banners.banner.params.description":
     "Comma separated params, e.g.: key=value,a=b,c=d",
-  "editor.carousel.bannerLink.url.title": "URL (external)",
+  "editor.carousel.banners.banner.url.title": "URL (external)",
   "editor.carousel.banners.title": "Banners",
-  "editor.carousel.banner.title": "Banner",
-  "editor.carousel.banner.description.title": "Banner description",
-  "editor.carousel.banner.externalRoute.title": "External route",
-  "editor.carousel.banner.desktopImage.title": "Banner image",
-  "editor.carousel.banner.mobileImage.title": "Banner mobile image"
+  "editor.carousel.banners.banner.title": "Banner",
+  "editor.carousel.banners.banner.description.title": "Banner description",
+  "editor.carousel.banners.banner.externalRoute.title": "External route",
+  "editor.carousel.banners.banner.desktop.title": "Banner image",
+  "editor.carousel.banners.banner.mobile.title": "Banner mobile image"
 }
