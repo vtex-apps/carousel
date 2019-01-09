@@ -1,12 +1,12 @@
 {
   "vendor": "vtex",
   "name": "carousel",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "title": "Carousel",
   "description": "Carousel Component",
   "defaultLocale": "pt-BR",
   "builders": {
-    "pages": "0.x",
+    "store": "0.x",
     "react": "2.x",
     "messages": "0.x"
   },
