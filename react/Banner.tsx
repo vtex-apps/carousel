@@ -23,7 +23,7 @@ export interface Props extends DefaultProps {
   /** Params of the url */
   params: string
   /** Indicates if the route is external or not */
-  externalRoute: boolean
+  externalRoute: string
 }
 
 /**
@@ -68,6 +68,8 @@ class Banner extends Component<Props> {
       externalRoute,
       runtime
     } = this.props
+
+    console.log(mobile)
 
     const isMobile = runtime.hints.mobile
 

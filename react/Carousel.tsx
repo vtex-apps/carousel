@@ -96,7 +96,7 @@ export default class Carousel extends Component<Props> {
           title: 'editor.carousel.banners.title',
           type: 'array',
           items: {
-            title: 'editor.carousel.banner.title',
+            title: 'editor.carousel.banners.banner.title',
             type: 'object',
             properties: {
               banner: {
@@ -167,7 +167,7 @@ export default class Carousel extends Component<Props> {
     if (!banners.length) {
       return null
     }
-
+    console.log(this.props)
     return (
       <div className="vtex-carousel force-full-width">
         <Slider sliderSettings={settings} leftArrowClasses={'ml3 ml5-m ml8-l ml9-xl'}  rightArrowClasses={'mr3 mr5-m mr8-l mr9-xl'}>
