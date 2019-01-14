@@ -22,43 +22,43 @@
   max-height: inherit;
 }
 
-.vtex-carousel .vtex-slider__arrow-left {
+.vtex-carousel .vtex-store-components-3-x-arrowLeft {
   z-index: 1;
 }
 
 @media only screen and (max-width: 30em) {
-  .vtex-carousel .vtex-slider__arrow-left:before,
-  .vtex-carousel .vtex-slider__arrow-right:before {
+  .vtex-carousel .vtex-store-components-3-x-arrowLeft:before,
+  .vtex-carousel .vtex-store-components-3-x-arrowRight:before {
     display: none;
   }
 }
 
 /* Dots */
-.vtex-carousel .vtex-slider__dots {
+.vtex-carousel .vtex-store-components-3-x-dots {
   position: relative;
   top: var(--dots-vpos-desktop);
 }
 
-.vtex-carousel .vtex-slider__dots li button {
+.vtex-carousel .vtex-store-components-3-x-dots li button {
   color: var(--elements-color);
 }
 
-.vtex-carousel .vtex-slider__dots li button:before {
+.vtex-carousel .vtex-store-components-3-x-dots li button:before {
   color: var(--elements-color);
   font-size: var(--dots-size-desktop);
 }
-.vtex-carousel .vtex-slider__dots li.slick-active button:before {
+.vtex-carousel .vtex-store-components-3-x-dots li.slick-active button:before {
   color: var(--elements-color);
 }
 
 @media only screen and (max-device-width: 480px) {
   
-  .vtex-carousel .vtex-slider__dots {
+  .vtex-carousel .vtex-store-components-3-x-dots {
     position: relative;
     top: var(--dots-vpos-mobile);
   }
 
-  .vtex-carousel .vtex-slider__dots li button:before {
+  .vtex-carousel .vtex-store-components-3-x-dots li button:before {
     font-size: var(--dots-size-mobile);
   }
 

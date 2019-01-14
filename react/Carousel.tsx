@@ -207,7 +207,7 @@ export default class Carousel extends Component<Props> {
     }
 
     return (
-      <div className="vtex-carousel force-full-width">
+      <div className="vtex-carousel">
         <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
           {banners.filter(banner => banner && (banner.mobileImage || banner.image)).map(
             (banner, i) => (
