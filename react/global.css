@@ -1,64 +1,41 @@
-/* General */
-.vtex-carousel{
-
-  --carousel-min-width: 0.625rem;
-  --carousel-min-height: 0.625rem;
-  --elements-color: black;
-
-  --dots-vpos-desktop: -51%;
-  --dots-size-desktop: 1vw;
-  --dots-vpos-mobile: -30%;
-  --dots-size-mobile: 3vw;
-
-}
-
-.vtex-carousel {
-  min-width: var(--carousel-min-width);
-  min-height: var(--carousel-min-height);
-}
-
-/* Images */ 
-.vtex-carousel .vtex-carousel__img-container {
-  max-height: inherit;
-}
-
-.vtex-carousel .vtex-store-components-3-x-arrowLeft {
+/* Images */
+.vtex-carousel-2-x-container .vtex-store-components-3-x-arrowLeft {
   z-index: 1;
 }
 
 @media only screen and (max-width: 30em) {
-  .vtex-carousel .vtex-store-components-3-x-arrowLeft:before,
-  .vtex-carousel .vtex-store-components-3-x-arrowRight:before {
+  .vtex-carousel-2-x-container .vtex-store-components-3-x-arrowLeft:before,
+  .vtex-carousel-2-x-container .vtex-store-components-3-x-arrowRight:before {
     display: none;
   }
 }
 
 /* Dots */
-.vtex-carousel .vtex-store-components-3-x-dots {
+.vtex-carousel-2-x-container .vtex-store-components-3-x-dots {
   position: relative;
   top: var(--dots-vpos-desktop);
 }
 
-.vtex-carousel .vtex-store-components-3-x-dots li button {
+.vtex-carousel-2-x-container .vtex-store-components-3-x-dots li button {
   color: var(--elements-color);
 }
 
-.vtex-carousel .vtex-store-components-3-x-dots li button:before {
+.vtex-carousel-2-x-container .vtex-store-components-3-x-dots li button:before {
   color: var(--elements-color);
   font-size: var(--dots-size-desktop);
 }
-.vtex-carousel .vtex-store-components-3-x-dots li.slick-active button:before {
+.vtex-carousel-2-x-container .vtex-store-components-3-x-dots li.slick-active button:before {
   color: var(--elements-color);
 }
 
 @media only screen and (max-device-width: 480px) {
   
-  .vtex-carousel .vtex-store-components-3-x-dots {
+  .vtex-carousel-2-x-container .vtex-store-components-3-x-dots {
     position: relative;
     top: var(--dots-vpos-mobile);
   }
 
-  .vtex-carousel .vtex-store-components-3-x-dots li button:before {
+  .vtex-carousel-2-x-container .vtex-store-components-3-x-dots li button:before {
     font-size: var(--dots-size-mobile);
   }
 

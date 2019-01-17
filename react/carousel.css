@@ -1,4 +1,6 @@
-/**/
+/**
+ * Carousel CSS Modules 
+*/
 .container {
   --carousel-min-width: 0.625rem;
   --carousel-min-height: 0.625rem;
@@ -11,10 +13,10 @@
 }
 
 .container {
-    min-width: var(--carousel-min-width);
-    min-height: var(--carousel-min-height);
+  min-width: var(--carousel-min-width);
+  min-height: var(--carousel-min-height);
 }
 
 .imgContainer {
-    max-height: inherit;
+  max-height: inherit;
 }
