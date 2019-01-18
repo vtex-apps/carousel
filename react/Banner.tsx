@@ -24,7 +24,23 @@ export interface Props extends DefaultProps {
   /** Indicates if the route is external or not */
   externalRoute: boolean
   /** Runtime injected deps */
-  runtime: any
+  runtime: any,
+  /** Indicates if the route of the button is external or not */
+  externalRouteButton: boolean,
+  /** The url where the button is pointing to, in case of external route */
+  urlButton: string,
+  /** The page where the button is pointing to */
+  pageButton: string,
+  /** Params of the button url */
+  paramsButton: string,
+  /** Indicates if the banner is a text banner or not */
+  textImageMode: boolean,
+  /** The title of the button on the image text mode */
+  buttonTitle: string,
+  /** The title of the text on the image text mode */
+  textTitle: string,
+  /** The description of the button on the image text mode */
+  textDescription: string,
 }
 
 /**
@@ -44,10 +60,26 @@ class Banner extends Component<Props> {
     mobileImage: PropTypes.string,
     /** The page where the image is pointing to */
     page: PropTypes.string,
-    /** Params of the url */
+    /** Params of the image url */
     params: PropTypes.string,
     /** The url where the image is pointing to, in case of external route */
     url: PropTypes.string,
+    /** Indicates if the route of the button is external or not */
+    externalRouteButton: PropTypes.bool,
+    /** The url where the button is pointing to, in case of external route */
+    urlButton: PropTypes.string,
+    /** The page where the button is pointing to */
+    pageButton: PropTypes.string,
+    /** Params of the button url */
+    paramsButton: PropTypes.string,
+    /** Indicates if the banner is a text banner or not */
+    textImageMode: PropTypes.bool,
+    /** The title of the button on the image text mode */
+    buttonTitle: PropTypes.string,
+    /** The title of the text on the image text mode */
+    textTitle: PropTypes.string,
+    /** The description of the button on the image text mode */
+    textDescription: PropTypes.string,
   }
 
   public static defaultProps: DefaultProps = {
@@ -74,8 +106,8 @@ class Banner extends Component<Props> {
             <Button primary>
               {buttonTitle}
             </Button>
-          </a>)
-        }
+          </a>
+        )}
       </div>
     )
   }

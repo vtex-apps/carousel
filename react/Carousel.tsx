@@ -75,12 +75,22 @@ export default class Carousel extends Component<Props> {
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
-        /** The text title of the image */
-        textTitle: PropTypes.string.isRequired,
-        /** The text description of the image */
-        textDescription: PropTypes.string.isRequired,
-        /** The button title of the image */
-        buttonTitle: PropTypes.string.isRequired,
+        /** Indicates if the route of the button is external or not */
+        externalRouteButton: PropTypes.bool,
+        /** The url where the button is pointing to, in case of external route */
+        urlButton: PropTypes.string,
+        /** The page where the button is pointing to */
+        pageButton: PropTypes.string,
+        /** Params of the button url */
+        paramsButton: PropTypes.string,
+        /** Indicates if the banner is a text banner or not */
+        textImageMode: PropTypes.string,
+        /** The title of the button on the image text mode */
+        buttonTitle: PropTypes.string,
+        /** The title of the text on the image text mode */
+        textTitle: PropTypes.string,
+        /** The description of the text on the image text mode */
+        textDescription: PropTypes.bool,
       })
     ),
     /** Max height size of the banners */

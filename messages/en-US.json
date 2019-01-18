@@ -21,5 +21,13 @@
   "editor.carousel.banner.description.title": "Banner description",
   "editor.carousel.banner.externalRoute.title": "External route",
   "editor.carousel.banner.image.title": "Banner image",
-  "editor.carousel.banner.mobileImage.title": "Banner mobile image"
+  "editor.carousel.banner.mobileImage.title": "Banner mobile image",
+  "editor.carousel.banner.textMode.button.title": "Button Title (Image/Text Mode)",
+  "editor.carousel.banner.textMode.button.externalRouteButton": "Button with external route (Image/text mode)",
+  "editor.carousel.banner.textMode.button.pageButton": "Button target page (Image/text mode)",
+  "editor.carousel.banner.textMode.button.paramsButton": "Button params (Image/Text Mode)",
+  "editor.carousel.banner.textMode.button.urlButton": "External button URL (Image/text mode)",
+  "editor.carousel.banner.textMode.textTitle": "Text title (Image/text mode)",
+  "editor.carousel.banner.textMode.textDescription": "Text description (Image/text mode)",
+  "editor.carousel.banner.textMode.title": "Image text mode"
 }
