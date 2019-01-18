@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Link, withRuntimeContext } from 'render'
+import { Link, withRuntimeContext } from 'vtex.render-runtime'
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -22,6 +22,8 @@ export interface Props extends DefaultProps {
   params: string
   /** Indicates if the route is external or not */
   externalRoute: boolean
+  /** Runtime injected deps */
+  runtime: any
 }
 
 /**
@@ -45,8 +47,6 @@ class Banner extends Component<Props> {
     params: PropTypes.string,
     /** The url where the image is pointing to, in case of external route */
     url: PropTypes.string,
-    /** The url for the mobile image */
-    mobileImage: PropTypes.string
   }
 
   public static defaultProps: DefaultProps = {
@@ -104,6 +104,7 @@ class Banner extends Component<Props> {
       })
       return json
     }
+    return null
   }
 }
 
