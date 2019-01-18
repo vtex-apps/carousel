@@ -23,5 +23,13 @@
   "editor.carousel.banner.description.title": "Descrição do banner",
   "editor.carousel.banner.externalRoute.title": "Rota externa",
   "editor.carousel.banner.image.title": "Imagem do banner",
-  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"
+  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile",
+  "editor.carousel.banner.textMode.button.title": "Titulo do botão (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.button.externalRouteButton": "Botão com rota externa (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.button.pageButton": "Página alvo do botão (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.button.paramsButton": "Parâmetros do botão (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.button.urlButton": "URL externa do botão (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.textTitle": "Titulo do texto (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.textDescription": "Descrição do texto (Modo imagem/texto)",
+  "editor.carousel.banner.textMode.title": "Modo de texto com imagem"
 }

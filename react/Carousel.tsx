@@ -75,6 +75,12 @@ export default class Carousel extends Component<Props> {
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
+        /** The text title of the image */
+        textTitle: PropTypes.string.isRequired,
+        /** The text description of the image */
+        textDescription: PropTypes.string.isRequired,
+        /** The button title of the image */
+        buttonTitle: PropTypes.string.isRequired,
       })
     ),
     /** Max height size of the banners */
@@ -103,11 +109,58 @@ export default class Carousel extends Component<Props> {
       },
     }
 
+    const buttonRouteSchema = {
+      externalRouteButton: {
+        title: 'editor.carousel.banner.textMode.button.externalRouteButton',
+        type: 'boolean',
+        default: false,
+        isLayout: false,
+      },
+      pageButton: {
+        enum: GLOBAL_PAGES,
+        isLayout: false,
+        title: 'editor.carousel.banner.textMode.button.pageButton',
+        type: 'string',
+      },
+      paramsButton: {
+        description: 'editor.carousel.bannerLink.params.description',
+        isLayout: false,
+        title: 'editor.carousel.banner.textMode.button.paramsButton',
+        type: 'string',
+      },
+      urlButton: {
+        isLayout: false,
+        title: 'editor.carousel.banner.textMode.button.urlButton',
+        type: 'string',
+      },
+    }
+
     const externalRouteSchema = {
       url: {
         isLayout: false,
         title: 'editor.carousel.bannerLink.url.title',
         type: 'string',
+      },
+    }
+
+    const textModeSchema = {
+      textTitle: {
+        title: 'editor.carousel.banner.textMode.textTitle',
+        type: 'string',
+        isLayout: false,
+      },
+      textDescription: {
+        title: 'editor.carousel.banner.textMode.textDescription',
+        type: 'string',
+        isLayout: false,
+        widget: {
+          'ui:widget': 'textarea',
+        },
+      },
+      buttonTitle: {
+        title: 'editor.carousel.banner.textMode.button.title',
+        type: 'string',
+        isLayout: false,
       },
     }
 
@@ -145,17 +198,6 @@ export default class Carousel extends Component<Props> {
             title: 'editor.carousel.banner.title',
             type: 'object',
             properties: { // tslint:disable-line
-              description: {
-                default: '',
-                title: 'editor.carousel.banner.description.title',
-                type: 'string',
-              },
-              externalRoute: {
-                title: 'editor.carousel.banner.externalRoute.title',
-                type: 'boolean',
-              },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
               image: {
                 default: '',
                 title: 'editor.carousel.banner.image.title',
@@ -172,6 +214,25 @@ export default class Carousel extends Component<Props> {
                   'ui:widget': 'image-uploader',
                 },
               },
+              description: {
+                default: '',
+                title: 'editor.carousel.banner.description.title',
+                type: 'string',
+              },
+              externalRoute: {
+                title: 'editor.carousel.banner.externalRoute.title',
+                type: 'boolean',
+                isLayout: false,
+              },
+              ...externalRouteSchema,
+              ...internalRouteSchema,
+              textImageMode: {
+                title: 'editor.carousel.banner.textMode.title',
+                type: 'boolean',
+                default: false,
+              },
+              ...textModeSchema,
+              ...buttonRouteSchema,
             },
           },
         },

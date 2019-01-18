@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Link, withRuntimeContext } from 'vtex.render-runtime'
+import { Button } from 'vtex.styleguide'
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -53,6 +54,32 @@ class Banner extends Component<Props> {
     height: 420,
   }
 
+  public displayButton() {
+    const {    
+      externalRouteButton,  
+      urlButton,
+      pageButton,
+      paramsButton,
+      buttonTitle,
+    } = this.props
+    return (
+      <div>
+        {!externalRouteButton ? (
+          <Link page={pageButton} params={this.getParams(paramsButton)}>
+            <Button primary>
+              {buttonTitle}
+            </Button>
+          </Link>) : (
+          <a href={urlButton} target="_blank">
+            <Button primary>
+              {buttonTitle}
+            </Button>
+          </a>)
+        }
+      </div>
+    )
+  }
+
   public render() {
     const {
       height,
@@ -63,19 +90,44 @@ class Banner extends Component<Props> {
       url,
       params,
       externalRoute,
+      textImageMode,
+      textTitle,
+      textDescription,
       runtime
     } = this.props
 
     const isMobile = runtime.hints.mobile
 
+    let containerInlineClasses = {}
+    if (textImageMode) {
+      containerInlineClasses = {
+        minHeight: height,
+        objectFit: "cover",
+      }
+    } else {
+      containerInlineClasses = {
+        maxHeight: height,
+      }
+    }
+
     const content = (
-      <div className="vtex-carousel__img-container">
-        <div
-          className="vtex-carousel__img-regular"
-          style={{ maxHeight: height }}
-        >
-          <img className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />
+      <div  className="vtex-carousel__img-container flex">
+        <div className="vtex-carousel__img-regular">
+          <img style={containerInlineClasses} className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />
         </div>
+        {textImageMode && (
+          <div className="w-50-ns absolute pt8-l pb4-l pt5-m pb3-m pv6-s pl6">
+            <div>
+              <h1>{textTitle}</h1>
+            </div>
+            <div className="pb6 pt5-ns lh-title black">
+              {textDescription}
+            </div>
+            <div>
+              {this.displayButton()}
+            </div>
+          </div>
+        )}
       </div>
     )
 
