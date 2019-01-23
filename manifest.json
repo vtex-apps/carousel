@@ -1,14 +1,14 @@
 {
   "vendor": "vtex",
   "name": "carousel",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "title": "Carousel",
   "description": "Carousel Component",
   "defaultLocale": "pt-BR",
   "builders": {
     "store": "0.x",
     "react": "3.x",
-    "messages": "0.x"
+    "messages": "1.x"
   },
   "mustUpdateAt": "2019-04-02",
   "scripts": {
