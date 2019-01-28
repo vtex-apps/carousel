@@ -1,6 +1,11 @@
 # Carousel
 
 Carousel is a canonical component that any VTEX store can install.
+## Release schedule
+| Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Dreamstore Compatibility
+| :--:     | :---:               |  :---:          | :---:                 | :---:       | :---: 
+| [1.x]    | **Maintenance LTS** |  2018-05-02     | 2018-11-28            | March 2019  | 1.x
+| [2.x]    | **Current Release** |  2018-11-28     |                       |             | 2.x
 
 ## Continuous Integrations 
 
