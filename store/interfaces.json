@@ -1,7 +1,5 @@
 {
   "carousel": {
-    "allowed": [],
-    "required": [],
     "component": "Carousel"
   }
 }
