@@ -12,6 +12,7 @@
   },
   "mustUpdateAt": "2019-04-02",
   "scripts": {
+    "prereleasy": "bash lint.sh",
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
