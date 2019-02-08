@@ -25,12 +25,10 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
   - [Blocks API](#blocks-api)
     - [Configuration](#configuration)
   - [Styles API](#styles-api)
-- [Tests](#tests)
-	-[Running Tests](#running-tests)
 - [Troubleshooting](#troubleshooting)
+- [Tests](#tests)
 
 ## Usage
-
 
 This app uses our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
 
@@ -84,15 +82,12 @@ Banner:
 ### Styles API
 :construction: :construction: :construction:
 
+## Troubleshooting
+You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
+
 ## Tests
-
-### Running Tests
-
 To run the test suit, type the following in the terminal, inside the folder `react`
 
 ```sh
 $ npm t     # this
 ```
-
-## Troubleshooting
-You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
