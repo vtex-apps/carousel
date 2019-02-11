@@ -36,25 +36,6 @@ export default class Carousel extends Component<Props> {
     showDots: true,
   }
 
-  public static uiSchema = {
-    banners: {
-      items: {
-        externalRoute: {
-          'ui:options': {
-            inline: true,
-          },
-          'ui:widget': 'radio',
-        },
-        image: {
-          'ui:widget': 'image-uploader',
-        },
-        mobileImage: {
-          'ui:widget': 'image-uploader',
-        },
-      },
-    },
-  }
-
   public static propTypes = {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
@@ -66,7 +47,10 @@ export default class Carousel extends Component<Props> {
         /** The description of the image */
         description: PropTypes.string,
         /** The image url of the banner */
-        image: PropTypes.string,
+        image: PropTypes.shape({
+          desktop: PropTypes.string,
+          mobile: PropTypes.string
+        }),
         /** The page where the image is pointing to */
         page: PropTypes.string,
         /** Params of the url */
@@ -141,37 +125,53 @@ export default class Carousel extends Component<Props> {
           minItems: 1,
           title: 'editor.carousel.banners.title',
           type: 'array',
-          items: { // tslint:disable-line
-            title: 'editor.carousel.banner.title',
+          // tslint:disable-next-line:object-literal-sort-keys
+          items: {
+            title: 'editor.carousel.banners.title',
             type: 'object',
-            properties: { // tslint:disable-line
-              description: {
-                default: '',
-                title: 'editor.carousel.banner.description.title',
-                type: 'string',
-              },
-              externalRoute: {
-                title: 'editor.carousel.banner.externalRoute.title',
-                type: 'boolean',
-              },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
+            // tslint:disable-next-line:object-literal-sort-keys
+            properties: {
               image: {
-                default: '',
+                elements: {
+                  description: {
+                    default: 'oi oi oi',
+                    title: 'editor.carousel.banner.image.description.title',
+                  },
+                  hasLink: {
+                    default: 'false',
+                    title: 'editor.carousel.banner.image.hasLink.title'
+                  },
+                  // tslint:disable-next-line:object-literal-sort-keys
+                  externalRoute: {
+                    title: 'editor.carousel.banner.image.externalRoute.title'
+                  },
+                  url: {
+                    title: 'editor.carousel.banner.image.url.title'
+                  },
+                  page: {
+                    title: 'editor.carousel.banner.image.page.title'
+                  },
+                  params: {
+                    description: 'editor.carousel.banner.image.params.description',
+                    title: 'editor.carousel.banner.image.params.title'
+                  },
+                  desktop: {
+                    default: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
+                    maxWidth: 10000,
+                    title: 'editor.carousel.banner.image.desktop.title',
+                  },
+                  mobile: {
+                    title: 'editor.carousel.banner.image.mobile.title'
+                  },
+                },
                 title: 'editor.carousel.banner.image.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
+                type: 'image',
               },
-              mobileImage: {
-                default: '',
-                title: 'editor.carousel.banner.mobileImage.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
-              },
+              // tslint:disable-next-line:object-literal-sort-keys
+              brand: {
+                title: 'editor.carousel.banner.brand.title',
+                type: 'brand'
+              }
             },
           },
         },
@@ -201,7 +201,7 @@ export default class Carousel extends Component<Props> {
   public render() {
     const { height, banners } = this.props
     const settings = this.configureSettings()
-
+    console.log(banners && banners[0] && banners[0].brand)
     if (!banners.length) {
       return null
     }
@@ -209,7 +209,7 @@ export default class Carousel extends Component<Props> {
     return (
       <div className="vtex-carousel">
         <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
-          {banners.filter(banner => banner && (banner.mobileImage || banner.image)).map(
+          {banners.filter(banner => banner && banner.image && (banner.image.mobile || banner.image.desktop)).map(
             (banner, i) => (
               <div key={i} style={{ maxHeight: height }}>
                 <Banner height={height} {...banner} />

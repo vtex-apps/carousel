@@ -7,9 +7,14 @@ interface DefaultProps {
   height: number
 }
 
+interface Image {
+  desktop: string
+  mobile: string
+}
+
 export interface Props extends DefaultProps {
   /** The image of the banner */
-  image: string
+  image: Image
   /** Link for the mobile image of the banner */
   mobileImage: string,
   /** The description of the image */
@@ -57,7 +62,6 @@ class Banner extends Component<Props> {
     const {
       height,
       image,
-      mobileImage,
       description,
       page,
       url,
@@ -74,7 +78,7 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: height }}
         >
-          <img className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />
+          <img className="w-100" src={isMobile && image.mobile ? image.mobile : image.desktop} alt={description} />
         </div>
       </div>
     )

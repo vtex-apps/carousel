@@ -1,27 +1,23 @@
 {
-  "editor.carousel.title": "Carrossel",
-  "editor.carousel.description":
-    "Um componente básico de carrossel que exibe uma série de banners",
-  "editor.carousel.showDots.title": "Mostrar pontos",
-  "editor.carousel.showArrows.title": "Mostrar setas de navegação",
-  "editor.carousel.height.title": "Altura máxima do banner (px)",
-  "editor.carousel.mobileHeight.title":
-    "Altura máxima do banner no mobile (px)",
   "editor.carousel.autoplay.title": "Reprodução automática",
-  "editor.carousel.autoplaySpeed.title":
-    "Velocidade da reprodução automática (seg)",
-  "editor.carousel.numberOfBanners.title": "Número de banners",
-  "editor.carousel.bannerLink.title":
-    "Link do banner (deve começar com http ou https)",
-  "editor.carousel.bannerLink.page.title": "Página alvo do banner (interna)",
-  "editor.carousel.bannerLink.params.title": "Parâmetros (interna)",
-  "editor.carousel.bannerLink.params.description":
-    "Parâmetros separados por vírgula, e.g.: chave=valor,a=b,c=d",
-  "editor.carousel.bannerLink.url.title": "URL (externa)",
+  "editor.carousel.autoplaySpeed.title": "Velocidade da reprodução automática (seg)",
+  "editor.carousel.banner.brand.title": "Marca do banner",
+  "editor.carousel.banner.image.page.title": "Página alvo do banner (interna)",
+  "editor.carousel.banner.image.params.title": "Parâmetros (interna)",
+  "editor.carousel.banner.image.params.description": "Parâmetros separados por vírgula, e.g.: chave=valor,a=b,c=d",
+  "editor.carousel.banner.image.url.title": "URL (externa)",
+  "editor.carousel.banner.image.title": "Banner",
+  "editor.carousel.banner.image.description.title": "Descrição do banner",
+  "editor.carousel.banner.image.externalRoute.title": "Rota externa",
+  "editor.carousel.banner.image.desktop.title": "Imagem do banner",
+  "editor.carousel.banner.image.mobile.title": "Imagem do banner no mobile",
+  "editor.carousel.banner.image.hasLink.title": "Link externo",
   "editor.carousel.banners.title": "Banners",
-  "editor.carousel.banner.title": "Banner",
-  "editor.carousel.banner.description.title": "Descrição do banner",
-  "editor.carousel.banner.externalRoute.title": "Rota externa",
-  "editor.carousel.banner.image.title": "Imagem do banner",
-  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"
+  "editor.carousel.description": "Um componente básico de carrossel que exibe uma série de banners",
+  "editor.carousel.height.title": "Altura máxima do banner (px)",
+  "editor.carousel.mobileHeight.title": "Altura máxima do banner no mobile (px)",
+  "editor.carousel.numberOfBanners.title": "Número de banners",
+  "editor.carousel.showArrows.title": "Mostrar setas de navegação",
+  "editor.carousel.showDots.title": "Mostrar pontos",
+  "editor.carousel.title": "Carrossel"
 }
