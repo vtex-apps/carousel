@@ -12,11 +12,33 @@ interface Image {
   mobile: string
 }
 
+interface Brand {
+  name: string
+  id: string
+}
+
+interface Category {
+  name: string
+  id: string
+}
+
+interface Collection {
+  name: string
+  id: string
+}
+
+interface Department {
+  name: string
+  id: string
+}
+
 export interface Props extends DefaultProps {
   /** The image of the banner */
   image: Image
-  /** Link for the mobile image of the banner */
-  mobileImage: string,
+  brand: Brand
+  collection: Collection
+  category: Category
+  department: Department
   /** The description of the image */
   description: string
   /** The url where the image is pointing to, in case of external route */
