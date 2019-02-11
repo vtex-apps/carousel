@@ -6,8 +6,6 @@ import { Slider } from 'vtex.store-components'
 
 import Banner, { Props as BannerProps } from './Banner'
 
-const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
-
 interface Props {
   /** Should change images automatically */
   autoplay?: boolean
@@ -71,29 +69,6 @@ export default class Carousel extends Component<Props> {
 
   public static getSchema = (props: Props) => {
     const autoplay = props.autoplay || false
-
-    const internalRouteSchema = {
-      page: {
-        enum: GLOBAL_PAGES,
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.page.title',
-        type: 'string',
-      },
-      params: {
-        description: 'editor.carousel.bannerLink.params.description',
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.params.title',
-        type: 'string',
-      },
-    }
-
-    const externalRouteSchema = {
-      url: {
-        isLayout: false,
-        title: 'editor.carousel.bannerLink.url.title',
-        type: 'string',
-      },
-    }
 
     return {
       description: 'editor.carousel.description',
@@ -171,6 +146,18 @@ export default class Carousel extends Component<Props> {
               brand: {
                 title: 'editor.carousel.banner.brand.title',
                 type: 'brand'
+              },
+              category: {
+                title: 'editor.carousel.banner.category.title',
+                type: 'category'
+              },
+              collection: {
+                title: 'editor.carousel.banner.collection.title',
+                type: 'collection'
+              },
+              department: {
+                title: 'editor.carousel.banner.department.title',
+                type: 'department'
               }
             },
           },
