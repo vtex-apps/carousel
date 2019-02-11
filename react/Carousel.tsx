@@ -189,6 +189,9 @@ export default class Carousel extends Component<Props> {
     const { height, banners } = this.props
     const settings = this.configureSettings()
     console.log(banners && banners[0] && banners[0].brand)
+    console.log(banners && banners[0] && banners[0].category)
+    console.log(banners && banners[0] && banners[0].collection)
+    console.log(banners && banners[0] && banners[0].department)
     if (!banners.length) {
       return null
     }
