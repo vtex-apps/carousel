@@ -1,28 +1,26 @@
 {
-  "editor.carousel.title": "Carrusel",
-  "editor.carousel.description":
-    "Un componente básico de carrusel que muestra una serie de banners",
-  "editor.carousel.showDots.title": "Mostrar puntos",
-  "editor.carousel.showArrows.title": "Mostrar flechas de navegación",
-  "editor.carousel.height.title": "Altura máxima del banner (px)",
-  "editor.carousel.mobileHeight.title":
-    "Altura máxima del banner en el móvil (px)",
   "editor.carousel.autoplay.title": "Reproducción automática",
-  "editor.carousel.autoplaySpeed.title":
-    "Velocidad de reproducción automática (seg)",
-  "editor.carousel.numberOfBanners.title": "Número de banners",
-  "editor.carousel.bannerLink.title":
-    "Enlace del banner (debe comenzar con http o https)",
-  "editor.carousel.bannerLink.page.title":
-    "Página de destino del banner (interna)",
-  "editor.carousel.bannerLink.params.title": "Parámetros (interna)",
-  "editor.carousel.bannerLink.params.description":
-    "Parámetros separados por coma, e.g.: clave=valor,a=b,c=d",
-  "editor.carousel.bannerLink.url.title": "URL (externo)",
-  "editor.carousel.banners.title": "Banners",
-  "editor.carousel.banner.title": "Banner",
-  "editor.carousel.banner.description.title": "Descripción del banner",
-  "editor.carousel.banner.externalRoute.title": "Ruta externa",
+  "editor.carousel.autoplaySpeed.title": "Velocidad de reproducción automática (seg)",
+  "editor.carousel.banner.brand.title": "Marca del banner",
+  "editor.carousel.banner.category.title": "Categoría del banner",
+  "editor.carousel.banner.collection.title": "Colección del banner",
+  "editor.carousel.banner.department.title": "Departamento del banner",
+  "editor.carousel.banner.image.description.title": "Descripción del banner",
+  "editor.carousel.banner.image.desktop.title": "Imagen del banner en la computadora",
+  "editor.carousel.banner.image.externalRoute.title": "Ruta externa",
+  "editor.carousel.banner.image.hasLink.title": "Enlace externo",
+  "editor.carousel.banner.image.mobile.title": "Imagen del banner en el móvil",
+  "editor.carousel.banner.image.page.title": "Página de destino del banner (interna)",
+  "editor.carousel.banner.image.params.description": "Parámetros separados por coma, e.g.: clave=valor,a=b,c=d",
+  "editor.carousel.banner.image.params.title": "Parámetros (interna)",
   "editor.carousel.banner.image.title": "Imagen del banner",
-  "editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil"
+  "editor.carousel.banner.image.url.title": "URL (externo)",
+  "editor.carousel.banners.title": "Banners",
+  "editor.carousel.description": "Un componente básico de carrusel que muestra una serie de banners",
+  "editor.carousel.height.title": "Altura máxima del banner (px)",
+  "editor.carousel.mobileHeight.title": "Altura máxima del banner en el móvil (px)",
+  "editor.carousel.numberOfBanners.title": "Número de banners",
+  "editor.carousel.showArrows.title": "Mostrar flechas de navegación",
+  "editor.carousel.showDots.title": "Mostrar puntos",
+  "editor.carousel.title": "Carrusel"
 }
