@@ -43,7 +43,6 @@ To use this app, you need to add it in your `dependencies` in the `manifest.json
 Then, add the `carousel` block into our app theme, as we do in our [Dreamstore app](https://github.com/vtex-apps/dreamstore/blob/master/store/blocks.json). 
 
 ### Blocks API
-:construction: :construction: :construction:
 
 This app has an interface that describes what rules must be implemented by a block when you want to use the carousel app.
 
@@ -86,8 +85,4 @@ Banner:
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
 
 ## Tests
-To run the test suit, type the following in the terminal, inside the folder `react`
-
-```sh
-$ npm t     # this
-```
+To execute our tests go to `react/` folder and run `npm test` 
