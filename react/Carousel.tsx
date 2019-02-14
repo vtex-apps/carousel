@@ -31,7 +31,7 @@ export default class Carousel extends Component<Props> {
     banners: [],
     height: 420,
     showArrows: true,
-    showDots: true,
+    showDots: true
   }
 
   public static propTypes = {
@@ -56,7 +56,7 @@ export default class Carousel extends Component<Props> {
         /** Indicates if the route is external or internal */
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
-        url: PropTypes.string,
+        url: PropTypes.string
       })
     ),
     /** Max height size of the banners */
@@ -64,7 +64,7 @@ export default class Carousel extends Component<Props> {
     /** Set visibility of arrows */
     showArrows: PropTypes.bool,
     /** Set visibility of dots */
-    showDots: PropTypes.bool,
+    showDots: PropTypes.bool
   }
 
   public static getSchema = (props: Props) => {
@@ -74,27 +74,28 @@ export default class Carousel extends Component<Props> {
       description: 'editor.carousel.description',
       title: 'editor.carousel.title',
       type: 'object',
-      properties: { // tslint:disable-line
+      // tslint:disable-next-line:object-literal-sort-keys
+      properties: {
         autoplay: {
           default: true,
           isLayout: true,
           title: 'editor.carousel.autoplay.title',
-          type: 'boolean',
+          type: 'boolean'
         },
         autoplaySpeed: autoplay
           ? {
-            default: 5,
-            enum: [4, 5, 6],
-            isLayout: true,
-            title: 'editor.carousel.autoplaySpeed.title',
-            type: 'number',
-            widget: {
-              'ui:options': {
-                inline: true,
-              },
-              'ui:widget': 'radio',
-            },
-          }
+              default: 5,
+              enum: [4, 5, 6],
+              isLayout: true,
+              title: 'editor.carousel.autoplaySpeed.title',
+              type: 'number',
+              widget: {
+                'ui:options': {
+                  inline: true
+                },
+                'ui:widget': 'radio'
+              }
+            }
           : {},
         banners: {
           minItems: 1,
@@ -110,7 +111,7 @@ export default class Carousel extends Component<Props> {
                 elements: {
                   description: {
                     default: 'oi oi oi',
-                    title: 'editor.carousel.banner.image.description.title',
+                    title: 'editor.carousel.banner.image.description.title'
                   },
                   hasLink: {
                     default: 'false',
@@ -127,20 +128,22 @@ export default class Carousel extends Component<Props> {
                     title: 'editor.carousel.banner.image.page.title'
                   },
                   params: {
-                    description: 'editor.carousel.banner.image.params.description',
+                    description:
+                      'editor.carousel.banner.image.params.description',
                     title: 'editor.carousel.banner.image.params.title'
                   },
                   desktop: {
-                    default: 'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
+                    default:
+                      'https://cdn-images-1.medium.com/max/2000/1*kt9otqHk14BZIMNruiG0BA.png',
                     maxWidth: 10000,
-                    title: 'editor.carousel.banner.image.desktop.title',
+                    title: 'editor.carousel.banner.image.desktop.title'
                   },
                   mobile: {
                     title: 'editor.carousel.banner.image.mobile.title'
-                  },
+                  }
                 },
                 title: 'editor.carousel.banner.image.title',
-                type: 'image',
+                type: 'image'
               },
               // tslint:disable-next-line:object-literal-sort-keys
               brand: {
@@ -158,30 +161,45 @@ export default class Carousel extends Component<Props> {
               department: {
                 title: 'editor.carousel.banner.department.title',
                 type: 'department'
+              },
+              link: {
+                title: 'editor.carousel.banner.department.title',
+                type: 'link',
+                // tslint:disable-next-line:object-literal-sort-keys
+                elements: {}
+              },
+              text: {
+                title: 'editor.carousel.banner.text.title',
+                type: 'text'
+              },
+              video: {
+                elements: {},
+                title: 'editor.carousel.banner.text.title',
+                type: 'video'
               }
-            },
-          },
+            }
+          }
         },
         height: {
           default: 420,
           enum: [420, 440],
           isLayout: true,
           title: 'editor.carousel.height.title',
-          type: 'number',
+          type: 'number'
         },
         showArrows: {
           default: true,
           isLayout: true,
           title: 'editor.carousel.showArrows.title',
-          type: 'boolean',
+          type: 'boolean'
         },
         showDots: {
           default: true,
           isLayout: true,
           title: 'editor.carousel.showDots.title',
-          type: 'boolean',
-        },
-      },
+          type: 'boolean'
+        }
+      }
     }
   }
 
@@ -198,14 +216,23 @@ export default class Carousel extends Component<Props> {
 
     return (
       <div className="vtex-carousel">
-        <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
-          {banners.filter(banner => banner && banner.image && (banner.image.mobile || banner.image.desktop)).map(
-            (banner, i) => (
+        <Slider
+          sliderSettings={settings}
+          leftArrowClasses="ml3 ml5-m ml8-l ml9-xl"
+          rightArrowClasses="mr3 mr5-m mr8-l mr9-xl"
+        >
+          {banners
+            .filter(
+              banner =>
+                banner &&
+                banner.image &&
+                (banner.image.mobile || banner.image.desktop)
+            )
+            .map((banner, i) => (
               <div key={i} style={{ maxHeight: height }}>
                 <Banner height={height} {...banner} />
               </div>
-            )
-          )}
+            ))}
         </Slider>
       </div>
     )
@@ -224,7 +251,7 @@ export default class Carousel extends Component<Props> {
       pauseOnHover: true,
       slidesToScroll: 1,
       slidesToShow: 1,
-      speed: 500,
+      speed: 500
     }
   }
 }

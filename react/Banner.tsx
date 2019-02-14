@@ -65,19 +65,20 @@ class Banner extends Component<Props> {
     /** Max height size of the banner */
     height: PropTypes.number.isRequired,
     /** The image of the banner */
-    image: PropTypes.string.isRequired,
-    /** The mobile image of the banner */
-    mobileImage: PropTypes.string,
+    image: PropTypes.shape({
+      desktop: PropTypes.string.isRequired,
+      mobile: PropTypes.string
+    }).isRequired,
     /** The page where the image is pointing to */
     page: PropTypes.string,
     /** Params of the url */
     params: PropTypes.string,
     /** The url where the image is pointing to, in case of external route */
-    url: PropTypes.string,
+    url: PropTypes.string
   }
 
   public static defaultProps: DefaultProps = {
-    height: 420,
+    height: 420
   }
 
   public render() {
@@ -100,7 +101,11 @@ class Banner extends Component<Props> {
           className="vtex-carousel__img-regular"
           style={{ maxHeight: height }}
         >
-          <img className="w-100" src={isMobile && image.mobile ? image.mobile : image.desktop} alt={description} />
+          <img
+            className="w-100"
+            src={isMobile && image.mobile ? image.mobile : image.desktop}
+            alt={description}
+          />
         </div>
       </div>
     )
@@ -110,7 +115,9 @@ class Banner extends Component<Props> {
         <Link page={page} params={this.getParams(params)}>
           {content}
         </Link>
-      ) : content
+      ) : (
+        content
+      )
     }
 
     return (
