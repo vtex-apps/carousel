@@ -65,13 +65,12 @@ Now, you can change the behavior of the carousel block that is in the store head
 When implementing this app as a block, various inner blocks may be available. The following interface lists the available blocks within carousel and describes if they are required or optional.
 
 ```json
-  {
-  "carousel": {
-    "component": "Carousel"
-  }
+"carousel": {
+  "component": "Carousel"
 }
 ```
-The carousel has no required or allowed block. So, any carousel block implementation do not need any block inside of carousel.
+
+For now this block does not have any required or optional blocks.
 
 #### Configuration 
 
