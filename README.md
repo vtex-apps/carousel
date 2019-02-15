@@ -33,7 +33,7 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 This app uses our store builder with the blocks architecture. To know more about Store Builder [click here.](https://help.vtex.com/en/tutorial/understanding-storebuilder-and-stylesbuilder#structuring-and-configuring-our-store-with-object-object)
 
-We add the carousel as a block in our [Store](https://github.com/vtex-apps/store/blob/2462b6506cb2af86ba2e0931e08dca4783e66cfb/store/interfaces.json).
+We add the carousel as a block in our [Store](https://github.com/vtex-apps/store/blob/master/store/interfaces.json).
 
 To configure or customize this app, you need to import it in your dependencies in `manifest.json`.
 
@@ -90,14 +90,13 @@ Banner:
 
 | Prop name          | Type       | Description                                                                 | Default value |
 | ------------------ | ---------- | --------------------------------------------------------------------------- | --- |
-| `image`                     | `String`      | Link for the image of the banner                                   | `undefined` |
-| `mobileImage`               | `String`      | Link for the mobile image of the banner                            | `undefined` |
-| `description`               | `String`      | The image's description                                            | `undefined` |
-| `url`                       | `String`      | The URL where the image is pointing to, in case of external route  | `undefined` |
-| `page`                      | `String`      | The page where the image is pointing to                            | `undefined` |
-| `params`                    | `String`      | Parameters of the URL                                              | `undefined` |
+| `image`                     | `String`      | Link for the image of the banner                                   | N/A |
+| `mobileImage`               | `String`      | Link for the mobile image of the banner                            | N/A |
+| `description`               | `String`      | The image's description                                            | N/A |
+| `url`                       | `String`      | The URL where the image is pointing to, in case of external route  | N/A |
+| `page`                      | `String`      | The page where the image is pointing to                            | N/A |
+| `params`                    | `String`      | Parameters of the URL                                              | N/A |
 | `externalRoute`             | `Boolean`     | Indicates if the route is external or not                          | false |
-| `height`                    | `Number`       | Set banners height                                                 | 420 |
 
 ### Styles API
 
