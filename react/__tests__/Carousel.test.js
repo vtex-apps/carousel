@@ -5,63 +5,62 @@ import { render } from 'react-testing-library'
 import Carousel from '../Carousel'
 
 describe('Carousel component', () => {
-  let wrapper
+  const renderComponent = () => {
+    const props = {
+      height: 440,
+      mobileHeight: 339,
+      showArrows: true,
+      showDots: true,
+      autoplay: true,
+      autoplaySpeed: 4,
+      numberOfBanners: 3,
+      banners: [
+        {
+          image:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+          externalRoute: true,
+          description: 'banner',
+          url:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+        },
+        {
+          image:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
+          externalRoute: true,
+          description: 'david',
+          url:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+        },
+        {
+          image:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
+          externalRoute: true,
+          description: 'banner',
+          url:
+            'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
+        },
+      ],
+    }
 
-  const props = {
-    height: 440,
-    mobileHeight: 339,
-    showArrows: true,
-    showDots: true,
-    autoplay: true,
-    autoplaySpeed: 4,
-    numberOfBanners: 3,
-    runtime: {
-      hints: {}
-    },
-    banners: [
-      {
-        image:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-        externalRoute: true,
-        description: 'banner',
-        url:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-      },
-      {
-        image:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png',
-        externalRoute: true,
-        description: 'david',
-        url:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-      },
-      {
-        image:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png',
-        externalRoute: true,
-        description: 'banner',
-        url:
-          'https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png',
-      },
-    ],
+    return render(<Carousel {...props} />)
   }
 
-  beforeEach(() => {
-    wrapper = render(<Carousel {...props} />)
-  })
-
   it('should be rendered', () => {
-    expect(wrapper).toBeDefined()
+    expect(renderComponent()).toBeDefined()
   })
 
   it('should match snapshot', () => {
-    expect(wrapper.container).toMatchSnapshot()
+    expect(renderComponent().asFragment()).toMatchSnapshot()
   })
 
   it('should render items', () => {
-    expect(wrapper.container.querySelectorAll('.vtex-carousel').length).toBe(1)
     expect(
-      wrapper.container.querySelectorAll('.vtex-carousel__img-container').length
+      renderComponent().container.querySelectorAll('.vtex-carousel').length
+    ).toBe(1)
+    expect(
+      renderComponent().container.querySelectorAll(
+        '.vtex-carousel__img-container'
+      ).length
     ).toBe(3) // set to be infinite
   })
 })
