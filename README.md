@@ -7,20 +7,16 @@ The VTEX Carousel app is a store component that shows a collection of banners, a
 :loudspeaker: **Disclaimer:** Don't fork this project; use, contribute, or open issue with your feature request.
 
 ## Release schedule
-| Release  | Status              | Initial Release | Maintenance LTS Start | End-of-life | Store Compatibility
-| :--:     | :---:               |  :---:          | :---:                 | :---:       | :---: 
-| [2.x]    | **Current Release** |  2018-11-28     |                       |             | 2.x
-| [1.x]    | **Maintenance LTS** |  2018-05-02     | 2018-11-28            | March 2019  | 1.x
+
+| Release |       Status        | Initial Release | Maintenance LTS Start | End-of-life | Store Compatibility |
+| :-----: | :-----------------: | :-------------: | :-------------------: | :---------: | :-----------------: |
+|  [2.x]  | **Current Release** |   2018-11-28    |                       |             |         2.x         |
+|  [1.x]  | **Maintenance LTS** |   2018-05-02    |      2018-11-28       | March 2019  |         1.x         |
 
 See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for more information.
 
-
-## Continuous Integrations 
-
-### Travis CI 
-[![Build Status](https://travis-ci.org/vtex-apps/carousel.svg?branch=master)](https://travis-ci.org/vtex-apps/carousel)
-
 ## Table of Contents
+
 - [Usage](#usage)
   - [Blocks API](#blocks-api)
     - [Configuration](#configuration)
@@ -43,9 +39,9 @@ To configure or customize this app, you need to import it in your dependencies i
   }
 ```
 
-Then, add `carousel` block into your app theme as we do in our [Store theme app](https://github.com/vtex-apps/store-theme/blob/master/store/blocks.json). 
+Then, add `carousel` block into your app theme as we do in our [Store theme app](https://github.com/vtex-apps/store-theme/blob/master/store/blocks.json).
 
-Now, you can change the behavior of the carousel block that is in the store header. See an example of how to configure: 
+Now, you can change the behavior of the carousel block that is in the store header. See an example of how to configure:
 
 ```json
 "carousel#home": {
@@ -72,30 +68,30 @@ When implementing this app as a block, various inner blocks may be available. Th
 
 For now this block does not have any required or optional blocks.
 
-#### Configuration 
+#### Configuration
 
 Through the Storefront, you can change the carousel's behavior and interface. However, you also can make in your theme app, as Store theme does.
 
-| Prop name          | Type       | Description                                                                 | Default value |
-| ------------------ | ---------- | --------------------------------------------------------------------------- | ---|
-| `autoplay`                  | `Boolean`      | Enable automatic banner transition                                 | true |
-| `autoplaySpeed`             | `Number`       | Set the automatic banner transition interval                       | 5 |
-| `showDots`                  | `Boolean`      | Shows the carousel dots                                            | true |
-| `showArrows`                | `Boolean`      | Shows the carousel arrows                                          | true |
-| `height`                    | `Number`       | Set banners height                                                 | 420 |
-| `banners`                   | `Array(Banner)`| Array of banners the will be shown in the carousel                 | [] |
+| Prop name       | Type            | Description                                        | Default value |
+| --------------- | --------------- | -------------------------------------------------- | ------------- |
+| `autoplay`      | `Boolean`       | Enable automatic banner transition                 | true          |
+| `autoplaySpeed` | `Number`        | Set the automatic banner transition interval       | 5             |
+| `showDots`      | `Boolean`       | Shows the carousel dots                            | true          |
+| `showArrows`    | `Boolean`       | Shows the carousel arrows                          | true          |
+| `height`        | `Number`        | Set banners height                                 | 420           |
+| `banners`       | `Array(Banner)` | Array of banners the will be shown in the carousel | []            |
 
 Banner:
 
-| Prop name          | Type       | Description                                                                 | Default value |
-| ------------------ | ---------- | --------------------------------------------------------------------------- | --- |
-| `image`                     | `String`      | Link for the image of the banner                                   | N/A |
-| `mobileImage`               | `String`      | Link for the mobile image of the banner                            | N/A |
-| `description`               | `String`      | The image's description                                            | N/A |
-| `url`                       | `String`      | The URL where the image is pointing to, in case of external route  | N/A |
-| `page`                      | `String`      | The page where the image is pointing to                            | N/A |
-| `params`                    | `String`      | Parameters of the URL                                              | N/A |
-| `externalRoute`             | `Boolean`     | Indicates if the route is external or not                          | false |
+| Prop name       | Type      | Description                                                       | Default value |
+| --------------- | --------- | ----------------------------------------------------------------- | ------------- |
+| `image`         | `String`  | Link for the image of the banner                                  | N/A           |
+| `mobileImage`   | `String`  | Link for the mobile image of the banner                           | N/A           |
+| `description`   | `String`  | The image's description                                           | N/A           |
+| `url`           | `String`  | The URL where the image is pointing to, in case of external route | N/A           |
+| `page`          | `String`  | The page where the image is pointing to                           | N/A           |
+| `params`        | `String`  | Parameters of the URL                                             | N/A           |
+| `externalRoute` | `Boolean` | Indicates if the route is external or not                         | false         |
 
 ### Styles API
 
@@ -120,6 +116,7 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 ```
 
 #### CSS namespaces
+
 Below, we describe the namespaces that are defined in the minicart.
 
 :construction: :construction: :construction:
@@ -129,4 +126,9 @@ Below, we describe the namespaces that are defined in the minicart.
 You can check if others are passing through similar issues [here](https://github.com/vtex-apps/carousel/issues). Also feel free to [open issues](https://github.com/vtex-apps/carousel/issues/new) or contribute with pull requests.
 
 ## Tests
-To execute our tests go to `react/` folder and run `npm test` 
+
+To execute our tests go to `react/` folder and run `npm test`
+
+### Travis CI
+
+[![Build Status](https://travis-ci.org/vtex-apps/carousel.svg?branch=master)](https://travis-ci.org/vtex-apps/carousel)
