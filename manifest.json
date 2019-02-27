@@ -16,6 +16,8 @@
     "postreleasy": "vtex publish --verbose"
   },
   "dependencies": {
-    "vtex.store-components": "3.x"
+    "vtex.store-components": "3.x",
+    "vtex.slider": "0.x",
+    "vtex.store-icons": "0.x"
   }
 }
