@@ -226,8 +226,12 @@ export default class Carousel extends Component<Props, State> {
   }
 
   public ArrowRender: React.StatelessComponent<ArrowProps> = ({ orientation, onClick }: ArrowProps) => {
+    const containerClasses = classnames(styles.arrow, 'pointer z-1', {
+      [styles.leftArrow]: orientation === 'left',
+      [styles.rightArrow]: orientation === 'right'
+    })
     return (
-      <div className="vtex-carousel__arrow pointer z-1" onClick={onClick}>
+      <div className={containerClasses} onClick={onClick}>
         <IconCaret orientation={orientation} size={32} />
       </div>
     )
