@@ -221,6 +221,18 @@ export default class Carousel extends Component<Props, State> {
     this.setState({ currentSlide: i })
   }
 
+  public handleNextSlide = (): void => {
+    this.setState(({ currentSlide }) => {
+      const bannersLength: number = this.props.banners.filter(
+        banner => banner && (banner.mobileImage || banner.image)).length
+      const nextSlide: number = (currentSlide + 1) % bannersLength
+
+      return {
+        currentSlide: nextSlide
+      }
+    })
+  }
+
   public ArrowRender: React.StatelessComponent<ArrowProps> = ({ orientation, onClick }: ArrowProps) => {
     const containerClasses = classnames(styles.arrow, 'pointer z-1', {
       [styles.leftArrow]: orientation === 'left',
@@ -265,7 +277,13 @@ export default class Carousel extends Component<Props, State> {
       banner => banner && (banner.mobileImage || banner.image))
 
     return (
-      <SliderContainer className={styles.container}>
+      <SliderContainer
+        autoplay={autoplay}
+        autoplayInterval={autoplaySpeed * 1000}
+        pauseOnHover
+        onNextSlide={this.handleNextSlide}
+        className={styles.container}
+      >
         <Slider
           classes={{
             root: styles.sliderRoot,
@@ -276,9 +294,6 @@ export default class Carousel extends Component<Props, State> {
           onChangeSlide={this.handleChangeSlide}
           arrowsContainerComponent={showArrows && this.ArrowContainerRender}
           duration={500}
-          autoplay={autoplay}
-          autoplaySpeed={autoplaySpeed * 1000}
-          pauseOnHover
         >
           {banners.map(
             (banner, i) => (
