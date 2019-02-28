@@ -28,9 +28,6 @@ export interface Props extends DefaultProps {
   runtime: any
 }
 
-/**
- * Banner component. Shows an image with a description and one link.
- */
 function getParams(params: string) {
   const json: { [s: string]: string } = {}
   if (params) {
@@ -44,6 +41,9 @@ function getParams(params: string) {
   return null
 }
 
+/**
+ * Banner component. Shows an image with a description and one link.
+ */
 const Banner = (props: Props) => {
   const {
     height,
