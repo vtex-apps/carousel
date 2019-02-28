@@ -75,14 +75,14 @@ const Banner = (props: Props) => {
 
   if (!externalRoute) {
     return page ? (
-      <Link className="w-100" page={page} params={getParams(params)}>
+      <Link className={classnames(styles.bannerLink, 'w-100')} page={page} params={getParams(params)}>
         {content}
       </Link>
     ) : content
   }
 
   return (
-    <a className="w-100" href={url} target="_blank">
+    <a className={classnames(styles.bannerLink, 'w-100')} href={url} target="_blank">
       {content}
     </a>
   )
