@@ -1,10 +1,12 @@
-import './global.css'
-
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Slider } from 'vtex.store-components'
+import classnames from 'classnames'
+import { Container } from 'vtex.store-components'
+import { Slider, Slide, Dots, SliderContainer } from 'vtex.slider'
+import { IconCaret } from 'vtex.store-icons'
 
 import Banner, { Props as BannerProps } from './Banner'
+import styles from './styles.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
@@ -16,17 +18,30 @@ interface Props {
   /** Banners that will be displayed by the Carousel */
   banners: BannerProps[]
   /** Max height size of the banners */
-  height: number
+  height?: number
   /** Set visibility of arrows */
-  showArrows: boolean
+  showArrows?: boolean
   /** Set visibility of dots */
-  showDots: boolean
+  showDots?: boolean
+}
+
+interface State {
+  currentSlide: number
+}
+
+interface ArrowProps {
+  orientation: string
+  onClick: (event: React.MouseEvent<HTMLElement>) => void
+}
+
+interface ArrowContainerProps {
+  children: React.ReactNode
 }
 
 /**
  * Carousel component. Shows a serie of banners.
  */
-export default class Carousel extends Component<Props> {
+export default class Carousel extends Component<Props, State> {
   public static defaultProps: Props = {
     autoplay: true,
     autoplaySpeed: 5,
@@ -198,43 +213,110 @@ export default class Carousel extends Component<Props> {
     }
   }
 
-  public render() {
-    const { height, banners } = this.props
-    const settings = this.configureSettings()
+  public state = {
+    currentSlide: 0
+  }
 
-    if (!banners.length) {
-      return null
-    }
+  public handleChangeSlide = (i: number): void => {
+    this.setState({ currentSlide: i })
+  }
 
+  public handleNextSlide = (): void => {
+    this.setState(({ currentSlide }) => {
+      const bannersLength: number = this.props.banners.filter(
+        banner => banner && (banner.mobileImage || banner.image)).length
+      const nextSlide: number = (currentSlide + 1) % bannersLength
+
+      return {
+        currentSlide: nextSlide
+      }
+    })
+  }
+
+  public ArrowRender: React.StatelessComponent<ArrowProps> = ({ orientation, onClick }: ArrowProps) => {
+    const containerClasses = classnames(styles.arrow, 'pointer z-1', {
+      [styles.leftArrow]: orientation === 'left',
+      [styles.rightArrow]: orientation === 'right'
+    })
     return (
-      <div className="vtex-carousel">
-        <Slider sliderSettings={settings} leftArrowClasses="ml3 ml5-m ml8-l ml9-xl" rightArrowClasses="mr3 mr5-m mr8-l mr9-xl">
-          {banners.filter(banner => banner && (banner.mobileImage || banner.image)).map(
-            (banner, i) => (
-              <div key={i} style={{ maxHeight: height }}>
-                <Banner height={height} {...banner} />
-              </div>
-            )
-          )}
-        </Slider>
+      <div className={containerClasses} onClick={onClick}>
+        <IconCaret orientation={orientation} size={32} />
       </div>
     )
   }
 
-  private configureSettings() {
-    const { autoplay, autoplaySpeed, showDots, showArrows } = this.props
+  public ArrowContainerRender: React.StatelessComponent<ArrowContainerProps> = ({ children }: ArrowContainerProps) => {
+    const containerClasses = classnames(
+      styles.arrowContainer,
+      'w-100 h-100 absolute flex-ns justify-between left-0',
+      'top-0 items-center dn-s'
+    )
 
-    return {
-      adaptiveHeight: false,
-      arrows: showArrows,
+    return (
+      <Container className={containerClasses}>
+        {children}
+      </Container>
+    )
+  }
+
+  public render() {
+    const {
+      height,
+      showArrows,
       autoplay,
-      autoplaySpeed: autoplaySpeed * 1000,
-      dots: showDots,
-      infinite: true,
-      pauseOnHover: true,
-      slidesToScroll: 1,
-      slidesToShow: 1,
-      speed: 500,
+      autoplaySpeed,
+      showDots
+    } = this.props
+    const { currentSlide } = this.state
+
+    if (!this.props.banners.length) {
+      return null
     }
+
+    const banners: BannerProps[] = this.props.banners.filter(
+      banner => banner && (banner.mobileImage || banner.image))
+
+    return (
+      <SliderContainer
+        autoplay={autoplay}
+        autoplayInterval={autoplaySpeed * 1000}
+        pauseOnHover
+        onNextSlide={this.handleNextSlide}
+        className={styles.container}
+      >
+        <Slider
+          classes={{
+            root: styles.sliderRoot,
+            sliderFrame: styles.sliderFrame
+          }}
+          arrowRender={showArrows && this.ArrowRender}
+          currentSlide={currentSlide}
+          onChangeSlide={this.handleChangeSlide}
+          arrowsContainerComponent={showArrows && this.ArrowContainerRender}
+          duration={500}
+        >
+          {banners.map(
+            (banner, i) => (
+              <Slide className={styles.slide} key={i} style={{ maxHeight: height }} sliderTransitionDuration={500}>
+                <Banner height={height} {...banner} />
+              </Slide>
+            )
+          )}
+        </Slider>
+        {showDots && (
+          <Dots
+            currentSlide={currentSlide}
+            totalSlides={banners.length}
+            onChangeSlide={this.handleChangeSlide}
+            classes={{
+              root: classnames(styles.containerDots, 'bottom-0 pb4'),
+              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
+              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
+              activeDot: classnames(styles.activeDot, 'bg-emphasis')
+            }}
+          />
+        )}
+      </SliderContainer>
+    )
   }
 }

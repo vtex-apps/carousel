@@ -1,0 +1,37 @@
+.container {
+  min-height: 0.625rem;
+  min-width: 0.625rem;
+}
+
+.containerImg {
+  max-height: inherit;
+}
+
+.containerDots {}
+
+.notActiveDot {}
+
+.activeDot {}
+
+.slide {}
+
+.sliderRoot {}
+
+.sliderFrame {}
+
+.arrow {}
+
+.leftArrow {}
+
+.rightArrow {}
+
+.imgRegular {}
+
+.img {}
+
+.bannerLink {}
+
+.dot {
+  height: 10px;
+  width: 10px;
+}

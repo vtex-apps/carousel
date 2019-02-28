@@ -7,18 +7,32 @@ declare module 'vtex.render-runtime' {
     params?: any
   }
 
-  export interface RenderContextProps {
-    runtime: {
-      navigate: (options: NavigationOptions) => void
+  export interface RuntimeProps {
+    navigate: (options: NavigationOptions) => void
+    hints: {
+      mobile: boolean,
+      desktop: boolean
     }
+  }
+
+  export interface RenderContextProps {
+    runtime: RuntimeProps
+  }
+
+  export interface LinkProps {
+    onClick?: (event: any) => void
+    params: object | null
+    page: string
+    className: string
   }
 
   export const ExtensionPoint: ReactElement
   export const Helmet: ReactElement
-  export const Link: ReactElement
+  export const Link: React.FunctionComponent<LinkProps>
   export const NoSSR: ReactElement
   export const RenderContextConsumer: ReactElement
   export const canUseDOM: boolean
+  export const useRuntime: () => RuntimeProps
   export const withRuntimeContext: <TOriginalProps extends {}>(
     Component: ComponentType<TOriginalProps & RenderContextProps>
     ) => ComponentType<TOriginalProps>

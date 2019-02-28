@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
-import { Link, withRuntimeContext } from 'vtex.render-runtime'
+import React from 'react'
+import { Link, useRuntime } from 'vtex.render-runtime'
+import styles from './styles.css'
+import classnames from 'classnames'
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -26,86 +28,87 @@ export interface Props extends DefaultProps {
   runtime: any
 }
 
+function getParams(params: string) {
+  const json: { [s: string]: string } = {}
+  if (params) {
+    const array = params.split(',')
+    array.forEach(item => {
+      const pair = item.split('=')
+      json[pair[0]] = pair[1]
+    })
+    return json
+  }
+  return null
+}
+
 /**
  * Banner component. Shows an image with a description and one link.
  */
-class Banner extends Component<Props> {
-  public static propTypes = {
-    /** The description of the image */
-    description: PropTypes.string.isRequired,
-    /** Indicates if the route is external or not */
-    externalRoute: PropTypes.bool,
-    /** Max height size of the banner */
-    height: PropTypes.number.isRequired,
-    /** The image of the banner */
-    image: PropTypes.string.isRequired,
-    /** The mobile image of the banner */
-    mobileImage: PropTypes.string,
-    /** The page where the image is pointing to */
-    page: PropTypes.string,
-    /** Params of the url */
-    params: PropTypes.string,
-    /** The url where the image is pointing to, in case of external route */
-    url: PropTypes.string,
-  }
+const Banner = (props: Props) => {
+  const {
+    height,
+    image,
+    mobileImage,
+    description,
+    page,
+    url,
+    params,
+    externalRoute
+  } = props
 
-  public static defaultProps: DefaultProps = {
-    height: 420,
-  }
+  const { mobile: isMobile } = useRuntime().hints
 
-  public render() {
-    const {
-      height,
-      image,
-      mobileImage,
-      description,
-      page,
-      url,
-      params,
-      externalRoute,
-      runtime
-    } = this.props
-
-    const isMobile = runtime.hints.mobile
-
-    const content = (
-      <div className="vtex-carousel__img-container">
-        <div
-          className="vtex-carousel__img-regular"
-          style={{ maxHeight: height }}
-        >
-          <img className="w-100" src={isMobile && mobileImage ? mobileImage : image} alt={description} />
-        </div>
+  const content = (
+    <div className={styles.containerImg}>
+      <div
+        className={classnames(styles.imgRegular, 'flex items-center justify-center')}
+        style={{ maxHeight: height }}
+      >
+        <img
+          className={classnames('w-100 h-100', styles.img)}
+          src={isMobile && mobileImage ? mobileImage : image}
+          alt={description}
+        />
       </div>
-    )
+    </div>
+  )
 
-    if (!externalRoute) {
-      return page ? (
-        <Link page={page} params={this.getParams(params)}>
-          {content}
-        </Link>
-      ) : content
-    }
-
-    return (
-      <a href={url} target="_blank">
+  if (!externalRoute) {
+    return page ? (
+      <Link className={classnames(styles.bannerLink, 'w-100')} page={page} params={getParams(params)}>
         {content}
-      </a>
-    )
+      </Link>
+    ) : content
   }
 
-  private getParams = (params: string) => {
-    const json: { [s: string]: string } = {}
-    if (params) {
-      const array = params.split(',')
-      array.forEach(item => {
-        const pair = item.split('=')
-        json[pair[0]] = pair[1]
-      })
-      return json
-    }
-    return null
-  }
+  return (
+    <a className={classnames(styles.bannerLink, 'w-100')} href={url} target="_blank">
+      {content}
+    </a>
+  )
 }
 
-export default withRuntimeContext(Banner)
+Banner.propTypes = {
+  /** The description of the image */
+  description: PropTypes.string.isRequired,
+  /** Indicates if the route is external or not */
+  externalRoute: PropTypes.bool,
+  /** Max height size of the banner */
+  height: PropTypes.number.isRequired,
+  /** The image of the banner */
+  image: PropTypes.string.isRequired,
+  /** The mobile image of the banner */
+  mobileImage: PropTypes.string,
+  /** The page where the image is pointing to */
+  page: PropTypes.string,
+  /** Params of the url */
+  params: PropTypes.string,
+  /** The url where the image is pointing to, in case of external route */
+  url: PropTypes.string,
+}
+
+Banner.defaultProps = {
+  height: 420
+}
+
+export default Banner

@@ -14,14 +14,16 @@
     "@vtex/styleguide": "~2.0.0-rc.39",
     "jest-environment-jsdom": "^23.4.0",
     "lodash": "^4.17.10",
-    "shortid": "2.2.8"
+    "shortid": "2.2.8",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@types/classnames": "^2.2.7",
     "@types/node": "^10.12.21",
     "@types/prop-types": "^15.5.8",
     "@types/react": "^16.8.1",
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.3.1",
     "babel": "^6.23.0",
     "babel-jest": "^22.4.3",
     "babel-preset-react-app": "^7.0.1",
