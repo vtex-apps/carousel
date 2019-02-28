@@ -213,12 +213,8 @@ export default class Carousel extends Component<Props, State> {
     }
   }
 
-  constructor(props: Props) {
-    super(props)
-
-    this.state = {
-      currentSlide: 0
-    }
+  public state = {
+    currentSlide: 0
   }
 
   public handleChangeSlide = (i: number): void => {
