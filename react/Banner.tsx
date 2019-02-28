@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link, useRuntime } from 'vtex.render-runtime'
 import styles from './styles.css'
+import classnames from 'classnames'
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -60,24 +61,28 @@ const Banner = (props: Props) => {
   const content = (
     <div className={styles.containerImg}>
       <div
-        className={styles.imgRegular}
+        className={classnames(styles.imgRegular, 'flex items-center justify-center')}
         style={{ maxHeight: height }}
       >
-        <img className={styles.img} src={isMobile && mobileImage ? mobileImage : image} alt={description} />
+        <img
+          className={classnames('w-100 h-100', styles.img)}
+          src={isMobile && mobileImage ? mobileImage : image}
+          alt={description}
+        />
       </div>
     </div>
   )
 
   if (!externalRoute) {
     return page ? (
-      <Link page={page} params={getParams(params)}>
+      <Link className="w-100" page={page} params={getParams(params)}>
         {content}
       </Link>
     ) : content
   }
 
   return (
-    <a href={url} target="_blank">
+    <a className="w-100" href={url} target="_blank">
       {content}
     </a>
   )

@@ -23,6 +23,7 @@ declare module 'vtex.render-runtime' {
     onClick?: (event: any) => void
     params: object | null
     page: string
+    className: string
   }
 
   export const ExtensionPoint: ReactElement
