@@ -312,7 +312,7 @@ export default class Carousel extends Component<Props, State> {
               root: classnames(styles.containerDots, 'bottom-0 pb4'),
               notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
               dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
-              activeDot: classnames(styles.activeDot, 'bg-muted-1')
+              activeDot: classnames(styles.activeDot, 'bg-emphasis')
             }}
           />
         )}

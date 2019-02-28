@@ -29,16 +29,7 @@
 
 .img {}
 
-@media screen and (min-width: 20em) {
-  .dot {
-    height: 3vw;
-    width: 3vw;
-  }
-}
-
-@media only screen and (min-width: 40em) {
-  .dot {
-    height: 1vw;
-    width: 1vw;
-  }
+.dot {
+  height: 10px;
+  width: 10px;
 }
