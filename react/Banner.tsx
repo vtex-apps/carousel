@@ -59,13 +59,13 @@ const Banner = (props: Props) => {
   const { mobile: isMobile } = useRuntime().hints
 
   const content = (
-    <div className={styles.containerImg}>
+    <div className={classnames(styles.containerImg, 'w-100')}>
       <div
         className={classnames(styles.imgRegular, 'flex items-center justify-center')}
         style={{ maxHeight: height }}
       >
         <img
-          className={classnames('w-100 h-100', styles.img)}
+          className={classnames(styles.img, 'w-100 h-100')}
           src={isMobile && mobileImage ? mobileImage : image}
           alt={description}
         />

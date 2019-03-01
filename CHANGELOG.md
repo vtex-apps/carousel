@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.7.1] - 2019-03-01
+### Fixed
+- images of banner not fitting correctly when needs to be larger than really is.
+
 ## [2.7.0] - 2019-02-28
 ### Changed
 - Use a new slider dependency.
