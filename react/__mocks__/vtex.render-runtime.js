@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react'
+import React, { Component, useState } from 'react'
 
 /**
  * Link Mocked Component.
@@ -18,8 +18,7 @@ export class NoSSR extends Component {
   }
 }
 
-export function withRuntimeContext(MyComponent) {
-    return props => {
-      return <MyComponent runtime={{ hints: {} }} {...props} />
-    }
+export const useRuntime = () => {
+  const [hints, setHints] = useState({ mobile: false, desktop: true })
+  return { hints }
 }

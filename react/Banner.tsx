@@ -13,7 +13,7 @@ export interface Props extends DefaultProps {
   /** The image of the banner */
   image: string
   /** Link for the mobile image of the banner */
-  mobileImage: string,
+  mobileImage: string
   /** The description of the image */
   description: string
   /** The url where the image is pointing to, in case of external route */
@@ -53,7 +53,7 @@ const Banner = (props: Props) => {
     page,
     url,
     params,
-    externalRoute
+    externalRoute,
   } = props
 
   const { mobile: isMobile } = useRuntime().hints
@@ -61,7 +61,10 @@ const Banner = (props: Props) => {
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
       <div
-        className={classnames(styles.imgRegular, 'flex items-center justify-center')}
+        className={classnames(
+          styles.imgRegular,
+          'flex items-center justify-center'
+        )}
         style={{ maxHeight: height }}
       >
         <img
@@ -75,14 +78,24 @@ const Banner = (props: Props) => {
 
   if (!externalRoute) {
     return page ? (
-      <Link className={classnames(styles.bannerLink, 'w-100')} page={page} params={getParams(params)}>
+      <Link
+        className={classnames(styles.bannerLink, 'w-100')}
+        page={page}
+        params={getParams(params)}
+      >
         {content}
       </Link>
-    ) : content
+    ) : (
+      content
+    )
   }
 
   return (
-    <a className={classnames(styles.bannerLink, 'w-100')} href={url} target="_blank">
+    <a
+      className={classnames(styles.bannerLink, 'w-100')}
+      href={url}
+      target="_blank"
+    >
       {content}
     </a>
   )
@@ -108,7 +121,7 @@ Banner.propTypes = {
 }
 
 Banner.defaultProps = {
-  height: 420
+  height: 420,
 }
 
 export default Banner
