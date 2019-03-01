@@ -55,12 +55,11 @@ describe('Carousel component', () => {
 
   it('should render items', () => {
     expect(
-      renderComponent().container.querySelectorAll('.vtex-carousel').length
+      renderComponent().container.querySelectorAll('.slider-container-mock')
+        .length
     ).toBe(1)
     expect(
-      renderComponent().container.querySelectorAll(
-        '.vtex-carousel__img-container'
-      ).length
+      renderComponent().container.querySelectorAll('.slide-mock').length
     ).toBe(3) // set to be infinite
   })
 })

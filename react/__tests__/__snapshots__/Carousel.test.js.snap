@@ -3,77 +3,87 @@
 exports[`Carousel component should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="vtex-carousel"
+    class="slider-container-mock"
   >
     <div
-      style="max-height: 440px;"
+      class="slider-mock"
     >
-      <a
-        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-        target="_blank"
+      <div
+        class="slide-mock"
       >
-        <div
-          class="vtex-carousel__img-container"
+        <a
+          class="bannerLink w-100"
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
         >
           <div
-            class="vtex-carousel__img-regular"
-            style="max-height: 440px;"
+            class="containerImg w-100"
           >
-            <img
-              alt="banner"
-              class="w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-            />
+            <div
+              class="imgRegular flex items-center justify-center"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="banner"
+                class="img w-100 h-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+              />
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
+      <div
+        class="slide-mock"
+      >
+        <a
+          class="bannerLink w-100"
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
+        >
+          <div
+            class="containerImg w-100"
+          >
+            <div
+              class="imgRegular flex items-center justify-center"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="david"
+                class="img w-100 h-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
+      <div
+        class="slide-mock"
+      >
+        <a
+          class="bannerLink w-100"
+          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          target="_blank"
+        >
+          <div
+            class="containerImg w-100"
+          >
+            <div
+              class="imgRegular flex items-center justify-center"
+              style="max-height: 440px;"
+            >
+              <img
+                alt="banner"
+                class="img w-100 h-100"
+                src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
+              />
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
     <div
-      style="max-height: 440px;"
-    >
-      <a
-        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-        target="_blank"
-      >
-        <div
-          class="vtex-carousel__img-container"
-        >
-          <div
-            class="vtex-carousel__img-regular"
-            style="max-height: 440px;"
-          >
-            <img
-              alt="david"
-              class="w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
-            />
-          </div>
-        </div>
-      </a>
-    </div>
-    <div
-      style="max-height: 440px;"
-    >
-      <a
-        href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
-        target="_blank"
-      >
-        <div
-          class="vtex-carousel__img-container"
-        >
-          <div
-            class="vtex-carousel__img-regular"
-            style="max-height: 440px;"
-          >
-            <img
-              alt="banner"
-              class="w-100"
-              src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
-            />
-          </div>
-        </div>
-      </a>
-    </div>
+      class="dots-mock"
+    />
   </div>
 </DocumentFragment>
 `;
