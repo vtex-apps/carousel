@@ -54,12 +54,6 @@ export default class Carousel extends Component<Props, State> {
   public static uiSchema = {
     banners: {
       items: {
-        externalRoute: {
-          'ui:options': {
-            inline: true,
-          },
-          'ui:widget': 'radio',
-        },
         image: {
           'ui:widget': 'image-uploader',
         },
@@ -85,7 +79,7 @@ export default class Carousel extends Component<Props, State> {
         /** The page where the image is pointing to */
         page: PropTypes.string,
         /** Params of the url */
-        params: PropTypes.object,
+        params: PropTypes.string,
         /** Indicates if the route is external or internal */
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
@@ -130,7 +124,8 @@ export default class Carousel extends Component<Props, State> {
       description: 'editor.carousel.description',
       title: 'editor.carousel.title',
       type: 'object',
-      properties: { // tslint:disable-line
+      properties: {
+        // tslint:disable-line
         autoplay: {
           default: true,
           isLayout: true,
@@ -139,33 +134,37 @@ export default class Carousel extends Component<Props, State> {
         },
         autoplaySpeed: autoplay
           ? {
-            default: 5,
-            enum: [4, 5, 6],
-            isLayout: true,
-            title: 'editor.carousel.autoplaySpeed.title',
-            type: 'number',
-            widget: {
-              'ui:options': {
-                inline: true,
+              default: 5,
+              enum: [4, 5, 6],
+              isLayout: true,
+              title: 'editor.carousel.autoplaySpeed.title',
+              type: 'number',
+              widget: {
+                'ui:options': {
+                  inline: true,
+                },
+                'ui:widget': 'radio',
               },
-              'ui:widget': 'radio',
-            },
-          }
+            }
           : {},
         banners: {
           minItems: 1,
           title: 'editor.carousel.banners.title',
           type: 'array',
-          items: { // tslint:disable-line
+          items: {
+            // tslint:disable-line
             title: 'editor.carousel.banner.title',
             type: 'object',
-            properties: { // tslint:disable-line
+            properties: {
+              // tslint:disable-line
               description: {
                 default: '',
                 title: 'editor.carousel.banner.description.title',
                 type: 'string',
               },
               externalRoute: {
+                default: false,
+                isLayout: false,
                 title: 'editor.carousel.banner.externalRoute.title',
                 type: 'boolean',
               },
@@ -214,7 +213,7 @@ export default class Carousel extends Component<Props, State> {
   }
 
   public state = {
-    currentSlide: 0
+    currentSlide: 0,
   }
 
   public handleChangeSlide = (i: number): void => {
@@ -224,19 +223,23 @@ export default class Carousel extends Component<Props, State> {
   public handleNextSlide = (): void => {
     this.setState(({ currentSlide }) => {
       const bannersLength: number = this.props.banners.filter(
-        banner => banner && (banner.mobileImage || banner.image)).length
+        banner => banner && (banner.mobileImage || banner.image)
+      ).length
       const nextSlide: number = (currentSlide + 1) % bannersLength
 
       return {
-        currentSlide: nextSlide
+        currentSlide: nextSlide,
       }
     })
   }
 
-  public ArrowRender: React.StatelessComponent<ArrowProps> = ({ orientation, onClick }: ArrowProps) => {
+  public ArrowRender: React.StatelessComponent<ArrowProps> = ({
+    orientation,
+    onClick,
+  }: ArrowProps) => {
     const containerClasses = classnames(styles.arrow, 'pointer z-1', {
       [styles.leftArrow]: orientation === 'left',
-      [styles.rightArrow]: orientation === 'right'
+      [styles.rightArrow]: orientation === 'right',
     })
     return (
       <div className={containerClasses} onClick={onClick}>
@@ -245,28 +248,20 @@ export default class Carousel extends Component<Props, State> {
     )
   }
 
-  public ArrowContainerRender: React.StatelessComponent<ArrowContainerProps> = ({ children }: ArrowContainerProps) => {
+  public ArrowContainerRender: React.StatelessComponent<
+    ArrowContainerProps
+  > = ({ children }: ArrowContainerProps) => {
     const containerClasses = classnames(
       styles.arrowContainer,
       'w-100 h-100 absolute flex-ns justify-between left-0',
       'top-0 items-center dn-s'
     )
 
-    return (
-      <Container className={containerClasses}>
-        {children}
-      </Container>
-    )
+    return <Container className={containerClasses}>{children}</Container>
   }
 
   public render() {
-    const {
-      height,
-      showArrows,
-      autoplay,
-      autoplaySpeed,
-      showDots
-    } = this.props
+    const { height, showArrows, autoplay, autoplaySpeed, showDots } = this.props
     const { currentSlide } = this.state
 
     if (!this.props.banners.length) {
@@ -274,7 +269,8 @@ export default class Carousel extends Component<Props, State> {
     }
 
     const banners: BannerProps[] = this.props.banners.filter(
-      banner => banner && (banner.mobileImage || banner.image))
+      banner => banner && (banner.mobileImage || banner.image)
+    )
 
     return (
       <SliderContainer
@@ -287,7 +283,7 @@ export default class Carousel extends Component<Props, State> {
         <Slider
           classes={{
             root: styles.sliderRoot,
-            sliderFrame: styles.sliderFrame
+            sliderFrame: styles.sliderFrame,
           }}
           arrowRender={showArrows && this.ArrowRender}
           currentSlide={currentSlide}
@@ -295,13 +291,16 @@ export default class Carousel extends Component<Props, State> {
           arrowsContainerComponent={showArrows && this.ArrowContainerRender}
           duration={500}
         >
-          {banners.map(
-            (banner, i) => (
-              <Slide className={styles.slide} key={i} style={{ maxHeight: height }} sliderTransitionDuration={500}>
-                <Banner height={height} {...banner} />
-              </Slide>
-            )
-          )}
+          {banners.map((banner, i) => (
+            <Slide
+              className={styles.slide}
+              key={i}
+              style={{ maxHeight: height }}
+              sliderTransitionDuration={500}
+            >
+              <Banner height={height} {...banner} />
+            </Slide>
+          ))}
         </Slider>
         {showDots && (
           <Dots
@@ -312,7 +311,7 @@ export default class Carousel extends Component<Props, State> {
               root: classnames(styles.containerDots, 'bottom-0 pb4'),
               notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
               dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
-              activeDot: classnames(styles.activeDot, 'bg-emphasis')
+              activeDot: classnames(styles.activeDot, 'bg-emphasis'),
             }}
           />
         )}

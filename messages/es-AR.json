@@ -1,23 +1,17 @@
 {
   "editor.carousel.title": "Carrusel",
-  "editor.carousel.description":
-    "Un componente básico de carrusel que muestra una serie de banners",
+  "editor.carousel.description": "Un componente básico de carrusel que muestra una serie de banners",
   "editor.carousel.showDots.title": "Mostrar puntos",
   "editor.carousel.showArrows.title": "Mostrar flechas de navegación",
   "editor.carousel.height.title": "Altura máxima del banner (px)",
-  "editor.carousel.mobileHeight.title":
-    "Altura máxima del banner en el móvil (px)",
+  "editor.carousel.mobileHeight.title": "Altura máxima del banner en el móvil (px)",
   "editor.carousel.autoplay.title": "Reproducción automática",
-  "editor.carousel.autoplaySpeed.title":
-    "Velocidad de reproducción automática (seg)",
+  "editor.carousel.autoplaySpeed.title": "Velocidad de reproducción automática (seg)",
   "editor.carousel.numberOfBanners.title": "Número de banners",
-  "editor.carousel.bannerLink.title":
-    "Enlace del banner (debe comenzar con http o https)",
-  "editor.carousel.bannerLink.page.title":
-    "Página de destino del banner (interna)",
+  "editor.carousel.bannerLink.title": "Enlace del banner (debe comenzar con http o https)",
+  "editor.carousel.bannerLink.page.title": "Página de destino del banner (interna)",
   "editor.carousel.bannerLink.params.title": "Parámetros (interna)",
-  "editor.carousel.bannerLink.params.description":
-    "Parámetros separados por coma, e.g.: clave=valor,a=b,c=d",
+  "editor.carousel.bannerLink.params.description": "Parámetros separados por coma, e.g.: clave=valor,department=Accessories",
   "editor.carousel.bannerLink.url.title": "URL (externo)",
   "editor.carousel.banners.title": "Banners",
   "editor.carousel.banner.title": "Banner",

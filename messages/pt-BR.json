@@ -1,22 +1,17 @@
 {
   "editor.carousel.title": "Carrossel",
-  "editor.carousel.description":
-    "Um componente básico de carrossel que exibe uma série de banners",
+  "editor.carousel.description": "Um componente básico de carrossel que exibe uma série de banners",
   "editor.carousel.showDots.title": "Mostrar pontos",
   "editor.carousel.showArrows.title": "Mostrar setas de navegação",
   "editor.carousel.height.title": "Altura máxima do banner (px)",
-  "editor.carousel.mobileHeight.title":
-    "Altura máxima do banner no mobile (px)",
+  "editor.carousel.mobileHeight.title": "Altura máxima do banner no mobile (px)",
   "editor.carousel.autoplay.title": "Reprodução automática",
-  "editor.carousel.autoplaySpeed.title":
-    "Velocidade da reprodução automática (seg)",
+  "editor.carousel.autoplaySpeed.title": "Velocidade da reprodução automática (seg)",
   "editor.carousel.numberOfBanners.title": "Número de banners",
-  "editor.carousel.bannerLink.title":
-    "Link do banner (deve começar com http ou https)",
+  "editor.carousel.bannerLink.title": "Link do banner (deve começar com http ou https)",
   "editor.carousel.bannerLink.page.title": "Página alvo do banner (interna)",
   "editor.carousel.bannerLink.params.title": "Parâmetros (interna)",
-  "editor.carousel.bannerLink.params.description":
-    "Parâmetros separados por vírgula, e.g.: chave=valor,a=b,c=d",
+  "editor.carousel.bannerLink.params.description": "Parâmetros separados por vírgula, e.g.: chave=valor,department=Accessories",
   "editor.carousel.bannerLink.url.title": "URL (externa)",
   "editor.carousel.banners.title": "Banners",
   "editor.carousel.banner.title": "Banner",
