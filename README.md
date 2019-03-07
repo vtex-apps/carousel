@@ -124,6 +124,11 @@ Below, we describe the namespaces that are defined in the `Carousel`.
 | `sliderRoot` | The main container of the `Slider` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
 | `sliderFrame` | The element that contains the Slides | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
 | `slide` | The container of the `Banner` component | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
+| `arrow` | The container of the arrow svg (this namespace is applied to both arrows) | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
+| `leftArrow` | The container of the left arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
+| `rightArrow` | The container of the right arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
+| `arrowsContainerWrapper` | The wrapper of the container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
+| `arrowsContainer` | The container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
 | `containerDots` | The main container of the dots | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
 | `notActiveDot` | The element of the dots that are not actives | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
 | `dot` | The element of the dot | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|

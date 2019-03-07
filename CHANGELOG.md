@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Removed
+
+- Unused classes of `styles.css`.
 
 ## [2.7.2] - 2019-03-07
 
@@ -13,6 +16,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Fix tests.
 - External route not working on storefront.
+- Missing namespaces in docs.
+- The container of arrows not fitting properly on large screens.
 
 ## [2.7.1] - 2019-03-01
 
