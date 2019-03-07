@@ -76,8 +76,6 @@ const Banner = (props: Props) => {
     </div>
   )
 
-  console.log('route', externalRoute)
-
   if (!externalRoute) {
     return page ? (
       <Link

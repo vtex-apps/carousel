@@ -272,8 +272,6 @@ export default class Carousel extends Component<Props, State> {
       banner => banner && (banner.mobileImage || banner.image)
     )
 
-    console.log('tst', banners)
-
     return (
       <SliderContainer
         autoplay={autoplay}

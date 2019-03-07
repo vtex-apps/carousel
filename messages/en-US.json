@@ -1,7 +1,6 @@
 {
   "editor.carousel.title": "Carousel",
-  "editor.carousel.description":
-    "A simple carousel component that shows a serie of banners",
+  "editor.carousel.description": "A simple carousel component that shows a serie of banners",
   "editor.carousel.showDots.title": "Show dots",
   "editor.carousel.showArrows.title": "Show arrows",
   "editor.carousel.height.title": "Banner max height size (px)",
@@ -9,12 +8,10 @@
   "editor.carousel.autoplay.title": "Autoplay",
   "editor.carousel.autoplaySpeed.title": "Autoplay speed (sec)",
   "editor.carousel.numberOfBanners.title": "Number of banners",
-  "editor.carousel.bannerLink.title":
-    "Banner link (should start with https or http)",
+  "editor.carousel.bannerLink.title": "Banner link (should start with https or http)",
   "editor.carousel.bannerLink.page.title": "Banner target page (internal)",
   "editor.carousel.bannerLink.params.title": "Params (internal)",
-  "editor.carousel.bannerLink.params.description":
-    "Comma separated params, e.g.: key=value,a=b,c=d",
+  "editor.carousel.bannerLink.params.description": "Comma separated params, e.g.: key=value,department=Accessories",
   "editor.carousel.bannerLink.url.title": "URL (external)",
   "editor.carousel.banners.title": "Banners",
   "editor.carousel.banner.title": "Banner",
