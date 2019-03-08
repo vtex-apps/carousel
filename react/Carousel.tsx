@@ -251,13 +251,19 @@ export default class Carousel extends Component<Props, State> {
   public ArrowContainerRender: React.StatelessComponent<
     ArrowContainerProps
   > = ({ children }: ArrowContainerProps) => {
+    const wrapperClasses = classnames(styles.arrowsContainerWrapper, 'w-100 h-100 absolute left-0 top-0 flex justify-center')
     const containerClasses = classnames(
-      styles.arrowContainer,
-      'w-100 h-100 absolute flex-ns justify-between left-0',
-      'top-0 items-center dn-s'
+      styles.arrowsContainer,
+      'w-100 h-100 mw9 flex-ns justify-between items-center dn-s'
     )
 
-    return <Container className={containerClasses}>{children}</Container>
+    return (
+      <div className={wrapperClasses}>
+        <Container className={containerClasses}>
+          {children}
+        </Container>
+      </div>
+    )
   }
 
   public render() {

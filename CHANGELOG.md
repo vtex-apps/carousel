@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.7.3] - 2019-03-08
+### Fixed
+
+- Missing namespaces in docs.
+- The container of arrows not fitting properly on large screens.
+
+### Removed
+
+- Unused classes of `styles.css`.
+
 ## [2.7.2] - 2019-03-07
 
 ### Fixed
