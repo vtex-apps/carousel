@@ -118,8 +118,9 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 #### CSS namespaces
 
 Below, we describe the namespaces that are defined in the `Carousel`.
+
 | Class name | Description | Component Source |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | `container` | The main container of the `Carousel` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
 | `sliderRoot` | The main container of the `Slider` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
 | `sliderFrame` | The element that contains the Slides | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
