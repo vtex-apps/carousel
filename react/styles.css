@@ -12,5 +12,9 @@
   width: 10px;
 }
 
+.arrowsContainer {
+  box-sizing: content-box;
+}
+
 .arrowLeft {}
 .arrowRight {}
