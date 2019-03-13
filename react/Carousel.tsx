@@ -237,13 +237,13 @@ export default class Carousel extends Component<Props, State> {
     orientation,
     onClick,
   }: ArrowProps) => {
-    const containerClasses = classnames(styles.arrow, 'pointer z-1', {
+    const containerClasses = classnames(styles.arrow, 'pointer z-1 flex', {
       [styles.arrowLeft]: orientation === 'left',
       [styles.arrowRight]: orientation === 'right',
     })
     return (
       <div className={containerClasses} onClick={onClick}>
-        <IconCaret orientation={orientation} size={32} />
+        <IconCaret orientation={orientation} thin size={20} />
       </div>
     )
   }
