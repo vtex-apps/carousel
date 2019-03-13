@@ -238,8 +238,8 @@ export default class Carousel extends Component<Props, State> {
     onClick,
   }: ArrowProps) => {
     const containerClasses = classnames(styles.arrow, 'pointer z-1', {
-      [styles.leftArrow]: orientation === 'left',
-      [styles.rightArrow]: orientation === 'right',
+      [styles.arrowLeft]: orientation === 'left',
+      [styles.arrowRight]: orientation === 'right',
     })
     return (
       <div className={containerClasses} onClick={onClick}>

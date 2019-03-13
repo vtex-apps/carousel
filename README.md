@@ -118,25 +118,26 @@ To use this CSS API, you must add the `styles` builder and create an app styling
 #### CSS namespaces
 
 Below, we describe the namespaces that are defined in the `Carousel`.
+
 | Class name | Description | Component Source |
-| --- | --- | --- | --- |
-| `container` | The main container of the `Carousel` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `sliderRoot` | The main container of the `Slider` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `sliderFrame` | The element that contains the Slides | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `slide` | The container of the `Banner` component | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `arrow` | The container of the arrow svg (this namespace is applied to both arrows) | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `leftArrow` | The container of the left arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `rightArrow` | The container of the right arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `arrowsContainerWrapper` | The wrapper of the container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `arrowsContainer` | The container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `containerDots` | The main container of the dots | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `notActiveDot` | The element of the dots that are not actives | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `dot` | The element of the dot | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `activeDot` | The current active dot | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx)|
-| `containerImg` | The container of the image | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)|
-| `imgRegular` | The wrapper of the `img` element used to center the image inside the container | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)|
-| `img` | The `img` element | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)|
-| `bannerLink` | The `a` element that wraps the whole `Banner` component | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)|
+| --- | --- | --- |
+| `container` | The main container of the `Carousel` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `sliderRoot` | The main container of the `Slider` | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `sliderFrame` | The element that contains the Slides | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `slide` | The container of the `Banner` component | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `arrow` | The container of the arrow svg (this namespace is applied to both arrows) | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `arrowLeft` | The container of the left arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `arrowRight` | The container of the right arrow svg | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `arrowsContainerWrapper` | The wrapper of the container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `arrowsContainer` | The container of the arrows | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `containerDots` | The main container of the dots | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `notActiveDot` | The element of the dots that are not actives | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `dot` | The element of the dot | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `activeDot` | The current active dot | [Carousel](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Carousel.tsx) |
+| `containerImg` | The container of the image | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx) |
+| `imgRegular` | The wrapper of the `img` element used to center the image inside the container | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx) |
+| `img` | The `img` element | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx) |
+| `bannerLink` | The `a` element that wraps the whole `Banner` component | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx) |
 
 
 ## Troubleshooting
