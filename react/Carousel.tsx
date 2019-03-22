@@ -216,6 +216,8 @@ export default class Carousel extends Component<Props, State> {
     currentSlide: 0,
   }
 
+  public perPage = 1
+
   public handleChangeSlide = (i: number): void => {
     this.setState({ currentSlide: i })
   }
@@ -225,7 +227,8 @@ export default class Carousel extends Component<Props, State> {
       const bannersLength: number = this.props.banners.filter(
         banner => banner && (banner.mobileImage || banner.image)
       ).length
-      const nextSlide: number = (currentSlide + 1) % bannersLength
+      const nextSlide: number =
+        ((currentSlide + 1 - this.perPage) % bannersLength) + this.perPage
 
       return {
         currentSlide: nextSlide,
@@ -251,7 +254,10 @@ export default class Carousel extends Component<Props, State> {
   public ArrowContainerRender: React.StatelessComponent<
     ArrowContainerProps
   > = ({ children }: ArrowContainerProps) => {
-    const wrapperClasses = classnames(styles.arrowsContainerWrapper, 'w-100 h-100 absolute left-0 top-0 flex justify-center')
+    const wrapperClasses = classnames(
+      styles.arrowsContainerWrapper,
+      'w-100 h-100 absolute left-0 top-0 flex justify-center'
+    )
     const containerClasses = classnames(
       styles.arrowsContainer,
       'w-100 h-100 mw9 flex-ns justify-between items-center dn-s'
@@ -259,9 +265,7 @@ export default class Carousel extends Component<Props, State> {
 
     return (
       <div className={wrapperClasses}>
-        <Container className={containerClasses}>
-          {children}
-        </Container>
+        <Container className={containerClasses}>{children}</Container>
       </div>
     )
   }
@@ -269,7 +273,6 @@ export default class Carousel extends Component<Props, State> {
   public render() {
     const { height, showArrows, autoplay, autoplaySpeed, showDots } = this.props
     const { currentSlide } = this.state
-
     if (!this.props.banners.length) {
       return null
     }
@@ -287,10 +290,12 @@ export default class Carousel extends Component<Props, State> {
         className={styles.container}
       >
         <Slider
+          loop
           classes={{
             root: styles.sliderRoot,
             sliderFrame: styles.sliderFrame,
           }}
+          perPage={this.perPage}
           arrowRender={showArrows && this.ArrowRender}
           currentSlide={currentSlide}
           onChangeSlide={this.handleChangeSlide}
@@ -310,14 +315,16 @@ export default class Carousel extends Component<Props, State> {
         </Slider>
         {showDots && (
           <Dots
+            loop
+            perPage={this.perPage}
             currentSlide={currentSlide}
             totalSlides={banners.length}
             onChangeSlide={this.handleChangeSlide}
             classes={{
-              root: classnames(styles.containerDots, 'bottom-0 pb4'),
-              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
-              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
               activeDot: classnames(styles.activeDot, 'bg-emphasis'),
+              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
+              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
+              root: classnames(styles.containerDots, 'bottom-0 pb4'),
             }}
           />
         )}
