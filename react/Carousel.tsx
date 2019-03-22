@@ -265,7 +265,9 @@ export default class Carousel extends Component<Props, State> {
 
     return (
       <div className={wrapperClasses}>
-        <Container className={containerClasses}>{children}</Container>
+        <Container className={containerClasses}>
+          {children}
+        </Container>
       </div>
     )
   }
