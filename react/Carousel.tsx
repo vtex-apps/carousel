@@ -1,8 +1,8 @@
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import classnames from 'classnames'
+import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
-import { Slider, Slide, Dots, SliderContainer } from 'vtex.slider'
 import { IconCaret } from 'vtex.store-icons'
 
 import Banner, { Props as BannerProps } from './Banner'
@@ -122,8 +122,6 @@ export default class Carousel extends Component<Props, State> {
 
     return {
       description: 'editor.carousel.description',
-      title: 'editor.carousel.title',
-      type: 'object',
       properties: {
         // tslint:disable-line
         autoplay: {
@@ -148,13 +146,8 @@ export default class Carousel extends Component<Props, State> {
             }
           : {},
         banners: {
-          minItems: 1,
-          title: 'editor.carousel.banners.title',
-          type: 'array',
           items: {
             // tslint:disable-line
-            title: 'editor.carousel.banner.title',
-            type: 'object',
             properties: {
               // tslint:disable-line
               description: {
@@ -187,7 +180,12 @@ export default class Carousel extends Component<Props, State> {
                 },
               },
             },
+            title: 'editor.carousel.banner.title',
+            type: 'object',
           },
+          minItems: 1,
+          title: 'editor.carousel.banners.title',
+          type: 'array',
         },
         height: {
           default: 420,
@@ -209,6 +207,8 @@ export default class Carousel extends Component<Props, State> {
           type: 'boolean',
         },
       },
+      title: 'editor.carousel.title',
+      type: 'object',
     }
   }
 
