@@ -1,8 +1,8 @@
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import classnames from 'classnames'
+import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
-import { Slider, Slide, Dots, SliderContainer } from 'vtex.slider'
 import { IconCaret } from 'vtex.store-icons'
 
 import Banner, { Props as BannerProps } from './Banner'
@@ -122,8 +122,6 @@ export default class Carousel extends Component<Props, State> {
 
     return {
       description: 'editor.carousel.description',
-      title: 'editor.carousel.title',
-      type: 'object',
       properties: {
         // tslint:disable-line
         autoplay: {
@@ -148,13 +146,8 @@ export default class Carousel extends Component<Props, State> {
             }
           : {},
         banners: {
-          minItems: 1,
-          title: 'editor.carousel.banners.title',
-          type: 'array',
           items: {
             // tslint:disable-line
-            title: 'editor.carousel.banner.title',
-            type: 'object',
             properties: {
               // tslint:disable-line
               description: {
@@ -187,7 +180,12 @@ export default class Carousel extends Component<Props, State> {
                 },
               },
             },
+            title: 'editor.carousel.banner.title',
+            type: 'object',
           },
+          minItems: 1,
+          title: 'editor.carousel.banners.title',
+          type: 'array',
         },
         height: {
           default: 420,
@@ -209,12 +207,16 @@ export default class Carousel extends Component<Props, State> {
           type: 'boolean',
         },
       },
+      title: 'editor.carousel.title',
+      type: 'object',
     }
   }
 
   public state = {
     currentSlide: 0,
   }
+
+  public perPage = 1
 
   public handleChangeSlide = (i: number): void => {
     this.setState({ currentSlide: i })
@@ -225,7 +227,8 @@ export default class Carousel extends Component<Props, State> {
       const bannersLength: number = this.props.banners.filter(
         banner => banner && (banner.mobileImage || banner.image)
       ).length
-      const nextSlide: number = (currentSlide + 1) % bannersLength
+      const nextSlide: number =
+        ((currentSlide + 1 - this.perPage) % bannersLength) + this.perPage
 
       return {
         currentSlide: nextSlide,
@@ -251,7 +254,10 @@ export default class Carousel extends Component<Props, State> {
   public ArrowContainerRender: React.StatelessComponent<
     ArrowContainerProps
   > = ({ children }: ArrowContainerProps) => {
-    const wrapperClasses = classnames(styles.arrowsContainerWrapper, 'w-100 h-100 absolute left-0 top-0 flex justify-center')
+    const wrapperClasses = classnames(
+      styles.arrowsContainerWrapper,
+      'w-100 h-100 absolute left-0 top-0 flex justify-center'
+    )
     const containerClasses = classnames(
       styles.arrowsContainer,
       'w-100 h-100 mw9 flex-ns justify-between items-center dn-s'
@@ -269,7 +275,6 @@ export default class Carousel extends Component<Props, State> {
   public render() {
     const { height, showArrows, autoplay, autoplaySpeed, showDots } = this.props
     const { currentSlide } = this.state
-
     if (!this.props.banners.length) {
       return null
     }
@@ -287,10 +292,12 @@ export default class Carousel extends Component<Props, State> {
         className={styles.container}
       >
         <Slider
+          loop
           classes={{
             root: styles.sliderRoot,
             sliderFrame: styles.sliderFrame,
           }}
+          perPage={this.perPage}
           arrowRender={showArrows && this.ArrowRender}
           currentSlide={currentSlide}
           onChangeSlide={this.handleChangeSlide}
@@ -310,14 +317,16 @@ export default class Carousel extends Component<Props, State> {
         </Slider>
         {showDots && (
           <Dots
+            loop
+            perPage={this.perPage}
             currentSlide={currentSlide}
             totalSlides={banners.length}
             onChangeSlide={this.handleChangeSlide}
             classes={{
-              root: classnames(styles.containerDots, 'bottom-0 pb4'),
-              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
-              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
               activeDot: classnames(styles.activeDot, 'bg-emphasis'),
+              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
+              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
+              root: classnames(styles.containerDots, 'bottom-0 pb4'),
             }}
           />
         )}
