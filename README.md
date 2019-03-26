@@ -151,3 +151,4 @@ To execute our tests go to `react/` folder and run `npm test`
 ### Travis CI
 
 [![Build Status](https://travis-ci.org/vtex-apps/carousel.svg?branch=master)](https://travis-ci.org/vtex-apps/carousel)
+[![Coverage Status](https://coveralls.io/repos/github/vtex-apps/carousel/badge.svg?branch=master)](https://coveralls.io/github/vtex-apps/carousel?branch=master)
