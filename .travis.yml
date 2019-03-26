@@ -3,11 +3,10 @@ cache:
   directories:
     - "node_modules"
 node_js:
-  - "8"
-before_install: 
-  - npm i -g yarn
+  - '10'
+before_install:
   - cd react
-install: 
+install:
   - yarn
-script: 
+script:
   - yarn test
