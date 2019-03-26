@@ -1,6 +1,6 @@
 /* eslint-env jest */
 import React from 'react'
-import { render } from 'react-testing-library'
+import { render } from '@vtex/test-tools/react'
 
 import Carousel from '../Carousel'
 
