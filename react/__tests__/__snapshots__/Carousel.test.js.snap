@@ -13,7 +13,7 @@ exports[`Carousel component should match snapshot 1`] = `
       >
         <a
           class="bannerLink w-100"
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          href="banner1-url"
           target="_blank"
         >
           <div
@@ -24,7 +24,7 @@ exports[`Carousel component should match snapshot 1`] = `
               style="max-height: 440px;"
             >
               <img
-                alt="banner"
+                alt="banner1"
                 class="img w-100 h-100"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
               />
@@ -37,7 +37,7 @@ exports[`Carousel component should match snapshot 1`] = `
       >
         <a
           class="bannerLink w-100"
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          href="banner2-url"
           target="_blank"
         >
           <div
@@ -48,7 +48,7 @@ exports[`Carousel component should match snapshot 1`] = `
               style="max-height: 440px;"
             >
               <img
-                alt="david"
+                alt="banner2"
                 class="img w-100 h-100"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
               />
@@ -61,7 +61,7 @@ exports[`Carousel component should match snapshot 1`] = `
       >
         <a
           class="bannerLink w-100"
-          href="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
+          href="banner3-url"
           target="_blank"
         >
           <div
@@ -72,7 +72,7 @@ exports[`Carousel component should match snapshot 1`] = `
               style="max-height: 440px;"
             >
               <img
-                alt="banner"
+                alt="banner3"
                 class="img w-100 h-100"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
               />
