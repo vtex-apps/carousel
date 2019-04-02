@@ -217,7 +217,7 @@ export default class Carousel extends Component<Props, State> {
           type: 'boolean',
         },
         perPage: {
-          default: true,
+          default: 1,
           isLayout: true,
           title: 'editor.carousel.perPage.title',
           type: 'number',
