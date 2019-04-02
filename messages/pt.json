@@ -18,5 +18,7 @@
   "editor.carousel.banner.description.title": "Descrição do banner",
   "editor.carousel.banner.externalRoute.title": "Rota externa",
   "editor.carousel.banner.image.title": "Imagem do banner",
-  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"
+  "editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile",
+  "editor.carousel.perPage.title": "itens por página",
+  "editor.carousel.draggable.title": "Slider arrastável"
 }

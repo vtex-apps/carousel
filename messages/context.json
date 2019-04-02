@@ -18,5 +18,7 @@
   "editor.carousel.banner.description.title": "editor.carousel.banner.description.title",
   "editor.carousel.banner.externalRoute.title": "editor.carousel.banner.externalRoute.title",
   "editor.carousel.banner.image.title": "editor.carousel.banner.image.title",
-  "editor.carousel.banner.mobileImage.title": "editor.carousel.banner.mobileImage.title"
+  "editor.carousel.banner.mobileImage.title": "editor.carousel.banner.mobileImage.title",
+  "editor.carousel.perPage.title": "editor.carousel.perPage.title",
+  "editor.carousel.draggable.title": "editor.carousel.draggable.title"
 }

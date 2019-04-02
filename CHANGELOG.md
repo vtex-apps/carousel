@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added `perPage` as configuration parameter in admin panel
+- Added `draggable` as configuration parameter in admin panel
 
 ## [2.8.0] - 2019-03-25
 ### Changed

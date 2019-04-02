@@ -18,5 +18,7 @@
   "editor.carousel.banner.description.title": "Descripción del banner",
   "editor.carousel.banner.externalRoute.title": "Ruta externa",
   "editor.carousel.banner.image.title": "Imagen del banner",
-  "editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil"
+  "editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil",
+  "editor.carousel.perPage.title": "Artículos por página",
+  "editor.carousel.draggable.title": "Control deslizante arrastrable"
 }
