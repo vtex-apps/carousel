@@ -1,6 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
+import { defineMessages } from 'react-intl'
 import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
@@ -37,6 +38,77 @@ interface ArrowProps {
 interface ArrowContainerProps {
   children: React.ReactNode
 }
+
+const editorMessages = defineMessages({
+  CarouselTitle: {
+    id: 'editor.carousel.title',
+    defaultMessage: ''
+  },
+  CarouselDescription: {
+    id: 'editor.carousel.description',
+    defaultMessage: ''
+  },
+  CarouselShowDotsTitle: {
+    id: 'editor.carousel.showDots.title',
+    defaultMessage: ''
+  },
+  CarouselShowArrowsTitle: {
+    id: 'editor.carousel.showArrows.title',
+    defaultMessage: ''
+  },
+  CarouselHeightTitle: {
+    id: 'editor.carousel.height.title',
+    defaultMessage: ''
+  },
+  CarouselAutoplayTitle: {
+    id: 'editor.carousel.autoplay.title',
+    defaultMessage: ''
+  },
+  CarouselAutoplaySpeedTitle: {
+    id: 'editor.carousel.autoplaySpeed.title',
+    defaultMessage: ''
+  },
+  CarouselBannerLinkPageTitle: {
+    id: 'editor.carousel.bannerLink.page.title',
+    defaultMessage: ''
+  },
+  CarouselBannerLinkParamsTitle: {
+    id: 'editor.carousel.bannerLink.params.title',
+    defaultMessage: ''
+  },
+  CarouselBannerLinkParamsDescription: {
+    id: 'editor.carousel.bannerLink.params.description',
+    defaultMessage: ''
+  },
+  CarouselBannerLinkUrlTitle: {
+    id: 'editor.carousel.bannerLink.url.title',
+    defaultMessage: ''
+  },
+  CarouselBannersTitle: {
+    id: 'editor.carousel.banners.title',
+    defaultMessage: ''
+  },
+  CarouselBannerTitle: {
+    id: 'editor.carousel.banner.title',
+    defaultMessage: ''
+  },
+  CarouselBannerDescriptionTitle: {
+    id: 'editor.carousel.banner.description.title',
+    defaultMessage: ''
+  },
+  CarouselBannerExternalRouteTitle: {
+    id: 'editor.carousel.banner.externalRoute.title',
+    defaultMessage: ''
+  },
+  CarouselBannerImageTitle: {
+    id: 'editor.carousel.banner.image.title',
+    defaultMessage: ''
+  },
+  CarouselBannerMobileImageTitle: {
+    id: 'editor.carousel.banner.mobileImage.title',
+    defaultMessage: ''
+  },
+})
 
 /**
  * Carousel component. Shows a serie of banners.
@@ -101,13 +173,13 @@ export default class Carousel extends Component<Props, State> {
       page: {
         enum: GLOBAL_PAGES,
         isLayout: false,
-        title: 'editor.carousel.bannerLink.page.title',
+        title: editorMessages.CarouselBannerLinkPageTitle.id,
         type: 'string',
       },
       params: {
-        description: 'editor.carousel.bannerLink.params.description',
+        description: editorMessages.CarouselBannerLinkParamsDescription.id,
         isLayout: false,
-        title: 'editor.carousel.bannerLink.params.title',
+        title: editorMessages.CarouselBannerLinkParamsTitle.id,
         type: 'string',
       },
     }
@@ -115,19 +187,19 @@ export default class Carousel extends Component<Props, State> {
     const externalRouteSchema = {
       url: {
         isLayout: false,
-        title: 'editor.carousel.bannerLink.url.title',
+        title: editorMessages.CarouselBannerLinkUrlTitle.id,
         type: 'string',
       },
     }
 
     return {
-      description: 'editor.carousel.description',
+      description: editorMessages.CarouselDescription.id,
       properties: {
         // tslint:disable-line
         autoplay: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.autoplay.title',
+          title: editorMessages.CarouselAutoplayTitle.id,
           type: 'boolean',
         },
         autoplaySpeed: autoplay
@@ -135,7 +207,7 @@ export default class Carousel extends Component<Props, State> {
               default: 5,
               enum: [4, 5, 6],
               isLayout: true,
-              title: 'editor.carousel.autoplaySpeed.title',
+              title: editorMessages.CarouselAutoplaySpeedTitle.id,
               type: 'number',
               widget: {
                 'ui:options': {
@@ -152,20 +224,20 @@ export default class Carousel extends Component<Props, State> {
               // tslint:disable-line
               description: {
                 default: '',
-                title: 'editor.carousel.banner.description.title',
+                title: editorMessages.CarouselBannerDescriptionTitle.id,
                 type: 'string',
               },
               externalRoute: {
                 default: false,
                 isLayout: false,
-                title: 'editor.carousel.banner.externalRoute.title',
+                title: editorMessages.CarouselBannerExternalRouteTitle.id,
                 type: 'boolean',
               },
               ...externalRouteSchema,
               ...internalRouteSchema,
               image: {
                 default: '',
-                title: 'editor.carousel.banner.image.title',
+                title: editorMessages.CarouselBannerImageTitle.id,
                 type: 'string',
                 widget: {
                   'ui:widget': 'image-uploader',
@@ -173,41 +245,41 @@ export default class Carousel extends Component<Props, State> {
               },
               mobileImage: {
                 default: '',
-                title: 'editor.carousel.banner.mobileImage.title',
+                title: editorMessages.CarouselBannerMobileImageTitle.id,
                 type: 'string',
                 widget: {
                   'ui:widget': 'image-uploader',
                 },
               },
             },
-            title: 'editor.carousel.banner.title',
+            title: editorMessages.CarouselBannerTitle.id,
             type: 'object',
           },
           minItems: 1,
-          title: 'editor.carousel.banners.title',
+          title: editorMessages.CarouselBannersTitle.id,
           type: 'array',
         },
         height: {
           default: 420,
           enum: [420, 440],
           isLayout: true,
-          title: 'editor.carousel.height.title',
+          title: editorMessages.CarouselHeightTitle.id,
           type: 'number',
         },
         showArrows: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.showArrows.title',
+          title: editorMessages.CarouselShowArrowsTitle.id,
           type: 'boolean',
         },
         showDots: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.showDots.title',
+          title: editorMessages.CarouselShowDotsTitle.id,
           type: 'boolean',
         },
       },
-      title: 'editor.carousel.title',
+      title: editorMessages.CarouselTitle.id,
       type: 'object',
     }
   }
