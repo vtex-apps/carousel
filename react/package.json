@@ -26,6 +26,7 @@
     "coveralls": "^3.0.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
+    "react-intl": "^2.8.0",
     "tslint": "^5.12.1",
     "tslint-config-vtex": "^2.1.0",
     "tslint-eslint-rules": "^5.4.0"
