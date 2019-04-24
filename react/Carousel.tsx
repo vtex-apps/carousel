@@ -395,7 +395,7 @@ export default class Carousel extends Component<Props, State> {
     if (!this.props.banners.length) {
       return null
     }
-debugger;
+
     const banners: BannerProps[] = this.props.banners.filter(
       banner => banner && (banner.mobileImage || banner.image)
     )
