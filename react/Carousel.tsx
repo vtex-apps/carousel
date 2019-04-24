@@ -101,13 +101,13 @@ export default class Carousel extends Component<Props, State> {
       page: {
         enum: GLOBAL_PAGES,
         isLayout: false,
-        title: 'editor.carousel.bannerLink.page.title',
+        title: 'admin/editor.carousel.bannerLink.page.title',
         type: 'string',
       },
       params: {
-        description: 'editor.carousel.bannerLink.params.description',
+        description: 'admin/editor.carousel.bannerLink.params.description',
         isLayout: false,
-        title: 'editor.carousel.bannerLink.params.title',
+        title: 'admin/editor.carousel.bannerLink.params.title',
         type: 'string',
       },
     }
@@ -115,19 +115,19 @@ export default class Carousel extends Component<Props, State> {
     const externalRouteSchema = {
       url: {
         isLayout: false,
-        title: 'editor.carousel.bannerLink.url.title',
+        title: 'admin/editor.carousel.bannerLink.url.title',
         type: 'string',
       },
     }
 
     return {
-      description: 'editor.carousel.description',
+      description: 'admin/editor.carousel.description',
       properties: {
         // tslint:disable-line
         autoplay: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.autoplay.title',
+          title: 'admin/editor.carousel.autoplay.title',
           type: 'boolean',
         },
         autoplaySpeed: autoplay
@@ -135,7 +135,7 @@ export default class Carousel extends Component<Props, State> {
               default: 5,
               enum: [4, 5, 6],
               isLayout: true,
-              title: 'editor.carousel.autoplaySpeed.title',
+              title: 'admin/editor.carousel.autoplaySpeed.title',
               type: 'number',
               widget: {
                 'ui:options': {
@@ -152,20 +152,20 @@ export default class Carousel extends Component<Props, State> {
               // tslint:disable-line
               description: {
                 default: '',
-                title: 'editor.carousel.banner.description.title',
+                title: 'admin/editor.carousel.banner.description.title',
                 type: 'string',
               },
               externalRoute: {
                 default: false,
                 isLayout: false,
-                title: 'editor.carousel.banner.externalRoute.title',
+                title: 'admin/editor.carousel.banner.externalRoute.title',
                 type: 'boolean',
               },
               ...externalRouteSchema,
               ...internalRouteSchema,
               image: {
                 default: '',
-                title: 'editor.carousel.banner.image.title',
+                title: 'admin/editor.carousel.banner.image.title',
                 type: 'string',
                 widget: {
                   'ui:widget': 'image-uploader',
@@ -173,41 +173,41 @@ export default class Carousel extends Component<Props, State> {
               },
               mobileImage: {
                 default: '',
-                title: 'editor.carousel.banner.mobileImage.title',
+                title: 'admin/editor.carousel.banner.mobileImage.title',
                 type: 'string',
                 widget: {
                   'ui:widget': 'image-uploader',
                 },
               },
             },
-            title: 'editor.carousel.banner.title',
+            title: 'admin/editor.carousel.banner.title',
             type: 'object',
           },
           minItems: 1,
-          title: 'editor.carousel.banners.title',
+          title: 'admin/editor.carousel.banners.title',
           type: 'array',
         },
         height: {
           default: 420,
           enum: [420, 440],
           isLayout: true,
-          title: 'editor.carousel.height.title',
+          title: 'admin/editor.carousel.height.title',
           type: 'number',
         },
         showArrows: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.showArrows.title',
+          title: 'admin/editor.carousel.showArrows.title',
           type: 'boolean',
         },
         showDots: {
           default: true,
           isLayout: true,
-          title: 'editor.carousel.showDots.title',
+          title: 'admin/editor.carousel.showDots.title',
           type: 'boolean',
         },
       },
-      title: 'editor.carousel.title',
+      title: 'admin/editor.carousel.title',
       type: 'object',
     }
   }
