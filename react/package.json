@@ -12,6 +12,7 @@
   "author": "VTEX",
   "license": "ISC",
   "dependencies": {
+    "@types/ramda": "^0.26.8",
     "@vtex/styleguide": "~2.0.0-rc.39",
     "classnames": "^2.2.6",
     "ramda": "^0.26.1",

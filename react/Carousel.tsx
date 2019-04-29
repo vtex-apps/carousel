@@ -4,6 +4,7 @@ import React, { Component } from 'react'
 import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
+import { getItemsPerPage } from './utils/pageUtils'
 
 import Banner, { Props as BannerProps } from './Banner'
 import styles from './styles.css'
@@ -23,6 +24,10 @@ interface Props {
   showArrows?: boolean
   /** Set visibility of dots */
   showDots?: boolean
+  /** Items per page */
+  itemsPerPage: string,
+  /** Set slider draggable */
+  draggable: boolean
 }
 
 interface State {
@@ -49,6 +54,8 @@ export default class Carousel extends Component<Props, State> {
     height: 420,
     showArrows: true,
     showDots: true,
+    itemsPerPage: '300:1',
+    draggable: true,
   }
 
   public static uiSchema = {
@@ -92,6 +99,10 @@ export default class Carousel extends Component<Props, State> {
     showArrows: PropTypes.bool,
     /** Set visibility of dots */
     showDots: PropTypes.bool,
+    /** Items per page */
+    itemsPerPage: PropTypes.string,
+    /** Slider draggable */
+    draggable: PropTypes.bool,
   }
 
   public static getSchema = (props: Props) => {
@@ -206,6 +217,17 @@ export default class Carousel extends Component<Props, State> {
           title: 'admin/editor.carousel.showDots.title',
           type: 'boolean',
         },
+        itemsPerPage: {
+          default: '',
+          title: 'admin/editor.carousel.itemsPerPage.title',
+          type: 'string',
+        },
+        draggable: {
+          default: true,
+          isLayout: true,
+          title: 'admin/editor.carousel.draggable.title',
+          type: 'boolean',
+        },
       },
       title: 'admin/editor.carousel.title',
       type: 'object',
@@ -216,19 +238,20 @@ export default class Carousel extends Component<Props, State> {
     currentSlide: 0,
   }
 
-  public perPage = 1
-
   public handleChangeSlide = (i: number): void => {
     this.setState({ currentSlide: i })
   }
 
   public handleNextSlide = (): void => {
+
+    const perPage = 1
+
     this.setState(({ currentSlide }) => {
       const bannersLength: number = this.props.banners.filter(
         banner => banner && (banner.mobileImage || banner.image)
       ).length
       const nextSlide: number =
-        ((currentSlide + 1 - this.perPage) % bannersLength) + this.perPage
+        ((currentSlide + 1 - perPage) % bannersLength) + perPage
 
       return {
         currentSlide: nextSlide,
@@ -273,8 +296,11 @@ export default class Carousel extends Component<Props, State> {
   }
 
   public render() {
-    const { height, showArrows, autoplay, autoplaySpeed, showDots } = this.props
+    const { height, showArrows, autoplay, autoplaySpeed, showDots, itemsPerPage, draggable } = this.props
     const { currentSlide } = this.state
+    
+    const perPage = getItemsPerPage(itemsPerPage)
+
     if (!this.props.banners.length) {
       return null
     }
@@ -297,12 +323,13 @@ export default class Carousel extends Component<Props, State> {
             root: styles.sliderRoot,
             sliderFrame: styles.sliderFrame,
           }}
-          perPage={this.perPage}
+          perPage={perPage}
           arrowRender={showArrows && this.ArrowRender}
           currentSlide={currentSlide}
           onChangeSlide={this.handleChangeSlide}
           arrowsContainerComponent={showArrows && this.ArrowContainerRender}
           duration={500}
+          draggable={draggable}
         >
           {banners.map((banner, i) => (
             <Slide
@@ -318,7 +345,7 @@ export default class Carousel extends Component<Props, State> {
         {showDots && (
           <Dots
             loop
-            perPage={this.perPage}
+            perPage={perPage}
             currentSlide={currentSlide}
             totalSlides={banners.length}
             onChangeSlide={this.handleChangeSlide}
