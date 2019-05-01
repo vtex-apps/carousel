@@ -26,6 +26,8 @@ export interface Props extends DefaultProps {
   externalRoute: boolean
   /** Runtime injected deps */
   runtime: any
+  /** Add animation effect on hover */
+  animateItemOnHover: boolean
 }
 
 function getParams(params: string) {
@@ -54,17 +56,19 @@ const Banner = (props: Props) => {
     url,
     params,
     externalRoute,
+    animateItemOnHover,
   } = props
 
   const { mobile: isMobile } = useRuntime().hints
-
+  const imageContainerClass = classnames(
+    styles.imgRegular,
+    'flex items-center justify-center',
+    { 'grow': animateItemOnHover }
+  )
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
       <div
-        className={classnames(
-          styles.imgRegular,
-          'flex items-center justify-center'
-        )}
+        className={imageContainerClass}
         style={{ maxHeight: height }}
       >
         <img
@@ -118,10 +122,13 @@ Banner.propTypes = {
   params: PropTypes.string,
   /** The url where the image is pointing to, in case of external route */
   url: PropTypes.string,
+  /** Add animation effect on hover */
+  animateItemOnHover: PropTypes.bool
 }
 
 Banner.defaultProps = {
   height: 420,
+  animateItemOnHover: false,
 }
 
 export default Banner

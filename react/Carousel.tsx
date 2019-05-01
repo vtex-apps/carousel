@@ -48,7 +48,7 @@ export default class Carousel extends Component<Props, State> {
     banners: [],
     height: 420,
     showArrows: true,
-    showDots: true,
+    showDots: true
   }
 
   public static uiSchema = {
@@ -84,6 +84,8 @@ export default class Carousel extends Component<Props, State> {
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
+        /** Add animation effect on hover */
+        animateItemOnHover: PropTypes.bool
       })
     ),
     /** Max height size of the banners */
@@ -155,6 +157,12 @@ export default class Carousel extends Component<Props, State> {
                 title: 'admin/editor.carousel.banner.description.title',
                 type: 'string',
               },
+              animateItemOnHover: {
+                default: true,
+                isLayout: false,
+                title: 'admin/editor.carousel.animateOnHover.title',
+                type: 'boolean',
+              },
               externalRoute: {
                 default: false,
                 isLayout: false,
@@ -205,7 +213,7 @@ export default class Carousel extends Component<Props, State> {
           isLayout: true,
           title: 'admin/editor.carousel.showDots.title',
           type: 'boolean',
-        },
+        }
       },
       title: 'admin/editor.carousel.title',
       type: 'object',
