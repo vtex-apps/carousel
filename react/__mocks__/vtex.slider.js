@@ -15,3 +15,7 @@ export const Dots = () => {
 export const SliderContainer = ({ children }) => {
   return <div className="slider-container-mock">{children}</div>
 }
+
+export const SliderNext = ({ children }) => {
+  return <div className="slider-next-mock">{children}</div>
+}

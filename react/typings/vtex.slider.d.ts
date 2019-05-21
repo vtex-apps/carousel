@@ -3,4 +3,5 @@ declare module 'vtex.slider' {
   export const Slide: ReactElement
   export const SliderContainer: ReactElement
   export const Dots: ReactElement
+  export const SliderNext: ReactElement
 }

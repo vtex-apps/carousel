@@ -1,7 +1,7 @@
 import classnames from 'classnames'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
+import { SliderNext } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
 
@@ -265,16 +265,14 @@ export default class Carousel extends Component<Props, State> {
 
     return (
       <div className={wrapperClasses}>
-        <Container className={containerClasses}>
-          {children}
-        </Container>
+        <Container className={containerClasses}>{children}</Container>
       </div>
     )
   }
 
   public render() {
-    const { height, showArrows, autoplay, autoplaySpeed, showDots } = this.props
-    const { currentSlide } = this.state
+    const { height, showArrows, showDots } = this.props
+    //const { currentSlide } = this.state
     if (!this.props.banners.length) {
       return null
     }
@@ -284,53 +282,22 @@ export default class Carousel extends Component<Props, State> {
     )
 
     return (
-      <SliderContainer
-        autoplay={autoplay}
-        autoplayInterval={autoplaySpeed * 1000}
-        pauseOnHover
-        onNextSlide={this.handleNextSlide}
-        className={styles.container}
+      <SliderNext
+        classNames={{
+          container: styles.container,
+          item: styles.slide,
+          dot: styles.dot,
+        }}
+        showArrows={showArrows}
+        showDots={showDots}
+        //autoplay={autoplay}
+        //autoplayInterval={autoplaySpeed * 1000}
+        //pauseOnHover
       >
-        <Slider
-          loop
-          classes={{
-            root: styles.sliderRoot,
-            sliderFrame: styles.sliderFrame,
-          }}
-          perPage={this.perPage}
-          arrowRender={showArrows && this.ArrowRender}
-          currentSlide={currentSlide}
-          onChangeSlide={this.handleChangeSlide}
-          arrowsContainerComponent={showArrows && this.ArrowContainerRender}
-          duration={500}
-        >
-          {banners.map((banner, i) => (
-            <Slide
-              className={styles.slide}
-              key={i}
-              style={{ maxHeight: height }}
-              sliderTransitionDuration={500}
-            >
-              <Banner height={height} {...banner} />
-            </Slide>
-          ))}
-        </Slider>
-        {showDots && (
-          <Dots
-            loop
-            perPage={this.perPage}
-            currentSlide={currentSlide}
-            totalSlides={banners.length}
-            onChangeSlide={this.handleChangeSlide}
-            classes={{
-              activeDot: classnames(styles.activeDot, 'bg-emphasis'),
-              dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
-              notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
-              root: classnames(styles.containerDots, 'bottom-0 pb4'),
-            }}
-          />
-        )}
-      </SliderContainer>
+        {banners.map((banner, i) => (
+          <Banner key={i} height={height} {...banner} />
+        ))}
+      </SliderNext>
     )
   }
 }
