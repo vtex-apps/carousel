@@ -288,6 +288,10 @@ export default class Carousel extends Component<Props, State> {
           item: styles.slide,
           dot: styles.dot,
         }}
+        autoplay={{
+          timeout: 2500,
+          stopOnHover: true,
+        }}
         showArrows={showArrows}
         showDots={showDots}
         //autoplay={autoplay}
