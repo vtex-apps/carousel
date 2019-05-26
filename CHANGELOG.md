@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.9.1] - 2019-05-26
+### Fixed
+- Add default empty description to Carousel image. (For decorative images, it's recommended to insert an empty string to the alt attribute rather than to leave it empty).
+
 ## [2.9.0] - 2019-04-24
 ### Changed
 - Scope messages
