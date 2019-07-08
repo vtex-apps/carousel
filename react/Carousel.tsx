@@ -1,14 +1,11 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
-import { Container } from 'vtex.store-components'
+import { Container, InfoCard } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
 
 import Banner, { Props as BannerProps } from './Banner'
 import styles from './styles.css'
-
-const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
 
 interface Props {
   /** Should change images automatically */
@@ -16,13 +13,23 @@ interface Props {
   /** How long it should wait to change the banner in secs */
   autoplaySpeed: number
   /** Banners that will be displayed by the Carousel */
-  banners: BannerProps[]
+  banners: SlideItem[]
   /** Max height size of the banners */
   height?: number
   /** Set visibility of arrows */
   showArrows?: boolean
   /** Set visibility of dots */
   showDots?: boolean
+}
+
+type SlideItem = BannerProps | InfoCardProps
+
+interface InfoCardProps {
+  contentType: 'image-text'
+  infoCardFields: {
+    imageUrl: string
+    mobileImageUrl: string
+  }
 }
 
 interface State {
@@ -36,6 +43,13 @@ interface ArrowProps {
 
 interface ArrowContainerProps {
   children: React.ReactNode
+}
+
+function filterSlideItemWithImage(slideItem: SlideItem) {
+  if (slideItem && slideItem.contentType === 'image-text') {
+    return slideItem.infoCardFields && slideItem.infoCardFields.imageUrl
+  }
+  return slideItem && (slideItem.mobileImage || slideItem.image)
 }
 
 /**
@@ -64,66 +78,14 @@ export default class Carousel extends Component<Props, State> {
     },
   }
 
-  public static propTypes = {
-    /** Should change images automatically */
-    autoplay: PropTypes.bool.isRequired,
-    /** How long it should wait to change the banner in secs */
-    autoplaySpeed: PropTypes.number.isRequired,
-    /** Banners that will be displayed by the Carousel */
-    banners: PropTypes.arrayOf(
-      PropTypes.shape({
-        /** The description of the image */
-        description: PropTypes.string,
-        /** The image url of the banner */
-        image: PropTypes.string,
-        /** The page where the image is pointing to */
-        page: PropTypes.string,
-        /** Params of the url */
-        params: PropTypes.string,
-        /** Indicates if the route is external or internal */
-        typeOfRoute: PropTypes.string,
-        /** The url where the image is pointing to, in case of external route */
-        url: PropTypes.string,
-      })
-    ),
-    /** Max height size of the banners */
-    height: PropTypes.number.isRequired,
-    /** Set visibility of arrows */
-    showArrows: PropTypes.bool,
-    /** Set visibility of dots */
-    showDots: PropTypes.bool,
-  }
-
   public static getSchema = (props: Props) => {
     const autoplay = props.autoplay || false
 
-    const internalRouteSchema = {
-      page: {
-        enum: GLOBAL_PAGES,
-        isLayout: false,
-        title: 'admin/editor.carousel.bannerLink.page.title',
-        type: 'string',
-      },
-      params: {
-        description: 'admin/editor.carousel.bannerLink.params.description',
-        isLayout: false,
-        title: 'admin/editor.carousel.bannerLink.params.title',
-        type: 'string',
-      },
-    }
-
-    const externalRouteSchema = {
-      url: {
-        isLayout: false,
-        title: 'admin/editor.carousel.bannerLink.url.title',
-        type: 'string',
-      },
-    }
-
     return {
+      title: 'admin/editor.carousel.title',
       description: 'admin/editor.carousel.description',
+      type: 'object',
       properties: {
-        // tslint:disable-line
         autoplay: {
           default: true,
           isLayout: true,
@@ -145,48 +107,6 @@ export default class Carousel extends Component<Props, State> {
               },
             }
           : {},
-        banners: {
-          items: {
-            // tslint:disable-line
-            properties: {
-              // tslint:disable-line
-              description: {
-                default: '',
-                title: 'admin/editor.carousel.banner.description.title',
-                type: 'string',
-              },
-              externalRoute: {
-                default: false,
-                isLayout: false,
-                title: 'admin/editor.carousel.banner.externalRoute.title',
-                type: 'boolean',
-              },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
-              image: {
-                default: '',
-                title: 'admin/editor.carousel.banner.image.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
-              },
-              mobileImage: {
-                default: '',
-                title: 'admin/editor.carousel.banner.mobileImage.title',
-                type: 'string',
-                widget: {
-                  'ui:widget': 'image-uploader',
-                },
-              },
-            },
-            title: 'admin/editor.carousel.banner.title',
-            type: 'object',
-          },
-          minItems: 1,
-          title: 'admin/editor.carousel.banners.title',
-          type: 'array',
-        },
         height: {
           default: 420,
           enum: [420, 440],
@@ -207,8 +127,6 @@ export default class Carousel extends Component<Props, State> {
           type: 'boolean',
         },
       },
-      title: 'admin/editor.carousel.title',
-      type: 'object',
     }
   }
 
@@ -225,7 +143,7 @@ export default class Carousel extends Component<Props, State> {
   public handleNextSlide = (): void => {
     this.setState(({ currentSlide }) => {
       const bannersLength: number = this.props.banners.filter(
-        banner => banner && (banner.mobileImage || banner.image)
+        filterSlideItemWithImage
       ).length
       const nextSlide: number =
         ((currentSlide + 1 - this.perPage) % bannersLength) + this.perPage
@@ -265,9 +183,7 @@ export default class Carousel extends Component<Props, State> {
 
     return (
       <div className={wrapperClasses}>
-        <Container className={containerClasses}>
-          {children}
-        </Container>
+        <Container className={containerClasses}>{children}</Container>
       </div>
     )
   }
@@ -279,8 +195,8 @@ export default class Carousel extends Component<Props, State> {
       return null
     }
 
-    const banners: BannerProps[] = this.props.banners.filter(
-      banner => banner && (banner.mobileImage || banner.image)
+    const banners: SlideItem[] = this.props.banners.filter(
+      filterSlideItemWithImage
     )
 
     return (
@@ -311,7 +227,11 @@ export default class Carousel extends Component<Props, State> {
               style={{ maxHeight: height }}
               sliderTransitionDuration={500}
             >
-              <Banner height={height} {...banner} />
+              {banner.contentType !== 'image-text' ? (
+                <Banner height={height} {...banner} />
+              ) : (
+                <InfoCard {...banner.infoCardFields} />
+              )}
             </Slide>
           ))}
         </Slider>

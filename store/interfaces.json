@@ -1,5 +1,8 @@
 {
   "carousel": {
-    "component": "Carousel"
+    "component": "Carousel",
+    "content": {
+      "$ref": "app:vtex.carousel#/definitions/Carousel"
+    }
   }
 }

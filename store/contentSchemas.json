@@ -1,0 +1,101 @@
+{
+  "definitions": {
+    "InternalRoute": {
+      "properties": {
+        "page": {
+          "enum": [
+            "store.home",
+            "store.product",
+            "store.search",
+            "store.category"
+          ],
+          "title": "admin/editor.carousel.bannerLink.page.title",
+          "type": "string"
+        },
+        "params": {
+          "description": "admin/editor.carousel.bannerLink.params.description",
+          "title": "admin/editor.carousel.bannerLink.params.title",
+          "type": "string"
+        }
+      }
+    },
+    "ExternalRoute": {
+      "properties": {
+        "url": {
+          "title": "admin/editor.carousel.bannerLink.url.title",
+          "type": "string"
+        }
+      }
+    },
+    "Carousel": {
+      "properties": {
+        "banners": {
+          "minItems": 1,
+          "title": "admin/editor.carousel.banners.title",
+          "type": "array",
+          "items": {
+            "title": "admin/editor.carousel.banner.title",
+            "type": "object",
+            "dependencies": {
+              "contentType": {
+                "oneOf": [
+                  {
+                    "properties": {
+                      "contentType": {
+                        "enum": ["image"]
+                      },
+                      "image": {
+                        "default": "",
+                        "title": "admin/editor.carousel.banner.image.title",
+                        "type": "string",
+                        "widget": {
+                          "ui:widget": "image-uploader"
+                        }
+                      },
+                      "mobileImage": {
+                        "default": "",
+                        "title": "admin/editor.carousel.banner.mobileImage.title",
+                        "type": "string",
+                        "widget": {
+                          "ui:widget": "image-uploader"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "properties": {
+                      "contentType": {
+                        "enum": ["image-text"]
+                      },
+                      "infoCardFields": {
+                        "$ref": "app:vtex.store-components#/definitions/InfoCard"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            "properties": {
+              "contentType": {
+                "title": "Content Type",
+                "enum": ["image", "image-text"],
+                "default": "image"
+              },
+              "description": {
+                "default": "",
+                "title": "admin/editor.carousel.banner.description.title",
+                "type": "string"
+              },
+              "externalRoute": {
+                "default": false,
+                "isLayout": false,
+                "title": "admin/editor.carousel.banner.externalRoute.title",
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

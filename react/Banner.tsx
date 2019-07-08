@@ -10,6 +10,7 @@ interface DefaultProps {
 }
 
 export interface Props extends DefaultProps {
+  contentType: 'image'
   /** The image of the banner */
   image: string
   /** Link for the mobile image of the banner */
