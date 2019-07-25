@@ -1,0 +1,1 @@
+export const DEFAULT_PAGE_DATA = { 300: 1 } 
