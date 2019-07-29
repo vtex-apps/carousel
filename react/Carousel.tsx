@@ -14,7 +14,7 @@ interface Props {
   /** Should change images automatically */
   autoplay?: boolean
   /** How long it should wait to change the banner in secs */
-  autoplaySpeed: number
+  autoplaySpeed: number | string
   /** Banners that will be displayed by the Carousel */
   banners: BannerProps[]
   /** Max height size of the banners */
@@ -68,7 +68,7 @@ export default class Carousel extends Component<Props, State> {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
     /** How long it should wait to change the banner in secs */
-    autoplaySpeed: PropTypes.number.isRequired,
+    autoplaySpeed: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired,
     /** Banners that will be displayed by the Carousel */
     banners: PropTypes.arrayOf(
       PropTypes.shape({
@@ -94,9 +94,7 @@ export default class Carousel extends Component<Props, State> {
     showDots: PropTypes.bool,
   }
 
-  public static getSchema = (props: Props) => {
-    const autoplay = props.autoplay || false
-
+  public static getSchema = () => {
     const internalRouteSchema = {
       page: {
         enum: GLOBAL_PAGES,
@@ -122,29 +120,27 @@ export default class Carousel extends Component<Props, State> {
 
     return {
       description: 'admin/editor.carousel.description',
+      dependencies: {
+        autoplay: {
+          oneOf: [
+            {
+              properties: {
+                autoplay: {
+                  enum: [ true ],
+                },
+                autoplaySpeed: {
+                  enum: ['2', '3', '4', '5', '6', '7', '8'],
+                  isLayout: false,
+                  title: 'admin/editor.carousel.autoplaySpeed.title',
+                  type: 'string',
+                }
+              }
+            }
+          ]
+        }
+      },
       properties: {
         // tslint:disable-line
-        autoplay: {
-          default: true,
-          isLayout: true,
-          title: 'admin/editor.carousel.autoplay.title',
-          type: 'boolean',
-        },
-        autoplaySpeed: autoplay
-          ? {
-              default: 5,
-              enum: [4, 5, 6],
-              isLayout: true,
-              title: 'admin/editor.carousel.autoplaySpeed.title',
-              type: 'number',
-              widget: {
-                'ui:options': {
-                  inline: true,
-                },
-                'ui:widget': 'radio',
-              },
-            }
-          : {},
         banners: {
           items: {
             // tslint:disable-line
@@ -204,6 +200,12 @@ export default class Carousel extends Component<Props, State> {
           default: true,
           isLayout: true,
           title: 'admin/editor.carousel.showDots.title',
+          type: 'boolean',
+        },
+        autoplay: {
+          default: true,
+          isLayout: false,
+          title: 'admin/editor.carousel.autoplay.title',
           type: 'boolean',
         },
       },
@@ -283,10 +285,16 @@ export default class Carousel extends Component<Props, State> {
       banner => banner && (banner.mobileImage || banner.image)
     )
 
+    const autoplayInterval = autoplaySpeed ? (
+      typeof autoplaySpeed === 'string'
+        ? parseFloat(autoplaySpeed)
+        : autoplaySpeed
+    ) : 0
+
     return (
       <SliderContainer
-        autoplay={autoplay}
-        autoplayInterval={autoplaySpeed * 1000}
+        autoplay={autoplay && autoplayInterval > 0}
+        autoplayInterval={autoplayInterval * 1000}
         pauseOnHover
         onNextSlide={this.handleNextSlide}
         className={styles.container}
