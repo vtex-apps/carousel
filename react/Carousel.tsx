@@ -51,19 +51,6 @@ export default class Carousel extends Component<Props, State> {
     showDots: true,
   }
 
-  public static uiSchema = {
-    banners: {
-      items: {
-        image: {
-          'ui:widget': 'image-uploader',
-        },
-        mobileImage: {
-          'ui:widget': 'image-uploader',
-        },
-      },
-    },
-  }
-
   public static propTypes = {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
@@ -118,6 +105,7 @@ export default class Carousel extends Component<Props, State> {
       },
     }
 
+    // tslint:disable:object-literal-sort-keys
     return {
       description: 'admin/editor.carousel.description',
       dependencies: {
@@ -133,32 +121,16 @@ export default class Carousel extends Component<Props, State> {
                   isLayout: false,
                   title: 'admin/editor.carousel.autoplaySpeed.title',
                   type: 'string',
-                }
-              }
-            }
-          ]
-        }
+                },
+              },
+            },
+          ],
+        },
       },
       properties: {
-        // tslint:disable-line
         banners: {
           items: {
-            // tslint:disable-line
             properties: {
-              // tslint:disable-line
-              description: {
-                default: '',
-                title: 'admin/editor.carousel.banner.description.title',
-                type: 'string',
-              },
-              externalRoute: {
-                default: false,
-                isLayout: false,
-                title: 'admin/editor.carousel.banner.externalRoute.title',
-                type: 'boolean',
-              },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
               image: {
                 default: '',
                 title: 'admin/editor.carousel.banner.image.title',
@@ -175,6 +147,19 @@ export default class Carousel extends Component<Props, State> {
                   'ui:widget': 'image-uploader',
                 },
               },
+              description: {
+                default: '',
+                title: 'admin/editor.carousel.banner.description.title',
+                type: 'string',
+              },
+              externalRoute: {
+                default: false,
+                isLayout: false,
+                title: 'admin/editor.carousel.banner.externalRoute.title',
+                type: 'boolean',
+              },
+              ...externalRouteSchema,
+              ...internalRouteSchema,
             },
             title: 'admin/editor.carousel.banner.title',
             type: 'object',
@@ -212,6 +197,7 @@ export default class Carousel extends Component<Props, State> {
       title: 'admin/editor.carousel.title',
       type: 'object',
     }
+    // tslint:enable
   }
 
   public state = {

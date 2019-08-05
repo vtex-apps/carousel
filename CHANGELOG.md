@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+- Change order of `Carousel`'s schema properties to improve UX in Site Editor.
+
 ## [2.10.0] - 2019-07-29
 ### Added
 - Autoplay configuration on the Storefront.
