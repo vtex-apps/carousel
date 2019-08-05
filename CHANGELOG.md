@@ -7,45 +7,66 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+
+- `activeDots` and `notActive` classes not being applied to the rendered `<Dots />` component.
+
 ## [2.10.1] - 2019-08-05
 
 ### Changed
+
 - Change order of `Carousel`'s schema properties to improve UX in Site Editor.
 
 ## [2.10.0] - 2019-07-29
+
 ### Added
+
 - Autoplay configuration on the Storefront.
 
 ## [2.9.2] - 2019-06-27
+
 ### Fixed
+
 - Build assets with new builder hub.
 
 ## [2.9.1] - 2019-05-26
+
 ### Fixed
+
 - Add default empty description to Carousel image. (For decorative images, it's recommended to insert an empty string to the alt attribute rather than to leave it empty).
 
 ## [2.9.0] - 2019-04-24
+
 ### Changed
+
 - Scope messages
 
 ## [2.8.0] - 2019-03-25
+
 ### Changed
+
 - Use `loop` prop of `Slider` app.
 
 ## [2.7.6] - 2019-03-14
+
 ### Changed
+
 - Change language files to most generic.
 
 ## [2.7.5] - 2019-03-13
+
 ### Fixed
+
 - Arrows container not aligned.
 
 ### Changed
+
 - Make arrows thinner.
 
 ## [2.7.4] - 2019-03-13
 
 ## [2.7.3] - 2019-03-08
+
 ### Fixed
 
 - Missing namespaces in docs.
