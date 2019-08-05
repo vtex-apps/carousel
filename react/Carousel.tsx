@@ -51,19 +51,6 @@ export default class Carousel extends Component<Props, State> {
     showDots: true,
   }
 
-  public static uiSchema = {
-    banners: {
-      items: {
-        image: {
-          'ui:widget': 'image-uploader',
-        },
-        mobileImage: {
-          'ui:widget': 'image-uploader',
-        },
-      },
-    },
-  }
-
   public static propTypes = {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
