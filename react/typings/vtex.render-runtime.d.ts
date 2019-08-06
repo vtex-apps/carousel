@@ -21,9 +21,10 @@ declare module 'vtex.render-runtime' {
 
   export interface LinkProps {
     onClick?: (event: any) => void
-    params: object | null
-    page: string
-    className: string
+    params?: object | null
+    page?: string
+    className?: string
+    to?: string
   }
 
   export const ExtensionPoint: ReactElement
