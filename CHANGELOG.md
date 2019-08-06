@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- New `customInternalURL` passed to the `Banner` component (set in the CMS).
+
 ## [2.10.2] - 2019-08-05
 
 ### Fixed
