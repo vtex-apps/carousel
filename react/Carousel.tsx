@@ -171,8 +171,28 @@ export default class Carousel extends Component<Props, State> {
                 title: 'admin/editor.carousel.banner.externalRoute.title',
                 type: 'boolean',
               },
-              ...externalRouteSchema,
-              ...internalRouteSchema,
+            },
+            dependencies: {
+              externalRoute: {
+                oneOf: [
+                  {
+                    properties: {
+                      externalRoute: {
+                        enum: [false],
+                      },
+                      ...internalRouteSchema,
+                    },
+                  },
+                  {
+                    properties: {
+                      externalRoute: {
+                        enum: [true],
+                      },
+                      ...externalRouteSchema,
+                    },
+                  },
+                ],
+              },
             },
             title: 'admin/editor.carousel.banner.title',
             type: 'object',
