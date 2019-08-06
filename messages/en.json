@@ -12,6 +12,8 @@
   "admin/editor.carousel.bannerLink.page.title": "Banner target page (internal)",
   "admin/editor.carousel.bannerLink.params.title": "Params (internal)",
   "admin/editor.carousel.bannerLink.params.description": "Comma separated params, e.g.: key=value,department=Accessories",
+  "admin/editor.carousel.bannerLink.custominternalurl.title": "Custom internal URL (internal)",
+  "admin/editor.carousel.bannerLink.custominternalurl.description": "A custom search url, e.g.: /shirt?map=ft&order=OrderByTopSaleDESC",
   "admin/editor.carousel.bannerLink.url.title": "URL (external)",
   "admin/editor.carousel.banners.title": "Banners",
   "admin/editor.carousel.banner.title": "Banner",
