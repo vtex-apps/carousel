@@ -12,6 +12,8 @@
   "admin/editor.carousel.bannerLink.page.title": "Página alvo do banner (interna)",
   "admin/editor.carousel.bannerLink.params.title": "Parâmetros (interna)",
   "admin/editor.carousel.bannerLink.params.description": "Parâmetros separados por vírgula, e.g.: chave=valor,department=Accessories",
+  "admin/editor.carousel.bannerLink.custominternalurl.title": "URL interna customizada (internal)",
+  "admin/editor.carousel.bannerLink.custominternalurl.description": "URL customizada de busca, e.g.: /shirt?map=ft&order=OrderByTopSaleDESC",
   "admin/editor.carousel.bannerLink.url.title": "URL (externa)",
   "admin/editor.carousel.banners.title": "Banners",
   "admin/editor.carousel.banner.title": "Banner",
