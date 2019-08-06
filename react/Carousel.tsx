@@ -8,7 +8,10 @@ import { IconCaret } from 'vtex.store-icons'
 import Banner, { Props as BannerProps } from './Banner'
 import styles from './styles.css'
 
-const GLOBAL_PAGES = global.__RUNTIME__ && Object.keys(global.__RUNTIME__.pages)
+const GLOBAL_PAGES = global.__RUNTIME__ && [
+  'Custom',
+  ...Object.keys(global.__RUNTIME__.pages),
+]
 
 interface Props {
   /** Should change images automatically */
@@ -55,7 +58,8 @@ export default class Carousel extends Component<Props, State> {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
     /** How long it should wait to change the banner in secs */
-    autoplaySpeed: PropTypes.oneOfType([ PropTypes.number, PropTypes.string ]).isRequired,
+    autoplaySpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+      .isRequired,
     /** Banners that will be displayed by the Carousel */
     banners: PropTypes.arrayOf(
       PropTypes.shape({
@@ -71,6 +75,8 @@ export default class Carousel extends Component<Props, State> {
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
+        /** The url where the image is pointing to, in case of internal route (optional) */
+        customInternalURL: PropTypes.string,
       })
     ),
     /** Max height size of the banners */
@@ -95,6 +101,13 @@ export default class Carousel extends Component<Props, State> {
         title: 'admin/editor.carousel.bannerLink.params.title',
         type: 'string',
       },
+      customInternalURL: {
+        description:
+          'admin/editor.carousel.bannerLink.custominternalurl.description',
+        isLayout: false,
+        title: 'admin/editor.carousel.bannerLink.custominternalurl.title',
+        type: 'string',
+      },
     }
 
     const externalRouteSchema = {
@@ -114,7 +127,7 @@ export default class Carousel extends Component<Props, State> {
             {
               properties: {
                 autoplay: {
-                  enum: [ true ],
+                  enum: [true],
                 },
                 autoplaySpeed: {
                   enum: ['2', '3', '4', '5', '6', '7', '8'],
@@ -253,9 +266,7 @@ export default class Carousel extends Component<Props, State> {
 
     return (
       <div className={wrapperClasses}>
-        <Container className={containerClasses}>
-          {children}
-        </Container>
+        <Container className={containerClasses}>{children}</Container>
       </div>
     )
   }
@@ -271,11 +282,11 @@ export default class Carousel extends Component<Props, State> {
       banner => banner && (banner.mobileImage || banner.image)
     )
 
-    const autoplayInterval = autoplaySpeed ? (
-      typeof autoplaySpeed === 'string'
+    const autoplayInterval = autoplaySpeed
+      ? typeof autoplaySpeed === 'string'
         ? parseFloat(autoplaySpeed)
         : autoplaySpeed
-    ) : 0
+      : 0
 
     return (
       <SliderContainer
