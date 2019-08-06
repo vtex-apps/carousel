@@ -24,6 +24,8 @@ export interface Props extends DefaultProps {
   params: string
   /** Indicates if the route is external or not */
   externalRoute: boolean
+  /** The url where the image is pointing to, in case of internal route (optional) */
+  customInternalURL: string
   /** Runtime injected deps */
   runtime: any
 }
@@ -54,9 +56,11 @@ const Banner = (props: Props) => {
     url,
     params,
     externalRoute,
+    customInternalURL,
   } = props
 
   const { mobile: isMobile } = useRuntime().hints
+  const isCustomInternal = !!(page === 'Custom' && customInternalURL)
 
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
@@ -80,8 +84,9 @@ const Banner = (props: Props) => {
     return page ? (
       <Link
         className={classnames(styles.bannerLink, 'w-100')}
-        page={page}
+        page={isCustomInternal ? undefined : page}
         params={getParams(params)}
+        to={isCustomInternal ? customInternalURL : undefined}
       >
         {content}
       </Link>
@@ -118,6 +123,8 @@ Banner.propTypes = {
   params: PropTypes.string,
   /** The url where the image is pointing to, in case of external route */
   url: PropTypes.string,
+  /** The url where the image is pointing to, in case of internal route (optional) */
+  customInternalURL: PropTypes.string,
 }
 
 Banner.defaultProps = {
