@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { Link, useRuntime } from 'vtex.render-runtime'
+import { Link } from 'vtex.render-runtime'
+import { useDevice } from 'vtex.device-detector'
 import styles from './styles.css'
 import classnames from 'classnames'
 
@@ -59,7 +60,7 @@ const Banner = (props: Props) => {
     customInternalURL,
   } = props
 
-  const { mobile: isMobile } = useRuntime().hints
+  const { isMobile } = useDevice()
   const isCustomInternal = !!(page === 'Custom' && customInternalURL)
 
   const content = (
