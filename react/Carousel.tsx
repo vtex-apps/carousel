@@ -9,7 +9,7 @@ import Banner, { Props as BannerProps } from './Banner'
 import styles from './styles.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && [
-  'Custom',
+  'Internal URL',
   ...Object.keys(global.__RUNTIME__.pages),
 ]
 
