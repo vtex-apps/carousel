@@ -61,7 +61,6 @@ const Banner = (props: Props) => {
   } = props
 
   const { isMobile } = useDevice()
-  const isCustomInternal = !!(page === 'Custom' && customInternalURL)
 
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
@@ -85,9 +84,9 @@ const Banner = (props: Props) => {
     return page ? (
       <Link
         className={classnames(styles.bannerLink, 'w-100')}
-        page={isCustomInternal ? undefined : page}
+        page={customInternalURL ? undefined : page}
         params={getParams(params)}
-        to={isCustomInternal ? customInternalURL : undefined}
+        to={customInternalURL || undefined}
       >
         {content}
       </Link>
