@@ -123,7 +123,7 @@ Banner.propTypes = {
   params: PropTypes.string,
   /** The url where the image is pointing to, in case of external route */
   url: PropTypes.string,
-  /** The url where the image is pointing to, in case of internal route (optional) */
+  /** The url where the image is pointing to, in case of internal route */
   customInternalURL: PropTypes.string,
 }
 
