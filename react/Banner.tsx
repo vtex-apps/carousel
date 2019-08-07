@@ -81,7 +81,7 @@ const Banner = (props: Props) => {
   )
 
   if (!externalRoute) {
-    return page ? (
+    return page || customInternalURL ? (
       <Link
         className={classnames(styles.bannerLink, 'w-100')}
         page={customInternalURL ? undefined : page}
