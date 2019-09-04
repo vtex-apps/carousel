@@ -17,7 +17,7 @@ interface Props {
   /** Should change images automatically */
   autoplay?: boolean
   /** How long it should wait to change the banner in secs */
-  autoplaySpeed: number | string
+  autoplaySpeed: number | string | null
   /** Banners that will be displayed by the Carousel */
   banners: BannerProps[]
   /** Max height size of the banners */
@@ -58,11 +58,12 @@ export default class Carousel extends Component<Props, State> {
     /** Should change images automatically */
     autoplay: PropTypes.bool.isRequired,
     /** How long it should wait to change the banner in secs */
-    autoplaySpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
-      .isRequired,
+    autoplaySpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     /** Banners that will be displayed by the Carousel */
     banners: PropTypes.arrayOf(
       PropTypes.shape({
+        /** The url where the image is pointing to, in case of internal route */
+        customInternalURL: PropTypes.string,
         /** The description of the image */
         description: PropTypes.string,
         /** The image url of the banner */
@@ -75,8 +76,6 @@ export default class Carousel extends Component<Props, State> {
         typeOfRoute: PropTypes.string,
         /** The url where the image is pointing to, in case of external route */
         url: PropTypes.string,
-        /** The url where the image is pointing to, in case of internal route */
-        customInternalURL: PropTypes.string,
       })
     ),
     /** Max height size of the banners */
@@ -89,6 +88,13 @@ export default class Carousel extends Component<Props, State> {
 
   public static getSchema = () => {
     const internalRouteSchema = {
+      customInternalURL: {
+        description:
+          'admin/editor.carousel.bannerLink.custominternalurl.description',
+        isLayout: false,
+        title: 'admin/editor.carousel.bannerLink.custominternalurl.title',
+        type: 'string',
+      },
       page: {
         enum: GLOBAL_PAGES,
         isLayout: false,
@@ -99,13 +105,6 @@ export default class Carousel extends Component<Props, State> {
         description: 'admin/editor.carousel.bannerLink.params.description',
         isLayout: false,
         title: 'admin/editor.carousel.bannerLink.params.title',
-        type: 'string',
-      },
-      customInternalURL: {
-        description:
-          'admin/editor.carousel.bannerLink.custominternalurl.description',
-        isLayout: false,
-        title: 'admin/editor.carousel.bannerLink.custominternalurl.title',
         type: 'string',
       },
     }
