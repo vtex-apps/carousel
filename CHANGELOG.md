@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed
+- Fix autoplay speed warning and object keys order
+
 ## [2.11.1] - 2019-08-29
 
 ## [2.11.0] - 2019-08-07
