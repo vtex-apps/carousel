@@ -2,8 +2,10 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
-import styles from './styles.css'
 import classnames from 'classnames'
+import { useCssHandles } from 'vtex.css-handles'
+
+const CSS_HANDLES = ['containerImg', 'imgRegular', 'img', 'bannerLink'] as const
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -61,18 +63,19 @@ const Banner = (props: Props) => {
   } = props
 
   const { isMobile } = useDevice()
+  const handles = useCssHandles(CSS_HANDLES)
 
   const content = (
-    <div className={classnames(styles.containerImg, 'w-100')}>
+    <div className={classnames(handles.containerImg, 'w-100')}>
       <div
         className={classnames(
-          styles.imgRegular,
+          handles.imgRegular,
           'flex items-center justify-center'
         )}
         style={{ maxHeight: height }}
       >
         <img
-          className={classnames(styles.img, 'w-100 h-100')}
+          className={classnames(handles.img, 'w-100 h-100')}
           src={isMobile && mobileImage ? mobileImage : image}
           alt={description}
         />
@@ -83,7 +86,7 @@ const Banner = (props: Props) => {
   if (!externalRoute) {
     return page || customInternalURL ? (
       <Link
-        className={classnames(styles.bannerLink, 'w-100')}
+        className={classnames(handles.bannerLink, 'w-100')}
         page={customInternalURL ? undefined : page}
         params={getParams(params)}
         to={customInternalURL || undefined}
@@ -97,7 +100,7 @@ const Banner = (props: Props) => {
 
   return (
     <a
-      className={classnames(styles.bannerLink, 'w-100')}
+      className={classnames(handles.bannerLink, 'w-100')}
       href={url}
       target="_blank"
     >
