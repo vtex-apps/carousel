@@ -7,7 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Changed
+
+- Use `vtex.css-handles`.
+
 ## [2.11.3] - 2019-10-25
+
 ### Chore
 - New release to trigger a rebuild enabling lazy evaluation of carousel entrypoints
 
