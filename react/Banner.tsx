@@ -4,8 +4,9 @@ import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import classnames from 'classnames'
 import { useCssHandles } from 'vtex.css-handles'
+import styles from './styles.css'
 
-const CSS_HANDLES = ['containerImg', 'imgRegular', 'img', 'bannerLink'] as const
+const CSS_HANDLES = ['imgRegular', 'img', 'bannerLink'] as const
 
 interface DefaultProps {
   /** Max height size of the banner */
@@ -66,7 +67,7 @@ const Banner = (props: Props) => {
   const handles = useCssHandles(CSS_HANDLES)
 
   const content = (
-    <div className={classnames(handles.containerImg, 'w-100')}>
+    <div className={classnames(styles.containerImg, 'w-100')}>
       <div
         className={classnames(
           handles.imgRegular,
