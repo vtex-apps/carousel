@@ -6,6 +6,7 @@ import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
 
 import Banner, { Props as BannerProps } from './Banner'
+import { useCssHandles } from 'vtex.css-handles'
 import styles from './styles.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && [
@@ -37,43 +38,56 @@ interface ArrowContainerProps {
   children: React.ReactNode
 }
 
-function Arrow({ orientation, onClick }: ArrowProps) {
-  const containerClasses = classnames(styles.arrow, 'pointer z-1 flex', {
-    [styles.arrowLeft]: orientation === 'left',
-    [styles.arrowRight]: orientation === 'right',
-  })
-  return (
-    <div className={containerClasses} onClick={onClick}>
-      <IconCaret orientation={orientation} thin size={20} />
-    </div>
-  )
-}
-
-function ArrowContainer({ children }: ArrowContainerProps) {
-  const wrapperClasses = classnames(
-    styles.arrowsContainerWrapper,
-    'w-100 h-100 absolute left-0 top-0 flex justify-center'
-  )
-  const containerClasses = classnames(
-    styles.arrowsContainer,
-    'w-100 h-100 mw9 flex-ns justify-between items-center dn-s'
-  )
-
-  return (
-    <div className={wrapperClasses}>
-      <Container className={containerClasses}>{children}</Container>
-    </div>
-  )
-}
-
 const PER_PAGE = 1
+const CSS_HANDLES = [
+  'arrow',
+  'arrowLeft',
+  'arrowRight',
+  'arrowsContainerWrapper',
+  'sliderRoot',
+  'sliderFrame',
+  'slide',
+  'activeDot',
+  'notActiveDot',
+  'containerDots',
+] as const
 
 function Carousel(props: Props) {
   const { height, showArrows, autoplay, autoplaySpeed, showDots, banners: bannersProp } = props
   const [currentSlide, setCurrentSlide] = useState(0)
+  const handles = useCssHandles(CSS_HANDLES)
 
   if (!bannersProp.length) {
     return null
+  }
+
+  function ArrowRender({ orientation, onClick }: ArrowProps) {
+    const containerClasses = classnames(handles.arrow, 'pointer z-1 flex', {
+      [handles.arrowLeft]: orientation === 'left',
+      [handles.arrowRight]: orientation === 'right',
+    })
+    return (
+      <div className={containerClasses} onClick={onClick}>
+        <IconCaret orientation={orientation} thin size={20} />
+      </div>
+    )
+  }
+
+  function ArrowContainerRender({ children }: ArrowContainerProps) {
+    const wrapperClasses = classnames(
+      handles.arrowsContainerWrapper,
+      'w-100 h-100 absolute left-0 top-0 flex justify-center'
+    )
+    const containerClasses = classnames(
+      styles.arrowsContainer,
+      'w-100 h-100 mw9 flex-ns justify-between items-center dn-s'
+    )
+
+    return (
+      <div className={wrapperClasses}>
+        <Container className={containerClasses}>{children}</Container>
+      </div>
+    )
   }
 
   const banners: BannerProps[] = bannersProp.filter(
@@ -91,7 +105,6 @@ function Carousel(props: Props) {
       : autoplaySpeed
     : 0
 
-
   return (
     <SliderContainer
       autoplay={autoplay && autoplayInterval > 0}
@@ -103,19 +116,19 @@ function Carousel(props: Props) {
       <Slider
         loop
         classes={{
-          root: styles.sliderRoot,
-          sliderFrame: styles.sliderFrame,
+          root: handles.sliderRoot,
+          sliderFrame: handles.sliderFrame,
         }}
         perPage={PER_PAGE}
-        arrowRender={showArrows && Arrow}
+        arrowRender={showArrows && ArrowRender}
         currentSlide={currentSlide}
         onChangeSlide={setCurrentSlide}
-        arrowsContainerComponent={showArrows && ArrowContainer}
+        arrowsContainerComponent={showArrows && ArrowContainerRender}
         duration={500}
       >
         {banners.map((banner, i) => (
           <Slide
-            className={styles.slide}
+            className={handles.slide}
             key={i}
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
@@ -132,15 +145,24 @@ function Carousel(props: Props) {
           totalSlides={banners.length}
           onChangeSlide={setCurrentSlide}
           classes={{
-            activeDot: classnames(styles.activeDot, 'bg-emphasis'),
+            activeDot: classnames(handles.activeDot, 'bg-emphasis'),
             dot: classnames(styles.dot, 'mh2 mv0 pointer br-100'),
-            notActiveDot: classnames(styles.notActiveDot, 'bg-muted-3'),
-            root: classnames(styles.containerDots, 'bottom-0 pb4'),
+            notActiveDot: classnames(handles.notActiveDot, 'bg-muted-3'),
+            root: classnames(handles.containerDots, 'bottom-0 pb4'),
           }}
         />
       )}
     </SliderContainer>
   )
+}
+
+Carousel.defaultProps = {
+  autoplay: true,
+  autoplaySpeed: 5,
+  banners: [],
+  height: 420,
+  showArrows: true,
+  showDots: true,
 }
 
 Carousel.getSchema = () => {
@@ -285,15 +307,6 @@ Carousel.getSchema = () => {
     title: 'admin/editor.carousel.title',
     type: 'object',
   }
-}
-
-Carousel.defaultProps = {
-  autoplay: true,
-  autoplaySpeed: 5,
-  banners: [],
-  height: 420,
-  showArrows: true,
-  showDots: true,
 }
 
 Carousel.propTypes = {
