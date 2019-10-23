@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Use `vtex.css-handles`.
+- Transform `Carousel` component in a functional component.
 
 ## [2.11.3] - 2019-10-25
 
