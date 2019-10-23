@@ -1,5 +1,4 @@
 import classnames from 'classnames'
-import PropTypes from 'prop-types'
 import React, { useState } from 'react'
 import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
@@ -52,8 +51,15 @@ const CSS_HANDLES = [
   'containerDots',
 ] as const
 
-function Carousel(props: Props) {
-  const { height, showArrows, autoplay, autoplaySpeed, showDots, banners: bannersProp } = props
+const Carousel = (props: Props) => {
+  const {
+    height = 420,
+    autoplay = true,
+    showDots = true,
+    showArrows = true,
+    autoplaySpeed = 5,
+    banners: bannersProp
+  } = props
   const [currentSlide, setCurrentSlide] = useState(0)
   const handles = useCssHandles(CSS_HANDLES)
 
@@ -61,7 +67,7 @@ function Carousel(props: Props) {
     return null
   }
 
-  function ArrowRender({ orientation, onClick }: ArrowProps) {
+  const ArrowRender = ({ orientation, onClick }: ArrowProps) => {
     const containerClasses = classnames(handles.arrow, 'pointer z-1 flex', {
       [handles.arrowLeft]: orientation === 'left',
       [handles.arrowRight]: orientation === 'right',
@@ -73,7 +79,7 @@ function Carousel(props: Props) {
     )
   }
 
-  function ArrowContainerRender({ children }: ArrowContainerProps) {
+  const ArrowContainerRender = ({ children }: ArrowContainerProps) => {
     const wrapperClasses = classnames(
       handles.arrowsContainerWrapper,
       'w-100 h-100 absolute left-0 top-0 flex justify-center'
@@ -154,15 +160,6 @@ function Carousel(props: Props) {
       )}
     </SliderContainer>
   )
-}
-
-Carousel.defaultProps = {
-  autoplay: true,
-  autoplaySpeed: 5,
-  banners: [],
-  height: 420,
-  showArrows: true,
-  showDots: true,
 }
 
 Carousel.getSchema = () => {
@@ -307,38 +304,6 @@ Carousel.getSchema = () => {
     title: 'admin/editor.carousel.title',
     type: 'object',
   }
-}
-
-Carousel.propTypes = {
-  /** Should change images automatically */
-  autoplay: PropTypes.bool.isRequired,
-  /** How long it should wait to change the banner in secs */
-  autoplaySpeed: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  /** Banners that will be displayed by the Carousel */
-  banners: PropTypes.arrayOf(
-    PropTypes.shape({
-      /** The url where the image is pointing to, in case of internal route */
-      customInternalURL: PropTypes.string,
-      /** The description of the image */
-      description: PropTypes.string,
-      /** The image url of the banner */
-      image: PropTypes.string,
-      /** The page where the image is pointing to */
-      page: PropTypes.string,
-      /** Params of the url */
-      params: PropTypes.string,
-      /** Indicates if the route is external or internal */
-      typeOfRoute: PropTypes.string,
-      /** The url where the image is pointing to, in case of external route */
-      url: PropTypes.string,
-    })
-  ),
-  /** Max height size of the banners */
-  height: PropTypes.number.isRequired,
-  /** Set visibility of arrows */
-  showArrows: PropTypes.bool,
-  /** Set visibility of dots */
-  showDots: PropTypes.bool,
 }
 
 export default Carousel
