@@ -26,6 +26,8 @@ interface Props {
   showArrows?: boolean
   /** Set visibility of dots */
   showDots?: boolean
+  /** Set per page items for carousel */
+  perPage?: number
 }
 
 interface ArrowProps {
@@ -37,7 +39,6 @@ interface ArrowContainerProps {
   children: React.ReactNode
 }
 
-const PER_PAGE = 1
 const CSS_HANDLES = [
   'arrow',
   'arrowLeft',
@@ -58,6 +59,7 @@ const Carousel = (props: Props) => {
     showDots = true,
     showArrows = true,
     autoplaySpeed = 5,
+    perPage = 1,
     banners: bannersProp
   } = props
   const [currentSlide, setCurrentSlide] = useState(0)
@@ -101,7 +103,7 @@ const Carousel = (props: Props) => {
   )
 
   const handleNextSlide = () => {
-    const nextSlide = ((currentSlide + 1 - PER_PAGE) % banners.length) + PER_PAGE
+    const nextSlide = ((currentSlide + 1 - perPage) % banners.length) + perPage
     setCurrentSlide(nextSlide)
   }
 
@@ -125,7 +127,7 @@ const Carousel = (props: Props) => {
           root: handles.sliderRoot,
           sliderFrame: handles.sliderFrame,
         }}
-        perPage={PER_PAGE}
+        perPage={perPage}
         arrowRender={showArrows && ArrowRender}
         currentSlide={currentSlide}
         onChangeSlide={setCurrentSlide}
@@ -146,7 +148,7 @@ const Carousel = (props: Props) => {
       {showDots && (
         <Dots
           loop
-          perPage={PER_PAGE}
+          perPage={perPage}
           currentSlide={currentSlide}
           totalSlides={banners.length}
           onChangeSlide={setCurrentSlide}
@@ -284,13 +286,16 @@ Carousel.getSchema = () => {
       },
       showArrows: {
         default: true,
-        isLayout: true,
         title: 'admin/editor.carousel.showArrows.title',
         type: 'boolean',
       },
+      perPage: {
+        default: 1,
+        title: 'admin/editor.carousel.perPage.title',
+        type: 'number'
+      },
       showDots: {
         default: true,
-        isLayout: true,
         title: 'admin/editor.carousel.showDots.title',
         type: 'boolean',
       },
