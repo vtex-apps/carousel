@@ -96,6 +96,7 @@ Banner:
 | `image`             | `String`  | Link for the image of the banner                                                | N/A           |
 | `mobileImage`       | `String`  | Link for the mobile image of the banner                                         | N/A           |
 | `description`       | `String`  | The image's description                                                         | N/A           |
+| `text`              | `String`  | The image's text                                                             | N/A           |
 | `url`               | `String`  | The URL where the image is pointing to, in case of external route               | N/A           |
 | `page`              | `String`  | The page where the image is pointing to                                         | N/A           |
 | `params`            | `String`  | Parameters of the URL                                                           | N/A           |
@@ -147,6 +148,7 @@ Below, we describe the namespaces that are defined in the `Carousel`.
 | `imgRegular`             | The wrapper of the `img` element used to center the image inside the container | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 | `img`                    | The `img` element                                                              | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 | `bannerLink`             | The `a` element that wraps the whole `Banner` component                        | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
+| `imgText`             | The `imgText` element                         | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 
 ## Troubleshooting
 

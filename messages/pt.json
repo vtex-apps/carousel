@@ -19,6 +19,7 @@
   "admin/editor.carousel.banners.title": "Banners",
   "admin/editor.carousel.banner.title": "Banner",
   "admin/editor.carousel.banner.description.title": "Descrição do banner",
+  "admin/editor.carousel.banner.text.title": "Texto do banner",
   "admin/editor.carousel.banner.externalRoute.title": "Rota externa",
   "admin/editor.carousel.banner.image.title": "Imagem do banner",
   "admin/editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"

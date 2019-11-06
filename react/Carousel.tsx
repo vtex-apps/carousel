@@ -241,6 +241,11 @@ Carousel.getSchema = () => {
               title: 'admin/editor.carousel.banner.description.title',
               type: 'string',
             },
+            text: {
+              default: '',
+              title: 'admin/editor.carousel.banner.text.title',
+              type: 'string',
+            },
             externalRoute: {
               default: false,
               isLayout: false,

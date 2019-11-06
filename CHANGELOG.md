@@ -13,6 +13,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - PerPage configuration on the Storefront.
 
+- Text configuration on the Storefront.
+
 ## [2.11.4] - 2019-10-25
 
 ### Changed
