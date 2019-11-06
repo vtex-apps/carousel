@@ -67,7 +67,7 @@ const Banner = (props: Props) => {
       <div
         className={classnames(
           handles.imgRegular,
-          'flex items-center justify-center flex-column'
+          'flex items-center justify-center'
         )}
         style={{ maxHeight: height }}
       >
