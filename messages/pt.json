@@ -3,6 +3,7 @@
   "admin/editor.carousel.description": "Um componente básico de carrossel que exibe uma série de banners",
   "admin/editor.carousel.showDots.title": "Mostrar pontos",
   "admin/editor.carousel.showArrows.title": "Mostrar setas de navegação",
+  "admin/editor.carousel.perPage.title": "Items por página",
   "admin/editor.carousel.height.title": "Altura máxima do banner (px)",
   "admin/editor.carousel.mobileHeight.title": "Altura máxima do banner no mobile (px)",
   "admin/editor.carousel.autoplay.title": "Reprodução automática",
@@ -18,6 +19,7 @@
   "admin/editor.carousel.banners.title": "Banners",
   "admin/editor.carousel.banner.title": "Banner",
   "admin/editor.carousel.banner.description.title": "Descrição do banner",
+  "admin/editor.carousel.banner.text.title": "Texto do banner",
   "admin/editor.carousel.banner.externalRoute.title": "Rota externa",
   "admin/editor.carousel.banner.image.title": "Imagem do banner",
   "admin/editor.carousel.banner.mobileImage.title": "Imagem do banner no mobile"

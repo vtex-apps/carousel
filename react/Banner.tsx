@@ -5,7 +5,7 @@ import classnames from 'classnames'
 import { useCssHandles } from 'vtex.css-handles'
 import styles from './styles.css'
 
-const CSS_HANDLES = ['imgRegular', 'img', 'bannerLink'] as const
+const CSS_HANDLES = ['imgRegular', 'img', 'bannerLink', 'imgText'] as const
 
 export interface Props {
   /** The image of the banner */
@@ -14,6 +14,8 @@ export interface Props {
   mobileImage: string
   /** The description of the image */
   description: string
+  /** The text accompanying the image */
+  text: string
   /** Max height size of the banner */
   height: number
   /** The url where the image is pointing to, in case of external route */
@@ -53,6 +55,7 @@ const Banner = (props: Props) => {
     height = 420,
     externalRoute,
     description = '',
+    text = '',
     customInternalURL,
   } = props
 
@@ -73,6 +76,9 @@ const Banner = (props: Props) => {
           src={isMobile && mobileImage ? mobileImage : image}
           alt={description}
         />
+        {text && (
+          <span className={classnames(handles.imgText)}>{text}</span>
+        )}
       </div>
     </div>
   )

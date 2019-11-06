@@ -3,6 +3,7 @@
   "admin/editor.carousel.description": "A simple carousel component that shows a serie of banners",
   "admin/editor.carousel.showDots.title": "Show dots",
   "admin/editor.carousel.showArrows.title": "Show arrows",
+  "admin/editor.carousel.perPage.title": "Items per page",
   "admin/editor.carousel.height.title": "Banner max height size (px)",
   "admin/editor.carousel.mobileHeight.title": "Banner max height size on mobile (px)",
   "admin/editor.carousel.autoplay.title": "Autoplay",
@@ -18,6 +19,7 @@
   "admin/editor.carousel.banners.title": "Banners",
   "admin/editor.carousel.banner.title": "Banner",
   "admin/editor.carousel.banner.description.title": "Banner description",
+  "admin/editor.carousel.banner.text.title": "Banner text",
   "admin/editor.carousel.banner.externalRoute.title": "External route",
   "admin/editor.carousel.banner.image.title": "Banner image",
   "admin/editor.carousel.banner.mobileImage.title": "Banner mobile image"
