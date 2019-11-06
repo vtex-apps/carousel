@@ -3,6 +3,7 @@
   "admin/editor.carousel.description": "Un componente básico de carrusel que muestra una serie de banners",
   "admin/editor.carousel.showDots.title": "Mostrar puntos",
   "admin/editor.carousel.showArrows.title": "Mostrar flechas de navegación",
+  "admin/editor.carousel.perPage.title": "Artículos por página",
   "admin/editor.carousel.height.title": "Altura máxima del banner (px)",
   "admin/editor.carousel.mobileHeight.title": "Altura máxima del banner en el móvil (px)",
   "admin/editor.carousel.autoplay.title": "Reproducción automática",
