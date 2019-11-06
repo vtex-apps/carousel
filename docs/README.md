@@ -17,14 +17,19 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 ## Table of Contents
 
-- [Usage](#usage)
-  - [Blocks API](#blocks-api)
-    - [Configuration](#configuration)
-  - [Styles API](#styles-api)
-    - [CSS namespaces](#css-namespaces)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Tests](#tests)
+- [VTEX Carousel](#vtex-carousel)
+  - [Description](#description)
+  - [Release schedule](#release-schedule)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+    - [Blocks API](#blocks-api)
+      - [Configuration](#configuration)
+    - [Styles API](#styles-api)
+      - [CSS namespaces](#css-namespaces)
+  - [Troubleshooting](#troubleshooting)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+    - [Travis CI](#travis-ci)
 
 ## Usage
 
@@ -48,6 +53,7 @@ Now, you can change the behavior of the carousel block that is in the store head
 "carousel#home": {
     "props": {
       "autoplay": true,
+      "perPage": 1,
       "autoplaySpeed": 4,
       "banners": [],
       "height": 440,
@@ -76,6 +82,7 @@ Through the Storefront, you can change the carousel's behavior and interface. Ho
 | Prop name       | Type            | Description                                        | Default value |
 | --------------- | --------------- | -------------------------------------------------- | ------------- |
 | `autoplay`      | `Boolean`       | Enable automatic banner transition                 | true          |
+| `perPage`       | `Number`        | Set the number of per page in the carousel         | 1             |
 | `autoplaySpeed` | `Number`        | Set the automatic banner transition interval       | 5             |
 | `showDots`      | `Boolean`       | Shows the carousel dots                            | true          |
 | `showArrows`    | `Boolean`       | Shows the carousel arrows                          | true          |
@@ -89,6 +96,7 @@ Banner:
 | `image`             | `String`  | Link for the image of the banner                                                | N/A           |
 | `mobileImage`       | `String`  | Link for the mobile image of the banner                                         | N/A           |
 | `description`       | `String`  | The image's description                                                         | N/A           |
+| `text`              | `String`  | The image's text                                                             | N/A           |
 | `url`               | `String`  | The URL where the image is pointing to, in case of external route               | N/A           |
 | `page`              | `String`  | The page where the image is pointing to                                         | N/A           |
 | `params`            | `String`  | Parameters of the URL                                                           | N/A           |
@@ -140,6 +148,7 @@ Below, we describe the namespaces that are defined in the `Carousel`.
 | `imgRegular`             | The wrapper of the `img` element used to center the image inside the container | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 | `img`                    | The `img` element                                                              | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 | `bannerLink`             | The `a` element that wraps the whole `Banner` component                        | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
+| `imgText`             | The `imgText` element                         | [Banner](https://github.com/vtex-apps/carousel/blob/feature/new-slider/react/Banner.tsx)     |
 
 ## Troubleshooting
 
