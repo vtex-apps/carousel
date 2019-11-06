@@ -17,14 +17,19 @@ See our [LTS policy](https://github.com/vtex-apps/awesome-io#lts-policy) for mor
 
 ## Table of Contents
 
-- [Usage](#usage)
-  - [Blocks API](#blocks-api)
-    - [Configuration](#configuration)
-  - [Styles API](#styles-api)
-    - [CSS namespaces](#css-namespaces)
-- [Troubleshooting](#troubleshooting)
-- [Contributing](#contributing)
-- [Tests](#tests)
+- [VTEX Carousel](#vtex-carousel)
+  - [Description](#description)
+  - [Release schedule](#release-schedule)
+  - [Table of Contents](#table-of-contents)
+  - [Usage](#usage)
+    - [Blocks API](#blocks-api)
+      - [Configuration](#configuration)
+    - [Styles API](#styles-api)
+      - [CSS namespaces](#css-namespaces)
+  - [Troubleshooting](#troubleshooting)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+    - [Travis CI](#travis-ci)
 
 ## Usage
 
@@ -48,6 +53,7 @@ Now, you can change the behavior of the carousel block that is in the store head
 "carousel#home": {
     "props": {
       "autoplay": true,
+      "perPage": 1,
       "autoplaySpeed": 4,
       "banners": [],
       "height": 440,
@@ -76,6 +82,7 @@ Through the Storefront, you can change the carousel's behavior and interface. Ho
 | Prop name       | Type            | Description                                        | Default value |
 | --------------- | --------------- | -------------------------------------------------- | ------------- |
 | `autoplay`      | `Boolean`       | Enable automatic banner transition                 | true          |
+| `perPage`       | `Number`        | Set the number of per page in the carousel         | 1             |
 | `autoplaySpeed` | `Number`        | Set the automatic banner transition interval       | 5             |
 | `showDots`      | `Boolean`       | Shows the carousel dots                            | true          |
 | `showArrows`    | `Boolean`       | Shows the carousel arrows                          | true          |
