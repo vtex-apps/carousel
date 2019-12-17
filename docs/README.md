@@ -1,4 +1,8 @@
-# VTEX Carousel
+# Deprecated - VTEX Carousel
+
+:warning: This app is deprecated. Use the `slider-layout` app as this [recipe](https://vtex.io/docs/recipes/layout/building-a-carousel-through-lists-and-slider-layout) explains in order to replace it.
+
+
 
 ## Description
 
