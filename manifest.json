@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "carousel",
-  "version": "2.11.4",
+  "version": "2.11.5",
   "title": "Carousel",
   "description": "Carousel Component",
   "defaultLocale": "pt-BR",
