@@ -7,9 +7,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added
+
+- Use custom breakpoints values in `useDevice` hook
+
 ## [2.11.5] - 2019-12-18
 
 ### Added
+
 - Deprecation warning on the documentation
 
 ## [2.11.4] - 2019-10-25
@@ -22,11 +27,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [2.11.3] - 2019-10-25
 
 ### Chore
+
 - New release to trigger a rebuild enabling lazy evaluation of carousel entrypoints
 
 ## [2.11.2] - 2019-09-04
 
 ### Fixed
+
 - Fix autoplay speed warning and object keys order
 
 ## [2.11.1] - 2019-08-29
