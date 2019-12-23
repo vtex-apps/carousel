@@ -4,7 +4,7 @@ import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
 
-import Banner, { Props as BannerProps } from './Banner'
+import Banner, { Props as BannerProps, Breakpoints } from './Banner'
 import { useCssHandles } from 'vtex.css-handles'
 import styles from './styles.css'
 
@@ -26,6 +26,8 @@ interface Props {
   showArrows?: boolean
   /** Set visibility of dots */
   showDots?: boolean
+  /** Device Detector breakpoints */
+  breakpoints?: Breakpoints
 }
 
 interface ArrowProps {
@@ -58,7 +60,8 @@ const Carousel = (props: Props) => {
     showDots = true,
     showArrows = true,
     autoplaySpeed = 5,
-    banners: bannersProp
+    banners: bannersProp,
+    breakpoints,
   } = props
   const [currentSlide, setCurrentSlide] = useState(0)
   const handles = useCssHandles(CSS_HANDLES)
@@ -101,7 +104,8 @@ const Carousel = (props: Props) => {
   )
 
   const handleNextSlide = () => {
-    const nextSlide = ((currentSlide + 1 - PER_PAGE) % banners.length) + PER_PAGE
+    const nextSlide =
+      ((currentSlide + 1 - PER_PAGE) % banners.length) + PER_PAGE
     setCurrentSlide(nextSlide)
   }
 
@@ -139,7 +143,7 @@ const Carousel = (props: Props) => {
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
           >
-            <Banner height={height} {...banner} />
+            <Banner height={height} breakpoints={breakpoints} {...banner} />
           </Slide>
         ))}
       </Slider>
@@ -299,6 +303,23 @@ Carousel.getSchema = () => {
         isLayout: false,
         title: 'admin/editor.carousel.autoplay.title',
         type: 'boolean',
+      },
+      breakpoints: {
+        isLayout: false,
+        title: 'admin/editor.carousel.breakpoints.title',
+        type: 'object',
+        properties: {
+          medium: {
+            isLayout: false,
+            title: 'admin/editor.carousel.breakpoints.medium.title',
+            type: 'string',
+          },
+          large: {
+            isLayout: false,
+            title: 'admin/editor.carousel.breakpoints.large.title',
+            type: 'string',
+          },
+        },
       },
     },
     title: 'admin/editor.carousel.title',

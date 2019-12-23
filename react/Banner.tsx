@@ -7,6 +7,11 @@ import styles from './styles.css'
 
 const CSS_HANDLES = ['imgRegular', 'img', 'bannerLink'] as const
 
+export interface Breakpoints {
+  medium: string
+  large: string
+}
+
 export interface Props {
   /** The image of the banner */
   image: string
@@ -28,6 +33,8 @@ export interface Props {
   customInternalURL: string
   /** Runtime injected deps */
   runtime: any
+  /** Device Detector custom breakpoints */
+  breakpoints?: Breakpoints
 }
 
 function getParams(params: string) {
@@ -54,9 +61,10 @@ const Banner = (props: Props) => {
     externalRoute,
     description = '',
     customInternalURL,
+    breakpoints,
   } = props
 
-  const { isMobile } = useDevice()
+  const { isMobile } = useDevice(breakpoints)
   const handles = useCssHandles(CSS_HANDLES)
 
   const content = (

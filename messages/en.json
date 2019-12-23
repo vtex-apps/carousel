@@ -20,5 +20,8 @@
   "admin/editor.carousel.banner.description.title": "Banner description",
   "admin/editor.carousel.banner.externalRoute.title": "External route",
   "admin/editor.carousel.banner.image.title": "Banner image",
-  "admin/editor.carousel.banner.mobileImage.title": "Banner mobile image"
+  "admin/editor.carousel.banner.mobileImage.title": "Banner mobile image",
+  "admin/editor.carousel.breakpoints.title": "Breakpoints",
+  "admin/editor.carousel.breakpoints.medium.title": "Breakpoint Medium",
+  "admin/editor.carousel.breakpoints.large.title": "Breakpoint Large"
 }

@@ -20,5 +20,8 @@
   "admin/editor.carousel.banner.description.title": "admin/editor.carousel.banner.description.title",
   "admin/editor.carousel.banner.externalRoute.title": "admin/editor.carousel.banner.externalRoute.title",
   "admin/editor.carousel.banner.image.title": "admin/editor.carousel.banner.image.title",
-  "admin/editor.carousel.banner.mobileImage.title": "admin/editor.carousel.banner.mobileImage.title"
+  "admin/editor.carousel.banner.mobileImage.title": "admin/editor.carousel.banner.mobileImage.title",
+  "admin/editor.carousel.breakpoints.title": "admin/editor.carousel.breakpoints.title",
+  "admin/editor.carousel.breakpoints.medium.title": "admin/editor.carousel.breakpoints.medium.title",
+  "admin/editor.carousel.breakpoints.large.title": "admin/editor.carousel.breakpoints.large.title"
 }
