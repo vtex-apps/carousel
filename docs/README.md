@@ -55,7 +55,7 @@ Now, you can change the behavior of the carousel block that is in the store head
       "height": 440,
       "showArrows": true,
       "showDots": true,
-      "breakpoints": {
+      "experimentalBreakpoints": {
         "medium": "32rem",
         "large": "60rem"
       }
@@ -79,15 +79,15 @@ For now this block does not have any required or optional blocks.
 
 Through the Storefront, you can change the carousel's behavior and interface. However, you also can make in your theme app, as Store theme does.
 
-| Prop name       | Type            | Description                                              | Default value                 |
-| --------------- | --------------- | -------------------------------------------------------- | ----------------------------- |
-| `autoplay`      | `Boolean`       | Enable automatic banner transition                       | true                          |
-| `autoplaySpeed` | `Number`        | Set the automatic banner transition interval             | 5                             |
-| `showDots`      | `Boolean`       | Shows the carousel dots                                  | true                          |
-| `showArrows`    | `Boolean`       | Shows the carousel arrows                                | true                          |
-| `height`        | `Number`        | Set banners height                                       | 420                           |
-| `banners`       | `Array(Banner)` | Array of banners the will be shown in the carousel       | []                            |
-| `breakpoints`   | `Object`        | Object containing "medium" and "large" breakpoint values | { medium: null, large: null } |
+| Prop name                 | Type            | Description                                              | Default value                 |
+| ------------------------- | --------------- | -------------------------------------------------------- | ----------------------------- |
+| `autoplay`                | `Boolean`       | Enable automatic banner transition                       | true                          |
+| `autoplaySpeed`           | `Number`        | Set the automatic banner transition interval             | 5                             |
+| `showDots`                | `Boolean`       | Shows the carousel dots                                  | true                          |
+| `showArrows`              | `Boolean`       | Shows the carousel arrows                                | true                          |
+| `height`                  | `Number`        | Set banners height                                       | 420                           |
+| `banners`                 | `Array(Banner)` | Array of banners the will be shown in the carousel       | []                            |
+| `experimentalBreakpoints` | `Object`        | Object containing "medium" and "large" breakpoint values | { medium: null, large: null } |
 
 Banner:
 

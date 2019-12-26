@@ -34,7 +34,7 @@ export interface Props {
   /** Runtime injected deps */
   runtime: any
   /** Device Detector custom breakpoints */
-  breakpoints?: Breakpoints
+  experimentalBreakpoints?: Breakpoints
 }
 
 function getParams(params: string) {
@@ -61,10 +61,10 @@ const Banner = (props: Props) => {
     externalRoute,
     description = '',
     customInternalURL,
-    breakpoints,
+    experimentalBreakpoints,
   } = props
 
-  const { isMobile } = useDevice(breakpoints)
+  const { isMobile } = useDevice({ experimentalBreakpoints })
   const handles = useCssHandles(CSS_HANDLES)
 
   const content = (

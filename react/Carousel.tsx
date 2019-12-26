@@ -27,7 +27,7 @@ interface Props {
   /** Set visibility of dots */
   showDots?: boolean
   /** Device Detector breakpoints */
-  breakpoints?: Breakpoints
+  experimentalBreakpoints?: Breakpoints
 }
 
 interface ArrowProps {
@@ -61,7 +61,7 @@ const Carousel = (props: Props) => {
     showArrows = true,
     autoplaySpeed = 5,
     banners: bannersProp,
-    breakpoints,
+    experimentalBreakpoints,
   } = props
   const [currentSlide, setCurrentSlide] = useState(0)
   const handles = useCssHandles(CSS_HANDLES)
@@ -143,7 +143,11 @@ const Carousel = (props: Props) => {
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
           >
-            <Banner height={height} breakpoints={breakpoints} {...banner} />
+            <Banner
+              height={height}
+              experimentalBreakpoints={experimentalBreakpoints}
+              {...banner}
+            />
           </Slide>
         ))}
       </Slider>
@@ -304,7 +308,7 @@ Carousel.getSchema = () => {
         title: 'admin/editor.carousel.autoplay.title',
         type: 'boolean',
       },
-      breakpoints: {
+      experimentalBreakpoints: {
         isLayout: false,
         title: 'admin/editor.carousel.breakpoints.title',
         type: 'object',
