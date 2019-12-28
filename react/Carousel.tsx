@@ -234,6 +234,14 @@ Carousel.getSchema = () => {
                 'ui:widget': 'image-uploader',
               },
             },
+             tabletImage: {
+              default: '',
+              title: 'admin/editor.carousel.banner.tabletImage.title',
+              type: 'string',
+              widget: {
+                'ui:widget': 'image-uploader',
+              },
+            },
             description: {
               default: '',
               title: 'admin/editor.carousel.banner.description.title',
