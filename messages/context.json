@@ -20,5 +20,6 @@
   "admin/editor.carousel.banner.description.title": "admin/editor.carousel.banner.description.title",
   "admin/editor.carousel.banner.externalRoute.title": "admin/editor.carousel.banner.externalRoute.title",
   "admin/editor.carousel.banner.image.title": "admin/editor.carousel.banner.image.title",
-  "admin/editor.carousel.banner.mobileImage.title": "admin/editor.carousel.banner.mobileImage.title"
+  "admin/editor.carousel.banner.mobileImage.title": "admin/editor.carousel.banner.mobileImage.title",
+  "admin/editor.carousel.banner.tabletImage.title": "admin/editor.carousel.banner.tabletImage.title"
 }
