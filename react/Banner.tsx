@@ -59,12 +59,10 @@ const Banner = (props: Props) => {
     customInternalURL,
   } = props
 
-
-
-  const { isMobile, device} = useDevice()
+  const { isMobile, device } = useDevice()
   const handles = useCssHandles(CSS_HANDLES)
 
-  const content:any = (
+  const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
       <div
         className={classnames(
@@ -75,7 +73,7 @@ const Banner = (props: Props) => {
       >
         <img
           className={classnames(handles.img, 'w-100 h-100')}
-          src={device === "tablet" ? tabletImage : isMobile ? mobileImage : image}
+          src={device === "tablet" ? tabletImage || image : isMobile && mobileImage ? mobileImage : image}
           alt={description}
         />
       </div>
