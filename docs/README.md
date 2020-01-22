@@ -92,6 +92,7 @@ Banner:
 | ------------------- | --------- | ------------------------------------------------------------------------------- | ------------- |
 | `image`             | `String`  | Link for the image of the banner                                                | N/A           |
 | `mobileImage`       | `String`  | Link for the mobile image of the banner                                         | N/A           |
+| `tabletImage`       | `String`  | Link for the table image of the banner                                          | N/A           |
 | `description`       | `String`  | The image's description                                                         | N/A           |
 | `url`               | `String`  | The URL where the image is pointing to, in case of external route               | N/A           |
 | `page`              | `String`  | The page where the image is pointing to                                         | N/A           |

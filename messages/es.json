@@ -20,5 +20,6 @@
   "admin/editor.carousel.banner.description.title": "Descripción del banner",
   "admin/editor.carousel.banner.externalRoute.title": "Ruta externa",
   "admin/editor.carousel.banner.image.title": "Imagen del banner",
-  "admin/editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil"
+  "admin/editor.carousel.banner.mobileImage.title": "Imagen del banner en el móvil",
+  "admin/editor.carousel.banner.tabletImage.title": "Imagen del banner en tablet"
 }
