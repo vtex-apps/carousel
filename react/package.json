@@ -1,6 +1,6 @@
 {
   "name": "vtex.carousel",
-  "version": "2.11.5",
+  "version": "2.12.0",
   "description": "A Carousel Component.",
   "scripts": {
     "pretest": "yarn",
