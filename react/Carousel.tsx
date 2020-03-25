@@ -63,7 +63,7 @@ const Carousel = (props: Props) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const handles = useCssHandles(CSS_HANDLES)
 
-  if (!bannersProp.length) {
+  if (!bannersProp?.length) {
     return null
   }
 
