@@ -10,7 +10,7 @@ declare module 'vtex.render-runtime' {
   export interface RuntimeProps {
     navigate: (options: NavigationOptions) => void
     hints: {
-      mobile: boolean,
+      mobile: boolean
       desktop: boolean
     }
   }
@@ -36,18 +36,22 @@ declare module 'vtex.render-runtime' {
   export const useRuntime: () => RuntimeProps
   export const withRuntimeContext: <TOriginalProps extends {}>(
     Component: ComponentType<TOriginalProps & RenderContextProps>
-    ) => ComponentType<TOriginalProps>
-    
+  ) => ComponentType<TOriginalProps>
+
   export const withSession: <TOriginalProps extends {}>(
     Component: ComponentType<TOriginalProps & RenderContextProps>
   ) => ComponentType<TOriginalProps>
-  
-  export const buildCacheLocator = (app: string, type: string, cacheId: string) => string
+
+  export const buildCacheLocator = (
+    app: string,
+    type: string,
+    cacheId: string
+  ) => string
 
   interface RenderComponent<P = {}, S = {}> extends Component<P, S> {
     getCustomMessages?: (locale: string) => any
     schema: ComponentSchema
-    getSchema?: (a: any, b: any?) => ComponentSchema
+    getSchema?: (a: any, b: ?any) => ComponentSchema
     uiSchema: UISchema
   }
 

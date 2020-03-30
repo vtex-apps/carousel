@@ -69,10 +69,10 @@ describe('Carousel component', () => {
     })
 
     const itensContainer = container.querySelectorAll('.slider-container-mock')
-    expect(itensContainer.length).toBe(1)
+    expect(itensContainer).toHaveLength(1)
 
     const items = container.querySelectorAll('.slide-mock')
-    expect(items.length).toBe(banners.length)
+    expect(items).toHaveLength(banners.length)
 
     // The URLs rendered should be the ones in the banners
     const urls = [...container.querySelectorAll('a')].map(a =>

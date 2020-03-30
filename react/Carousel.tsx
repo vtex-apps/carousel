@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
+import { useCssHandles } from 'vtex.css-handles'
 
 import Banner, { Props as BannerProps } from './Banner'
-import { useCssHandles } from 'vtex.css-handles'
 import styles from './styles.css'
 
 const GLOBAL_PAGES = global.__RUNTIME__ && [
@@ -58,7 +58,7 @@ const Carousel = (props: Props) => {
     showDots = true,
     showArrows = true,
     autoplaySpeed = 5,
-    banners: bannersProp
+    banners: bannersProp,
   } = props
   const [currentSlide, setCurrentSlide] = useState(0)
   const handles = useCssHandles(CSS_HANDLES)
@@ -73,7 +73,13 @@ const Carousel = (props: Props) => {
       [handles.arrowRight]: orientation === 'right',
     })
     return (
-      <div className={containerClasses} onClick={onClick}>
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events
+      <div
+        className={containerClasses}
+        onClick={onClick}
+        role="button"
+        tabIndex={0}
+      >
         <IconCaret orientation={orientation} thin size={20} />
       </div>
     )
@@ -101,7 +107,8 @@ const Carousel = (props: Props) => {
   )
 
   const handleNextSlide = () => {
-    const nextSlide = ((currentSlide + 1 - PER_PAGE) % banners.length) + PER_PAGE
+    const nextSlide =
+      ((currentSlide + 1 - PER_PAGE) % banners.length) + PER_PAGE
     setCurrentSlide(nextSlide)
   }
 

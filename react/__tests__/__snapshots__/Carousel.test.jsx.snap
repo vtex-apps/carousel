@@ -14,6 +14,7 @@ exports[`Carousel component should match snapshot 1`] = `
         <a
           class="bannerLink w-100"
           href="banner1-url"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <div
@@ -38,6 +39,7 @@ exports[`Carousel component should match snapshot 1`] = `
         <a
           class="bannerLink w-100"
           href="banner2-url"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <div
@@ -62,6 +64,7 @@ exports[`Carousel component should match snapshot 1`] = `
         <a
           class="bannerLink w-100"
           href="banner3-url"
+          rel="noopener noreferrer"
           target="_blank"
         >
           <div
