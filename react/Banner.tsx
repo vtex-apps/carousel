@@ -3,6 +3,7 @@ import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import classnames from 'classnames'
 import { useCssHandles } from 'vtex.css-handles'
+
 import styles from './styles.css'
 
 const CSS_HANDLES = ['imgRegular', 'img', 'bannerLink'] as const
@@ -27,7 +28,7 @@ export interface Props {
   /** The url where the image is pointing to, in case of internal route (optional) */
   customInternalURL: string
   /** Runtime injected deps */
-  runtime: any,
+  runtime: any
   /** Link for the tablet image of the banner */
   tabletImage: string
 }
@@ -73,7 +74,13 @@ const Banner = (props: Props) => {
       >
         <img
           className={classnames(handles.img, 'w-100 h-100')}
-          src={device === "tablet" ? tabletImage || image : isMobile && mobileImage ? mobileImage : image}
+          src={
+            device === 'tablet'
+              ? tabletImage || image
+              : isMobile && mobileImage
+              ? mobileImage
+              : image
+          }
           alt={description}
         />
       </div>
@@ -99,6 +106,7 @@ const Banner = (props: Props) => {
     <a
       className={classnames(handles.bannerLink, 'w-100')}
       href={url}
+      rel="noopener noreferrer"
       target="_blank"
     >
       {content}

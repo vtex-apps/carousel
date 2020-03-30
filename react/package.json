@@ -6,8 +6,7 @@
     "pretest": "yarn",
     "test": "vtex-test-tools test",
     "test:coverage": "vtex-test-tools test --collectCoverage",
-    "gen:coveralls": "yarn test:coverage && cat ./coverage/lcov.info | coveralls",
-    "lint": "tsc --noEmit --pretty && tslint -c tslint.json './**/*.ts'"
+    "gen:coveralls": "yarn test:coverage && cat ./coverage/lcov.info | coveralls"
   },
   "author": "VTEX",
   "license": "ISC",
@@ -21,11 +20,16 @@
     "@types/node": "^10.12.21",
     "@types/react": "^16.8.1",
     "@vtex/test-tools": "^0.2.0",
+    "@vtex/tsconfig": "^0.4.3",
     "coveralls": "^3.0.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "tslint": "^5.12.1",
-    "tslint-config-vtex": "^2.1.0",
-    "tslint-eslint-rules": "^5.4.0"
+    "typescript": "^3.7.5",
+    "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles",
+    "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector",
+    "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.98.0/public/@types/vtex.render-runtime",
+    "vtex.slider": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.slider@0.8.1/public/_types/react",
+    "vtex.store-components": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-components@3.109.0/public/_types/react",
+    "vtex.store-icons": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.store-icons@0.17.0/public/@types/vtex.store-icons"
   }
 }

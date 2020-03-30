@@ -1,29 +1,12 @@
 {
+  "extends": "@vtex/tsconfig",
   "compilerOptions": {
-    "lib": ["es2017","dom"],
-    "types": ["node"],
+    "noEmitOnError": false,
     "typeRoots": ["node_modules/@types"],
-    "target": "es2017",
-    "module": "es6",
-    "sourceMap": true,
+    "types": ["node", "jest"],
+    "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "noEmitOnError": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "alwaysStrict": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "skipLibCheck": true,
-    "strictPropertyInitialization": true
+    "target": "es2017"
   },
-  "typeAcquisition": {
-    "enable": false
-  },
-  "exclude": ["node_modules"],
-  "include": ["./typings/*.d.ts", "./**/*.tsx"]
+  "include": ["./typings/*.d.ts", "./**/*.tsx", "./**/*.ts"]
 }

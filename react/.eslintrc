@@ -1,0 +1,12 @@
+{
+  "extends": "vtex-react/io",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "rules": {
+    // todo: fix this
+    "@typescript-eslint/no-explicit-any": "off"
+  }
+}
