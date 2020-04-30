@@ -1,4 +1,7 @@
 # Deprecated - VTEX Carousel
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 :warning: This app is deprecated. Use the [`slider-layout`](https://github.com/vtex-apps/slider-layout) app as this [recipe](https://vtex.io/docs/recipes/layout/building-a-carousel-through-lists-and-slider-layout) explains in order to replace it.
 
@@ -162,3 +165,16 @@ To execute our tests go to `react/` folder and run `npm test`
 
 [![Build Status](https://travis-ci.org/vtex-apps/carousel.svg?branch=master)](https://travis-ci.org/vtex-apps/carousel)
 [![Coverage Status](https://coveralls.io/repos/github/vtex-apps/carousel/badge.svg?branch=master)](https://coveralls.io/github/vtex-apps/carousel?branch=master)
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
