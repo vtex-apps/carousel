@@ -81,9 +81,11 @@ const Banner = (props: Props) => {
   const handles = useCssHandles(CSS_HANDLES)
 
   const srcSet = useMemo(() => (
-    IMAGE_SIZES
-      .map(size => `${resizeImage(src, size)} ${size}w`)
-      .join(',')
+    isImageFromFileManager(src)
+      ? IMAGE_SIZES
+        .map(size => `${resizeImage(src, size)} ${size}w`)
+        .join(',')
+      : undefined
   ), [src])
 
   const content = (
