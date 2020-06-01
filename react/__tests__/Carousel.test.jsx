@@ -102,13 +102,15 @@ describe('Carousel component', () => {
 
     const { container } = renderComponent({
       numberOfBanners: 1,
-      banners: [banner]
+      banners: [banner],
     })
 
     const img = container.querySelector('img')
     const src = img.getAttribute('src')
     expect(src).toEqual(image)
     const srcSet = img.getAttribute('srcSet')
-    expect(srcSet).toEqual('/vtex.file-manager-graphql/url.jpg?width=600&aspect=true 600w,/vtex.file-manager-graphql/url.jpg?width=800&aspect=true 800w,/vtex.file-manager-graphql/url.jpg?width=1200&aspect=true 1200w,/vtex.file-manager-graphql/url.jpg?width=1400&aspect=true 1400w,/vtex.file-manager-graphql/url.jpg?width=1800&aspect=true 1800w')
+    expect(srcSet).toEqual(
+      '/vtex.file-manager-graphql/url.jpg?width=600&aspect=true 600w,/vtex.file-manager-graphql/url.jpg?width=800&aspect=true 800w,/vtex.file-manager-graphql/url.jpg?width=1200&aspect=true 1200w,/vtex.file-manager-graphql/url.jpg?width=1400&aspect=true 1400w,/vtex.file-manager-graphql/url.jpg?width=1800&aspect=true 1800w'
+    )
   })
 })
