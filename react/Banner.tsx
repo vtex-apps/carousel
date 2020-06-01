@@ -46,7 +46,7 @@ function getParams(params: string) {
   return null
 }
 
-const IMAGE_SIZES = [600, 800, 1200, 1400]
+const IMAGE_SIZES = [600, 800, 1200, 1400, 1800]
 
 const Banner = (props: Props) => {
   const {
