@@ -24,7 +24,7 @@
     "coveralls": "^3.0.3",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "typescript": "^3.7.5",
+    "typescript": "3.8.3",
     "vtex.css-handles": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.css-handles@0.4.2/public/@types/vtex.css-handles",
     "vtex.device-detector": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.device-detector@0.2.4/public/@types/vtex.device-detector",
     "vtex.render-runtime": "http://vtex.vtexassets.com/_v/public/typings/v1/vtex.render-runtime@8.98.0/public/@types/vtex.render-runtime",
