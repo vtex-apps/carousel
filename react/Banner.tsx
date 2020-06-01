@@ -48,6 +48,14 @@ function getParams(params: string) {
 
 const IMAGE_SIZES = [600, 800, 1200, 1400, 1800]
 
+const isImageFromFileManager = (src: string) =>
+  src.includes(`vtex.file-manager-graphql`)
+
+const resizeImage = (src: string, width: number | string) =>
+  isImageFromFileManager(src)
+    ? `${escape(src)}?width=${width}&aspect=true`
+    : src
+
 const Banner = (props: Props) => {
   const {
     url,
@@ -74,7 +82,7 @@ const Banner = (props: Props) => {
 
   const srcSet = useMemo(() => (
     IMAGE_SIZES
-      .map(size => `${escape(src)}?width=${size}&aspect=true ${size}w`)
+      .map(size => `${resizeImage(src, size)} ${size}w`)
       .join(',')
   ), [src])
 
