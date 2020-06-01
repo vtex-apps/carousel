@@ -20,3 +20,5 @@ export const useRuntime = () => {
   const [hints] = useState({ mobile: false, desktop: true })
   return { hints }
 }
+
+export const ExperimentalLazyImages = ({ children }) => children
