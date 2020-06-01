@@ -147,10 +147,10 @@ const Carousel = (props: Props) => {
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
           >
-            { i > 1 ? (
-            <LazyImages>
-              <Banner height={height} {...banner} />
-            </LazyImages>
+            {i > 1 ? (
+              <LazyImages>
+                <Banner height={height} {...banner} />
+              </LazyImages>
             ) : (
               <Banner height={height} {...banner} />
             )}
