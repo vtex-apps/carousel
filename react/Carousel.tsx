@@ -4,6 +4,7 @@ import { Dots, Slide, Slider, SliderContainer } from 'vtex.slider'
 import { Container } from 'vtex.store-components'
 import { IconCaret } from 'vtex.store-icons'
 import { useCssHandles } from 'vtex.css-handles'
+import { ExperimentalLazyImages as LazyImages } from 'vtex.render-runtime'
 
 import Banner, { Props as BannerProps } from './Banner'
 import styles from './styles.css'
@@ -146,7 +147,13 @@ const Carousel = (props: Props) => {
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
           >
-            <Banner height={height} {...banner} />
+            { i > 1 ? (
+            <LazyImages>
+              <Banner height={height} {...banner} />
+            </LazyImages>
+            ) : (
+              <Banner height={height} {...banner} />
+            )}
           </Slide>
         ))}
       </Slider>
