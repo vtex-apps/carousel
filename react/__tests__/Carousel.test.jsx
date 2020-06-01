@@ -92,4 +92,23 @@ describe('Carousel component', () => {
       getByAltText(description)
     }, descriptions)
   })
+
+  it('should resize images that are served by vtex file manager', () => {
+    const image = '/vtex.file-manager-graphql/url.jpg'
+    const banner = {
+      description: 'description',
+      image,
+    }
+
+    const { container } = renderComponent({
+      numberOfBanners: 1,
+      banners: [banner]
+    })
+
+    const img = container.querySelector('img')
+    const src = img.getAttribute('src')
+    expect(src).toEqual(image)
+    const srcSet = img.getAttribute('srcSet')
+    expect(srcSet).toEqual('/vtex.file-manager-graphql/url.jpg?width=600&aspect=true 600w,/vtex.file-manager-graphql/url.jpg?width=800&aspect=true 800w,/vtex.file-manager-graphql/url.jpg?width=1200&aspect=true 1200w,/vtex.file-manager-graphql/url.jpg?width=1400&aspect=true 1400w,/vtex.file-manager-graphql/url.jpg?width=1800&aspect=true 1800w')
+  })
 })
