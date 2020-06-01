@@ -72,21 +72,24 @@ const Banner = (props: Props) => {
 
   const { isMobile, device } = useDevice()
 
-  const src = device === 'tablet'
-    ? tabletImage || image
-    : isMobile && mobileImage
-    ? mobileImage
-    : image
+  const src =
+    device === 'tablet'
+      ? tabletImage || image
+      : isMobile && mobileImage
+      ? mobileImage
+      : image
 
   const handles = useCssHandles(CSS_HANDLES)
 
-  const srcSet = useMemo(() => (
-    isImageFromFileManager(src)
-      ? IMAGE_SIZES
-        .map(size => `${resizeImage(src, size)} ${size}w`)
-        .join(',')
-      : undefined
-  ), [src])
+  const srcSet = useMemo(
+    () =>
+      isImageFromFileManager(src)
+        ? IMAGE_SIZES.map(size => `${resizeImage(src, size)} ${size}w`).join(
+            ','
+          )
+        : undefined,
+    [src]
+  )
 
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
