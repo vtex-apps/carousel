@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import classnames from 'classnames'
@@ -46,6 +46,8 @@ function getParams(params: string) {
   return null
 }
 
+const IMAGE_SIZES = [600, 800, 1200, 1400]
+
 const Banner = (props: Props) => {
   const {
     url,
@@ -61,7 +63,20 @@ const Banner = (props: Props) => {
   } = props
 
   const { isMobile, device } = useDevice()
+
+  const src = device === 'tablet'
+    ? tabletImage || image
+    : isMobile && mobileImage
+    ? mobileImage
+    : image
+
   const handles = useCssHandles(CSS_HANDLES)
+
+  const srcSet = useMemo(() => (
+    IMAGE_SIZES
+      .map(size => `${escape(src)}?width=${size}&aspect=true ${size}w`)
+      .join(',')
+  ), [src])
 
   const content = (
     <div className={classnames(styles.containerImg, 'w-100')}>
@@ -74,13 +89,9 @@ const Banner = (props: Props) => {
       >
         <img
           className={classnames(handles.img, 'w-100 h-100')}
-          src={
-            device === 'tablet'
-              ? tabletImage || image
-              : isMobile && mobileImage
-              ? mobileImage
-              : image
-          }
+          src={src}
+          srcSet={srcSet}
+          sizes="100vw"
           alt={description}
         />
       </div>
