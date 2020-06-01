@@ -27,6 +27,7 @@ exports[`Carousel component should match snapshot 1`] = `
               <img
                 alt="banner1"
                 class="img w-100 h-100"
+                sizes="100vw"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-01.png"
               />
             </div>
@@ -52,6 +53,7 @@ exports[`Carousel component should match snapshot 1`] = `
               <img
                 alt="banner2"
                 class="img w-100 h-100"
+                sizes="100vw"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-02.png"
               />
             </div>
@@ -77,6 +79,7 @@ exports[`Carousel component should match snapshot 1`] = `
               <img
                 alt="banner3"
                 class="img w-100 h-100"
+                sizes="100vw"
                 src="https://raw.githubusercontent.com/vtex-apps/carousel/master/images/banners-03.png"
               />
             </div>
