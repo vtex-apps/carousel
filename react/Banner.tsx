@@ -3,6 +3,7 @@ import { Link } from 'vtex.render-runtime'
 import { useDevice } from 'vtex.device-detector'
 import classnames from 'classnames'
 import { useCssHandles } from 'vtex.css-handles'
+import { Image } from 'vtex.store-image'
 
 import styles from './styles.css'
 
@@ -72,7 +73,7 @@ const Banner = (props: Props) => {
         )}
         style={{ maxHeight: height }}
       >
-        <img
+        <Image
           className={classnames(handles.img, 'w-100 h-100')}
           src={
             device === 'tablet'
@@ -81,6 +82,8 @@ const Banner = (props: Props) => {
               ? mobileImage
               : image
           }
+          breakpoints={[600, 800, 1000, 1200, 1400]}
+          sizes="100vw"
           alt={description}
         />
       </div>
