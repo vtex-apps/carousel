@@ -146,7 +146,7 @@ const Carousel = (props: Props) => {
             style={{ maxHeight: height }}
             sliderTransitionDuration={500}
           >
-            <Banner {...banner} />
+             <Banner height={height} {...banner} />
           </Slide>
         ))}
       </Slider>
