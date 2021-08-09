@@ -2,9 +2,10 @@
 
 :warning: **The Carousel app has been deprecated**. Although support for this block is still granted, we strongly recommend you [update your store theme's carousel using the Slider Layout](https://developers.vtex.com/vtex-developer-docs/docs/vtex-io-documentation-building-a-carousel-using-slider-layout) to keep up with the component's evolution.
 
+:loudspeaker: **Disclaimer:** Don't fork this project; use, contribute, or open issue with your feature request.
+
 The VTEX Carousel app is a store component that shows a collection of banners, and this app is used by store theme.
 
-:loudspeaker: **Disclaimer:** Don't fork this project; use, contribute, or open issue with your feature request.
 
 ## Release schedule
 
