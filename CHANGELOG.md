@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [Unreleased]
 
 ### Added 
-- Crowdin.yml for localization integration 
+- Crowdin configuration file
 
 ## [2.12.2] - 2020-08-05
 
