@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Changed
 
 - Update GitHub actions/cache to v4
+- Update DK Catalog platform-flow-id
 
 ## [2.12.2] - 2020-08-05
 
